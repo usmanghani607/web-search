@@ -1,0 +1,234 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body{ font-family: 'Poppins'; font-size: 16px;}
+h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
+
+
+.btn_red{ background-color: #FF385C; border: transparent; color: #fff; padding: 8px 17px; border-radius: 4px; }
+
+.right_btn .btn_red{ background-color: #FF385C; border: transparent; color: #fff; padding: 8px 17px; border-radius: 4px; text-decoration: none; }
+/* .right_btn .btn { background-color: #fff; border: transparent; border-radius: 4px; padding: 8px 17px; } */
+.right_btn .btn a { background-color: #fff; border: transparent; border-radius: 4px; padding: 8px 17px; color: #000; text-decoration: none;}
+
+.right_btn { float: right; }
+
+
+/* header */
+
+.topheader { padding: 15px 0; }
+.topheader .logo_left img { padding-right: 20px; }
+
+.search-container { position: relative; width: 710px; }
+.search-container input[type="search"] { padding-right: 2.5rem; }
+/* .search-container .fa-magnifying-glass { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #aaa; } */
+.search-container .search_icon img { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; }
+
+.header_filter .search_checkbox { padding-left: 75px; }
+.header_filter { border-bottom: 1px solid #D9D9D9; }
+
+.header_filter .form-check-inline { position: relative; }
+.header_filter .form-check-input:checked + .form-check-label::before { content: ""; position: absolute; width: 100%; height: 2px; background: #FF395C; bottom: -3px; left: 0; }
+.header_filter .checkbox-image { display: none; position: absolute; top: 2px; left: -2px; width: 20px; height: 20px; z-index: 10; }
+.header_filter .form-check-input:checked + .header_filter .form-check-label + .header_filter .checkbox-image { display: inline; }
+.header_filter .rest.form-check-input:checked { background-color: transparent; border-color: transparent; }
+
+
+
+/* footer */
+
+.footer-bg { background-color: #333333; padding-top: 55px; }
+.footer_widgth { padding-bottom: 25px; }
+.footer_widgth h4 { color: #fff; text-transform: uppercase; padding-bottom: 20px; font-size: 24px; }
+.footer_widgth a { color: #fff; text-decoration: none; }
+.widgth_app h4 { color: #fff; text-transform: uppercase; padding-bottom: 20px; }
+.widgth_app a img { width: 100px; padding: 0 7px; }
+.footer_widgth .social_icon a { padding: 0 5px; }
+.copy-right-area { padding: 15px 0; border-top: 1px solid #707070; }
+.copy-right-text p { color: #fff; margin-bottom: 0; }
+
+/*index footer*/
+
+.index_footer .copy_right span {
+    color: #B2B2B2;
+    font-size: 13px;
+}
+.index_footer .footer_right ul { list-style-type: none; margin: 0; padding: 0; }
+
+.index_footer .footer_right li { display: inline; }
+.index_footer .footer_right li a { text-decoration: none; color: #B2B2B2; font-size: 13px; }
+
+
+/*login page*/
+
+.login_section .login_left { background: #FF395C; width: 100%; height: 100%; border-radius: 16px; padding: 20px; }
+.login_section .login_text h2 { font-weight: 600; color: #fff; margin: 30px 0 16px 0; font-size: 40px; font-family: 'Poppins'; }
+.login_section .login_text p { color: #fff; font-size: 18px; font-family: 'Poppins'; }
+.login_section .card { border-radius: 16px; padding: 22px; box-shadow: 0px 0px 16px #00000014; border: none; }
+.login_section .card-body { padding: 45px 60px 80px 60px; }
+.login_section .card-body .login_head span { font-size: 32px; font-weight: 500; color: #000; font-family: 'Poppins'; }
+.login_section .card-body span { font-size: 18px; color: #333333; font-family: 'Poppins'; }
+.login_section .card-body .account { padding-bottom: 20px; }
+.login_section .card-body span.sign_up a { text-decoration: none; color: #FF395C; font-size: 18px; font-weight: 500; font-family: 'Poppins'; }
+.login_section .card-body .email label { font-size: 18px; color: #000; font-family: 'Poppins'; }
+.login_section .card-body .password label { font-size: 18px; color: #000; font-family: 'Poppins'; }
+.login_section .card-body input { border-radius: 4px; border: 1px solid #E4E4E4; }
+.login_section .card-body input::placeholder { font-size: 18px; color: #999999; font-family: 'Poppins'; }
+.login_section .card-body .forgot { float: right; padding: 15px 0; }
+.login_section .card-body .forgot a { color: #505050; font-size: 18px; font-family: 'Poppins'; text-decoration: none; }
+.login_section .card-body .btn_login { background: #FF385C; font-size: 18px; font-weight: 500; font-family: 'Poppins'; color: #fff; padding: 12px 95px; }
+.login_section .card-body .line h1 { font-family: 'Poppins'; margin: 28px auto; color: #333333; text-align: center; font-size: 20px; position: relative; }
+.login_section .card-body .line h1:before { content: ""; display: block; width: 220px; height: 1px; background: #E4E4E4; left: 0; top: 50%; position: absolute; }
+.login_section .card-body .line h1:after { content: ""; display: block; width: 220px; height: 1px; background: #E4E4E4; right: 0; top: 50%; position: absolute; }
+.login_section .card-body .socail_login .google_btn { border: 1px solid #E4E4E4; background: #fff; border-radius: 4px; height: 50px; width: 240px; }
+.login_section .card-body .socail_login .ios_btn { border: 1px solid #E4E4E4; background: #fff; border-radius: 4px; float: right; height: 50px; width: 240px }
+.login_section .card-body img { padding-right: 10px; padding-bottom: 3px; }
+.login_section .card-body .error_message { font-size: 16px; color: #FF395C; }
+.login_section .card-body .error_border { border-color: #FF385C; }
+
+
+
+/*filter page*/
+
+.filter_result p { margin: 20px 0; font-size: 20px; }
+.filter_result span.restaurant_result { font-size: 20px; font-weight: 500; }
+.filter_list h5 { font-size: 20px; color: #000000; }
+.filter_list .auther span { color: #000000; font-size: 16px; }
+.filter_list .text-gray { color: #505050; }
+.filter_list span.start_bold { font-size: 16px; font-weight: 600; }
+.filter_list span.imb { background: #F6C700; color: #000000; font-size: 18px; font-weight: 800; padding: 0 5px; }
+.filter_list span.bold { font-size: 16px; font-weight: 500; color: #000000; }
+/* .filter_list .img_round img { border-radius: 8px; } */
+.filter_list .img_round img { border-radius: 8px; width: 100%; height: 190px; object-fit: fill; }
+
+.filter_list span.yellow_star img { margin-bottom: 5px; padding-left: 49px; padding-right: 5px; }
+.filter_list span.star_point img { background: #FF385C; margin-right: 5px; }
+
+.filter_list .star_point { background: #FF385C; padding: 2px 6px; border-radius: 2px; color: white; display: inline-flex; align-items: center; font-size: 13px; margin-right: 15px; }
+
+/*Restaurants*/
+
+.filter_restaurant .list_heading p{ font-size: 24px; font-weight: 500; }
+.filter_restaurant .list_heading .see{ font-size: 18px; color: #000000; float: right; padding: 5px 0; text-decoration: none; }
+
+.filter_restaurant .card { border-radius: 16px; border: none; margin-bottom: 10px; }
+.filter_restaurant .card img { border-radius: 16px 16px 0 0; }
+.filter_restaurant .card-body { box-shadow: 0px 0px 8px #00000029; border: none; border-radius: 0 0 16px 16px; }
+.filter_restaurant .card h3 { font-size: 16px; font-weight: 500; margin-bottom: 10px; }
+.filter_restaurant .card .card-text { font-size: 14px; color: #505050; }
+.filter_restaurant .card .star_point { background: #FF385C; padding: 2px 6px; border-radius: 2px; color: white; display: inline-flex; align-items: center; font-size: 13px; margin-right: 7px; }
+.filter_restaurant .card .rating { color: #333333; font-size: 14px; }
+
+.filter_restaurant .card_img { position: relative; width: 100%; }
+
+/* .filter_restaurant .card-main-img { width: 100%; height: auto; } */
+.filter_restaurant .card-main-img { width: 100%; height: 187px; object-fit: fill; }
+
+.filter_restaurant .card_img span { position: absolute; left: 50%; transform: translate(-50%); color: white; padding: 0 15px; text-align: center; font-size: 14px; width: 100%; bottom: 5px; font-weight: 500; }
+
+/* .filter_restaurant .card_img img.overlay-first-img { position: absolute; left: 50%; transform: translateX(-50%); text-align: center; top: 40%; width: auto; height: auto; }
+.filter_restaurant .card_img img.overlay-sec-img { position: absolute; color: white; text-align: center; font-size: 14px; font-weight: 500; top: 40%; left: 50%; width: auto; height: auto; } */
+
+.filter_restaurant .card_img img.overlay-first-img { position: absolute; left: 50%; transform: translateX(-50%); text-align: center; top: 40%; width: 37px; height: 37px; border-radius: 20px; }
+.filter_restaurant .card_img img.overlay-sec-img { position: absolute; color: white; text-align: center; font-size: 14px; font-weight: 500; top: 40%; left: 50%; width: 37px; height: 37px; border-radius: 20px; }
+
+.filter_restaurant.near_rest .card_img span { position: absolute; left: 50%; transform: translate(-50%); color: white; padding: 0 10px; text-align: center; font-size: 14px; width: 100%; bottom: 5px; font-weight: 500; }
+
+
+/*search restaurant*/
+
+/* .map_section img { width: 100%; margin-bottom: 20px; } */
+.map_section iframe { width: 100%; margin-bottom: 20px; border: 2px solid #E4E4E4; border-radius: 16px; }
+
+
+/*chat page*/
+.chat_head .heading { padding-top: 160px; padding-bottom: 120px; }
+.chat_head .heading span { text-align: center; font-size: 29px; color: #333333; font-weight: 500; }
+/* .chat_head .heading .fa-question { background: #FF385C; padding: 15px 25px; border-radius: 40px; color: #fff; font-size: 35px; font-family: 'circular'; font-weight: 800; } */
+.chat_head .heading img { padding: 0 10px 10px 0; }
+.chat_head .heading h3 {font-size: 24px; font-weight: 500; padding: 30px 0; }
+.question .rest p { border: 1px solid #E4E4E4; padding: 15px 20px; border-radius: 16px; }
+.question .chat_foot { background: #F5F5F5; padding: 30px 0; }
+.question .chat_form_wp { padding: 0 240px; }
+.question .chat-container { position: relative; width: auto; padding: 0 240px; }
+.question .chat-container input { padding: 15px; border-radius: 16px; }
+/* .question .chat-container .send_icon i { position: absolute; right: 260px; top: 12%; transform: rotate(45deg); color: #fff; background: #FF385C; padding: 13px; border-radius: 25px; cursor: pointer; } */
+.question .chat-container .send_icon img { position: absolute; right: 21%; top: 14%; cursor: pointer; width: 40px; height: 40px; }
+
+/*chat grid*/
+
+/* .topheader .rec .fa-question { background: #FF385C; padding: 15px 25px; border-radius: 40px; color: #fff; font-size: 35px; font-family: 'circular'; font-weight: 800; } */
+.topheader .rec img { width: auto; height: auto;}
+.topheader .rec span { text-align: center; font-size: 29px; color: #333333; font-weight: 500; padding-left: 15px;}
+.chat_grid .chat_form_wp { padding: 0 190px; }
+.chat_grid .chat_form_wp span { font-size: 18px; font-weight: 500; position: relative; right: 35px; }
+.chat_grid .chat_form_wp p { font-size: 18px; }
+.chat_grid .chat_form_wp .question_wp .fa-user { background: #333333; padding: 8px; border-radius: 20px; color: #fff; font-size: 12px; right: 10px; position: relative; }
+.chat_grid .chat_form_wp .answer_wp .fa-question { background: #FF385C; padding: 5px 10px; border-radius: 18px; color: #fff; font-size: 18px; font-family: 'circular'; font-weight: 800; right: 10px; position: relative; }
+.chat_grid .chat_form_wp .slider { padding-bottom: 90px; }
+.chat_grid .chat_form_wp .slide_heading p { font-size: 20px; font-weight: 500; }
+.slider button.carousel-control-next { background: #FF385C; width: 40px; height: 40px; border-radius: 20px; top: 50%; }
+.slider span.carousel-control-prev-icon {
+    display: none;
+}
+.slider .card .card-title { font-size: 16px; font-weight: 500; }
+.slider .card .card-text { font-size: 12px; color: #505050; }
+.slider .card .visiter { font-size: 16px; font-weight: 500; }
+.slider .card .star_point { background: #FF385C; padding: 0 5px; border-radius: 2px; color: white; display: inline-flex; align-items: center; font-size: 13px; }
+.chatgrid_footer { background: #F5F5F5; padding: 30px 0; }
+.chatgrid_footer .chat-container input { padding: 15px; border-radius: 16px; }
+.chatgrid_footer .chat-container { position: relative; width: auto; padding: 0 190px; }
+.chatgrid_footer .chat-container .send_icon i { position: absolute; right: 200px; top: 12%; transform: rotate(45deg); color: #fff; background: #FF385C; padding: 13px; border-radius: 25px; cursor: pointer; }
+
+#carouselExampleControls .card span {right: 0; }
+#carouselExampleControls .card span.rating {font-size: 14px; }
+#carouselExampleControls .card p {font-size: 12px; margin-bottom: 0; }
+#carouselExampleControls .card span.visiter {font-size: 12px; }
+
+.chat_grid .slider .card-body { box-shadow: 0px 0px 8px #00000029; border: none; border-radius: 0 0 16px 16px; }
+.chat_grid .slider .card { width: 175px; border-radius: 16px; border: none; margin-bottom: 10px; }
+
+/*index*/
+
+.index_wp { margin-bottom: 120px; }
+.index_wp .login_profile { display: flex; align-items: center; justify-content: flex-end; padding: 25px 60px 0 0; }
+
+.index_wp .login_profile span {font-size: 18px; margin-left: 10px;}
+.index_wp .login_profile .fa-caret-down { color: #000; margin-left: 10px; }
+.index_wp .login_profile .fa-user { margin-left: 0; color: #FF385C; }
+
+.index_wp .login_profile .dropbtn { cursor: pointer; }
+.index_wp .login_profile .dropdown-content { display: none; position: absolute; background-color: #FF385C; overflow: auto; z-index: 1; right: 0; top: 25px; text-align: center; }
+.index_wp .login_profile .dropdown-content a { color: #fff; padding: 8px 18px; text-decoration: none; display: block; font-size: 18px; font-family: 'Poppins'; }
+.index_wp .login_profile .dropdown a:hover { color: #fff }
+.index_wp .login_profile .show { display: block; }
+
+.index_wp .logo_main { padding-top: 50px; }
+.search_wrap { padding-top: 40px; }
+.search_wrap input { width: 100%; font-size: 18px; color: #505050; }
+/* .index_wp .search_wrap .fa-magnifying-glass { position: absolute; top: 50%; transform: translateY(-50%); color: #aaa; right: 130px; } */
+.index_wp .search_wrap .search_icon img { position: absolute; top: 50%; transform: translateY(-50%); right: 2%; width: 18px; height: 18px; }
+.index_wp .search_wrap .search-input { position: relative; }
+.index_wp .trend_heading h4 { text-align: center; font-size: 18px; font-weight: 500; padding: 25px 0; margin: 0; }
+.index_wp .trending_wrap span { font-size: 18px; color: #333333; padding-left: 30px; }
+.trending_wrap { position: relative; border-bottom: 1px solid #E4E4E4; padding: 8px 0; }
+/* .trending_wrap .fa-magnifying-glass { position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: #aaa; } */
+.trending_wrap .search_icon img { position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 18px; height: 18px;}
+/* .index_wrap { padding: 0 277px; } */
+.index_wrap { padding: 80px 277px 0 277px; }
+
+/* .trending_wrap .fa-arrow-trend-up { position: absolute; top: 50%; transform: translateY(-50%); color: #FF395C; right: 0; font-size: 20px; } */
+.trending_wrap img { position: absolute; top: 50%; transform: translateY(-50%); right: 0; font-size: 20px; }
+/* .chat-icon i { position: fixed; bottom: 50px; right: 30px; background: #FF385C; padding: 15px 25px; border-radius: 40px; color: #fff; font-size: 35px; font-family: 'circular'; font-weight: 800; } */
+.chat-icon img { position: fixed; bottom: 50px; right: 30px; }
+
+.icon-text span { position: fixed; bottom: 0; right: 15px; color: #333333; padding: 15px; border-radius: 50%; display: block; cursor: pointer; font-size: 18px; font-weight: 500; }
+
+/*loader*/
+
+#overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 9999; display: none; }
+#loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 20px; }
+
+/*pagination*/
+
+.page_listing { margin: 40px auto; }

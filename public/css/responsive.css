@@ -1,0 +1,160 @@
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+
+    .right_btn .btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+    .right_btn .btn_red {
+        padding: 10px;
+        font-size: 14px;
+    }
+    .topheader .navbar .container-fluid {
+        padding: 0;
+    }
+    /* .rec.text-center {
+        display: none;
+    } */
+    .topheader .rec span {
+        font-size: 18px;
+        color: #333333;
+        font-weight: 500;
+        float: inline-start;
+        padding: 0 20px;
+    }
+    .topheader .rec .fa-question {
+        background: #FF385C;
+        padding: 10px 17px;
+        border-radius: 40px;
+        color: #fff;
+        font-size: 25px;
+        font-family: 'circular';
+        font-weight: 800;
+    }
+
+    .login_section .login_left .img_sec {text-align: center; }
+    .login_section .login_text h2 {font-size: 30px; }
+    .login_section .card-body { padding: 15px 5px 5px 5px; }
+    .login_section .card-body .line h1:before {width: 120px;}
+    .login_section .card-body .line h1:after {width: 120px;}
+    .login_section .card-body .socail_login .google_btn { width: 100%; }
+    .login_section .card-body .socail_login .ios_btn {width: 100%; margin-top: 10px;}
+    .login_section .card-body .btn_login {padding: 12px 0; width: 100%;}
+
+
+    .search_wrap input { width: auto; }
+    .index_wrap { padding: 0; }
+    .question .chat_form_wp { padding: 0; }
+    .question .chat-container { padding: 0; }
+    .question .chat-container .send_icon i { right: 20px; }
+    .chat_head .heading { padding: 20px 0; }
+    .chat_grid .chat_form_wp { padding-left: 40px; padding-right: 10px; }
+    .chatgrid_footer .chat-container { padding: 0; }
+    .chatgrid_footer .chat-container .send_icon i { right: 20px; }
+    .filter_restaurant .list_heading p { font-size: 22px; }
+    .header_filter .search_checkbox { padding: 0; }
+    .copy-right-text p { padding: 0 10px; }
+
+
+}
+
+@media only screen and (min-width: 360px) and (max-width: 740px) {
+
+
+    .search_wrap input { width: 220px; }
+    .index_wrap { padding: 0; }
+
+
+}
+
+@media only screen and (max-width: 800px) and (min-width: 320px) and (orientation: landscape) {
+
+
+    .search_wrap input { width: 400px; }
+    .index_wrap { padding: 0; }
+    .header_filter .search_checkbox { padding-left: 75px; }
+
+}
+@media only screen and (max-width: 950px) and (min-width: 450px) and (orientation: landscape) {
+
+
+    .search_wrap input { width: 550px; }
+    .index_wrap { padding: 0; }
+    .chat_head .heading { padding: 20px 0; }
+    .question .chat_form_wp { padding: 0; }
+    .question .chat-container { padding: 0; }
+    .question .chat-container .send_icon i { right: 20px; }
+    .chat_grid .chat_form_wp { padding: 0; }
+    .chatgrid_footer .chat-container { padding: 0; }
+    .chatgrid_footer .chat-container .send_icon i { right: 20px; }
+
+    .login_section .card-body { padding: 15px; }
+    .login_section .card-body .btn_login {padding: 12px 0; width: 100%;}
+    .login_section .card-body .line h1:before {width: 120px;}
+    .login_section .card-body .line h1:after {width: 120px;}
+    .login_section .card-body .socail_login .google_btn {width: 100%;}
+    .login_section .card-body .socail_login .ios_btn {width: 100%; margin-top: 10px;}
+
+}
+/* @media only screen and (max-width: 950px) and (min-width: 450px) and (orientation: landscape) {
+
+    .search_wrap input {
+        width: 550px;
+    }
+    .index_wrap {
+        padding: 0;
+    }
+
+} */
+
+
+/*tablet*/
+
+@media only screen and (min-width: 700px) and (max-width: 1024px) {
+
+    .index_wrap { padding: 0; }
+    .question .chat_form_wp { padding: 0; }
+    .question .chat-container { padding: 0; }
+    .question .chat-container .send_icon i { right: 20px; }
+    .chat_head .heading { padding: 50px 0; }
+    .chat_grid .chat_form_wp { padding-left: 30px; padding-right: 30px; }
+    .chatgrid_footer .chat-container { padding: 0; }
+    .chatgrid_footer .chat-container .send_icon i { right: 20px; }
+    .login_section .card-body { padding: 45px 15px !important; }
+    .login_section .card-body .socail_login .google_btn {width: 100% !important;}
+    .login_section .card-body .socail_login .ios_btn {width: 100%; margin-top: 10px !important;}
+    .login_section .card-body .btn_login {padding: 12px 0; width: 100% !important;}
+    .login_section .card-body .line h1:before {width: 120px;}
+    .login_section .card-body .line h1:after {width: 120px;}
+
+
+}
+
+@media only screen and (min-width: 850px) and (max-width: 1200px) {
+
+    .chat_grid .chat_form_wp { padding: 0; }
+
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1024px) and  (orientation: landscape) {
+
+    .index_wrap { padding: 0; }
+    .login_section .card-body .line h1:before {width: 220px;}
+    .login_section .card-body .line h1:after {width: 220px;}
+
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 850px) and  (orientation: landscape) {
+
+    .index_wrap { padding: 0; }
+    .question .chat_form_wp { padding: 0; }
+    .question .chat-container { padding: 0; }
+    .question .chat-container .send_icon i { right: 20px; }
+    .chat_head .heading { padding: 50px 0; }
+    /* .chat_grid .chat_form_wp { padding: 0; } */
+    .chatgrid_footer .chat-container { padding: 0; }
+    .chatgrid_footer .chat-container .send_icon i { right: 20px; }
+    .login_section .card-body { padding: 45px 15px !important; }
+
+
+
+}
