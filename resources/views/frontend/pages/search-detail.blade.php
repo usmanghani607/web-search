@@ -149,6 +149,7 @@
                                                 <div class="icons">
                                                     <div><img src="{{ asset('images/starts.png') }}" alt=""></div>
                                                     <div class="desc">7.5 / 10 (688K)</div>
+                                                    <span class="imb">IMDb</span>
                                                 </div>
                                             </div>
                                         </div>

@@ -54,6 +54,13 @@
     .header_filter .search_checkbox { padding: 0; }
     .copy-right-text p { padding: 0 10px; }
 
+    .detail_page .trailer_section .movies_img img {
+        padding-bottom: 10px;
+    }
+    .detail_page .trailer_section .col-md-3 {
+        padding-right: 0;
+    }
+
 
 }
 
