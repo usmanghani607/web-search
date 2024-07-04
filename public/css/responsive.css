@@ -67,7 +67,7 @@
 @media only screen and (min-width: 360px) and (max-width: 740px) {
 
 
-    .search_wrap input { width: 220px; }
+    .search_wrap input { width: 100%; }
     .index_wrap { padding: 0; }
 
 
