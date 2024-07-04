@@ -1,6 +1,6 @@
 @extends('layouts.chatgrid_frontend')
 
-<style>
+{{-- <style>
     .carousel-item.active,
     .carousel-item-next,
     .carousel-item-prev {
@@ -25,7 +25,7 @@
     .card {
         margin: 0 15px;
     }
-</style>
+</style> --}}
 
 @section('content')
     <section class="chat_grid">
@@ -39,7 +39,8 @@
                             <p>show me latest restaurants in Chicago open after 10pm</p>
                         </div>
                         <div class="answer_wp">
-                            <span><i class="fa-solid fa-question"></i></span>
+                            {{-- <span><i class="fa-solid fa-question"></i></span> --}}
+                            <img class="card-img-top" src="{{ asset('/images/question.png') }}">
                             <span>Ask Recz</span>
                             <p>I can’t provide real-time information or browse the internet,
                                 including the latest restaurant openings. However, I can suggest
@@ -66,8 +67,8 @@
                                                                 src="{{ asset('/images/star_icon.png') }}"
                                                                 alt="">4.5</span>
                                                         <span class="rating">1K Users Recz It!</span>
-                                                        <p><span class="visiter">Karan</span> and <span class="visiter">31
-                                                                others</span> visited</p>
+                                                        <p class="visiter">Raj and 12 others visited</p>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -76,14 +77,14 @@
                                                     <img class="card-img-top" src="{{ asset('/images/slide2.png') }}"
                                                         alt="Card image cap">
                                                     <div class="card-body">
-                                                        <h3 class="card-title">312 Chicago</h3>
+                                                        <h3 class="card-title">The Loop</h3>
                                                         <h3 class="card-text">Jaran Street, Chicago</h3>
                                                         <span class="star_point"><img
                                                                 src="{{ asset('/images/star_icon.png') }}"
                                                                 alt="">4.5</span>
                                                         <span class="rating">1K Users Recz It!</span>
-                                                        <p><span class="visiter">Karan</span> and <span class="visiter">31
-                                                                others</span> visited</p>
+                                                        <p class="visiter">Raj and 12 others visited</p>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -92,14 +93,13 @@
                                                     <img class="card-img-top" src="{{ asset('/images/slide3.png') }}"
                                                         alt="Card image cap">
                                                     <div class="card-body">
-                                                        <h3 class="card-title">312 Chicago</h3>
+                                                        <h3 class="card-title">Miami Beach</h3>
                                                         <h3 class="card-text">Jaran Street, Chicago</h3>
                                                         <span class="star_point"><img
                                                                 src="{{ asset('/images/star_icon.png') }}"
                                                                 alt="">4.5</span>
                                                         <span class="rating">1K Users Recz It!</span>
-                                                        <p><span class="visiter">Karan</span> and <span class="visiter">31
-                                                                others</span> visited</p>
+                                                        <p class="visiter">Raj and 12 others visited</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -108,14 +108,14 @@
                                                     <img class="card-img-top" src="{{ asset('/images/slide3.png') }}"
                                                         alt="Card image cap">
                                                     <div class="card-body">
-                                                        <h3 class="card-title">312 Chicago</h3>
+                                                        <h3 class="card-title">Miami Beach</h3>
                                                         <h3 class="card-text">Jaran Street, Chicago</h3>
                                                         <span class="star_point"><img
                                                                 src="{{ asset('/images/star_icon.png') }}"
                                                                 alt="">4.5</span>
                                                         <span class="rating">1K Users Recz It!</span>
-                                                        <p><span class="visiter">Karan</span> and <span class="visiter">31
-                                                                others</span> visited</p>
+                                                        <p class="visiter">Raj and 12 others visited</p>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -134,8 +134,8 @@
                                                                 src="{{ asset('/images/star_icon.png') }}"
                                                                 alt="">4.5</span>
                                                         <span class="rating">1K Users Recz It!</span>
-                                                        <p><span class="visiter">Karan</span> and <span class="visiter">31
-                                                                others</span> visited</p>
+                                                        <p class="visiter">Raj and 12 others visited</p>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -144,14 +144,14 @@
                                                     <img class="card-img-top" src="{{ asset('/images/slide2.png') }}"
                                                         alt="Card image cap">
                                                     <div class="card-body">
-                                                        <h3 class="card-title">312 Chicago</h3>
+                                                        <h3 class="card-title">The Loop</h3>
                                                         <h3 class="card-text">Jaran Street, Chicago</h3>
                                                         <span class="star_point"><img
                                                                 src="{{ asset('/images/star_icon.png') }}"
                                                                 alt="">4.5</span>
                                                         <span class="rating">1K Users Recz It!</span>
-                                                        <p><span class="visiter">Karan</span> and <span class="visiter">31
-                                                                others</span> visited</p>
+                                                        <p class="visiter">Raj and 12 others visited</p>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -160,14 +160,13 @@
                                                     <img class="card-img-top" src="{{ asset('/images/slide3.png') }}"
                                                         alt="Card image cap">
                                                     <div class="card-body">
-                                                        <h3 class="card-title">312 Chicago</h3>
+                                                        <h3 class="card-title">Miami Beach</h3>
                                                         <h3 class="card-text">Jaran Street, Chicago</h3>
                                                         <span class="star_point"><img
                                                                 src="{{ asset('/images/star_icon.png') }}"
                                                                 alt="">4.5</span>
                                                         <span class="rating">1K Users Recz It!</span>
-                                                        <p><span class="visiter">Karan</span> and <span class="visiter">31
-                                                                others</span> visited</p>
+                                                        <p class="visiter">Raj and 12 others visited</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -176,14 +175,14 @@
                                                     <img class="card-img-top" src="{{ asset('/images/slide3.png') }}"
                                                         alt="Card image cap">
                                                     <div class="card-body">
-                                                        <h3 class="card-title">312 Chicago</h3>
+                                                        <h3 class="card-title">Miami Beach</h3>
                                                         <h3 class="card-text">Jaran Street, Chicago</h3>
                                                         <span class="star_point"><img
                                                                 src="{{ asset('/images/star_icon.png') }}"
                                                                 alt="">4.5</span>
                                                         <span class="rating">1K Users Recz It!</span>
-                                                        <p><span class="visiter">Karan</span> and <span class="visiter">31
-                                                                others</span> visited</p>
+                                                        <p class="visiter">Raj and 12 others visited</p>
+
                                                     </div>
                                                 </div>
                                             </div>
