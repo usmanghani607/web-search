@@ -1,5 +1,6 @@
 @extends('layouts.frontend')
 
+
 @section('content')
     <div class="topheader">
         <div class="container-fluid">
@@ -18,11 +19,11 @@
                         </div>
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                             <div class="col">
-                            <div class="right_btn">
-                                <a href="/login" class="btn">Sign in</a>
-                                <a href="#!" class="btn_red">Sign Up</a>
+                                <div class="right_btn">
+                                    <a href="/login" class="btn">Sign in</a>
+                                    <a href="#!" class="btn_red">Sign Up</a>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </nav>

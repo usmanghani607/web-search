@@ -224,26 +224,62 @@ class HomeController extends Controller
 
     public function searchDetail(Request $request)
     {
+
         $id = $request->query('id');
-        $result = $request->query('result');
-
-        // dd($result);
-        // exit();
-
-        if (!$id || !$result) {
-            return redirect()->route('search-list')->withErrors(['id' => 'No ID or result data provided']);
+        if (!$id) {
+            return redirect()->back()->withErrors('No ID provided for search detail.');
         }
 
         // dd($id);
         // exit();
 
-        $resultData = json_decode($result, true);
+        $endpoint = "https://api-dev.therecz.com/api/post/get-v2.php";
+        $postfields = [
+            'id' => $id
+        ];
 
-        // dd($resultData);
+        // dd($endpoint);
         // exit();
 
-        return view('frontend.pages.search-detail', [
-            'result' => $resultData,
-        ]);
+        $token = $request->header('Authorization');
+        if (!$token) {
+            return redirect()->back()->withErrors('Authorization token not provided.');
+        }
+
+        dd($token);
+        exit();
+
+        $response = Http::withOptions([
+            'verify' => false,
+        ])->withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Bearer ' . $token,
+        ])->post($endpoint, $postfields);
+
+        if ($response->failed()) {
+            return redirect()->back()->withErrors('Error fetching data from API.');
+        }
+
+        $responseData = $response->json();
+
+        if (isset($responseData['result'])) {
+            $result = $responseData['result'];
+
+            Log::info('Search detail successful. Displaying result:', ['result' => $result]);
+
+            return view('frontend.pages.search-detail', compact('result'));
+        } else {
+            return redirect()->back()->withErrors('No results found for the given ID.');
+        }
+
+
+        // return view('frontend.pages.search-detail');
+    }
+
+    public function searchDetail2()
+    {
+
+
+        return view('frontend.pages.search-detail2');
     }
 }
