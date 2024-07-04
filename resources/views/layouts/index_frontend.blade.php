@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
     <title>Recz</title>
-    {{-- <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    {{-- updated --}}
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png')  }}"> --}}
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png')  }}">
 
-    <link rel="stylesheet" href="{{ secure_asset('css/bootstrap.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ secure_asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ secure_asset('css/responsive.css') }}">
-    <link rel="icon" type="image/png" href="{{ secure_asset('img/favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ secure_asset('img/favicon.png') }}"> --}}
 
     {{-- <link rel="stylesheet" href="https://dev.therecz.com/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://dev.therecz.com/css/style.css">
