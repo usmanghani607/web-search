@@ -1,35 +1,13 @@
 @media only screen and (min-width: 320px) and (max-width: 767px) {
 
-    .right_btn .btn {
-        padding: 10px;
-        font-size: 14px;
-    }
-    .right_btn .btn_red {
-        padding: 10px;
-        font-size: 14px;
-    }
-    .topheader .navbar .container-fluid {
-        padding: 0;
-    }
+    .right_btn .btn { padding: 10px; font-size: 14px; }
+    .right_btn .btn_red { padding: 10px; font-size: 14px; }
+    .topheader .navbar .container-fluid { padding: 0; }
     /* .rec.text-center {
         display: none;
     } */
-    .topheader .rec span {
-        font-size: 18px;
-        color: #333333;
-        font-weight: 500;
-        float: inline-start;
-        padding: 0 20px;
-    }
-    .topheader .rec .fa-question {
-        background: #FF385C;
-        padding: 10px 17px;
-        border-radius: 40px;
-        color: #fff;
-        font-size: 25px;
-        font-family: 'circular';
-        font-weight: 800;
-    }
+    .topheader .rec span { font-size: 18px; color: #333333; font-weight: 500; float: inline-start; padding: 0 20px; }
+    .topheader .rec .fa-question { background: #FF385C; padding: 10px 17px; border-radius: 40px; color: #fff; font-size: 25px; font-family: 'circular'; font-weight: 800; }
 
     .login_section .login_left .img_sec {text-align: center; }
     .login_section .login_text h2 {font-size: 30px; }
@@ -53,13 +31,9 @@
     .filter_restaurant .list_heading p { font-size: 22px; }
     .header_filter .search_checkbox { padding: 0; }
     .copy-right-text p { padding: 0 10px; }
-
-    .detail_page .trailer_section .movies_img img {
-        padding-bottom: 10px;
-    }
-    .detail_page .trailer_section .col-md-3 {
-        padding-right: 0;
-    }
+    .detail_page .trailer_section .movies_img img { padding-bottom: 10px; }
+    .detail_page .trailer_section .col-md-3 { padding-right: 0; }
+    .question .chat-container .send_icon img { right: 2%; }
 
 
 }
@@ -79,6 +53,8 @@
     .search_wrap input { width: 400px; }
     .index_wrap { padding: 0; }
     .header_filter .search_checkbox { padding-left: 75px; }
+    .question .chat-container .send_icon img { right: 2%; }
+
 
 }
 @media only screen and (max-width: 950px) and (min-width: 450px) and (orientation: landscape) {
