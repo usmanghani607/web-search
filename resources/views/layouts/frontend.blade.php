@@ -8,10 +8,15 @@
 
     <title>Recz</title>
 
-    <link rel="stylesheet" href="{{ secure_asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ secure_asset('css/responsive.css') }}">
-    <link rel="icon" type="image/png" href="{{ secure_asset('img/favicon.png')  }}">
+    <link rel="stylesheet" href="{{ custom_asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ custom_asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ custom_asset('css/responsive.css') }}">
+    <link rel="icon" type="image/png" href="{{ custom_asset('img/favicon.png')  }}">
+
+    {{-- <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png')  }}"> --}}
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media='all'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
