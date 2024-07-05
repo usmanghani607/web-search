@@ -144,7 +144,7 @@ session_start();
                 $('#overlay').show();
 
                 $.ajax({
-                    url: "{{ secure_url(route('process')) }}",
+                    url: "{{ route('process') }}",
                     type: "POST",
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
