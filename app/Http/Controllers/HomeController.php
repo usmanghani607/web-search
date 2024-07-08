@@ -84,6 +84,77 @@ class HomeController extends Controller
     }
 
 
+    // public function loginProcess(Request $request)
+    // {
+    //     $request->validate([
+    //         'emailID' => 'required|email',
+    //         'pass' => 'required',
+    //     ]);
+
+    //     $email = $request->input('emailID');
+    //     $password = $request->input('pass');
+
+    //     $endpoint = "https://api-dev.therecz.com/api/user/login.php";
+    //     $postfields = json_encode([
+    //         'emailID' => $email,
+    //         'pass' => $password,
+    //         'apiKey' => 'thp74it7oiyob7fivnpgsm5bngtzil',
+    //         'callFrom' => 'IOS',
+    //         'deviceToken' => '...',
+    //     ]);
+
+    //     $ch = curl_init();
+
+    //     try {
+    //         $token = $this->getToken();
+    //     } catch (\Exception $e) {
+    //         return response()->json(['errors' => ['token' => $e->getMessage()]], 500);
+    //     }
+
+    //     $authorization = "Authorization: Bearer $token";
+
+    //     curl_setopt($ch, CURLOPT_URL, $endpoint);
+    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //     curl_setopt($ch, CURLOPT_POST, 1);
+    //     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', $authorization));
+    //     curl_setopt($ch, CURLOPT_POSTFIELDS, $postfields);
+    //     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    //     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+
+    //     $result = curl_exec($ch);
+
+    //     if (curl_errno($ch)) {
+    //         $error_msg = curl_error($ch);
+    //         curl_close($ch);
+    //         return response()->json(['errors' => ['password' => $error_msg]], 500);
+    //     }
+
+    //     curl_close($ch);
+
+    //     $response = json_decode($result, true);
+
+    //     if ($response['success']) {
+    //         Session::put('api_token', $response['token']);
+    //         Session::put('firstName', $response['data']['firstName']); // Store firstName in session
+
+    //         // dd($response);
+    //         // exit();
+
+    //         return response()->json([
+    //             'success' => true,
+    //             'message' => 'You are successfully logged in',
+    //             'redirect_url' => route('index'),
+    //             'token' => $response['token'],
+    //             'firstName' => $response['data']['firstName'], // Include the user name in the response
+    //         ]);
+    //     } else {
+    //         return response()->json([
+    //             'success' => false,
+    //             'errors' => ['password' => 'The email or password you entered is incorrect']
+    //         ], 401);
+    //     }
+    // }
+
     public function loginProcess(Request $request)
     {
         $request->validate([
@@ -94,7 +165,7 @@ class HomeController extends Controller
         $email = $request->input('emailID');
         $password = $request->input('pass');
 
-        $endpoint = "https://api-dev.therecz.com/api/user/login.php";
+        $endpoint = "https://api-dev.therecz.com/api/user/login.php"; // Ensure HTTPS is used
         $postfields = json_encode([
             'emailID' => $email,
             'pass' => $password,
@@ -106,6 +177,7 @@ class HomeController extends Controller
         $ch = curl_init();
 
         try {
+            // Get token securely (you should have a method like this in your HomeController)
             $token = $this->getToken();
         } catch (\Exception $e) {
             return response()->json(['errors' => ['token' => $e->getMessage()]], 500);
@@ -118,8 +190,8 @@ class HomeController extends Controller
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', $authorization));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postfields);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true); // Enable SSL verification
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2); // Check the existence of a common name and verify that it matches the hostname
 
         $result = curl_exec($ch);
 
@@ -137,15 +209,12 @@ class HomeController extends Controller
             Session::put('api_token', $response['token']);
             Session::put('firstName', $response['data']['firstName']); // Store firstName in session
 
-            // dd($response);
-            // exit();
-
             return response()->json([
                 'success' => true,
                 'message' => 'You are successfully logged in',
                 'redirect_url' => route('index'),
                 'token' => $response['token'],
-                'firstName' => $response['data']['firstName'], // Include the user name in the response
+                'firstName' => $response['data']['firstName'],
             ]);
         } else {
             return response()->json([
@@ -154,6 +223,7 @@ class HomeController extends Controller
             ], 401);
         }
     }
+
 
 
 

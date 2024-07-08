@@ -136,7 +136,7 @@ session_start();
     </script> --}}
 
 
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('.login_button').on('click', function(e) {
                 e.preventDefault();
@@ -202,5 +202,70 @@ session_start();
                 }
             }
         });
-    </script>
+    </script> --}}
+
+    <script>
+        $(document).ready(function() {
+            $('.login_button').on('click', function(e) {
+                e.preventDefault();
+
+                $('#overlay').show();
+
+                $.ajax({
+                    url: "https://dev.therecz.com/user_login", // Ensure HTTPS is used
+                    type: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json'
+                    },
+                    data: JSON.stringify({
+                        emailID: $('#emailID').val(),
+                        pass: $('#pass').val()
+                    }),
+                    success: function(response) {
+                        $('#overlay').hide();
+
+                        if (response.success) {
+                            localStorage.setItem('api_token', response.token);
+                            localStorage.setItem('firstName', response.firstName);
+                            window.location.href = response.redirect_url;
+                        } else {
+                            displayErrors(response.errors);
+                        }
+                    },
+                    error: function(xhr) {
+                        $('#overlay').hide();
+
+                        const errors = xhr.responseJSON ? xhr.responseJSON.errors : {
+                            password: 'An error occurred'
+                        };
+                        displayErrors(errors);
+                    }
+                });
+            });
+
+            function displayErrors(errors) {
+                $('#emailError').html('');
+                $('#passwordError').html('');
+
+                $('#emailID').removeClass('error_border');
+                $('#pass').removeClass('error_border');
+
+                if (errors.emailID) {
+                    $('#emailError').html(errors.emailID);
+                    $('#emailID').addClass('error_border');
+                }
+
+                if (errors.pass) {
+                    $('#passwordError').html(errors.pass);
+                    $('#pass').addClass('error_border');
+                }
+
+                if (errors.password) {
+                    $('#passwordError').html(errors.password);
+                    $('#pass').addClass('error_border');
+                }
+            }
+        });
+        </script>
 @endsection
