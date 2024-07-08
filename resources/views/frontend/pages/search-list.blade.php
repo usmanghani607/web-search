@@ -168,7 +168,8 @@ session_start();
                     $('#loader').show();
 
                     $.ajax({
-                        url: "{{ route('search-list-process') }}",
+                        // url: "{{ route('search-list-process') }}",
+                        url: "https://dev.therecz.com/search-list-process", // Ensure HTTPS is used
                         type: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': csrfToken,
