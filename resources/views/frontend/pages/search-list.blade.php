@@ -256,8 +256,9 @@ session_start();
                     var imgSrc = result.img ? result.img : '{{ asset('images/dummy_image.webp') }}';
                     var lstReczItFrnd = result.lstReczItFrnd;
                     var firstName = lstReczItFrnd.length > 0 ? lstReczItFrnd[0].firstName : '';
+                    var totalReczIt = result.totalReczIt;
                     var reczItText = firstName ?
-                        `<span style="color: #000000"><span class="start_bold">${firstName}</span> and 327 <span class="start_bold">other</span> people Recz it!</span>` :'';
+                        `<span style="color: #000000"><span class="start_bold">${firstName}</span> and ${totalReczIt} <span class="start_bold">other</span> people Recz it!</span>` :'';
 
                     var metaValues = result.lstMeta.map(meta => meta.value).filter(value => value).join(', ');
 
