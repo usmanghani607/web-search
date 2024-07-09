@@ -34,6 +34,7 @@
     .detail_page .trailer_section .movies_img img { padding-bottom: 10px; }
     .detail_page .trailer_section .col-md-3 { padding-right: 0; }
     .question .chat-container .send_icon img { right: 2%; }
+    .filter_list .img_round img { width: 100%; height: 100%; object-fit: contain; }
 
 
 }
