@@ -224,30 +224,27 @@ class HomeController extends Controller
 
     public function searchDetail(Request $request)
     {
-
         $id = $request->query('id');
         if (!$id) {
             return redirect()->back()->withErrors('No ID provided for search detail.');
         }
 
-        // dd($id);
-        // exit();
-
         $endpoint = "https://api-dev.therecz.com/api/post/get-v2.php";
         $postfields = [
-            'id' => $id
+            'groupID' => 0,
+            'dataSrc' => 'TMDB',
+            'dataSrcID' => '10137'
         ];
 
-        // dd($endpoint);
+        // Check if the token is stored in the session or request header
+        $token = $request->session()->get('api_token') ?: $request->header('Authorization');
+
+        // dd($token);
         // exit();
 
-        $token = $request->header('Authorization');
         if (!$token) {
             return redirect()->back()->withErrors('Authorization token not provided.');
         }
-
-        dd($token);
-        exit();
 
         $response = Http::withOptions([
             'verify' => false,
@@ -256,11 +253,20 @@ class HomeController extends Controller
             'Authorization' => 'Bearer ' . $token,
         ])->post($endpoint, $postfields);
 
+        // dd($response);
+        // exit();
+
         if ($response->failed()) {
             return redirect()->back()->withErrors('Error fetching data from API.');
         }
 
+        // dd($response);
+        // exit();
+
         $responseData = $response->json();
+
+        // dd($responseData);
+        // exit();
 
         if (isset($responseData['result'])) {
             $result = $responseData['result'];
@@ -271,10 +277,8 @@ class HomeController extends Controller
         } else {
             return redirect()->back()->withErrors('No results found for the given ID.');
         }
-
-
-        // return view('frontend.pages.search-detail');
     }
+
 
     public function searchDetail2()
     {

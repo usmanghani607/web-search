@@ -269,7 +269,7 @@ session_start();
                                             <div class="row">
                                                 <div class="col-md-2">
                                                     <div class="img_round">
-                                                        <a href="#">
+                                                        <a href="{{ route('search-detail') }}?id=${result.pid}">
                                                             <img src="${imgSrc}" class="w-100" onerror="this.onerror=null;this.src='{{ asset('images/dummy_image.webp') }}';"/>
                                                         </a>
                                                     </div>
