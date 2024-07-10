@@ -322,7 +322,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="movies_img">
-                                        <img src="{{ $result['lstInfo']['img'] ?? asset('images/dummy_image.webp') }}" alt="">
+                                        <img src="{{ $result['lstInfo']['img'] ?? asset('images/spide.png') }}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-md-9">

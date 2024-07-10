@@ -186,17 +186,11 @@ class HomeController extends Controller
             'Authorization' => $token,
         ])->post($endpoint, $postfields);
 
-        // dd($response);
-        // exit();
-
         if ($response->failed()) {
             return response()->json(['errors' => ['search_query' => 'Error fetching data from API']], $response->status());
         }
 
         $responseData = $response->json();
-
-        // dd($responseData);
-        // exit();
 
         if (isset($responseData['result'])) {
             $result = $responseData['result'];
@@ -204,9 +198,6 @@ class HomeController extends Controller
             session(['search_query' => $searchQuery]);
 
             Log::info('Search query successful. Redirecting to search-list with result:', ['result' => $result]);
-
-            // dd($result);
-            // exit();
 
             return response()->json([
                 'success' => true,
@@ -233,7 +224,7 @@ class HomeController extends Controller
         $postfields = [
             'groupID' => 0,
             'dataSrc' => 'TMDB',
-            'dataSrcID' => '10137'
+            'dataSrcID' => 10137
         ];
 
         // Check if the token is stored in the session or request header

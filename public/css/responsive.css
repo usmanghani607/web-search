@@ -32,9 +32,23 @@
     .header_filter .search_checkbox { padding: 0; }
     .copy-right-text p { padding: 0 10px; }
     .detail_page .trailer_section .movies_img img { padding-bottom: 10px; }
-    .detail_page .trailer_section .col-md-3 { padding-right: 0; }
+    .detail_page .trailer_section .col-md-3 { padding-right: 0; padding-left: 0; }
     .question .chat-container .send_icon img { right: 2%; }
     .filter_list .img_round img { width: 100%; height: 100%; object-fit: contain; }
+    .topheader button { display: none; }
+    .detail_page { padding: 0 0 50px 0; }
+    .detail_page .about_section .title .video_links iframe { width: 100%; height: auto; }
+    .detail_page .about_section .title .comment_area p { margin-top: 0; padding: 0; }
+    .detail_page .more_section .title .card .card-main-img { width: 100%; height: 100%; object-fit: contain; }
+    .detail_page .about_section .title .col-md-3 .icons { padding-bottom: 20px; }
+    .detail_page .title_section .title .name { font-size: 24px; }
+    .detail_page .title_section .title { padding: 20px 15px; }
+    .detail_page .title_section .title .people_like span.start_empty img { width: 24px; height: 24px; }
+    .detail_page .trailer_section .col-md-9 { padding-right: 0; }
+    .detail_page .title_section .col-md-12 { padding: 0; }
+    .detail_page .about_section .col-md-12 { padding: 0; }
+    .detail_page .about_section .title .border { margin: 10px 0; }
+    .detail_page .more_section .col-md-12 { padding: 0; }
 
 
 }
@@ -58,6 +72,22 @@
 
 
 }
+
+@media only screen and (max-width: 950px) and (min-width: 450px) and (orientation: landscape) {
+
+    .detail_page .about_section .title .icons { padding: 0; }
+    .detail_page .about_section .title .cast_img img { height: 100%; width: 100%; }
+    .detail_page .about_section .title .cast_img .first_name { font-size: 14px; font-weight: 500; }
+    .detail_page .about_section .title .cast_img .sec_name { font-size: 12px; font-weight: 400; }
+    .detail_page .about_section .title .video_links iframe { width: 100%; height: 100%; border-radius: 8px; }
+    .detail_page .about_section .title .border { margin: 15px 0; }
+    .detail_page .more_section .title .card .card-main-img { width: 100%; height: 100%; }
+    .detail_page .more_section .title .card .card-body span.rating { font-size: 12px; }
+    .detail_page .more_section .title .card .card-body h5 { font-size: 13px; }
+
+}
+
+
 @media only screen and (max-width: 950px) and (min-width: 450px) and (orientation: landscape) {
 
 
@@ -110,6 +140,14 @@
     .login_section .card-body .line h1:before {width: 120px;}
     .login_section .card-body .line h1:after {width: 120px;}
 
+    .detail_page .about_section .title .icons { padding: 0; }
+    .detail_page .about_section .title .cast_img img { height: 100%; width: 100%; }
+    .detail_page .about_section .title .cast_img .first_name { font-size: 16px; }
+    .detail_page .about_section .title .cast_img .sec_name { font-size: 14px; }
+    .detail_page .about_section .title .video_links iframe { width: 100%; height: 100%; }
+    .detail_page .more_section .title .card .card-main-img { width: 100%; height: 100%; }
+    .detail_page .more_section .title .card .card-body h5 { font-size: 14px; }
+
 
 }
 
@@ -138,6 +176,10 @@
     .chatgrid_footer .chat-container { padding: 0; }
     .chatgrid_footer .chat-container .send_icon i { right: 20px; }
     .login_section .card-body { padding: 45px 15px !important; }
+    .detail_page .about_section .title .icons { padding: 0; }
+    .detail_page .about_section .title .cast_img img { width: 100%; height: 100%; }
+    .detail_page .about_section .title .video_links iframe { width: 100%; height: 100%; }
+
 
 
 
