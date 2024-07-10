@@ -34,7 +34,7 @@
     .detail_page .trailer_section .movies_img img { padding-bottom: 10px; }
     .detail_page .trailer_section .col-md-3 { padding-right: 0; padding-left: 0; }
     .question .chat-container .send_icon img { right: 2%; }
-    .filter_list .img_round img { width: 100%; height: 100%; object-fit: contain; }
+    .filter_list .img_round img { width: 100% !important; height: 100% !important; object-fit: contain !important; }
     .topheader button { display: none; }
     .detail_page { padding: 0 0 50px 0; }
     .detail_page .about_section .title .video_links iframe { width: 100%; height: auto; }
@@ -42,13 +42,14 @@
     .detail_page .more_section .title .card .card-main-img { width: 100%; height: 100%; object-fit: contain; }
     .detail_page .about_section .title .col-md-3 .icons { padding-bottom: 20px; }
     .detail_page .title_section .title .name { font-size: 24px; }
-    .detail_page .title_section .title { padding: 20px 15px; }
+    /* .detail_page .title_section .title { padding: 20px 15px; } */
     .detail_page .title_section .title .people_like span.start_empty img { width: 24px; height: 24px; }
     .detail_page .trailer_section .col-md-9 { padding-right: 0; }
     .detail_page .title_section .col-md-12 { padding: 0; }
     .detail_page .about_section .col-md-12 { padding: 0; }
     .detail_page .about_section .title .border { margin: 10px 0; }
     .detail_page .more_section .col-md-12 { padding: 0; }
+    .detail_page .about_section .title .icons .desc { font-size: 16px; word-wrap: break-word; }
 
 
 }
@@ -84,6 +85,7 @@
     .detail_page .more_section .title .card .card-main-img { width: 100%; height: 100%; }
     .detail_page .more_section .title .card .card-body span.rating { font-size: 12px; }
     .detail_page .more_section .title .card .card-body h5 { font-size: 13px; }
+    .detail_page .about_section .title .icons .desc { word-wrap: break-word; }
 
 }
 
