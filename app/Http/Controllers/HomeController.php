@@ -213,30 +213,106 @@ class HomeController extends Controller
     }
 
 
+    // public function searchDetail(Request $request)
+    // {
+    //     $id = $request->query('id');
+    //     if (!$id) {
+    //         return redirect()->back()->withErrors('No ID provided for search detail.');
+    //     }
+
+    //     $endpoint = "https://api-dev.therecz.com/api/post/get-v2.php";
+    //     $postfields = [
+    //         'groupID' => 0,
+    //         'dataSrc' => 'TMDB',
+    //         'dataSrcID' => 10137
+    //     ];
+
+    //     // Check if the token is stored in the session or request header
+    //     $token = $request->session()->get('api_token') ?: $request->header('Authorization');
+
+    //     // dd($token);
+    //     // exit();
+
+    //     if (!$token) {
+    //         return redirect()->back()->withErrors('Authorization token not provided.');
+    //     }
+
+    //     $response = Http::withOptions([
+    //         'verify' => false,
+    //     ])->withHeaders([
+    //         'Content-Type' => 'application/json',
+    //         'Authorization' => 'Bearer ' . $token,
+    //     ])->post($endpoint, $postfields);
+
+    //     // dd($response);
+    //     // exit();
+
+    //     if ($response->failed()) {
+    //         return redirect()->back()->withErrors('Error fetching data from API.');
+    //     }
+
+    //     // dd($response);
+    //     // exit();
+
+    //     $responseData = $response->json();
+
+    //     // dd($responseData);
+    //     // exit();
+
+    //     if (isset($responseData['result'])) {
+    //         $result = $responseData['result'];
+
+    //         Log::info('Search detail successful. Displaying result:', ['result' => $result]);
+
+    //         return view('frontend.pages.search-detail', compact('result'));
+    //     } else {
+    //         return redirect()->back()->withErrors('No results found for the given ID.');
+    //     }
+    // }
+
+
     public function searchDetail(Request $request)
     {
         $id = $request->query('id');
-        if (!$id) {
-            return redirect()->back()->withErrors('No ID provided for search detail.');
-        }
+        $dataSrcID = $request->query('dataSrcID');
 
-        $endpoint = "https://api-dev.therecz.com/api/post/get-v2.php";
-        $postfields = [
-            'groupID' => 0,
-            'dataSrc' => 'TMDB',
-            'dataSrcID' => 10137
-        ];
-
-        // Check if the token is stored in the session or request header
-        $token = $request->session()->get('api_token') ?: $request->header('Authorization');
-
-        // dd($token);
+        // dd($id);
         // exit();
 
+        if (!$id && !$dataSrcID) {
+            return redirect()->back()->withErrors('No ID or dataSrcID provided for search detail.');
+        }
+
+        // dd($dataSrcID);
+        // exit();
+
+        $token = $request->session()->get('api_token') ?: $request->header('Authorization');
         if (!$token) {
             return redirect()->back()->withErrors('Authorization token not provided.');
         }
 
+        if (is_numeric($dataSrcID)) {
+            $endpoint = "https://api-dev.therecz.com/api/post/get-v2.php";
+            $postfields = [
+                'groupID' => 0,
+                'dataSrc' => 'TMDB',
+                'dataSrcID' => $dataSrcID
+            ];
+
+            // dd($dataSrcID);
+            // exit();
+
+        } else {
+            $endpoint = "https://api-dev.therecz.com/api/post/get.php";
+            $postfields = [
+                'pid' => $id
+            ];
+
+            // dd($id);
+            // exit();
+        }
+
+        // Make the API request
         $response = Http::withOptions([
             'verify' => false,
         ])->withHeaders([
@@ -247,12 +323,10 @@ class HomeController extends Controller
         // dd($response);
         // exit();
 
+        // Check for response errors
         if ($response->failed()) {
             return redirect()->back()->withErrors('Error fetching data from API.');
         }
-
-        // dd($response);
-        // exit();
 
         $responseData = $response->json();
 
@@ -269,6 +343,8 @@ class HomeController extends Controller
             return redirect()->back()->withErrors('No results found for the given ID.');
         }
     }
+
+
 
 
     public function searchDetail2()

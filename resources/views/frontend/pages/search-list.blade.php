@@ -269,7 +269,7 @@ session_start();
                                             <div class="row">
                                                 <div class="col-md-2">
                                                     <div class="img_round">
-                                                        <a href="https://dev.therecz.com/search-detail?id=${result.pid}">
+                                                        <a href="https://dev.therecz.com/search-detail?id=${result.pid}&dataSrcID=${result.dataSrcID ? result.dataSrcID : ''}">
                                                             <img src="${imgSrc}" class="w-100" onerror="this.onerror=null;this.src='{{ asset('images/dummy_image.webp') }}';"/>
                                                         </a>
                                                     </div>
