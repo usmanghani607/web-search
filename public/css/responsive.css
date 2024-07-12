@@ -51,6 +51,11 @@
     .detail_page .more_section .col-md-12 { padding: 0; }
     .detail_page .about_section .title .icons .desc { font-size: 16px; word-wrap: break-word; }
 
+    #loginModal .modal-content .modal-body h3 { position: relative; font-size: 20px; font-weight: 600; padding-top: 15px; color: #000000; padding: 15px 10px; text-align: justify; }
+    #loginModal .modal-content .modal-body .scan { position: relative; width: 20%; margin: 10px 25px; }
+    #loginModal .modal-content .modal-body p { position: relative; font-size: 20px; font-weight: 600; color: #000000; padding: 0 10px; margin-bottom: 5px; text-align: justify; }
+    #loginModal .modal-content .modal-body .applestore { margin: 0 0 0 10px; }
+    #loginModal .modal-dialog .cross-icon { left: 5px; }
 
 }
 
@@ -150,6 +155,10 @@
     .detail_page .more_section .title .card .card-main-img { width: 100%; height: 100%; }
     .detail_page .more_section .title .card .card-body h5 { font-size: 14px; }
 
+    #loginModal .modal-content .modal-body h3 {font-size: 20px; padding-top: 15px;}
+    #loginModal .modal-content .modal-body .scan {margin: 10px 80px;}
+    #loginModal .modal-content .modal-body p {font-size: 20px;}
+    #loginModal .modal-content .modal-body .applestore {margin: 0 0 0 60px;}
 
 }
 

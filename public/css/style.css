@@ -399,3 +399,57 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
     opacity: 1;
 }
 
+/*Login modal*/
+
+#loginModal .modal-content {
+    border-radius: 10px;
+    border: 0;
+}
+#loginModal .modal-content .modal-body {
+    padding: 0;
+}
+#loginModal .modal-content .modal-body .lady {
+    width: 100%;
+    position: absolute;
+}
+#loginModal .modal-content .modal-body .scan {
+    position: relative;
+    width: 45%;
+    margin: 10px 145px;
+}
+#loginModal .modal-content .modal-body h3 {
+    position: relative;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 40px;
+    color: #000000;
+}
+#loginModal .modal-content .modal-body p {
+    position: relative;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    padding-top: 10px;
+    color: #000000;
+}
+#loginModal .modal-content .modal-body .applestore {
+    position: relative;
+    width: 28%;
+    margin: 0 0 0 105px;
+}
+#loginModal .modal-content .modal-body .googlestore {
+    position: relative;
+    width: 28%;
+    margin: 0 0 0 10px;
+}
+#loginModal .modal-dialog .cross-icon {
+    width: 40px;
+    height: 40px;
+    float: right;
+    top: 20px;
+    position: relative;
+    z-index: 1;
+    left: 20px;
+    cursor: pointer;
+}

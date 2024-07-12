@@ -30,7 +30,8 @@ session_start();
                                             </div>
                                             <div class="account">
                                                 <span class="">Don’t have an account?</span>
-                                                <span class="sign_up"><a href="#!">Sign up</a></span>
+                                                <span class="sign_up"><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#loginModal">Sign up</a></span>
                                             </div>
 
                                             <div class="email mb-4">
@@ -60,6 +61,27 @@ session_start();
                                             </div>
                                         </div>
                                     </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <img class="cross-icon" src="{{ asset('images/cross.png') }}" alt="">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <img class="lady" src="{{ asset('images/lady.png') }}" alt="">
+                                    <div class="col-md-8">
+                                        <h3>Scan to Download App</h3>
+                                        <img class="scan" src="{{ asset('images/scan.png') }}" alt="">
+                                        <p>Available on</p>
+                                        <img class="applestore" src="{{ asset('images/apple-play.png') }}" alt="">
+                                        <img class="googlestore" src="{{ asset('images/google-play.png') }}" alt="">
+                                    </div>
+                                    <div class="col-md-4"></div>
                                 </div>
                             </div>
                         </div>
@@ -204,6 +226,4 @@ session_start();
             }
         });
     </script>
-
-
 @endsection
