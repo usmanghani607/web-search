@@ -192,6 +192,9 @@ class HomeController extends Controller
 
         $responseData = $response->json();
 
+        // dd($responseData);
+        // exit();
+
         if (isset($responseData['result'])) {
             $result = $responseData['result'];
 
@@ -360,6 +363,10 @@ class HomeController extends Controller
         }
 
         $token = $request->session()->get('api_token') ?: $request->header('Authorization');
+
+        // dd($token);
+        // exit();
+
         if (!$token) {
             return redirect()->back()->withErrors('Authorization token not provided.');
         }
