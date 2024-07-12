@@ -402,7 +402,7 @@
                                             <div class="col-md-3">
                                                 <div class="icons">
                                                     <div><img src="{{ asset('images/starts.png') }}" alt=""></div>
-                                                    <div class="desc">{{ $result['lstInfo']['imdbRating'] ?? '7.5' }} / 10  ({{ $result['lstInfo'][('imdbRatingCount')] ?? '(688K)' }})</div>
+                                                    <div class="desc">{{ $result['lstInfo']['imdbRating'] ?? '7.5' }} / 10  ({{ $result['lstInfo'][('imdbRatingCount')] ?? '688K' }})</div>
                                                     <span class="imb">{{ $result['dataSrc'] ?? 'IMDb' }}</span>
                                                 </div>
                                             </div>
