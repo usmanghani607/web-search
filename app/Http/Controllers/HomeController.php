@@ -219,210 +219,6 @@ class HomeController extends Controller
     // public function searchDetail(Request $request)
     // {
     //     $id = $request->query('id');
-    //     if (!$id) {
-    //         return redirect()->back()->withErrors('No ID provided for search detail.');
-    //     }
-
-    //     $endpoint = "https://api-dev.therecz.com/api/post/get-v2.php";
-    //     $postfields = [
-    //         'groupID' => 0,
-    //         'dataSrc' => 'TMDB',
-    //         'dataSrcID' => 10137
-    //     ];
-
-    //     // Check if the token is stored in the session or request header
-    //     $token = $request->session()->get('api_token') ?: $request->header('Authorization');
-
-    //     // dd($token);
-    //     // exit();
-
-    //     if (!$token) {
-    //         return redirect()->back()->withErrors('Authorization token not provided.');
-    //     }
-
-    //     $response = Http::withOptions([
-    //         'verify' => false,
-    //     ])->withHeaders([
-    //         'Content-Type' => 'application/json',
-    //         'Authorization' => 'Bearer ' . $token,
-    //     ])->post($endpoint, $postfields);
-
-    //     // dd($response);
-    //     // exit();
-
-    //     if ($response->failed()) {
-    //         return redirect()->back()->withErrors('Error fetching data from API.');
-    //     }
-
-    //     // dd($response);
-    //     // exit();
-
-    //     $responseData = $response->json();
-
-    //     // dd($responseData);
-    //     // exit();
-
-    //     if (isset($responseData['result'])) {
-    //         $result = $responseData['result'];
-
-    //         Log::info('Search detail successful. Displaying result:', ['result' => $result]);
-
-    //         return view('frontend.pages.search-detail', compact('result'));
-    //     } else {
-    //         return redirect()->back()->withErrors('No results found for the given ID.');
-    //     }
-    // }
-
-
-    // public function searchDetail(Request $request)
-    // {
-    //     $id = $request->query('id');
-    //     $dataSrcID = $request->query('dataSrcID');
-
-    //     // dd($id);
-    //     // exit();
-
-    //     if (!$id && !$dataSrcID) {
-    //         return redirect()->back()->withErrors('No ID or dataSrcID provided for search detail.');
-    //     }
-
-    //     // dd($dataSrcID);
-    //     // exit();
-
-    //     $token = $request->session()->get('api_token') ?: $request->header('Authorization');
-    //     if (!$token) {
-    //         return redirect()->back()->withErrors('Authorization token not provided.');
-    //     }
-
-    //     if (is_numeric($dataSrcID)) {
-    //         $endpoint = "https://api-dev.therecz.com/api/post/get-v2.php";
-    //         $postfields = [
-    //             'groupID' => 0,
-    //             'dataSrc' => 'TMDB',
-    //             'dataSrcID' => $dataSrcID
-    //         ];
-
-    //         // dd($dataSrcID);
-    //         // exit();
-
-    //     } else {
-    //         $endpoint = "https://api-dev.therecz.com/api/post/get.php";
-    //         $postfields = [
-    //             'pid' => $id
-    //         ];
-
-    //         // dd($id);
-    //         // exit();
-    //     }
-
-    //     // Make the API request
-    //     $response = Http::withOptions([
-    //         'verify' => false,
-    //     ])->withHeaders([
-    //         'Content-Type' => 'application/json',
-    //         'Authorization' => 'Bearer ' . $token,
-    //     ])->post($endpoint, $postfields);
-
-    //     // dd($response);
-    //     // exit();
-
-    //     // Check for response errors
-    //     if ($response->failed()) {
-    //         return redirect()->back()->withErrors('Error fetching data from API.');
-    //     }
-
-    //     $responseData = $response->json();
-
-    //     dd($responseData);
-    //     exit();
-
-    //     if (isset($responseData['result'])) {
-    //         $result = $responseData['result'];
-
-    //         Log::info('Search detail successful. Displaying result:', ['result' => $result]);
-
-    //         return view('frontend.pages.search-detail', compact('result'));
-    //     } else {
-    //         return redirect()->back()->withErrors('No results found for the given ID.');
-    //     }
-    // }
-
-
-    // public function searchDetail(Request $request)
-    // {
-    //     $id = $request->query('id');
-    //     $dataSrcID = $request->query('dataSrcID');
-    //     $dataSrc = $request->query('dataSrc');
-
-    //     // dd($dataSrc);
-    //     // exit();
-
-
-    //     if (!$id && !$dataSrcID) {
-    //         return redirect()->back()->withErrors('No ID or dataSrcID provided for search detail.');
-    //     }
-
-    //     $token = $request->session()->get('api_token') ?: $request->header('Authorization');
-
-    //     // dd($token);
-    //     // exit();
-
-    //     if (!$token) {
-    //         return redirect()->back()->withErrors('Authorization token not provided.');
-    //     }
-
-    //     if (is_numeric($dataSrcID)) {
-    //         $endpoint = "https://api.therecz.com/api/post/get-v2.php";
-    //         $postfields = [
-    //             'groupID' => 0,
-    //             'dataSrc' => $dataSrc,
-    //             'dataSrcID' => $dataSrcID
-    //         ];
-
-    //         // dd($dataSrc);
-    //         // exit();
-
-    //     } else {
-    //         $endpoint = "https://api.therecz.com/api/post/get.php";
-    //         $postfields = [
-    //             'pid' => $id
-    //         ];
-
-    //         // dd($id);
-    //         // exit();
-    //     }
-
-    //     // Make the API request
-    //     $response = Http::withOptions([
-    //         'verify' => false,
-    //     ])->withHeaders([
-    //         'Content-Type' => 'application/json',
-    //         'Authorization' => 'Bearer ' . $token,
-    //     ])->post($endpoint, $postfields);
-
-    //     if ($response->failed()) {
-    //         return redirect()->back()->withErrors('Error fetching data from API.');
-    //     }
-
-    //     $responseData = $response->json();
-
-    //     // dd($responseData);
-    //     // exit();
-
-    //     if (isset($responseData['result'])) {
-    //         $result = $responseData['result'];
-    //         Log::info('Search detail successful. Displaying result:', ['result' => $result]);
-    //         return view('frontend.pages.search-detail', compact('result'));
-    //     } else {
-    //         return redirect()->back()->withErrors('No results found for the given ID.');
-    //     }
-    // }
-
-
-
-    // public function searchDetail(Request $request)
-    // {
-    //     $id = $request->query('id');
     //     $catID = $request->query('catID');
 
     //     // dd($catID);
@@ -478,13 +274,61 @@ class HomeController extends Controller
     //     }
     // }
 
+    // public function searchDetail(Request $request)
+    // {
+    //     $id = $request->query('id');
+    //     $catID = $request->query('catID');
+
+    //     if (!$id && !$catID) {
+    //         return redirect()->back()->withErrors('No ID or catID provided for search detail.');
+    //     }
+
+    //     $token = $request->session()->get('api_token') ?: $request->header('Authorization');
+
+    //     if (!$token) {
+    //         return redirect()->back()->withErrors('Authorization token not provided.');
+    //     }
+
+    //     $endpoint = "https://api.therecz.com/api/post/get.php";
+    //     $postfields = [
+    //         'pid' => $id
+    //     ];
+
+    //     $response = Http::withOptions([
+    //         'verify' => false,
+    //     ])->withHeaders([
+    //         'Content-Type' => 'application/json',
+    //         'Authorization' => 'Bearer ' . $token,
+    //     ])->post($endpoint, $postfields);
+
+    //     if ($response->failed()) {
+    //         return redirect()->back()->withErrors('Error fetching data from API.');
+    //     }
+
+    //     $responseData = $response->json();
+
+    //     if (isset($responseData['result'])) {
+    //         $result = $responseData['result'];
+
+    //         if (isset($result['link']) && strpos($result['link'], 'youtube.com') !== false) {
+    //             $result['embed_link'] = $this->getYoutubeEmbedUrl($result['link']);
+    //         } else {
+    //             $result['embed_link'] = null;
+    //         }
+
+    //         Log::info('Search detail successful. Displaying result:', ['result' => $result]);
+    //         return view('frontend.pages.search-detail', compact('result'));
+    //     } else {
+    //         return redirect()->back()->withErrors('No results found for the given ID.');
+    //     }
+    // }
+
     public function searchDetail(Request $request)
     {
         $id = $request->query('id');
-        $catID = $request->query('catID');
 
-        if (!$id && !$catID) {
-            return redirect()->back()->withErrors('No ID or catID provided for search detail.');
+        if (!$id) {
+            return redirect()->back()->withErrors('No ID provided for search detail.');
         }
 
         $token = $request->session()->get('api_token') ?: $request->header('Authorization');
@@ -493,39 +337,63 @@ class HomeController extends Controller
             return redirect()->back()->withErrors('Authorization token not provided.');
         }
 
-        $endpoint = "https://api.therecz.com/api/post/get.php";
+        $postEndpoint = "https://api.therecz.com/api/post/get.php";
         $postfields = [
             'pid' => $id
         ];
 
-        $response = Http::withOptions([
+        $postResponse = Http::withOptions([
             'verify' => false,
         ])->withHeaders([
             'Content-Type' => 'application/json',
             'Authorization' => 'Bearer ' . $token,
-        ])->post($endpoint, $postfields);
+        ])->post($postEndpoint, $postfields);
 
-        if ($response->failed()) {
-            return redirect()->back()->withErrors('Error fetching data from API.');
+        if ($postResponse->failed()) {
+            return redirect()->back()->withErrors('Error fetching post data from API.');
         }
 
-        $responseData = $response->json();
+        $postData = $postResponse->json();
 
-        if (isset($responseData['result'])) {
-            $result = $responseData['result'];
-
-            if (isset($result['link']) && strpos($result['link'], 'youtube.com') !== false) {
-                $result['embed_link'] = $this->getYoutubeEmbedUrl($result['link']);
-            } else {
-                $result['embed_link'] = null;
-            }
-
-            Log::info('Search detail successful. Displaying result:', ['result' => $result]);
-            return view('frontend.pages.search-detail', compact('result'));
-        } else {
+        if (!isset($postData['result'])) {
             return redirect()->back()->withErrors('No results found for the given ID.');
         }
+
+        $result = $postData['result'];
+
+        $commentsEndpoint = "https://api.therecz.com/api/post/get-comments.php";
+        $commentsFields = [
+            'pid' => $id,
+            'page' => 1
+        ];
+
+        $commentsResponse = Http::withOptions([
+            'verify' => false,
+        ])->withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Bearer ' . $token,
+        ])->post($commentsEndpoint, $commentsFields);
+
+        if ($commentsResponse->failed()) {
+
+            $comments = [];
+            Log::error('Error fetching comments from API.');
+        } else {
+            $commentsData = $commentsResponse->json();
+            $comments = isset($commentsData['result']) ? $commentsData['result'] : [];
+        }
+
+        if (isset($result['link']) && strpos($result['link'], 'youtube.com') !== false) {
+            $result['embed_link'] = $this->getYoutubeEmbedUrl($result['link']);
+        } else {
+            $result['embed_link'] = null;
+        }
+
+        Log::info('Search detail successful. Displaying result:', ['result' => $result]);
+        return view('frontend.pages.search-detail', compact('result', 'comments'));
     }
+
+
 
     private function getYoutubeEmbedUrl($url)
     {
