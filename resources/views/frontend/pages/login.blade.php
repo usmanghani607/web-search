@@ -173,6 +173,7 @@ session_start();
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
                         'Content-Type': 'application/json'
                     },
+
                     data: JSON.stringify({
                         emailID: $('#emailID').val(),
                         pass: $('#pass').val()
