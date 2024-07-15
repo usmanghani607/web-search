@@ -191,7 +191,7 @@ session_start();
                                                     <div><img src="{{ asset('images/time-icon.png') }}" alt=""></div>
                                                     <div class="desc">
                                                         @php
-                                                            $duration = (int) $result['lstMeta'][3]['value'];
+                                                            $duration = isset($result['lstMeta'][3]['value']) ? (int) $result['lstMeta'][3]['value'] : 0;
                                                             $hours = intdiv($duration, 60);
                                                             $minutes = $duration % 60;
                                                         @endphp
@@ -481,7 +481,7 @@ session_start();
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div id="carouselExampleControls" class="carousel slide movies_img"
+                                    {{-- <div id="carouselExampleControls" class="carousel slide movies_img"
                                         data-bs-ride="carousel">
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
@@ -507,7 +507,42 @@ session_start();
                                             <span><i class="fas fa-chevron-right"></i></span>
                                             <span class="visually-hidden">Next</span>
                                         </button>
+                                    </div> --}}
+
+                                    <div id="carouselExampleControls" class="carousel slide movies_img" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                            @if(isset($result['lstMedia']) && count($result['lstMedia']) > 0)
+                                                @foreach($result['lstMedia'] as $index => $media)
+                                                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                                        <div class="row">
+                                                            <img src="{{ $media['link'] }}" alt="...">
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @else
+                                                <div class="carousel-item active">
+                                                    <div class="row">
+                                                        <img src="{{ asset('images/dummy_image.webp') }}" alt="No Image Available">
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </div>
+
+                                        @if(isset($result['lstMedia']) && count($result['lstMedia']) > 1)
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                            <span><i class="fas fa-chevron-left"></i></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                            <span><i class="fas fa-chevron-right"></i></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    @endif
+
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -518,10 +553,22 @@ session_start();
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="title">
-                                        <span class="name">Spider-Man: Across the Spider-Verse</span>
+                                        {{-- <span class="name">Spider-Man: Across the Spider-Verse</span> --}}
+                                        <span class="name">
+                                            @php
+                                            $bookTitle = '';
+                                            foreach ($result['lstMeta'] as $meta) {
+                                                if ($meta['metaID'] == 16) {
+                                                    $bookTitle = $meta['value'];
+                                                    break;
+                                                }
+                                                }
+                                            @endphp
+                                            {{ $bookTitle }}
+                                        </span>
                                         <span class="fav_icon"><img src="{{ asset('images/favourit.png') }}"
                                                 alt=""></span>
-                                        <div class="star_sec">
+                                        {{-- <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">4.5</span>
                                             <span><img src="{{ asset('images/red-star.png') }}" alt=""></span>
@@ -530,17 +577,49 @@ session_start();
                                             <span><img src="{{ asset('images/red-star.png') }}" alt=""></span>
                                             <span><img src="{{ asset('images/half-red.png') }}" alt=""></span>
                                             <span class="user_based">(Based on 328 users)</span>
+                                        </div> --}}
+                                        <div class="star_sec">
+                                            <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                    alt="">{{ $result['rating'] }}</span>
+                                            @php
+                                            $ratingCount = $result['ratingCount'] ?? 0;
+                                            $fullStars = (int) $ratingCount;
+                                            $halfStar = ($ratingCount - $fullStars) >= 0.5 ? true : false;
+                                            @endphp
+                                            @for($i = 1; $i <= 5; $i++)
+                                                @if($i <= $fullStars)
+                                                    <span><img src="{{ asset('images/red-star.png') }}" alt=""></span>
+                                                @elseif($i == $fullStars + 1 && $halfStar)
+                                                    <span><img src="{{ asset('images/half-red.png') }}" alt=""></span>
+                                                @else
+                                                    <span><img src="{{ asset('images/half-red.png') }}" alt=""></span>
+                                                @endif
+                                            @endfor
+
+                                            <span class="user_based">(Based on {{ $result['ratingCount'] }} users)</span>
                                         </div>
                                         <div class="people_like">
 
                                             <span class="people_img">
-                                                <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
-                                                    alt="Top Image">
-                                                <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
-                                                    alt="Top Image">
+                                                @foreach($result['lstRating'] as $index => $rating)
+                                                    @if($index < 2)
+                                                        @if($index == 0)
+                                                            <img class="overlay-sec-img" src="{{ $rating['socialImg'] }}" alt="{{ $rating['firstName'] }}">
+                                                        @else
+                                                            <img class="overlay-first-img" src="{{ $rating['socialImg'] }}" alt="{{ $rating['firstName'] }}">
+                                                        @endif
+                                                    @endif
+                                                @endforeach
                                             </span>
-                                            <span style="color: #000000"><span class="start_bold">Ranga</span> and
-                                                327 <span class="start_bold">other</span> people Recz it!</span>
+                                                <span style="color: #000000">
+                                                    @if(isset($result['lstRating']) && count($result['lstRating']) > 0)
+                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        and {{ count($result['lstRating']) - 1 }}
+                                                        <span class="start_bold">other</span> people Recz it!
+                                                    @else
+                                                        <span class="start_bold">No one</span> Recz it yet!
+                                                    @endif
+                                                </span>
                                             <span class="start_empty">
                                                 <img src="{{ asset('images/start-empty.png') }}" alt="">
                                                 <img src="{{ asset('images/start-empty.png') }}" alt="">
@@ -561,7 +640,7 @@ session_start();
                                 <div class="col-md-12">
                                     <div class="title">
                                         <div class="name">About Book</div>
-                                        <div class="row">
+                                        {{-- <div class="row">
                                             <div class="book_detail">
                                                 <span>Author -</span>
                                                 <span>James Clear</span>
@@ -586,7 +665,112 @@ session_start();
                                                 <span>Pages -</span>
                                                 <span>306</span>
                                             </div>
+                                        </div> --}}
+
+                                        @php
+                                            // Mapping metaID to book detail fields
+                                            $bookDetailMapping = [
+                                                16 => 'Title',
+                                                26 => 'Author',
+                                                15 => 'Edition',
+                                                27 => 'Publisher',
+                                                28 => 'Binding',
+                                                29 => 'Language',
+                                                30 => 'Pages'
+                                            ];
+
+                                            // Initialize book details with default empty values
+                                            $bookDetails = [
+                                                'Title' => '',
+                                                'Author' => '',
+                                                'Publisher' => '',
+                                                'Edition' => '',
+                                                'Binding' => '',
+                                                'Language' => '',
+                                                'Pages' => ''
+                                            ];
+
+                                            // Extract values based on metaID
+                                            foreach ($result['lstMeta'] as $meta) {
+                                                if (isset($bookDetailMapping[$meta['metaID']])) {
+                                                    $bookDetails[$bookDetailMapping[$meta['metaID']]] = $meta['value'];
+                                                }
+                                            }
+                                        @endphp
+
+                                        <div class="row">
+                                            @foreach ($bookDetails as $detail => $value)
+                                                @if ($value)
+                                                    <div class="book_detail">
+                                                        <span>{{ $detail }} -</span>
+                                                        <span>{{ $value }}</span>
+                                                    </div>
+                                                @endif
+                                            @endforeach
                                         </div>
+
+                                        {{-- <div class="row">
+                                            @php
+                                                $bookDetails = [
+                                                    'Author' => '',
+                                                    'Publisher' => '',
+                                                    'Edition' => '',
+                                                    'Binding' => '',
+                                                    'Language' => '',
+                                                    'Pages' => ''
+                                                ];
+
+                                                foreach ($result['lstMeta'] as $meta) {
+                                                    switch ($meta['metaID']) {
+                                                        case 1:
+                                                            $bookDetails['Author'] = $meta['value'];
+                                                            break;
+                                                        case 22:
+                                                            $bookDetails['Publisher'] = $meta['value'];
+                                                            break;
+                                                        case 2:
+                                                            $bookDetails['Edition'] = $meta['value'];
+                                                            break;
+                                                        case 50:
+                                                            $bookDetails['Binding'] = $meta['value'];
+                                                            break;
+                                                        case 51:
+                                                            $bookDetails['Language'] = $meta['value'];
+                                                            break;
+                                                        case 52:
+                                                            $bookDetails['Pages'] = $meta['value'];
+                                                            break;
+                                                        default:
+                                                            break;
+                                                    }
+                                                }
+                                            @endphp
+
+                                            <div class="book_detail">
+                                                <span>Author -</span>
+                                                <span>{{ $bookDetails['Author'] }}</span>
+                                            </div>
+                                            <div class="book_detail">
+                                                <span>Publisher -</span>
+                                                <span>{{ $bookDetails['Publisher'] }}</span>
+                                            </div>
+                                            <div class="book_detail">
+                                                <span>Edition -</span>
+                                                <span>{{ $bookDetails['Edition'] }}</span>
+                                            </div>
+                                            <div class="book_detail">
+                                                <span>Binding -</span>
+                                                <span>{{ $bookDetails['Binding'] }}</span>
+                                            </div>
+                                            <div class="book_detail">
+                                                <span>Language -</span>
+                                                <span>{{ $bookDetails['Language'] }}</span>
+                                            </div>
+                                            <div class="book_detail">
+                                                <span>Pages -</span>
+                                                <span>{{ $bookDetails['Pages'] }}</span>
+                                            </div>
+                                        </div> --}}
 
                                         <div class="border"></div>
 
@@ -621,7 +805,7 @@ session_start();
                                         <div class="border"></div>
 
                                         <div class="comments_name">Comments</div>
-                                        <div class="comment_area">
+                                        {{-- <div class="comment_area">
                                             <span><img src="{{ asset('images/top_img.png') }}" alt=""></span>
                                             <span class="comment">Ranga</span>
                                             <p>It’s honestly absurd how good the “Spider-Verse” movies are. “Across the
@@ -635,9 +819,22 @@ session_start();
                                                 Loved how Gwen’s story is expanded, her scenes with Shea Whigham’s
                                                 Captain Stacy are truly special.</p>
                                             <p class="comment_date">31 May 2023</p>
-                                        </div>
+                                        </div> --}}
 
+                                        @if(isset($result['lastComment']))
                                         <div class="comment_area">
+                                            <span><img src="{{ $result['lastComment']['socialImg'] }}" alt="{{ $result['lastComment']['firstName'] }}"></span>
+                                            <span class="comment">{{ $result['lastComment']['firstName'] }} {{ $result['lastComment']['lastName'] }}</span>
+                                            <p>{{ $result['lastComment']['msg'] }}</p>
+                                            @if(isset($result['lastComment']['createdOn']))
+                                            <p class="comment_date">{{ date('d M Y', strtotime($result['lastComment']['createdOn'])) }}</p>
+                                            @endif
+                                        </div>
+                                        @else
+                                        <span>Comments not available</span>
+                                        @endif
+
+                                        {{-- <div class="comment_area">
                                             <span><img src="{{ asset('images/top_img.png') }}" alt=""></span>
                                             <span class="comment">Ranga</span>
                                             <p>It’s honestly absurd how good the “Spider-Verse” movies are. “Across the
@@ -651,7 +848,7 @@ session_start();
                                                 Loved how Gwen’s story is expanded, her scenes with Shea Whigham’s
                                                 Captain Stacy are truly special.</p>
                                             <p class="comment_date">31 May 2023</p>
-                                        </div>
+                                        </div> --}}
 
 
                                     </div>
