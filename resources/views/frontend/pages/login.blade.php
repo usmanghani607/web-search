@@ -166,8 +166,8 @@ session_start();
                 $('#overlay').show();
 
                 $.ajax({
-                    // url: "{{ route('process') }}",
-                    url: "https://dev.therecz.com/user_login",
+                    url: "{{ route('process') }}",
+                    // url: "https://dev.therecz.com/user_login",
                     type: "POST",
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
