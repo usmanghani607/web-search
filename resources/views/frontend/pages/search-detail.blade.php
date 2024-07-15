@@ -248,7 +248,12 @@ session_start();
                                                         @endphp
                                                         {{ $rating }} / 10 ({{ $result['ratingCount'] }}K)
                                                     </div>
-                                                    <span class="imb">{{ $result['dataSrc'] }}</span>
+                                                    {{-- <span class="imb">{{ $result['dataSrc'] }}</span> --}}
+                                                    @if(!empty($result['dataSrc']))
+                                                        <span class="imb">{{ $result['dataSrc'] }}</span>
+                                                    @else
+                                                        <span>{{ $result['dataSrc'] }}</span>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -283,7 +288,7 @@ session_start();
                                         <div class="border"></div>
 
                                         <div class="summary_name">Summary</div>
-                                        <div class="summary_des">
+                                        {{-- <div class="summary_des">
                                                 @php
                                                 $description = '';
                                                 foreach ($result['lstMeta'] as $meta) {
@@ -294,7 +299,24 @@ session_start();
                                                 }
                                             @endphp
                                             <p>{{ $description }}</p>
+                                        </div> --}}
+                                        <div class="summary_des">
+                                            @php
+                                                $description = '';
+                                                if (isset($result['lstMeta']) && is_array($result['lstMeta'])) {
+                                                    foreach ($result['lstMeta'] as $meta) {
+                                                        if ($meta['metaID'] == 53 && !empty($meta['value'])) {
+                                                            $description = $meta['value'];
+                                                            break;
+                                                        }
+                                                    }
+                                                } else {
+                                                    $description = 'Summary is not available.';
+                                                }
+                                            @endphp
+                                            <p>{{ $description }}</p>
                                         </div>
+
                                         <div class="border"></div>
 
                                         <div class="video_name">Videos</div>
@@ -354,7 +376,7 @@ session_start();
                                             @endif
                                         </div>
                                         @else
-                                        <span>Comment not available</span>
+                                        <span>Comments not available</span>
                                         @endif
 
                                         {{-- <div class="comment_area">
