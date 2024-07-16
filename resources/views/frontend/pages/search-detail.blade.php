@@ -391,58 +391,28 @@ session_start();
                                     <div class="title">
                                         <div class="like_name">More like this</div>
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie1.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter: The Complet…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
+                                            @if(!empty($similarPosts))
+                                                @foreach($similarPosts as $post)
+                                                    <div class="col-md-3">
+                                                        <div class="card">
+                                                            <a href="{{ route('search-detail', ['id' => $post['pid'], 'catID' => $post['catID'] ?? '']) }}">
+                                                                <img class="card-main-img" src="{{ $post['img'] }}" alt="{{ $post['title'] }}">
+                                                            </a>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">{{ Str::limit($post['title'], 20) }}</h5>
+                                                                <span class="star_point">
+                                                                    <img src="{{ asset('images/star_icon.png') }}" alt=""> {{ $post['rating'] }}
+                                                                </span>
+                                                                <span class="rating">{{ $post['totalReczIt'] }} Users Recz It!</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
+                                                @endforeach
+                                            @else
+                                                <div class="col-md-12">
+                                                    <p>No similar posts found.</p>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter and the Philo…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie2.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter and the Cha…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie3.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter and the Pris…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -695,90 +665,34 @@ session_start();
                                     <div class="title">
                                         <div class="like_name">More like this</div>
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie1.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter: The Complet…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
+                                            @if(!empty($similarPosts))
+                                                @foreach($similarPosts as $post)
+                                                    <div class="col-md-3">
+                                                        <div class="card">
+                                                            <a href="{{ route('search-detail', ['id' => $post['pid'], 'catID' => $post['catID'] ?? '']) }}">
+                                                                <img class="card-main-img" src="{{ $post['img'] }}" alt="{{ $post['title'] }}">
+                                                            </a>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">{{ Str::limit($post['title'], 20) }}</h5>
+                                                                <span class="star_point">
+                                                                    <img src="{{ asset('images/star_icon.png') }}" alt=""> {{ $post['rating'] }}
+                                                                </span>
+                                                                <span class="rating">{{ $post['totalReczIt'] }} Users Recz It!</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
+                                                @endforeach
+                                            @else
+                                                <div class="col-md-12">
+                                                    <p>No similar posts found.</p>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter and the Philo…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie2.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter and the Cha…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie3.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter and the Pris…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    {{-- <div class="more_section">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="title">
-                                        <div class="like_name">More like this</div>
-                                        <div id="more-like-this" class="row">
-                                            @foreach ($suggestions as $post)
-                                                <div class="col-md-3">
-                                                    <div class="card">
-                                                        <img class="card-main-img" src="{{ $post['image'] }}" alt="{{ $post['title'] }} img">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">{{ $post['title'] }}</h5>
-                                                            <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">{{ $post['rating'] }}</span>
-                                                            <span class="rating">{{ $post['ratingCount'] }} Users Recz It!</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
 
                 </div>
             </div>

@@ -323,6 +323,76 @@ class HomeController extends Controller
     //     }
     // }
 
+    // public function searchDetail(Request $request)
+    // {
+    //     $id = $request->query('id');
+
+    //     if (!$id) {
+    //         return redirect()->back()->withErrors('No ID provided for search detail.');
+    //     }
+
+    //     $token = $request->session()->get('api_token') ?: $request->header('Authorization');
+
+    //     if (!$token) {
+    //         return redirect()->back()->withErrors('Authorization token not provided.');
+    //     }
+
+    //     $postEndpoint = "https://api.therecz.com/api/post/get.php";
+    //     $postfields = [
+    //         'pid' => $id
+    //     ];
+
+    //     $postResponse = Http::withOptions([
+    //         'verify' => false,
+    //     ])->withHeaders([
+    //         'Content-Type' => 'application/json',
+    //         'Authorization' => 'Bearer ' . $token,
+    //     ])->post($postEndpoint, $postfields);
+
+    //     if ($postResponse->failed()) {
+    //         return redirect()->back()->withErrors('Error fetching post data from API.');
+    //     }
+
+    //     $postData = $postResponse->json();
+
+    //     if (!isset($postData['result'])) {
+    //         return redirect()->back()->withErrors('No results found for the given ID.');
+    //     }
+
+    //     $result = $postData['result'];
+
+    //     $commentsEndpoint = "https://api.therecz.com/api/post/get-comments.php";
+    //     $commentsFields = [
+    //         'pid' => $id,
+    //         'page' => 1
+    //     ];
+
+    //     $commentsResponse = Http::withOptions([
+    //         'verify' => false,
+    //     ])->withHeaders([
+    //         'Content-Type' => 'application/json',
+    //         'Authorization' => 'Bearer ' . $token,
+    //     ])->post($commentsEndpoint, $commentsFields);
+
+    //     if ($commentsResponse->failed()) {
+
+    //         $comments = [];
+    //         Log::error('Error fetching comments from API.');
+    //     } else {
+    //         $commentsData = $commentsResponse->json();
+    //         $comments = isset($commentsData['result']) ? $commentsData['result'] : [];
+    //     }
+
+    //     if (isset($result['link']) && strpos($result['link'], 'youtube.com') !== false) {
+    //         $result['embed_link'] = $this->getYoutubeEmbedUrl($result['link']);
+    //     } else {
+    //         $result['embed_link'] = null;
+    //     }
+
+    //     Log::info('Search detail successful. Displaying result:', ['result' => $result]);
+    //     return view('frontend.pages.search-detail', compact('result', 'comments'));
+    // }
+
     public function searchDetail(Request $request)
     {
         $id = $request->query('id');
@@ -337,17 +407,16 @@ class HomeController extends Controller
             return redirect()->back()->withErrors('Authorization token not provided.');
         }
 
+        // Fetch post details
         $postEndpoint = "https://api.therecz.com/api/post/get.php";
-        $postfields = [
-            'pid' => $id
-        ];
+        $postfields = ['pid' => $id];
 
-        $postResponse = Http::withOptions([
-            'verify' => false,
-        ])->withHeaders([
-            'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' . $token,
-        ])->post($postEndpoint, $postfields);
+        $postResponse = Http::withOptions(['verify' => false])
+            ->withHeaders([
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Bearer ' . $token,
+            ])
+            ->post($postEndpoint, $postfields);
 
         if ($postResponse->failed()) {
             return redirect()->back()->withErrors('Error fetching post data from API.');
@@ -361,26 +430,42 @@ class HomeController extends Controller
 
         $result = $postData['result'];
 
+        // Fetch comments
         $commentsEndpoint = "https://api.therecz.com/api/post/get-comments.php";
-        $commentsFields = [
-            'pid' => $id,
-            'page' => 1
-        ];
+        $commentsFields = ['pid' => $id, 'page' => 1];
 
-        $commentsResponse = Http::withOptions([
-            'verify' => false,
-        ])->withHeaders([
-            'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' . $token,
-        ])->post($commentsEndpoint, $commentsFields);
+        $commentsResponse = Http::withOptions(['verify' => false])
+            ->withHeaders([
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Bearer ' . $token,
+            ])
+            ->post($commentsEndpoint, $commentsFields);
 
         if ($commentsResponse->failed()) {
-
             $comments = [];
             Log::error('Error fetching comments from API.');
         } else {
             $commentsData = $commentsResponse->json();
             $comments = isset($commentsData['result']) ? $commentsData['result'] : [];
+        }
+
+        // Fetch similar posts
+        $similarEndpoint = "https://api.therecz.com/api/post/get-similar-posts.php";
+        $similarFields = ['pid' => $id];
+
+        $similarResponse = Http::withOptions(['verify' => false])
+            ->withHeaders([
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Bearer ' . $token,
+            ])
+            ->post($similarEndpoint, $similarFields);
+
+        if ($similarResponse->failed()) {
+            $similarPosts = [];
+            Log::error('Error fetching similar posts from API.');
+        } else {
+            $similarData = $similarResponse->json();
+            $similarPosts = isset($similarData['result']) ? $similarData['result'] : [];
         }
 
         if (isset($result['link']) && strpos($result['link'], 'youtube.com') !== false) {
@@ -390,7 +475,8 @@ class HomeController extends Controller
         }
 
         Log::info('Search detail successful. Displaying result:', ['result' => $result]);
-        return view('frontend.pages.search-detail', compact('result', 'comments'));
+
+        return view('frontend.pages.search-detail', compact('result', 'comments', 'similarPosts'));
     }
 
 

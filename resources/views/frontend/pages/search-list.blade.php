@@ -168,8 +168,8 @@ session_start();
                     $('#loader').show();
 
                     $.ajax({
-                        // url: "{{ route('search-list-process') }}",
-                        url: "https://dev.therecz.com/search-list-process", // Ensure HTTPS is used
+                        url: "{{ route('search-list-process') }}",
+                        // url: "https://dev.therecz.com/search-list-process", // Ensure HTTPS is used
                         type: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': csrfToken,
@@ -269,7 +269,7 @@ session_start();
                                             <div class="row">
                                                 <div class="col-md-2">
                                                     <div class="img_round">
-                                                        <a href="https://dev.therecz.com/search-detail?id=${result.pid}&catID=${result.catID ? result.catID : ''}">
+                                                        <a href="{{ route('search-detail') }}?id=${result.pid}&catID=${result.catID ? result.catID : ''}">
                                                             <img src="${imgSrc}" class="w-100" onerror="this.onerror=null;this.src='{{ asset('images/dummy_image.webp') }}';"/>
                                                         </a>
                                                     </div>
