@@ -3,9 +3,9 @@
 session_start();
 ?>
 <style>
-    .detail_page {
-        display: none;
-    }
+    .detail_page { display: none; }
+
+
 </style>
 @section('content')
     <div class="topheader">
@@ -699,6 +699,317 @@ session_start();
         </div>
     </section>
 
+    <section class="detail_page restaurants">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="trailer_section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <img class="full_img" src="{{ asset('images/pic2.png') }}" alt="">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img class="first_img" src="{{ asset('images/pic4.png') }}" alt="">
+                                            <p><img class="secnd_img" src="{{ asset('images/pic5.png') }}" alt=""></p>
+
+                                        </div>
+                                        {{-- <div class="col-md-2">
+                                            <img src="{{ asset('images/pic5.png') }}" alt="">
+                                        </div> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="title_section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="title">
+                                        <span class="name">Cafe Nine Studio</span>
+                                        <span class="fav_icon"><img src="{{ asset('images/favourit.png') }}"
+                                                alt=""></span>
+                                                <div class="location">
+                                                    <span>122 N Boston Ave, Tulsa, OK 74103, United Stated</span>
+                                                </div>
+                                        <div class="star_sec">
+                                            <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                    alt="">4.5</span>
+                                            <span><img src="{{ asset('images/red-star.png') }}" alt=""></span>
+                                            <span><img src="{{ asset('images/red-star.png') }}" alt=""></span>
+                                            <span><img src="{{ asset('images/red-star.png') }}" alt=""></span>
+                                            <span><img src="{{ asset('images/red-star.png') }}" alt=""></span>
+                                            <span><img src="{{ asset('images/half-red.png') }}" alt=""></span>
+                                            <span class="user_based">(Based on 328 users)</span>
+                                        </div>
+                                        <div class="people_like">
+
+                                            <span class="people_img">
+                                                <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
+                                                    alt="Top Image">
+                                                <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
+                                                    alt="Top Image">
+                                            </span>
+                                            <span style="color: #000000"><span class="start_bold">Ranga</span> and
+                                                327 <span class="start_bold">other</span> people Recz it!</span>
+                                            <span class="start_empty">
+                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about_section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="title">
+                                        <div class="name">Cuisine</div>
+                                        <div class="row">
+                                            <div class="rest_loc">Chinese, North Indian, Mughlai, Casual Dining</div>
+                                        </div>
+
+                                        <div class="border"></div>
+
+
+                                        <div class="rest_name">Cuisine</div>
+                                        <div class="dish_img">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div><img src="{{ asset('images/dish1.png') }}" alt="">
+                                                    </div>
+                                                    <div class="dish_name">Butter Chicken</div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div><img src="{{ asset('images/dish2.png') }}" alt="">
+                                                    </div>
+                                                    <div class="dish_name">Chicken Tandoori</div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div><img src="{{ asset('images/dish3.png') }}" alt="">
+                                                    </div>
+                                                    <div class="dish_name">Dal Tadka</div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div><img src="{{ asset('images/dish4.png') }}" alt="">
+                                                    </div>
+                                                    <div class="dish_name">Chicken Tikka</div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div><img src="{{ asset('images/dish1.png') }}" alt="">
+                                                    </div>
+                                                    <div class="dish_name">Butter Chicken</div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div><img src="{{ asset('images/dish2.png') }}" alt="">
+                                                    </div>
+                                                    <div class="dish_name">Chicken Tandoori</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="border"></div>
+
+                                        <div class="about_heading">About The Restaurant</div>
+                                        <div class="info_area">
+                                            <div class="row">
+                                                <div class="price"><img src="{{ asset('images/price.png') }}" alt=""><span>$50 for two</span></div>
+                                                <div class="location"><img src="{{ asset('images/location-icon.png') }}" alt=""><span>122 N Boston Ave, Tulsa, OK 74103, United Stated</span></div>
+                                                {{-- <div class="time"><img src="{{ asset('images/icon-time.png') }}" alt=""><span>Closed - Open soon ⋅ 11 am</span><i class="fa-solid fa-sort-down"></i></div> --}}
+                                                <div class="time">
+                                                    <img src="{{ asset('images/icon-time.png') }}" alt="">
+                                                    <span><span class="close">Closed</span> - Open soon ⋅ 11 am</span>
+                                                    <i class="fa-solid fa-sort-down dropdown-icon"></i>
+                                                    <div class="dropdown-menu">
+                                                        <p>Hours:</p>
+                                                        <p>Wednesday 8 am-11 pm</p>
+                                                        <p>Hours might differ</p>
+                                                        <p>Thursday 8 am-11 pm</p>
+                                                        <p>Friday 8 am-11 pm</p>
+                                                        <p>Saturday 8 am-11 pm</p>
+                                                        <p>Sunday 8 am-11 pm</p>
+                                                        <p>Monday 8 am-11 pm</p>
+                                                        <p>Tuesday 8 am-11 pm</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="border"></div>
+
+                                        <div class="menu">Menu</div>
+                                        <div class="dish_menu">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div><img src="{{ asset('images/menu.png') }}" alt="">
+                                                    </div>
+                                                    <div class="menu_name">Food Menu</div>
+                                                    <div class="page">20 pages</div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div><img src="{{ asset('images/menu2.png') }}" alt="">
+                                                    </div>
+                                                    <div class="menu_name">Bevarages</div>
+                                                    <div class="page">2 pages</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="border"></div>
+
+                                        <div class="summary_name">Description</div>
+                                        <div class="summary_des">
+                                            <p>Sing along the lyrics of Girls Like You Song from Girls Like You album.
+                                                Girls Like You Song from the Girls Like You album is voiced by famous singer
+                                                Maroon 5, Cardi B.
+                                                The lyrics of Girls Like You Song from Girls Like You album are written by
+                                            </p>
+                                        </div>
+                                        <div class="border"></div>
+
+                                        <div class="menu">Menu</div>
+                                        <div class="dish_menu">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div><img src="{{ asset('images/menu11.png') }}" alt="">
+                                                    </div>
+                                                    <div class="menu_name">Food</div>
+                                                    <div class="page">55 Photos</div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div><img src="{{ asset('images/menu12.png') }}" alt="">
+                                                    </div>
+                                                    <div class="menu_name">Ambiance</div>
+                                                    <div class="page">23 Photos</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="border"></div>
+
+                                        <div class="comments_name">Comments</div>
+                                        <div class="comment_area">
+                                            <span><img src="{{ asset('images/top_img.png') }}" alt=""></span>
+                                            <span class="comment">Ranga</span>
+                                            <p>It’s honestly absurd how good the “Spider-Verse” movies are. “Across the
+                                                Spider-Verse”
+                                                is just as great, if not better than “Into the Spider-Verse”. I really don’t
+                                                know how.
+                                                “Spider-Man: Across the Spider-Verse” is fantastic! Deftly juggles deeply
+                                                heartfelt
+                                                character beats with crazy multiverse content, just packed with so many
+                                                delightful easter eggs.
+                                                Loved how Gwen’s story is expanded, her scenes with Shea Whigham’s
+                                                Captain Stacy are truly special.</p>
+                                            <p class="comment_date">31 May 2023</p>
+                                        </div>
+
+                                        <div class="comment_area">
+                                            <span><img src="{{ asset('images/top_img.png') }}" alt=""></span>
+                                            <span class="comment">Ranga</span>
+                                            <p>It’s honestly absurd how good the “Spider-Verse” movies are. “Across the
+                                                Spider-Verse”
+                                                is just as great, if not better than “Into the Spider-Verse”. I really don’t
+                                                know how.
+                                                “Spider-Man: Across the Spider-Verse” is fantastic! Deftly juggles deeply
+                                                heartfelt
+                                                character beats with crazy multiverse content, just packed with so many
+                                                delightful easter eggs.
+                                                Loved how Gwen’s story is expanded, her scenes with Shea Whigham’s
+                                                Captain Stacy are truly special.</p>
+                                            <p class="comment_date">31 May 2023</p>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="more_section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="title">
+                                        <div class="like_name">More like this</div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <img class="card-main-img" src="{{ asset('images/movie1.png') }}"
+                                                        alt="restaurant img">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Harry Potter: The Complet…</h5>
+                                                        <span class="star_point"><img
+                                                                src="{{ asset('images/star_icon.png') }}"
+                                                                alt="">4.0</span>
+                                                        <span class="rating">425 Users Recz It!</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <img class="card-main-img" src="{{ asset('images/movie.png') }}"
+                                                        alt="restaurant img">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Harry Potter and the Philo…</h5>
+                                                        <span class="star_point"><img
+                                                                src="{{ asset('images/star_icon.png') }}"
+                                                                alt="">4.0</span>
+                                                        <span class="rating">425 Users Recz It!</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <img class="card-main-img" src="{{ asset('images/movie2.png') }}"
+                                                        alt="restaurant img">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Harry Potter and the Cha…</h5>
+                                                        <span class="star_point"><img
+                                                                src="{{ asset('images/star_icon.png') }}"
+                                                                alt="">4.0</span>
+                                                        <span class="rating">425 Users Recz It!</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <img class="card-main-img" src="{{ asset('images/movie3.png') }}"
+                                                        alt="restaurant img">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Harry Potter and the Pris…</h5>
+                                                        <span class="star_point"><img
+                                                                src="{{ asset('images/star_icon.png') }}"
+                                                                alt="">4.0</span>
+                                                        <span class="rating">425 Users Recz It!</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="detail_page song">
         <div class="container">
             <div class="row">
@@ -979,11 +1290,13 @@ session_start();
         var moviesPage = document.querySelector('.detail_page');
         var booksPage = document.querySelector('.detail_page.books');
         var webSeriesPage = document.querySelector('.detail_page.song');
+        var restaurantsPage = document.querySelector('.detail_page.restaurants');
 
         function showSection(catID) {
             moviesPage.style.display = 'none';
             booksPage.style.display = 'none';
             webSeriesPage.style.display = 'none';
+            restaurantsPage.style.display = 'none';
 
             if (catID === 1) {
                 moviesPage.style.display = 'block';
@@ -991,9 +1304,34 @@ session_start();
                 booksPage.style.display = 'block';
             } else if (catID === 2) {
                 webSeriesPage.style.display = 'block';
+            } else if (catID === 3) {
+                restaurantsPage.style.display = 'block';
             }
         }
 
         showSection(catID);
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const dropdownIcon = document.querySelector('.dropdown-icon');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+        dropdownIcon.addEventListener('click', function() {
+            // Toggle the visibility of the dropdown menu
+            if (dropdownMenu.style.display === 'block') {
+                dropdownMenu.style.display = 'none';
+            } else {
+                dropdownMenu.style.display = 'block';
+            }
+        });
+
+        // Close the dropdown if clicked outside
+        document.addEventListener('click', function(event) {
+            if (!dropdownIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.style.display = 'none';
+            }
+        });
     });
 </script>
