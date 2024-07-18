@@ -703,24 +703,6 @@ session_start();
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    {{-- <div class="trailer_section">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <img class="full_img" src="{{ asset('images/pic2.png') }}" alt="">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img class="first_img" src="{{ asset('images/pic4.png') }}" alt="">
-                                            <p><img class="secnd_img" src="{{ asset('images/pic5.png') }}" alt=""></p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
 
                     <div class="trailer_section">
                         <div class="container">
@@ -760,7 +742,6 @@ session_start();
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="title">
-                                        {{-- <span class="name">Cafe Nine Studio</span> --}}
                                         <span class="name">
                                             @php
                                                 $restaurantTitle = '';
@@ -916,21 +897,6 @@ session_start();
                                                 <div class="price"><img src="{{ asset('images/price.png') }}" alt=""><span>$50 for two</span></div>
                                                 <div class="location"><img src="{{ asset('images/location-icon.png') }}" alt=""><span>{{ isset($result['location']) && !empty($result['location']) ? $result['location'] : 'No location available' }}
                                                 </span></div>
-                                                {{-- <div class="time">
-                                                    <img src="{{ asset('images/icon-time.png') }}" alt="">
-                                                    <span><span class="close">Closed</span> - Open soon ⋅ 11 am</span>
-                                                    <i class="fa-solid fa-sort-down dropdown-icon"></i>
-                                                    <div class="dropdown-menu">
-                                                        <p>Hours:</p>
-                                                        @php
-                                                        $hoursMeta = collect($result['lstMeta'])->firstWhere('metaID', 47);
-                                                        $hours = json_decode($hoursMeta['value'], true);
-                                                    @endphp
-                                                     @foreach ($hours as $time)
-                                                     <p>{{ $time }}</p>
-                                                    @endforeach
-                                                    </div>
-                                                </div> --}}
 
                                                 <div class="time">
                                                     <img src="{{ asset('images/icon-time.png') }}" alt="">
@@ -1029,72 +995,6 @@ session_start();
                         </div>
                     </div>
 
-                    {{-- <div class="more_section">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="title">
-                                        <div class="like_name">More like this</div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie1.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter: The Complet…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter and the Philo…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie2.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter and the Cha…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie3.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter and the Pris…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-
                     <div class="more_section">
                         <div class="container">
                             <div class="row">
@@ -1140,7 +1040,7 @@ session_start();
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="trailer_section">
+                    {{-- <div class="trailer_section">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
@@ -1174,6 +1074,49 @@ session_start();
                                 </div>
                             </div>
                         </div>
+                    </div> --}}
+
+                    <div class="trailer_section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="carouselExampleControls" class="carousel slide movies_img"
+                                        data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                            @if (isset($result['lstMedia']) && count($result['lstMedia']) > 0)
+                                                @foreach ($result['lstMedia'] as $index => $media)
+                                                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                                        <div class="row">
+                                                            <img src="{{ $media['link'] }}" alt="...">
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @else
+                                                <div class="carousel-item active">
+                                                    <div class="row">
+                                                        <img src="{{ asset('images/dummy_image.webp') }}"
+                                                            alt="No Image Available">
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </div>
+
+                                        @if (isset($result['lstMedia']) && count($result['lstMedia']) > 1)
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                                <span><i class="fas fa-chevron-left"></i></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                                <span><i class="fas fa-chevron-right"></i></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="title_section">
@@ -1181,37 +1124,76 @@ session_start();
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="title">
-                                        <span class="name">Girls Like You</span>
+                                        <span class="name">@php
+                                            $songTitle = '';
+                                            foreach ($result['lstMeta'] as $meta) {
+                                                if ($meta['metaID'] == 38) {
+                                                    $songTitle = $meta['value'];
+                                                    break;
+                                                }
+                                            }
+                                        @endphp
+                                        {{ $songTitle }}
+                                    </span>
                                         <span class="fav_icon"><img src="{{ asset('images/favourit.png') }}"
                                                 alt=""></span>
-                                        <div class="star_sec">
-                                            <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                                    alt="">4.5</span>
-                                            <span><img src="{{ asset('images/red-star.png') }}" alt=""></span>
-                                            <span><img src="{{ asset('images/red-star.png') }}" alt=""></span>
-                                            <span><img src="{{ asset('images/red-star.png') }}" alt=""></span>
-                                            <span><img src="{{ asset('images/red-star.png') }}" alt=""></span>
-                                            <span><img src="{{ asset('images/half-red.png') }}" alt=""></span>
-                                            <span class="user_based">(Based on 328 users)</span>
-                                        </div>
-                                        <div class="people_like">
+                                                <div class="star_sec">
+                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                        alt="">{{ $result['rating'] }}</span>
+                                                @php
+                                                    $ratingCount = $result['ratingCount'] ?? 0;
+                                                    $fullStars = (int) $ratingCount;
+                                                    $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
+                                                @endphp
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $fullStars)
+                                                        <span><img src="{{ asset('images/red-star.png') }}"
+                                                                alt=""></span>
+                                                    @elseif($i == $fullStars + 1 && $halfStar)
+                                                        <span><img src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></span>
+                                                    @else
+                                                        <span><img src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></span>
+                                                    @endif
+                                                @endfor
 
-                                            <span class="people_img">
-                                                <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
-                                                    alt="Top Image">
-                                                <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
-                                                    alt="Top Image">
-                                            </span>
-                                            <span style="color: #000000"><span class="start_bold">Ranga</span> and
-                                                327 <span class="start_bold">other</span> people Recz it!</span>
-                                            <span class="start_empty">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                            </span>
-                                        </div>
+                                                <span class="user_based">(Based on {{ $result['ratingCount'] }} users)</span>
+                                                </div>
+                                                <div class="people_like">
+
+                                                    <span class="people_img">
+                                                        @foreach ($result['lstRating'] as $index => $rating)
+                                                        @if ($index < 2)
+                                                            @if ($index == 0)
+                                                                <img class="overlay-sec-img" src="{{ $rating['socialImg'] }}"
+                                                                    alt="{{ $rating['firstName'] }}">
+                                                            @else
+                                                                <img class="overlay-first-img"
+                                                                    src="{{ $rating['socialImg'] }}"
+                                                                    alt="{{ $rating['firstName'] }}">
+                                                            @endif
+                                                        @endif
+                                                    @endforeach
+                                                </span>
+                                                <span style="color: #000000">
+                                                    @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        and {{ count($result['lstRating']) - 1 }}
+                                                        <span class="start_bold">other</span> people Recz it!
+                                                    @else
+                                                        <span class="start_bold">No one</span> Recz it yet!
+                                                    @endif
+                                                </span>
+                                                    <span class="start_empty">
+                                                        <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                        <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                        <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                        <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                        <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                    </span>
+                                                </div>
                                     </div>
                                 </div>
                             </div>
@@ -1278,47 +1260,28 @@ session_start();
 
                                         <div class="summary_name">Description</div>
                                         <div class="summary_des">
-                                            <p>Sing along the lyrics of Girls Like You Song from Girls Like You album.
-                                                Girls Like You Song from the Girls Like You album is voiced by famous singer
-                                                Maroon 5, Cardi B.
-                                                The lyrics of Girls Like You Song from Girls Like You album are written by
-                                            </p>
+                                            <p>{{ isset($result['msg']) ? $result['msg'] : 'No message available' }}</p>
                                         </div>
                                         <div class="border"></div>
 
                                         <div class="comments_name">Comments</div>
-                                        <div class="comment_area">
-                                            <span><img src="{{ asset('images/top_img.png') }}" alt=""></span>
-                                            <span class="comment">Ranga</span>
-                                            <p>It’s honestly absurd how good the “Spider-Verse” movies are. “Across the
-                                                Spider-Verse”
-                                                is just as great, if not better than “Into the Spider-Verse”. I really don’t
-                                                know how.
-                                                “Spider-Man: Across the Spider-Verse” is fantastic! Deftly juggles deeply
-                                                heartfelt
-                                                character beats with crazy multiverse content, just packed with so many
-                                                delightful easter eggs.
-                                                Loved how Gwen’s story is expanded, her scenes with Shea Whigham’s
-                                                Captain Stacy are truly special.</p>
-                                            <p class="comment_date">31 May 2023</p>
-                                        </div>
-
-                                        <div class="comment_area">
-                                            <span><img src="{{ asset('images/top_img.png') }}" alt=""></span>
-                                            <span class="comment">Ranga</span>
-                                            <p>It’s honestly absurd how good the “Spider-Verse” movies are. “Across the
-                                                Spider-Verse”
-                                                is just as great, if not better than “Into the Spider-Verse”. I really don’t
-                                                know how.
-                                                “Spider-Man: Across the Spider-Verse” is fantastic! Deftly juggles deeply
-                                                heartfelt
-                                                character beats with crazy multiverse content, just packed with so many
-                                                delightful easter eggs.
-                                                Loved how Gwen’s story is expanded, her scenes with Shea Whigham’s
-                                                Captain Stacy are truly special.</p>
-                                            <p class="comment_date">31 May 2023</p>
-                                        </div>
-
+                                        @if (isset($comments) && count($comments) > 0)
+                                        @foreach ($comments as $comment)
+                                            <div class="comment_area">
+                                                <span><img src="{{ $comment['socialImg'] }}"
+                                                        alt="{{ $comment['firstName'] }}"></span>
+                                                <span class="comment">{{ $comment['firstName'] }}
+                                                    {{ $comment['lastName'] }}</span>
+                                                <p>{{ $comment['msg'] }}</p>
+                                                @if (isset($comment['createdOn']))
+                                                    <p class="comment_date">
+                                                        {{ date('d M Y', strtotime($comment['createdOn'])) }}</p>
+                                                @endif
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <span>No comments available</span>
+                                    @endif
 
                                     </div>
                                 </div>
@@ -1333,58 +1296,28 @@ session_start();
                                     <div class="title">
                                         <div class="like_name">More like this</div>
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie1.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter: The Complet…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
+                                            @if(!empty($similarPosts))
+                                                @foreach($similarPosts as $post)
+                                                    <div class="col-md-3">
+                                                        <div class="card">
+                                                            <a href="{{ route('search-detail', ['id' => $post['pid'], 'catID' => $post['catID'] ?? '']) }}">
+                                                                <img class="card-main-img" src="{{ $post['img'] }}" alt="{{ $post['title'] }}">
+                                                            </a>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">{{ Str::limit($post['title'], 20) }}</h5>
+                                                                <span class="star_point">
+                                                                    <img src="{{ asset('images/star_icon.png') }}" alt=""> {{ $post['rating'] }}
+                                                                </span>
+                                                                <span class="rating">{{ $post['totalReczIt'] }} Users Recz It!</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
+                                                @endforeach
+                                            @else
+                                                <div class="col-md-12">
+                                                    <p>No similar posts found.</p>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter and the Philo…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie2.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter and the Cha…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img class="card-main-img" src="{{ asset('images/movie3.png') }}"
-                                                        alt="restaurant img">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Harry Potter and the Pris…</h5>
-                                                        <span class="star_point"><img
-                                                                src="{{ asset('images/star_icon.png') }}"
-                                                                alt="">4.0</span>
-                                                        <span class="rating">425 Users Recz It!</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -1415,21 +1348,21 @@ session_start();
 
         var moviesPage = document.querySelector('.detail_page');
         var booksPage = document.querySelector('.detail_page.books');
-        var webSeriesPage = document.querySelector('.detail_page.song');
+        var songPage = document.querySelector('.detail_page.song');
         var restaurantsPage = document.querySelector('.detail_page.restaurants');
 
         function showSection(catID) {
             moviesPage.style.display = 'none';
             booksPage.style.display = 'none';
-            webSeriesPage.style.display = 'none';
+            songPage.style.display = 'none';
             restaurantsPage.style.display = 'none';
 
             if (catID === 1) {
                 moviesPage.style.display = 'block';
             } else if (catID === 8) {
                 booksPage.style.display = 'block';
-            } else if (catID === 2) {
-                webSeriesPage.style.display = 'block';
+            } else if (catID === 13) {
+                songPage.style.display = 'block';
             } else if (catID === 3) {
                 restaurantsPage.style.display = 'block';
             }
@@ -1438,6 +1371,7 @@ session_start();
         showSection(catID);
     });
 </script>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
