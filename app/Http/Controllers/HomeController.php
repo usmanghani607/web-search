@@ -424,6 +424,9 @@ class HomeController extends Controller
 
         $postData = $postResponse->json();
 
+        // dd($postData);
+        // exit();
+
         if (!isset($postData['result'])) {
             return redirect()->back()->withErrors('No results found for the given ID.');
         }
