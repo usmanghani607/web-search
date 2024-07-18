@@ -1124,7 +1124,8 @@ session_start();
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="title">
-                                        <span class="name">@php
+                                        <span class="name">
+                                            @php
                                             $songTitle = '';
                                             foreach ($result['lstMeta'] as $meta) {
                                                 if ($meta['metaID'] == 38) {
