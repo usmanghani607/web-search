@@ -198,7 +198,7 @@ session_start();
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="title">
-                                        <div class="name">About the Movie</div>
+                                        <div class="name">About Movie</div>
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="icons">
