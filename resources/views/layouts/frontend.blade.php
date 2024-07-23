@@ -14,7 +14,7 @@
     <link rel="icon" type="image/png" href="{{ secure_asset('img/favicon.png')  }}"> --}}
 
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}?{{ uniqid() }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <link rel="icon" type="image/png" href="{{ asset('img/favicon.png')  }}">
 
