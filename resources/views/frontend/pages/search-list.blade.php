@@ -252,6 +252,8 @@ session_start();
                 var container = $('.filter_list .container');
                 container.empty();
 
+                var charLimit = 350;
+
                 results.forEach(function(result) {
                     var imgSrc = result.img ? result.img : '{{ asset('images/dummy_image.webp') }}';
                     var lstReczItFrnd = result.lstReczItFrnd;
@@ -260,7 +262,61 @@ session_start();
                     var reczItText = firstName ?
                         `<span style="color: #000000"><span class="start_bold">${firstName}</span> and ${totalReczIt} <span class="start_bold">other</span> people Recz it!</span>` :'';
 
-                    var metaValues = result.lstMeta.map(meta => meta.value).filter(value => value).join(', ');
+                        var metaValue22 = '';
+                            if (result.lstMeta) { var metaItem = result.lstMeta.find(meta => meta.metaID === 22); metaValue22 = metaItem ? metaItem.value : ''; }
+
+                        var metaValue26 = '';
+                        if (result.lstMeta) { var metaItem = result.lstMeta.find(meta => meta.metaID === 26); metaValue26 = metaItem ? metaItem.value : ''; }
+
+                        var metaValue22 = '';
+                        var metaValue26 = '';
+                        if (result.lstMeta) {
+                            var metaItem22 = result.lstMeta.find(meta => meta.metaID === 22);
+                            metaValue22 = metaItem22 ? metaItem22.value : '';
+                            var metaItem26 = result.lstMeta.find(meta => meta.metaID === 26);
+                            metaValue26 = metaItem26 ? metaItem26.value : '';
+                        }
+
+                        var metaValue51 = '';
+                        if (result.lstMeta) { var metaItem51 = result.lstMeta.find(meta => meta.metaID === 51); metaValue51 = metaItem51 ? metaItem51.value : ''; }
+
+                        var metaValue53 = '';
+                        if (result.lstMeta) { var metaItem53 = result.lstMeta.find(meta => meta.metaID === 53); metaValue53 = metaItem53 ? metaItem53.value : ''; }
+
+                        var metaValue15 = '';
+                        if (result.lstMeta) { var metaItem15 = result.lstMeta.find(meta => meta.metaID === 15); metaValue15 = metaItem15 ? metaItem15.value : ''; }
+
+                        var dataSrcHtml = '';
+                        if (result.catID === 1 && result.dataSrc) {
+                            dataSrcHtml = `<span class="imb">${result.dataSrc}</span>`;
+                        }
+
+                        var authorHtml = '';
+                        if (metaValue26) {
+                            authorHtml = `<div class="mb-2 auther">
+                                            <span>Auther - ${metaValue26}</span>
+                                        </div>`;
+                        }
+
+                        var additionalInfoHtml = '';
+                        if (result.catID === 1) {
+                            additionalInfoHtml = `<span class="yellow_star"><img src="{{ asset('images/yellow_star.png') }}" alt=""></span>
+                                                <span class="bold">${result.rating} / 10</span>`;
+                        }
+
+                        var metaValue15Html = metaValue15 ? `<div class="mb-2 text-gray">
+                                                <span>${metaValue15}.</span>
+                                            </div>` : '';
+
+                                            function truncateText(text, limit) {
+                            return text.length > limit ? text.substring(0, limit) + '...' : text;
+                        }
+
+                        var metaValue53Html = metaValue53 ? `<div class="mb-3 text-gray">
+                                                <span>${truncateText(metaValue53, charLimit)}</span>
+                                            </div>` : '';
+
+                        var metaValue22Html = metaValue22 ? `<span>${metaValue22} ·</span>` : '';
 
                     var resultHtml = `<div class="row mb-3">
                                 <div class="col-md-12">
@@ -276,14 +332,15 @@ session_start();
                                                 </div>
                                                 <div class="col-md-10">
                                                     <h5>${result.title}</h5>
-
+                                                    ${authorHtml}
+                                                    ${metaValue15Html}
                                                     <div class="mb-2 text-gray">
-                                                        <span>${metaValues} ·</span>
-
+                                                        ${metaValue22Html}
+                                                        <span>${metaValue51}</span>
+                                                        ${additionalInfoHtml}
+                                                        ${dataSrcHtml}
                                                     </div>
-                                                    <div class="mb-3 text-gray">
-                                                        <span></span>
-                                                    </div>
+                                                    ${metaValue53Html}
                                                     <div class="text-starts">
                                                         <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${result.rating}</span>
                                                         ${reczItText}
