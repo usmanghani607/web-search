@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="d-flex justify-content-between mb-2">
                     <div class="copy_right">
-                        <span>&copy; 2023 Recz</span>
+                        <span>&copy; 2024 Recz</span>
                     </div>
                     <div class="footer_right">
                         <ul class="list-inline">

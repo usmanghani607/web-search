@@ -252,7 +252,7 @@ session_start();
                 var container = $('.filter_list .container');
                 container.empty();
 
-                var charLimit = 350;
+                var charLimit = 300;
 
                 results.forEach(function(result) {
                     var imgSrc = result.img ? result.img : '{{ asset('images/dummy_image.webp') }}';

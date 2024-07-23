@@ -178,7 +178,7 @@
                 <div class="copy-right-area">
                     <div class="copy-right-text">
                         <p>
-                            © 2022 Recz. All Rights Reserved.
+                            © 2024 Recz. All Rights Reserved.
                         </p>
                     </div>
                 </div>
