@@ -155,8 +155,6 @@ class HomeController extends Controller
         }
     }
 
-
-
     public function searchList()
     {
         return view('frontend/pages/search-list');
