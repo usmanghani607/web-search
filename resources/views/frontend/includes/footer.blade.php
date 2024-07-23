@@ -157,7 +157,7 @@
                         <h4>Social</h4>
                         <ul class="list-unstyled">
                             <li class="social_icon">
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://www.instagram.com/recz__official/"><i class="fa-brands fa-instagram"></i></a>
                                 <a href="#"><i class="fa-brands fa-twitter"></i></a>
                                 <a href="https://www.facebook.com/people/Recz/100090736532820/"><i class="fa-brands fa-facebook-f"></i></a>
                             </li>
