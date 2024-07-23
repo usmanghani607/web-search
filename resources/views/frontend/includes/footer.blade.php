@@ -115,10 +115,10 @@
                         <h4>legal</h4>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="#">Terms & Conditions</a>
+                                <a href="https://www.therecz.com/terms-and-conditions">Terms & Conditions</a>
                             </li>
                             <li>
-                                <a href="#">Privacy Policy</a>
+                                <a href="https://www.therecz.com/privacy">Privacy Policy</a>
                             </li>
                         </ul>
                     </div>
@@ -159,7 +159,7 @@
                             <li class="social_icon">
                                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
                                 <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://www.facebook.com/people/Recz/100090736532820/"><i class="fa-brands fa-facebook-f"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -169,8 +169,8 @@
                         <h4>Download App</h4>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="#"><img src="{{asset('images/ios.png')}}" alt="playstore"></a>
-                                <a><img src="{{asset('images/play_store.png')}}" alt=""></a>
+                                <a href="https://apps.apple.com/us/app/recz-social-recommendation-app/id1582034985"><img src="{{asset('images/ios.png')}}" alt="playstore"></a>
+                                <a href="https://play.google.com/store/apps/details?id=com.recz.android"><img src="{{asset('images/play_store.png')}}" alt=""></a>
                             </li>
                         </ul>
                     </div>
