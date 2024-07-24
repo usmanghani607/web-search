@@ -48,6 +48,9 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 .copy-right-text p { color: #fff; margin-bottom: 0; }
 
 /*index footer*/
+.index_footer .copy_right {
+    margin-top: 7px;
+}
 
 .index_footer .copy_right span {
     color: #B2B2B2;
