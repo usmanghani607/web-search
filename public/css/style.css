@@ -194,7 +194,7 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 /*index*/
 
 .index_wp { margin-bottom: 120px; }
-.index_wp .login_profile { display: flex; align-items: center; justify-content: flex-end; padding: 25px 60px 0 0; }
+.index_wp .login_profile { display: flex; align-items: center; justify-content: flex-end; padding: 25px 60px 0 0 !important; }
 
 .index_wp .login_profile span {font-size: 18px; margin-left: 10px;}
 .index_wp .login_profile .fa-caret-down { color: #000; margin-left: 10px; }
