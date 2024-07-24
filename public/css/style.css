@@ -394,3 +394,17 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 #loginModal .modal-content .modal-body .applestore { position: relative; width: 28%; margin: 0 0 0 105px; }
 #loginModal .modal-content .modal-body .googlestore { position: relative; width: 28%; margin: 0 0 0 10px; }
 #loginModal .modal-dialog .cross-icon { width: 40px; height: 40px; float: right; top: 20px; position: relative; z-index: 1; left: 20px; cursor: pointer; }
+
+/*profile login*/
+
+#loginProfileContainer .login_profile { display: flex; align-items: center; justify-content: flex-end; padding: 0; }
+
+#loginProfileContainer .login_profile span {font-size: 18px; margin-left: 10px;}
+#loginProfileContainer .login_profile .fa-caret-down { color: #000; margin-left: 10px; }
+#loginProfileContainer .login_profile .fa-user { margin-left: 0; color: #FF385C; }
+
+#loginProfileContainer .login_profile .dropbtn { cursor: pointer; }
+#loginProfileContainer .login_profile .dropdown-content { display: none; position: absolute; background-color: #FF385C; overflow: auto; z-index: 1; right: 0; top: 25px; text-align: center; }
+#loginProfileContainer .login_profile .dropdown-content a { color: #fff; padding: 8px 18px; text-decoration: none; display: block; font-size: 18px; font-family: 'Poppins'; }
+#loginProfileContainer .login_profile .dropdown a:hover { color: #fff }
+#loginProfileContainer .login_profile .show { display: block; }

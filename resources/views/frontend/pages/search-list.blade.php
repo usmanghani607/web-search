@@ -42,6 +42,13 @@ session_start();
     form#indexForm {
         margin-bottom: 0;
     }
+
+    .hidden {
+        display: none;
+    }
+    .dropdown-content.show {
+        display: block;
+    }
 </style>
 
 @section('content')
@@ -71,12 +78,30 @@ session_start();
                                 </form>
 
                             </div>
-                            {{-- <div class="col">
-                                <div class="right_btn">
-                                    <a href="/login" class="btn">Sign in</a>
-                                    <a href="#!" class="btn_red">Sign Up</a>
+                            <div class="profile_btn">
+                                <div class="col">
+                                    <div class="right_btn">
+                                        <a href="/login" class="btn">Sign in</a>
+                                        <a href="#!" class="btn_red">Sign Up</a>
+                                    </div>
                                 </div>
-                            </div> --}}
+                            </div>
+                            <div id="loginProfileContainer" class="container-fluid hidden">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="login_profile">
+                                            <i class="fa-solid fa-user"></i>
+                                            <span>Hello</span>
+                                            <i onclick="toggleDropdown()" class="fa-solid fa-caret-down dropbtn"></i>
+                                            <div class="dropdown">
+                                                <div id="myDropdown" class="dropdown-content">
+                                                    <a href="#" onclick="logout()">Logout</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </nav>
@@ -260,63 +285,79 @@ session_start();
                     var firstName = lstReczItFrnd.length > 0 ? lstReczItFrnd[0].firstName : '';
                     var totalReczIt = result.totalReczIt;
                     var reczItText = firstName ?
-                        `<span style="color: #000000"><span class="start_bold">${firstName}</span> and ${totalReczIt} <span class="start_bold">other</span> people Recz it!</span>` :'';
+                        `<span style="color: #000000"><span class="start_bold">${firstName}</span> and ${totalReczIt} <span class="start_bold">other</span> people Recz it!</span>` :
+                        '';
 
-                        var metaValue22 = '';
-                            if (result.lstMeta) { var metaItem = result.lstMeta.find(meta => meta.metaID === 22); metaValue22 = metaItem ? metaItem.value : ''; }
+                    var metaValue22 = '';
+                    if (result.lstMeta) {
+                        var metaItem = result.lstMeta.find(meta => meta.metaID === 22);
+                        metaValue22 = metaItem ? metaItem.value : '';
+                    }
 
-                        var metaValue26 = '';
-                        if (result.lstMeta) { var metaItem = result.lstMeta.find(meta => meta.metaID === 26); metaValue26 = metaItem ? metaItem.value : ''; }
+                    var metaValue26 = '';
+                    if (result.lstMeta) {
+                        var metaItem = result.lstMeta.find(meta => meta.metaID === 26);
+                        metaValue26 = metaItem ? metaItem.value : '';
+                    }
 
-                        var metaValue22 = '';
-                        var metaValue26 = '';
-                        if (result.lstMeta) {
-                            var metaItem22 = result.lstMeta.find(meta => meta.metaID === 22);
-                            metaValue22 = metaItem22 ? metaItem22.value : '';
-                            var metaItem26 = result.lstMeta.find(meta => meta.metaID === 26);
-                            metaValue26 = metaItem26 ? metaItem26.value : '';
-                        }
+                    var metaValue22 = '';
+                    var metaValue26 = '';
+                    if (result.lstMeta) {
+                        var metaItem22 = result.lstMeta.find(meta => meta.metaID === 22);
+                        metaValue22 = metaItem22 ? metaItem22.value : '';
+                        var metaItem26 = result.lstMeta.find(meta => meta.metaID === 26);
+                        metaValue26 = metaItem26 ? metaItem26.value : '';
+                    }
 
-                        var metaValue51 = '';
-                        if (result.lstMeta) { var metaItem51 = result.lstMeta.find(meta => meta.metaID === 51); metaValue51 = metaItem51 ? metaItem51.value : ''; }
+                    var metaValue51 = '';
+                    if (result.lstMeta) {
+                        var metaItem51 = result.lstMeta.find(meta => meta.metaID === 51);
+                        metaValue51 = metaItem51 ? metaItem51.value : '';
+                    }
 
-                        var metaValue53 = '';
-                        if (result.lstMeta) { var metaItem53 = result.lstMeta.find(meta => meta.metaID === 53); metaValue53 = metaItem53 ? metaItem53.value : ''; }
+                    var metaValue53 = '';
+                    if (result.lstMeta) {
+                        var metaItem53 = result.lstMeta.find(meta => meta.metaID === 53);
+                        metaValue53 = metaItem53 ? metaItem53.value : '';
+                    }
 
-                        var metaValue15 = '';
-                        if (result.lstMeta) { var metaItem15 = result.lstMeta.find(meta => meta.metaID === 15); metaValue15 = metaItem15 ? metaItem15.value : ''; }
+                    var metaValue15 = '';
+                    if (result.lstMeta) {
+                        var metaItem15 = result.lstMeta.find(meta => meta.metaID === 15);
+                        metaValue15 = metaItem15 ? metaItem15.value : '';
+                    }
 
-                        var dataSrcHtml = '';
-                        if (result.catID === 1 && result.dataSrc) {
-                            dataSrcHtml = `<span class="imb">${result.dataSrc}</span>`;
-                        }
+                    var dataSrcHtml = '';
+                    if (result.catID === 1 && result.dataSrc) {
+                        dataSrcHtml = `<span class="imb">${result.dataSrc}</span>`;
+                    }
 
-                        var authorHtml = '';
-                        if (metaValue26) {
-                            authorHtml = `<div class="mb-2 auther">
+                    var authorHtml = '';
+                    if (metaValue26) {
+                        authorHtml = `<div class="mb-2 auther">
                                             <span>Auther - ${metaValue26}</span>
                                         </div>`;
-                        }
+                    }
 
-                        var additionalInfoHtml = '';
-                        if (result.catID === 1) {
-                            additionalInfoHtml = `<span class="yellow_star"><img src="{{ asset('images/yellow_star.png') }}" alt=""></span>
+                    var additionalInfoHtml = '';
+                    if (result.catID === 1) {
+                        additionalInfoHtml = `<span class="yellow_star"><img src="{{ asset('images/yellow_star.png') }}" alt=""></span>
                                                 <span class="bold">${result.rating} / 10</span>`;
-                        }
+                    }
 
-                        var metaValue15Html = metaValue15 ? `<div class="mb-2 text-gray">
+                    var metaValue15Html = metaValue15 ? `<div class="mb-2 text-gray">
                                                 <span>${metaValue15}.</span>
                                             </div>` : '';
 
-                                            function truncateText(text, limit) {
-                            return text.length > limit ? text.substring(0, limit) + '...' : text;
-                        }
+                    function truncateText(text, limit) {
+                        return text.length > limit ? text.substring(0, limit) + '...' : text;
+                    }
 
-                        var metaValue53Html = metaValue53 ? `<div class="mb-3 text-gray">
+                    var metaValue53Html = metaValue53 ? `<div class="mb-3 text-gray">
                                                 <span>${truncateText(metaValue53, charLimit)}</span>
                                             </div>` : '';
 
-                        var metaValue22Html = metaValue22 ? `<span>${metaValue22} ·</span>` : '';
+                    var metaValue22Html = metaValue22 ? `<span>${metaValue22} ·</span>` : '';
 
                     var resultHtml = `<div class="row mb-3">
                                 <div class="col-md-12">
@@ -355,5 +396,44 @@ session_start();
                 });
             }
         });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var token = localStorage.getItem('api_token');
+            var firstName = localStorage.getItem('firstName');
+
+            if (token) {
+                var profileBtn = document.querySelector('.profile_btn');
+                profileBtn.style.display = 'none';
+
+                var loginProfileContainer = document.getElementById('loginProfileContainer');
+                loginProfileContainer.classList.remove('hidden');
+
+                if (firstName) {
+                    document.querySelector('.login_profile span').textContent = 'Hello ' + firstName;
+                }
+            }
+        });
+
+        function toggleDropdown() {
+            var dropdown = document.getElementById("myDropdown");
+            dropdown.classList.toggle("show");
+        }
+
+        function logout() {
+            sessionStorage.clear();
+            localStorage.clear();
+            window.location.href = '/login';
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdown = document.getElementById("myDropdown");
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+            }
+        }
     </script>
 @endsection
