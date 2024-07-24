@@ -226,9 +226,9 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 /* .trending_wrap .fa-arrow-trend-up { position: absolute; top: 50%; transform: translateY(-50%); color: #FF395C; right: 0; font-size: 20px; } */
 .trending_wrap img { position: absolute; top: 50%; transform: translateY(-50%); right: 0; font-size: 20px; }
 /* .chat-icon i { position: fixed; bottom: 50px; right: 30px; background: #FF385C; padding: 15px 25px; border-radius: 40px; color: #fff; font-size: 35px; font-family: 'circular'; font-weight: 800; } */
-.chat-icon img { position: fixed; bottom: 50px; right: 30px; }
+.chat-icon img { position: fixed; bottom: 70px; right: 30px; }
 
-.icon-text span { position: fixed; bottom: 0; right: 15px; color: #333333; padding: 15px; border-radius: 50%; display: block; cursor: pointer; font-size: 18px; font-weight: 500; }
+.icon-text span { position: fixed; bottom: 20px; right: 15px; color: #333333; padding: 15px; border-radius: 50%; display: block; cursor: pointer; font-size: 18px; font-weight: 500; }
 
 /*loader*/
 
