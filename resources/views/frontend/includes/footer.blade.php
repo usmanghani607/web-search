@@ -144,7 +144,7 @@
                                 <a href="#">FAQ</a>
                             </li>
                             <li>
-                                <a href="#">News</a>
+                                <a href="https://www.therecz.com/press">News</a>
                             </li>
                             <li>
                                 <a href="#">Contact</a>
