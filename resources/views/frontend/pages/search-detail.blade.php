@@ -2683,6 +2683,400 @@ session_start();
             </div>
         </div>
     </section>
+
+    <section class="detail_page webseries">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="trailer_section">
+                        <div class="container">
+                            <div class="row">
+                                <div id="carouselWebseriesControls" class="carousel slide movies_img" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        @if (isset($result['lstMedia']) && count($result['lstMedia']) > 0)
+                                            @foreach ($result['lstMedia'] as $index => $media)
+                                                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <img src="{{ $media['link'] }}" alt="...">
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="trailer_play">
+                                                                        @if (isset($result['embed_link']))
+                                                                            <iframe src="{{ $result['embed_link'] }}"
+                                                                                title="{{ $result['linkTitle'] }}"
+                                                                                frameborder="0"
+                                                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                                                referrerpolicy="strict-origin-when-cross-origin"
+                                                                                allowfullscreen></iframe>
+                                                                        @else
+                                                                            <p>Video not available.</p>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <div class="carousel-item active">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <img src="{{ asset('images/dummy_image.webp') }}"
+                                                            alt="No Image Available">
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="trailer_play">
+                                                                    <p>Video not available.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </div>
+
+                                    @if (isset($result['lstMedia']) && count($result['lstMedia']) > 1)
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#carouselWebseriesControls" data-bs-slide="prev">
+                                            <span><i class="fas fa-chevron-left"></i></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#carouselWebseriesControls" data-bs-slide="next">
+                                            <span><i class="fas fa-chevron-right"></i></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    @endif
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title_section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="title">
+                                        <span class="name">
+                                            @php
+                                                $movieTitle = '';
+                                                foreach ($result['lstMeta'] as $meta) {
+                                                    if ($meta['metaID'] == 3) {
+                                                        $movieTitle = $meta['value'];
+                                                        break;
+                                                    }
+                                                }
+                                            @endphp
+                                            {{ $movieTitle }}
+                                        </span>
+                                        <span class="fav_icon"><img src="{{ asset('images/favourit.png') }}"
+                                                alt=""></span>
+                                        <div class="star_sec">
+                                            <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                    alt="">{{ $result['rating'] }}</span>
+                                            @php
+                                                $ratingCount = $result['ratingCount'] ?? 0;
+                                                $fullStars = (int) $ratingCount;
+                                                $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
+                                            @endphp
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                @if ($i <= $fullStars)
+                                                    <span><img src="{{ asset('images/red-star.png') }}"
+                                                            alt=""></span>
+                                                @elseif($i == $fullStars + 1 && $halfStar)
+                                                    <span><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></span>
+                                                @else
+                                                    <span><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></span>
+                                                @endif
+                                            @endfor
+
+                                            <span class="user_based">(Based on {{ $result['ratingCount'] }} users)</span>
+                                        </div>
+                                        <div class="people_like">
+                                            <span class="people_img">
+                                                @foreach ($result['lstRating'] as $index => $rating)
+                                                    @if ($index < 2)
+                                                        @if ($index == 0)
+                                                            <img class="overlay-sec-img" src="{{ $rating['socialImg'] }}"
+                                                                alt="{{ $rating['firstName'] }}">
+                                                        @else
+                                                            <img class="overlay-first-img" src="{{ $rating['socialImg'] }}"
+                                                                alt="{{ $rating['firstName'] }}">
+                                                        @endif
+                                                    @endif
+                                                @endforeach
+                                            </span>
+                                            <span style="color: #000000">
+                                                @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
+                                                    <span
+                                                        class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                    and {{ count($result['lstRating']) - 1 }}
+                                                    <span class="start_bold">other</span> people Recz it!
+                                                @else
+                                                    <span class="start_bold">No one</span> Recz it yet!
+                                                @endif
+                                            </span>
+
+                                            <span class="start_empty">
+                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about_section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="title">
+                                        <div class="name">About Movie</div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="icons">
+                                                    <div><img src="{{ asset('images/time-icon.png') }}" alt="">
+                                                    </div>
+                                                    <div class="desc">
+                                                        @php
+                                                            $duration = isset($result['lstMeta'][3]['value'])
+                                                                ? (int) $result['lstMeta'][3]['value']
+                                                                : 0;
+                                                            $hours = intdiv($duration, 60);
+                                                            $minutes = $duration % 60;
+                                                        @endphp
+                                                        {{ $hours }}h {{ $minutes }}m
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="icons">
+                                                    <div><img src="{{ asset('images/action.png') }}" alt="">
+                                                    </div>
+                                                    <div class="desc">
+                                                        @php
+                                                            $genre = '';
+                                                            foreach ($result['lstMeta'] as $meta) {
+                                                                if ($meta['metaID'] == 23) {
+                                                                    $genre = $meta['value'];
+                                                                    break;
+                                                                }
+                                                            }
+                                                        @endphp
+                                                        {{ $genre }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="icons">
+                                                    <div><img src="{{ asset('images/date.png') }}" alt=""></div>
+                                                    <div class="desc">
+                                                        @php
+                                                            $releaseDate = '';
+                                                            foreach ($result['lstMeta'] as $meta) {
+                                                                if ($meta['metaID'] == 51) {
+                                                                    $releaseDate = date(
+                                                                        'd M, Y',
+                                                                        strtotime($meta['value']),
+                                                                    );
+                                                                    break;
+                                                                }
+                                                            }
+                                                        @endphp
+                                                        {{ $releaseDate }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="icons">
+                                                    <div><img src="{{ asset('images/starts.png') }}" alt="">
+                                                    </div>
+                                                    <div class="desc">
+                                                        @php
+                                                            $rating = '';
+                                                            foreach ($result['lstMeta'] as $meta) {
+                                                                if ($meta['metaID'] == 56) {
+                                                                    $rating = $meta['value'];
+                                                                    break;
+                                                                }
+                                                            }
+                                                        @endphp
+                                                        {{ $rating }} / 10 ({{ $result['ratingCount'] }}K)
+                                                    </div>
+                                                    @if (!empty($result['dataSrc']))
+                                                        <span class="imb">{{ $result['dataSrc'] }}</span>
+                                                    @else
+                                                        <span>{{ $result['dataSrc'] }}</span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="border"></div>
+
+                                        {{-- <div class="cast_name">Cast</div>
+                                        <div class="cast_img">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div><img src="{{ asset('images/cast1.png') }}" alt=""></div>
+                                                    <div class="first_name">Shameik Moore</div>
+                                                    <div class="sec_name">Miles Morales</div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div><img src="{{ asset('images/cast2.png') }}" alt=""></div>
+                                                    <div class="first_name">Hailee Steinfeld</div>
+                                                    <div class="sec_name">Gwen Stacy</div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div><img src="{{ asset('images/cast3.png') }}" alt=""></div>
+                                                    <div class="first_name">Brian Tyree Henry</div>
+                                                    <div class="sec_name">Jeff Morales</div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div><img src="{{ asset('images/cast1.png') }}" alt=""></div>
+                                                    <div class="first_name">Luna</div>
+                                                    <div class="sec_name">Gwen Stacy</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="border"></div> --}}
+
+                                        <div class="summary_name">Summary</div>
+                                        <div class="summary_des">
+                                            @php
+                                                $description = '';
+                                                if (isset($result['lstMeta']) && is_array($result['lstMeta'])) {
+                                                    foreach ($result['lstMeta'] as $meta) {
+                                                        if ($meta['metaID'] == 57 && !empty($meta['value'])) {
+                                                            $description = $meta['value'];
+                                                            break;
+                                                        }
+                                                    }
+                                                } else {
+                                                    $description = 'Summary is not available.';
+                                                }
+                                            @endphp
+                                            <p>{{ $description }}</p>
+                                        </div>
+
+                                        <div class="border"></div>
+
+                                        {{-- <div class="video_name">Videos</div>
+                                        <div class="video_links">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <iframe
+                                                        src="https://www.youtube.com/embed/t06RUxPbp_c?si=zA2I6c1hud8SkUn5"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                        referrerpolicy="strict-origin-when-cross-origin"
+                                                        allowfullscreen></iframe>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <iframe
+                                                        src="https://www.youtube.com/embed/t06RUxPbp_c?si=zA2I6c1hud8SkUn5"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                        referrerpolicy="strict-origin-when-cross-origin"
+                                                        allowfullscreen></iframe>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <iframe
+                                                        src="https://www.youtube.com/embed/t06RUxPbp_c?si=zA2I6c1hud8SkUn5"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                        referrerpolicy="strict-origin-when-cross-origin"
+                                                        allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="border"></div> --}}
+
+                                        <div class="comments_name">Comments</div>
+                                        @if (isset($comments) && count($comments) > 0)
+                                            @foreach ($comments as $comment)
+                                                <div class="comment_area">
+                                                    <span><img src="{{ $comment['socialImg'] }}"
+                                                            alt="{{ $comment['firstName'] }}"></span>
+                                                    <span class="comment">{{ $comment['firstName'] }}
+                                                        {{ $comment['lastName'] }}</span>
+                                                    <p>{{ $comment['msg'] }}</p>
+                                                    @if (isset($comment['createdOn']))
+                                                        <p class="comment_date">
+                                                            {{ date('d M Y', strtotime($comment['createdOn'])) }}</p>
+                                                    @endif
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <span>No comments available</span>
+                                        @endif
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="more_section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="title">
+                                        <div class="like_name">More like this</div>
+                                        <div class="row">
+                                            @if (!empty($similarPosts))
+                                                @foreach ($similarPosts as $post)
+                                                    <div class="col-md-3">
+                                                        <div class="card">
+                                                            <a
+                                                                href="{{ route('search-detail', ['id' => $post['pid'], 'catID' => $post['catID'] ?? '']) }}">
+                                                                <img class="card-main-img" src="{{ $post['img'] }}"
+                                                                    alt="{{ $post['title'] }}">
+                                                            </a>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">
+                                                                    {{ Str::limit($post['title'], 20) }}</h5>
+                                                                <span class="star_point">
+                                                                    <img src="{{ asset('images/star_icon.png') }}"
+                                                                        alt=""> {{ $post['rating'] }}
+                                                                </span>
+                                                                <span class="rating">{{ $post['totalReczIt'] }} Users Recz
+                                                                    It!</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @else
+                                                <div class="col-md-12">
+                                                    <p>No similar posts found.</p>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
 @endsection
 
 
@@ -2709,6 +3103,7 @@ session_start();
         var winePage = document.querySelector('.detail_page.wine');
         var podcastPage = document.querySelector('.detail_page.podcast');
         var shoppingPage = document.querySelector('.detail_page.shopping');
+        var webseriesPage = document.querySelector('.detail_page.webseries');
 
 
         function showSection(catID) {
@@ -2721,6 +3116,7 @@ session_start();
             winePage.style.display = 'none';
             podcastPage.style.display = 'none';
             shoppingPage.style.display = 'none';
+            webseriesPage.style.display = 'none';
 
 
             if (catID === 1) {
@@ -2741,6 +3137,8 @@ session_start();
                 podcastPage.style.display = 'block';
             } else if (catID === 5) {
                 shoppingPage.style.display = 'block';
+            } else if (catID === 2) {
+                webseriesPage.style.display = 'block';
             }
         }
 

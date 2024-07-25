@@ -299,6 +299,66 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 .detail_page .more_section .title .card .card-body .star_point { background: #FF385C; padding: 2px 6px; border-radius: 2px; color: white; display: inline-flex; align-items: center; font-size: 13px; margin-right: 7px; }
 .detail_page .more_section .title .card .card-body span.rating { font-size: 14px; color: #333333; font-weight: 400; }
 
+
+/*Webseries*/
+
+.detail_page.webseries {padding: 20px 0 50px 0;}
+.detail_page.webseries .trailer_section .trailer_play iframe { width: 100%; height: 460px; }
+.detail_page.webseries .trailer_section .col-md-3 { padding-right: 2px; }
+.detail_page.webseries .trailer_section .col-md-9 { padding-left: 2px; }
+.detail_page.webseries .trailer_section { padding-bottom: 20px; }
+.detail_page.webseries .trailer_section .trailer_play p { width: 100%; text-align: center; padding: 140px 0; height: 320px; font-size: 24px; font-weight: 600; }
+.detail_page.webseries .title_section { padding-bottom: 25px; }
+.detail_page.webseries .title_section .title .fav_icon img { float: right; width: 32px; height: 38px; }
+.detail_page.webseries .title_section .title { border-radius: 12px; padding: 20px 25px; box-shadow: 0px 0px 12px #00000029; }
+.detail_page.webseries .title_section .title .name { font-size: 28px; font-weight: 500; }
+.detail_page.webseries .title_section .title .star_point { background: #FF385C; padding: 2px 6px; border-radius: 2px; color: white; display: inline-flex; align-items: center; font-size: 13px; margin-right: 7px; }
+.detail_page.webseries .title_section .title .star_point img { margin-right: 5px; }
+.detail_page.webseries .title_section .title .star_sec span.user_based { font-size: 18px; }
+.detail_page.webseries .title_section .title .people_like span.start_bold { font-size: 16px; font-weight: 500; }
+.detail_page.webseries .title_section .title .star_sec { padding-top: 7px; }
+.detail_page.webseries .title_section .title .people_like { padding-top: 10px; }
+.detail_page.webseries .title_section .title .people_like img.overlay-sec-img { position: relative; color: white; text-align: center; font-size: 14px; font-weight: 500; top: 40%; width: 28px; height: 28px; border-radius: 20px; border: 1px solid #FF385C; }
+.detail_page.webseries .title_section .title .people_like img.overlay-first-img { position: relative; transform: translateX(-50%); text-align: center; top: 40%; width: 28px; height: 28px; border-radius: 20px; border: 1px solid #FF385C; }
+.detail_page.webseries .title_section .title .people_like span.start_empty img { width: 28px; height: 28px; float: right; margin-right: 5px; }
+.detail_page.webseries .title_section .title .people_like span.start_empty img:first-child { margin-right: 0; }
+
+.detail_page.webseries .about_section { padding-bottom: 25px; }
+.detail_page.webseries .about_section .title .fav_icon img { float: right; width: 32px; height: 38px; }
+.detail_page.webseries .about_section .title { border-radius: 12px; padding: 20px 25px; box-shadow: 0px 0px 12px #00000029; }
+.detail_page.webseries .about_section .title .name { font-size: 28px; font-weight: 500; padding-bottom: 30px; }
+
+.detail_page.webseries .about_section .title img { width: 48px; height: 48px; margin-bottom: 15px; }
+.detail_page.webseries .about_section .title .icons { padding: 0 50px; text-align: center; }
+.detail_page.webseries .about_section .title .icons .desc { font-size: 16px; }
+.detail_page.webseries .about_section .title .border  { border: 1px solid #F0F0F0 !important; margin: 30px 0 }
+.detail_page.webseries .about_section .title .cast_name { font-size: 28px; font-weight: 500; padding-bottom: 30px; }
+.detail_page.webseries .about_section .title .cast_img { font-size: 28px; font-weight: 500; }
+.detail_page.webseries .about_section .title .cast_img .first_name { font-size: 18px; font-weight: 500; }
+.detail_page.webseries .about_section .title .cast_img .sec_name { font-size: 16px; font-weight: 400; }
+.detail_page.webseries .about_section .title .cast_img img { margin-bottom: 5px; height: 204px; width: 159px; }
+.detail_page.webseries .about_section .title .summary_name { font-size: 28px; font-weight: 500; padding-bottom: 20px; }
+.detail_page.webseries .about_section .title .video_name { font-size: 28px; font-weight: 500; padding-bottom: 10px; }
+.detail_page.webseries .about_section .title .video_links iframe { width: 345px; height: 240px; border-radius: 8px; }
+.detail_page.webseries .about_section .title .comments_name { font-size: 28px; font-weight: 500; padding-bottom: 10px; }
+
+.detail_page.webseries .about_section .title .comment_area img { width: 50px; height: 50px; margin-bottom: 15px; border-radius: 30px; border: 1px solid red; padding: 0; right: 10px; position: relative; }
+.detail_page.webseries .about_section .title .comment_area span.comment { font-size: 18px; font-weight: 500; position: relative; bottom: 15px; }
+.detail_page.webseries .about_section .title .comment_area { padding: 0 10px; }
+.detail_page.webseries .about_section .title .comment_area p { font-size: 18px; position: relative; padding: 0 55px; margin-top: -35px; font-weight: 400; }
+.detail_page.webseries .about_section .title .comment_area .comment_date { color: #707070; margin: 0 0 30px 0; }
+.detail_page.webseries .about_section .title .icons .imb { background: #F6C700; color: #000000; font-size: 18px; font-weight: 800; padding: 0 5px; }
+.detail_page.webseries .more_section .title { border-radius: 12px; padding: 20px 25px; box-shadow: 0px 0px 12px #00000029; }
+.detail_page.webseries .more_section .title .like_name { font-size: 28px; font-weight: 500; padding-bottom: 15px; }
+.detail_page.webseries .more_section .title .card { border-radius: 16px; border: none; margin-bottom: 30px; }
+.detail_page.webseries .more_section .title .card .card-main-img { border-radius: 16px 16px 0 0; height: 240px; width: 100% }
+.detail_page.webseries .more_section .title .card .card-body { box-shadow: 0px 0px 8px #00000029; border: none; border-radius: 0 0 16px 16px; }
+.detail_page.webseries .more_section .title .card .card-body h5 { font-size: 16px; font-weight: 500; }
+.detail_page.webseries .more_section .title .card .card-body span.star_point { font-size: 12px; font-weight: 400; }
+.detail_page.webseries .more_section .title .card .card-body .star_point { background: #FF385C; padding: 2px 6px; border-radius: 2px; color: white; display: inline-flex; align-items: center; font-size: 13px; margin-right: 7px; }
+.detail_page.webseries .more_section .title .card .card-body span.rating { font-size: 14px; color: #333333; font-weight: 400; }
+
+
 /*Books*/
 
 .detail_page.books .trailer_section .movies_img img { width: 100%; height: 320px; object-fit: contain; }
