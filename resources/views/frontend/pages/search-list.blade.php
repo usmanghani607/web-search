@@ -155,13 +155,13 @@ session_start();
                                 value="Books">
                             <label class="form-check-label" for="books">Books</label>
                         </div>
-                        {{-- <div class="form-check form-check-inline">
+                        <div class="form-check form-check-inline">
                             <input class="rest form-check-input filter-checkbox" type="checkbox" id="restaurants"
                                 value="Restaurants">
                             <label class="form-check-label" for="restaurants">Restaurants</label>
                             <img src="{{ asset('images/icon.png') }}" alt="Star Icon" class="checkbox-image"
                                 id="checkboxImage">
-                        </div> --}}
+                        </div>
                         {{-- <div class="form-check form-check-inline">
                             <input class="form-check-input filter-checkbox" type="checkbox" id="news" value="News">
                             <label class="form-check-label" for="news">News</label>
