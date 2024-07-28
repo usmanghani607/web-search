@@ -95,69 +95,6 @@ session_start();
         <div id="loader">Loading...</div>
     </div>
 
-    {{-- <script>
-        $(document).ready(function() {
-            $('.login_button').on('click', function(e) {
-                e.preventDefault();
-
-                $('#overlay').show();
-
-                $.ajax({
-                    url: "{{ route('process') }}",
-                    type: "POST",
-                    headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        'Content-Type': 'application/json'
-                    },
-                    data: JSON.stringify({
-                        emailID: $('#emailID').val(),
-                        pass: $('#pass').val()
-                    }),
-                    success: function(response) {
-                        $('#overlay').hide();
-
-                        if (response.success) {
-                            localStorage.setItem('api_token', response.token);
-                            window.location.href = response.redirect_url;
-                        } else {
-                            displayErrors({ password: response.errors.password });
-                        }
-                    },
-                    error: function(xhr) {
-                        $('#overlay').hide();
-
-                        const errors = xhr.responseJSON ? xhr.responseJSON.errors : { password: 'An error occurred' };
-                        displayErrors(errors);
-                    }
-                });
-            });
-
-            function displayErrors(errors) {
-                $('#emailError').html('');
-                $('#passwordError').html('');
-
-                $('#emailID').removeClass('error_border');
-                $('#pass').removeClass('error_border');
-
-                if (errors.emailID) {
-                    $('#emailError').html(errors.emailID);
-                    $('#emailID').addClass('error_border');
-                }
-
-                if (errors.pass) {
-                    $('#passwordError').html(errors.pass);
-                    $('#pass').addClass('error_border');
-                }
-
-                if (errors.password) {
-                    $('#passwordError').html(errors.password);
-                    $('#pass').addClass('error_border');
-                }
-            }
-        });
-    </script> --}}
-
-
     <script>
         $(document).ready(function() {
             $('.login_button').on('click', function(e) {
@@ -226,5 +163,23 @@ session_start();
                 }
             }
         });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#emailID').on('input', validateEmail);
+        });
+
+        function validateEmail() {
+            const emailInput = $('#emailID');
+            const emailError = $('#emailError');
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+            if (!emailPattern.test(emailInput.val())) {
+                emailError.text('Please enter a valid email address.');
+            } else {
+                emailError.text('');
+            }
+        }
     </script>
 @endsection
