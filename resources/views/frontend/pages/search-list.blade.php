@@ -46,6 +46,7 @@ session_start();
     .hidden {
         display: none;
     }
+
     .dropdown-content.show {
         display: block;
     }
@@ -82,7 +83,7 @@ session_start();
                                 <div class="col">
                                     <div class="right_btn">
                                         <a href="/login" class="btn">Sign in</a>
-                                        <a href="#!" class="btn_red">Sign Up</a>
+                                        <a href="#" class="btn_red" data-bs-toggle="modal" data-bs-target="#loginModal">Sign Up</a>
                                     </div>
                                 </div>
                             </div>
@@ -98,6 +99,28 @@ session_start();
                                                     <a href="#" onclick="logout()">Logout</a>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <img class="cross-icon" src="{{ asset('images/cross.png') }}" alt="">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <img class="lady" src="{{ asset('images/lady.png') }}" alt="">
+                                            <div class="col-md-8">
+                                                <h3>Scan to Download App</h3>
+                                                <img class="scan" src="{{ asset('images/scan.png') }}" alt="">
+                                                <p>Available on</p>
+                                                <img class="applestore" src="{{ asset('images/apple-play.png') }}"
+                                                    alt="">
+                                                <img class="googlestore" src="{{ asset('images/google-play.png') }}"
+                                                    alt="">
+                                            </div>
+                                            <div class="col-md-4"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +151,8 @@ session_start();
                             <label class="form-check-label" for="web_series">Web series</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input filter-checkbox" type="checkbox" id="books" value="Books">
+                            <input class="form-check-input filter-checkbox" type="checkbox" id="books"
+                                value="Books">
                             <label class="form-check-label" for="books">Books</label>
                         </div>
                         {{-- <div class="form-check form-check-inline">
