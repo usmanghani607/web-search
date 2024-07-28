@@ -70,8 +70,12 @@ session_start();
                     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog modal-lg">
-                            <img class="cross-icon" src="{{ asset('images/cross.png') }}" alt="">
                             <div class="modal-content">
+                                <div class="close" style="height: 0">
+                                    <div data-bs-dismiss="modal" aria-label="Close">
+                                        <img class="cross-icon" src="{{ asset('images/cross.png') }}" alt="">
+                                    </div>
+                                </div>
                                 <div class="modal-body">
                                     <img class="lady" src="{{ asset('images/lady.png') }}" alt="">
                                     <div class="col-md-8">

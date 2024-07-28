@@ -6,9 +6,11 @@ session_start();
     .detail_page {
         display: none;
     }
+
     .hidden {
         display: none;
     }
+
     .dropdown-content.show {
         display: block;
     }
@@ -61,6 +63,32 @@ session_start();
         </div>
     </div>
 
+    {{-- <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <img class="cross-icon" src="{{ asset('images/cross.png') }}" alt="">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img id="modalImage" src="" alt="Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div> --}}
+
+    <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                    <div class="close" style="height: 0">
+                        <div data-bs-dismiss="modal" aria-label="Close">
+                            <img class="cross-icon" src="{{ asset('images/cross.png') }}" alt="">
+                        </div>
+                    </div>
+                <div class="modal-body">
+                    <img id="modalImage" src="" alt="Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section class="detail_page">
         <div class="container">
             <div class="row">
@@ -75,7 +103,11 @@ session_start();
                                                 <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                                                     <div class="row">
                                                         <div class="col-md-3">
-                                                            <img src="{{ $media['link'] }}" alt="...">
+                                                            <button type="button" class="btn" data-bs-toggle="modal"
+                                                                data-bs-target="#detailModal"
+                                                                onclick="showImageInModal('{{ $media['link'] }}')">
+                                                                <img src="{{ $media['link'] }}" alt="...">
+                                                            </button>
                                                         </div>
                                                         <div class="col-md-9">
                                                             <div class="row">
@@ -186,7 +218,8 @@ session_start();
                                                             <img class="overlay-sec-img" src="{{ $rating['socialImg'] }}"
                                                                 alt="{{ $rating['firstName'] }}">
                                                         @else
-                                                            <img class="overlay-first-img" src="{{ $rating['socialImg'] }}"
+                                                            <img class="overlay-first-img"
+                                                                src="{{ $rating['socialImg'] }}"
                                                                 alt="{{ $rating['firstName'] }}">
                                                         @endif
                                                     @endif
@@ -1838,7 +1871,8 @@ session_start();
 
                                         <div class="summary_name">Description</div>
                                         <div class="summary_des">
-                                            <p>{{ isset($result['msg']) ? $result['msg'] : 'No description available' }}</p>
+                                            <p>{{ isset($result['msg']) ? $result['msg'] : 'No description available' }}
+                                            </p>
                                         </div>
                                         <div class="border"></div>
 
@@ -2035,7 +2069,8 @@ session_start();
                                                 @foreach ($result['lstRating'] as $index => $rating)
                                                     @if ($index < 2)
                                                         @if ($index == 0)
-                                                            <img class="overlay-sec-img" src="{{ $rating['socialImg'] }}"
+                                                            <img class="overlay-sec-img"
+                                                                src="{{ $rating['socialImg'] }}"
                                                                 alt="{{ $rating['firstName'] }}">
                                                         @else
                                                             <img class="overlay-first-img"
@@ -2165,7 +2200,8 @@ session_start();
                                                                     <img src="{{ asset('images/star_icon.png') }}"
                                                                         alt=""> {{ $post['rating'] }}
                                                                 </span>
-                                                                <span class="rating">{{ $post['totalReczIt'] }} Users Recz
+                                                                <span class="rating">{{ $post['totalReczIt'] }} Users
+                                                                    Recz
                                                                     It!</span>
                                                             </div>
                                                         </div>
@@ -2274,17 +2310,20 @@ session_start();
                                                 @endif
                                             @endfor
 
-                                            <span class="user_based">(Based on {{ $result['ratingCount'] }} users)</span>
+                                            <span class="user_based">(Based on {{ $result['ratingCount'] }}
+                                                users)</span>
                                         </div>
                                         <div class="people_like">
                                             <span class="people_img">
                                                 @foreach ($result['lstRating'] as $index => $rating)
                                                     @if ($index < 2)
                                                         @if ($index == 0)
-                                                            <img class="overlay-sec-img" src="{{ $rating['socialImg'] }}"
+                                                            <img class="overlay-sec-img"
+                                                                src="{{ $rating['socialImg'] }}"
                                                                 alt="{{ $rating['firstName'] }}">
                                                         @else
-                                                            <img class="overlay-first-img" src="{{ $rating['socialImg'] }}"
+                                                            <img class="overlay-first-img"
+                                                                src="{{ $rating['socialImg'] }}"
                                                                 alt="{{ $rating['firstName'] }}">
                                                         @endif
                                                     @endif
@@ -2325,21 +2364,21 @@ session_start();
                                             <div class="podcast_detail">
                                                 <span>
                                                     @php
-                                                    $podcastAbout = '';
-                                                    foreach ($result['lstMeta'] as $meta) {
-                                                        if ($meta['metaID'] == 42) {
-                                                            $podcastAbout = $meta['value'];
-                                                            break;
+                                                        $podcastAbout = '';
+                                                        foreach ($result['lstMeta'] as $meta) {
+                                                            if ($meta['metaID'] == 42) {
+                                                                $podcastAbout = $meta['value'];
+                                                                break;
+                                                            }
                                                         }
-                                                    }
-                                                @endphp
-                                                {{ $podcastAbout }}</span>
+                                                    @endphp
+                                                    {{ $podcastAbout }}</span>
                                             </div>
                                         </div>
 
                                         <div class="border"></div>
 
-                                         {{-- <div class="video_name">Videos</div>
+                                        {{-- <div class="video_name">Videos</div>
                                         <div class="video_links">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -2418,7 +2457,8 @@ session_start();
                                                                     <img src="{{ asset('images/star_icon.png') }}"
                                                                         alt=""> {{ $post['rating'] }}
                                                                 </span>
-                                                                <span class="rating">{{ $post['totalReczIt'] }} Users Recz
+                                                                <span class="rating">{{ $post['totalReczIt'] }} Users
+                                                                    Recz
                                                                     It!</span>
                                                             </div>
                                                         </div>
@@ -2528,7 +2568,8 @@ session_start();
                                                 @endif
                                             @endfor
 
-                                            <span class="user_based">(Based on {{ $result['ratingCount'] }} users)</span>
+                                            <span class="user_based">(Based on {{ $result['ratingCount'] }}
+                                                users)</span>
                                         </div>
                                         <div class="people_like">
 
@@ -2536,7 +2577,8 @@ session_start();
                                                 @foreach ($result['lstRating'] as $index => $rating)
                                                     @if ($index < 2)
                                                         @if ($index == 0)
-                                                            <img class="overlay-sec-img" src="{{ $rating['socialImg'] }}"
+                                                            <img class="overlay-sec-img"
+                                                                src="{{ $rating['socialImg'] }}"
                                                                 alt="{{ $rating['firstName'] }}">
                                                         @else
                                                             <img class="overlay-first-img"
@@ -2661,7 +2703,8 @@ session_start();
                                                                     <img src="{{ asset('images/star_icon.png') }}"
                                                                         alt=""> {{ $post['rating'] }}
                                                                 </span>
-                                                                <span class="rating">{{ $post['totalReczIt'] }} Users Recz
+                                                                <span class="rating">{{ $post['totalReczIt'] }} Users
+                                                                    Recz
                                                                     It!</span>
                                                             </div>
                                                         </div>
@@ -2691,7 +2734,8 @@ session_start();
                     <div class="trailer_section">
                         <div class="container">
                             <div class="row">
-                                <div id="carouselWebseriesControls" class="carousel slide movies_img" data-bs-ride="carousel">
+                                <div id="carouselWebseriesControls" class="carousel slide movies_img"
+                                    data-bs-ride="carousel">
                                     <div class="carousel-inner">
                                         @if (isset($result['lstMedia']) && count($result['lstMedia']) > 0)
                                             @foreach ($result['lstMedia'] as $index => $media)
@@ -2799,17 +2843,20 @@ session_start();
                                                 @endif
                                             @endfor
 
-                                            <span class="user_based">(Based on {{ $result['ratingCount'] }} users)</span>
+                                            <span class="user_based">(Based on {{ $result['ratingCount'] }}
+                                                users)</span>
                                         </div>
                                         <div class="people_like">
                                             <span class="people_img">
                                                 @foreach ($result['lstRating'] as $index => $rating)
                                                     @if ($index < 2)
                                                         @if ($index == 0)
-                                                            <img class="overlay-sec-img" src="{{ $rating['socialImg'] }}"
+                                                            <img class="overlay-sec-img"
+                                                                src="{{ $rating['socialImg'] }}"
                                                                 alt="{{ $rating['firstName'] }}">
                                                         @else
-                                                            <img class="overlay-first-img" src="{{ $rating['socialImg'] }}"
+                                                            <img class="overlay-first-img"
+                                                                src="{{ $rating['socialImg'] }}"
                                                                 alt="{{ $rating['firstName'] }}">
                                                         @endif
                                                     @endif
@@ -2849,7 +2896,8 @@ session_start();
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="icons">
-                                                    <div><img src="{{ asset('images/time-icon.png') }}" alt="">
+                                                    <div><img src="{{ asset('images/time-icon.png') }}"
+                                                            alt="">
                                                     </div>
                                                     <div class="desc">
                                                         @php
@@ -2883,7 +2931,8 @@ session_start();
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="icons">
-                                                    <div><img src="{{ asset('images/date.png') }}" alt=""></div>
+                                                    <div><img src="{{ asset('images/date.png') }}" alt="">
+                                                    </div>
                                                     <div class="desc">
                                                         @php
                                                             $releaseDate = '';
@@ -3054,7 +3103,8 @@ session_start();
                                                                     <img src="{{ asset('images/star_icon.png') }}"
                                                                         alt=""> {{ $post['rating'] }}
                                                                 </span>
-                                                                <span class="rating">{{ $post['totalReczIt'] }} Users Recz
+                                                                <span class="rating">{{ $post['totalReczIt'] }} Users
+                                                                    Recz
                                                                     It!</span>
                                                             </div>
                                                         </div>
@@ -3210,5 +3260,11 @@ session_start();
                 dropdown.classList.remove('show');
             }
         }
+    }
+</script>
+
+<script>
+    function showImageInModal(imageSrc) {
+        document.getElementById('modalImage').src = imageSrc;
     }
 </script>

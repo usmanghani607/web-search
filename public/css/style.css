@@ -292,7 +292,7 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 .detail_page .more_section .title { border-radius: 12px; padding: 20px 25px; box-shadow: 0px 0px 12px #00000029; }
 .detail_page .more_section .title .like_name { font-size: 28px; font-weight: 500; padding-bottom: 15px; }
 .detail_page .more_section .title .card { border-radius: 16px; border: none; margin-bottom: 30px; }
-.detail_page .more_section .title .card .card-main-img { border-radius: 16px 16px 0 0; height: 240px; width: 100% }
+.detail_page .more_section .title .card .card-main-img { border-radius: 16px 16px 0 0; height: 240px; width: 100%; object-fit: cover;}
 .detail_page .more_section .title .card .card-body { box-shadow: 0px 0px 8px #00000029; border: none; border-radius: 0 0 16px 16px; }
 .detail_page .more_section .title .card .card-body h5 { font-size: 16px; font-weight: 500; }
 .detail_page .more_section .title .card .card-body span.star_point { font-size: 12px; font-weight: 400; }
@@ -378,6 +378,20 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 .detail_page .trailer_section .movies_img img { width: 100%; height: 460px; object-fit: cover; }
 .detail_page .trailer_section .movies_img button.carousel-control-prev { width: 40px; height: 40px; font-size: 17px; color: #000; border-radius: 20px; top: 50%; left: 30px; background: #FFFFFF 0% 0% no-repeat padding-box; box-shadow: 0px 0px 6px #00000029; border: 1px solid transparent; opacity: 1; }
 .detail_page .trailer_section .movies_img button.carousel-control-next { width: 40px; height: 40px; font-size: 17px; color: #000; border-radius: 20px; top: 50%; right: 30px; background: #FFFFFF 0% 0% no-repeat padding-box; box-shadow: 0px 0px 6px #00000029; border: 1px solid transparent; opacity: 1; }
+.detail_page .trailer_section .movies_img button { padding: 0; }
+#detailModal .modal-dialog .cross-icon {
+    width: 40px;
+    height: 40px;
+    float: right;
+    bottom: 20px;
+    position: relative;
+    z-index: 1;
+    left: 20px;
+    cursor: pointer;
+}
+#detailModal .modal-dialog .modal-body { padding: 0; }
+#detailModal .modal-dialog .modal-body img { width: 100%; }
+
 
 /*Restaurant*/
 
@@ -514,7 +528,7 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 #loginModal .modal-content .modal-body p { position: relative; text-align: center; font-size: 26px; font-weight: 600; padding-top: 10px; color: #000000; }
 #loginModal .modal-content .modal-body .applestore { position: relative; width: 28%; margin: 0 0 0 105px; }
 #loginModal .modal-content .modal-body .googlestore { position: relative; width: 28%; margin: 0 0 0 10px; }
-#loginModal .modal-dialog .cross-icon { width: 40px; height: 40px; float: right; top: 20px; position: relative; z-index: 1; left: 20px; cursor: pointer; }
+#loginModal .modal-dialog .cross-icon { width: 40px; height: 40px; float: right; bottom: 20px; position: relative; z-index: 1; left: 20px; cursor: pointer; }
 
 /*profile login*/
 
