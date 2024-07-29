@@ -4,12 +4,12 @@
     .hidden {
         display: none;
     }
-    #loadingIndicator {
+    /* #loadingIndicator {
         display: none;
     }
     .trending_wrap {
         display: none;
-    }
+    } */
 </style>
 
 @section('content')
