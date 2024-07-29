@@ -46,9 +46,11 @@ session_start();
     .hidden {
         display: none;
     }
-
     .dropdown-content.show {
         display: block;
+    }
+    .swal2-actions .swal2-confirm.swal2-styled {
+        background-color: #FF385C
     }
 </style>
 
@@ -193,7 +195,6 @@ session_start();
         <div class="container"></div>
 
     </section>
-    <!--Modal-->
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -216,6 +217,24 @@ session_start();
                 if (searchText.length > 0) {
                     var csrfToken = $('meta[name="csrf-token"]').attr('content');
                     var token = localStorage.getItem('api_token');
+
+                    if (!token) {
+                        Swal.fire({
+                            title: 'Login Required',
+                            text: 'You need to login to perform this action.',
+                            icon: 'warning',
+                            confirmButtonText: 'Login',
+                            cancelButtonText: 'Cancel',
+                            showCancelButton: true
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = '/login';
+                            } else if (result.isDismissed) {
+                                window.location.href = '/';
+                            }
+                        });
+                        return;
+                    }
 
                     $('#loaderOverlay').show();
                     $('#loader').show();
