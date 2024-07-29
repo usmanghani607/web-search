@@ -16,7 +16,8 @@ session_start();
                                     </div>
                                     <div class="login_text">
                                         <h2>Welcome back!</h2>
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.</p>
+                                        <p>We've missed you! Log back in to discover great recommendations from your trusted
+                                            people.</p>
                                     </div>
                                 </div>
                             </div>
@@ -36,7 +37,7 @@ session_start();
 
                                             <div class="email mb-4">
                                                 <label class="form-label">Email*</label>
-                                                <input type="email" id="emailID" name="emailID"
+                                                <input type="email" id="emailId" name="emailId"
                                                     class="form-control form-control-lg" placeholder="Enter your email">
                                                 <span id="emailError" class="error_message"></span>
                                             </div>
@@ -99,7 +100,7 @@ session_start();
         <div id="loader">Loading...</div>
     </div>
 
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('.login_button').on('click', function(e) {
                 e.preventDefault();
@@ -107,8 +108,8 @@ session_start();
                 $('#overlay').show();
 
                 $.ajax({
-                    // url: "{{ route('process') }}",
-                    url: "https://dev.therecz.com/user_login",
+                    url: "{{ route('process') }}",
+                    // url: "https://dev.therecz.com/user_login",
                     type: "POST",
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -167,23 +168,84 @@ session_start();
                 }
             }
         });
-    </script>
+    </script> --}}
 
     <script>
         $(document).ready(function() {
-            $('#emailID').on('input', validateEmail);
-        });
+            $('.login_button').on('click', function(e) {
+                e.preventDefault();
 
-        function validateEmail() {
-            const emailInput = $('#emailID');
-            const emailError = $('#emailError');
-            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                const emailId = $('#emailId').val();
+                const password = $('#pass').val();
+                const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
-            if (!emailPattern.test(emailInput.val())) {
-                emailError.text('Please enter a valid email address.');
-            } else {
-                emailError.text('');
+                if (!emailPattern.test(emailId)) {
+                    $('#emailError').text('Please enter a valid email address.');
+                    $('#emailId').addClass('error_border');
+                    return;
+                } else {
+                    $('#emailError').text('');
+                    $('#emailId').removeClass('error_border');
+                }
+
+                $('#overlay').show();
+
+                $.ajax({
+                    url: "{{ route('process') }}",
+                    type: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json'
+                    },
+                    data: JSON.stringify({
+                        emailID: emailId,
+                        pass: password
+
+                    }),
+                    success: function(response) {
+                        $('#overlay').hide();
+
+                        if (response.success) {
+                            localStorage.setItem('api_token', response.token);
+                            localStorage.setItem('firstName', response.firstName);
+                            window.location.href = response.redirect_url;
+                        } else {
+                            displayErrors(response.errors);
+                        }
+                    },
+                    error: function(xhr) {
+                        $('#overlay').hide();
+
+                        const errors = xhr.responseJSON ? xhr.responseJSON.errors : {
+                            password: 'An error occurred'
+                        };
+                        displayErrors(errors);
+                    }
+                });
+            });
+
+            function displayErrors(errors) {
+                $('#emailError').html('');
+                $('#passwordError').html('');
+
+                $('#emailId').removeClass('error_border');
+                $('#pass').removeClass('error_border');
+
+                if (errors.emailID) {
+                    $('#emailError').html(errors.emailID);
+                    $('#emailId').addClass('error_border');
+                }
+
+                if (errors.pass) {
+                    $('#passwordError').html(errors.pass);
+                    $('#pass').addClass('error_border');
+                }
+
+                if (errors.password) {
+                    $('#passwordError').html(errors.password);
+                    $('#pass').addClass('error_border');
+                }
             }
-        }
+        });
     </script>
 @endsection

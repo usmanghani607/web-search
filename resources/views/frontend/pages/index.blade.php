@@ -2,9 +2,14 @@
 
 <style>
     .hidden {
-    display: none;
-}
-
+        display: none;
+    }
+    #loadingIndicator {
+        display: none;
+    }
+    .trending_wrap {
+        display: none;
+    }
 </style>
 
 @section('content')
@@ -63,6 +68,23 @@
                         <div class="trend_heading">
                             <h4>Trending Search</h4>
                         </div>
+
+                        {{-- <div id="trendingWrap" class="trending_wrap" style="display: none;">
+                            <div class="search_icon">
+                                <img src="{{ asset('images/search-icon.png') }}" alt="">
+                            </div>
+                            <span id="trendTitle">Harry Potter</span>
+                            <div class="arrow">
+                                <img src="{{ asset('images/arrow.png') }}" alt="">
+                            </div>
+                        </div>
+
+                        <div id="loadingIndicator">
+                            <p>Loading...</p>
+                        </div> --}}
+
+
+
                         <div class="trending_wrap">
                             <div class="search_icon">
                                 <img src="{{ asset('images/search-icon.png') }}" alt="">
@@ -166,6 +188,54 @@
             }
         }
     </script>
+
+    {{-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('api_token');
+            console.log('Token:', token);
+
+            if (!token) {
+                console.error('Token not found in localStorage.');
+                document.getElementById('loadingIndicator').textContent = 'Token not found. Cannot load trends.';
+                return;
+            }
+
+            fetch('https://api-dev.therecz.com/api/post/get-trends.php', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({})
+                })
+                .then(response => {
+                    console.log('Response:', response);
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data:', data);
+
+                    if (data.success && data.result.length > 0) {
+                        document.getElementById('loadingIndicator').style.display = 'none';
+
+                        const trendingWrap = document.getElementById('trendingWrap');
+                        trendingWrap.style.display = 'flex';
+
+                        document.getElementById('trendTitle').textContent = data.result[0].title;
+                    } else {
+                        console.warn('No trends found or API response was not successful');
+                        document.getElementById('loadingIndicator').textContent = 'No trends available.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching trends:', error);
+                    document.getElementById('loadingIndicator').textContent = 'Failed to load trends.';
+                });
+        });
+    </script> --}}
 
     {{-- <script>
         var firstName = localStorage.getItem('firstName');
