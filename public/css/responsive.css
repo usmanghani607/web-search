@@ -31,7 +31,7 @@
     .filter_restaurant .list_heading p { font-size: 22px; }
     .header_filter .search_checkbox { padding: 0; }
     .copy-right-text p { padding: 0 10px; }
-    .detail_page .trailer_section .movies_img img { padding-bottom: 10px; }
+    .detail_page .trailer_section .movies_img img { padding-bottom: 10px; height: auto; }
     .detail_page .trailer_section .col-md-3 { padding-right: 0; padding-left: 0; }
     .question .chat-container .send_icon img { right: 2%; }
     .filter_list .img_round img { width: 100% !important; height: 100% !important; object-fit: contain !important; }
@@ -40,7 +40,7 @@
     .detail_page .about_section .title .video_links iframe { width: 100%; height: auto; }
     .detail_page .about_section .title .comment_area p { margin-top: 0; padding: 0; }
     .detail_page .more_section .title .card .card-main-img { width: 100%; height: 100%; object-fit: contain; }
-    .detail_page .about_section .title .col-md-3 .icons { padding-bottom: 20px; }
+    .detail_page .about_section .title .col-md-3 .icons { padding-bottom: 20px; text-align: left; }
     .detail_page .title_section .title .name { font-size: 24px; }
     /* .detail_page .title_section .title { padding: 20px 15px; } */
     .detail_page .title_section .title .people_like span.start_empty img { width: 24px; height: 24px; }
