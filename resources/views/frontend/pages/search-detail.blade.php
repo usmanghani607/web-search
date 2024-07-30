@@ -63,17 +63,6 @@ session_start();
         </div>
     </div>
 
-    {{-- <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <img class="cross-icon" src="{{ asset('images/cross.png') }}" alt="">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img id="modalImage" src="" alt="Image" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
     <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -225,7 +214,7 @@ session_start();
                                                     @endif
                                                 @endforeach
                                             </span>
-                                            <span style="color: #000000">
+                                            {{-- <span style="color: #000000">
                                                 @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
                                                     <span
                                                         class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
@@ -234,7 +223,22 @@ session_start();
                                                 @else
                                                     <span class="start_bold">No one</span> Recz it yet!
                                                 @endif
+                                            </span> --}}
+
+                                            <span style="color: #000000">
+                                                @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
+                                                    @if (count($result['lstRating']) == 1)
+                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span> Recz it!
+                                                    @else
+                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        and {{ count($result['lstRating']) - 1 }}
+                                                        <span class="start_bold">other</span> people Recz it!
+                                                    @endif
+                                                @else
+                                                    <span class="start_bold">No one</span> Recz it yet!
+                                                @endif
                                             </span>
+
 
                                             <span class="start_empty">
                                                 <img src="{{ asset('images/start-empty.png') }}" alt="">
