@@ -9,7 +9,7 @@
     {{-- updated --}}
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}?{{ uniqid() }}">
-    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}?{{ uniqid() }}">
     <link rel="icon" type="image/png" href="{{ asset('img/favicon.png')  }}">
 
     {{-- <link rel="stylesheet" href="{{ secure_asset('css/bootstrap.min.css') }}">
