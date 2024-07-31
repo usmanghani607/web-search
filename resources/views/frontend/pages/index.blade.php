@@ -4,12 +4,14 @@
     .hidden {
         display: none;
     }
+
     /* #loadingIndicator {
         display: none;
     }
     .trending_wrap {
         display: none;
     } */
+
 </style>
 
 @section('content')
@@ -69,23 +71,11 @@
                             <h4>Trending Search</h4>
                         </div>
 
-                        {{-- <div id="trendingWrap" class="trending_wrap" style="display: none;">
-                            <div class="search_icon">
-                                <img src="{{ asset('images/search-icon.png') }}" alt="">
-                            </div>
-                            <span id="trendTitle">Harry Potter</span>
-                            <div class="arrow">
-                                <img src="{{ asset('images/arrow.png') }}" alt="">
-                            </div>
-                        </div>
-
-                        <div id="loadingIndicator">
-                            <p>Loading...</p>
+                        {{-- <div id="trending-container" class="trending_wrap">
                         </div> --}}
 
 
-
-                        <div class="trending_wrap">
+                        {{-- <div class="trending_wrap">
                             <div class="search_icon">
                                 <img src="{{ asset('images/search-icon.png') }}" alt="">
                             </div>
@@ -130,7 +120,7 @@
                             <div class="arrow">
                                 <img src="{{ asset('images/arrow.png') }}" alt="">
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div class="chat-icon" id="chatIcon">
@@ -189,84 +179,59 @@
         }
     </script>
 
-    {{-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const token = localStorage.getItem('api_token');
-            console.log('Token:', token);
+    <script src="{{ asset('js/fetchTrends.js') }}"></script>
 
-            if (!token) {
-                console.error('Token not found in localStorage.');
-                document.getElementById('loadingIndicator').textContent = 'Token not found. Cannot load trends.';
+    {{-- <script>
+        $(document).ready(function() {
+
+            // Fetch API token from localStorage
+            var apiToken = localStorage.getItem('api_token');
+            console.log('Retrieved token:', apiToken);
+
+            if (!apiToken) {
+                console.error('API token not found in localStorage.');
                 return;
             }
 
-            fetch('https://api-dev.therecz.com/api/post/get-trends.php', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({})
-                })
-                .then(response => {
-                    console.log('Response:', response);
-                    if (!response.ok) {
-                        throw new Error(`Network response was not ok: ${response.statusText}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Data:', data);
+            $.ajax({
+                url: 'https://api-dev.therecz.com/api/post/get-trends.php',
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + apiToken,
+                    'Content-Type': 'application/json'
+                },
+                success: function(response) {
+                    if (response.success) {
 
-                    if (data.success && data.result.length > 0) {
-                        document.getElementById('loadingIndicator').style.display = 'none';
+                        console.log('Trends Data:', response.result);
 
-                        const trendingWrap = document.getElementById('trendingWrap');
-                        trendingWrap.style.display = 'flex';
+                        var trends = response.result;
+                        var container = $('#trending-container');
+                        container.empty();
 
-                        document.getElementById('trendTitle').textContent = data.result[0].title;
+                        trends.forEach(function(trend) {
+                            var trendHtml = `
+                            <div class="trending_item">
+                                <div class="search_icon">
+                                    <img src="` + trend.socialImg + `" alt="Profile Image">
+                                </div>
+                                <span>` + trend.title + `</span>
+                                <div class="arrow">
+                                    <img src="{{ asset('images/arrow.png') }}" alt="Arrow">
+                                </div>
+                            </div>
+                        `;
+                            container.append(trendHtml);
+                        });
                     } else {
-                        console.warn('No trends found or API response was not successful');
-                        document.getElementById('loadingIndicator').textContent = 'No trends available.';
+                        console.error('Error fetching trends:', response.message);
                     }
-                })
-                .catch(error => {
-                    console.error('Error fetching trends:', error);
-                    document.getElementById('loadingIndicator').textContent = 'Failed to load trends.';
-                });
-        });
-    </script> --}}
-
-    {{-- <script>
-        var firstName = localStorage.getItem('firstName');
-        if (firstName) {
-            $('.login_profile span').text('Hello ' + firstName);
-        }
-    </script> --}}
-
-    {{-- <script>
-        function toggleDropdown() {
-            var dropdown = document.getElementById("myDropdown");
-            dropdown.classList.toggle("show");
-        }
-
-        function logout() {
-
-            sessionStorage.clear();
-
-            // localStorage.removeItem('api_token');
-            localStorage.clear();
-
-            window.location.href = '/login';
-        }
-
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdown = document.getElementById("myDropdown");
-                if (dropdown.classList.contains('show')) {
-                    dropdown.classList.remove('show');
+                },
+                error: function(xhr) {
+                    console.error('Error fetching trends:', xhr.responseText);
                 }
-            }
-        }
+            });
+
+        });
     </script> --}}
 @endsection

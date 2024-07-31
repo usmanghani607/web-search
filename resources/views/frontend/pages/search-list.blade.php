@@ -144,7 +144,8 @@ session_start();
                 <div class="col-md-12">
                     <div class="search_checkbox">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input filter-checkbox" type="checkbox" id="all" value="All" checked>
+                            <input class="form-check-input filter-checkbox" type="checkbox" id="all" value="All"
+                                checked>
                             <label class="form-check-label" for="all">All</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -157,8 +158,7 @@ session_start();
                             <label class="form-check-label" for="web_series">Web series</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input filter-checkbox" type="checkbox" id="books"
-                                value="Books">
+                            <input class="form-check-input filter-checkbox" type="checkbox" id="books" value="Books">
                             <label class="form-check-label" for="books">Books</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -195,6 +195,23 @@ session_start();
         <div class="container"></div>
 
     </section>
+
+    {{-- <section class="listing_pagnation">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </section> --}}
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -297,15 +314,15 @@ session_start();
                 const category = $('.filter-checkbox:checked').val();
                 switch (category) {
                     case 'Movies':
-                        return 1;  // CatID for Movies
+                        return 1; // CatID for Movies
                     case 'Web Series':
-                        return 2;  // CatID for Web Series
+                        return 2; // CatID for Web Series
                     case 'Books':
-                        return 8;  // CatID for Books
+                        return 8; // CatID for Books
                     case 'Restaurants':
-                        return 3;  // CatID for Restaurants
+                        return 3; // CatID for Restaurants
                     default:
-                        return 0;  // CatID for All or unspecified
+                        return 0; // CatID for All or unspecified
                 }
             }
 
@@ -330,7 +347,7 @@ session_start();
             } else {
                 $('#all').prop('checked', true);
                 $('#searchResultText').text('Showing result “All”');
-                performSearch('All', 0);  // CatID for All
+                performSearch('All', 0); // CatID for All
             }
 
             function renderResults(results) {
