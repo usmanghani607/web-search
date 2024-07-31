@@ -58,6 +58,9 @@
     #loginModal .modal-dialog .cross-icon { left: 5px; }
 
     .index_wp .login_profile { padding: 25px 10px 0 0 !important; }
+    .topheader #indexForm input#searchInput { width:auto; }
+    /* .search-container .search_icon img { right: inherit; } */
+    .search-container { width: auto; }
 
 }
 
