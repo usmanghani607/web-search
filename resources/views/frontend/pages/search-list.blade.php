@@ -80,7 +80,6 @@ session_start();
                                     <img src="{{ asset('images/search-icon.png') }}" alt="">
                                 </div>
                             </form>
-
                         </div>
                         <div class="profile_btn">
                             <div class="col">
@@ -250,7 +249,7 @@ session_start();
                         },
                         data: {
                             search_query: searchText,
-							catID: catID
+                            catID: catID
                         },
                         success: function(response) {
                             $('#loaderOverlay').hide();
@@ -258,7 +257,6 @@ session_start();
 
                             if (response.success) {
                                 renderResults(response.result);
-                                $('#searchResultText').text(`Showing result “${searchText}”`);
                             } else {
                                 console.error('No results found');
                             }
@@ -276,31 +274,26 @@ session_start();
 
             $('#searchInput').on('input', function() {
                 var searchText = $(this).val().trim();
-                var selectedCatID = getSelectedCatID();
-                performSearch(searchText, selectedCatID);
-
-
+                $('#searchResultText').text(`Showing result “${searchText}”`);
             });
 
             $('#indexForm').on('submit', function(e) {
                 e.preventDefault();
                 var searchText = $('#searchInput').val().trim();
+                $('#searchResultText').text(`Showing result “${searchText}”`);
                 var selectedCatID = getSelectedCatID();
                 performSearch(searchText, selectedCatID);
             });
 
             $(document).on('change', '.filter-checkbox', function() {
-
                 $('.filter-checkbox').prop('checked', false);
-
                 $(this).prop('checked', true);
-
-				var searchText = $('#searchInput').val().trim();
+                var searchText = $('#searchInput').val().trim();
                 var selectedCatID = getSelectedCatID();
                 performSearch(searchText, selectedCatID);
             });
 
-			function getSelectedCatID() {
+            function getSelectedCatID() {
                 const category = $('.filter-checkbox:checked').val();
                 switch (category) {
                     case 'Movies':
@@ -332,10 +325,11 @@ session_start();
 
             if (searchQuery) {
                 $('#searchInput').val(searchQuery);
+                $('#searchResultText').text(`Showing result “${searchQuery}”`);
                 performSearch(searchQuery, getSelectedCatID());
             } else {
-
                 $('#all').prop('checked', true);
+                $('#searchResultText').text('Showing result “All”');
                 performSearch('All', 0);  // CatID for All
             }
 
@@ -366,31 +360,22 @@ session_start();
                         metaValue26 = metaItem ? metaItem.value : '';
                     }
 
-                    var metaValue22 = '';
-                    var metaValue26 = '';
-                    if (result.lstMeta) {
-                        var metaItem22 = result.lstMeta.find(meta => meta.metaID === 22);
-                        metaValue22 = metaItem22 ? metaItem22.value : '';
-                        var metaItem26 = result.lstMeta.find(meta => meta.metaID === 26);
-                        metaValue26 = metaItem26 ? metaItem26.value : '';
-                    }
-
                     var metaValue51 = '';
                     if (result.lstMeta) {
-                        var metaItem51 = result.lstMeta.find(meta => meta.metaID === 51);
-                        metaValue51 = metaItem51 ? metaItem51.value : '';
+                        var metaItem = result.lstMeta.find(meta => meta.metaID === 51);
+                        metaValue51 = metaItem ? metaItem.value : '';
                     }
 
                     var metaValue53 = '';
                     if (result.lstMeta) {
-                        var metaItem53 = result.lstMeta.find(meta => meta.metaID === 53);
-                        metaValue53 = metaItem53 ? metaItem53.value : '';
+                        var metaItem = result.lstMeta.find(meta => meta.metaID === 53);
+                        metaValue53 = metaItem ? metaItem.value : '';
                     }
 
                     var metaValue15 = '';
                     if (result.lstMeta) {
-                        var metaItem15 = result.lstMeta.find(meta => meta.metaID === 15);
-                        metaValue15 = metaItem15 ? metaItem15.value : '';
+                        var metaItem = result.lstMeta.find(meta => meta.metaID === 15);
+                        metaValue15 = metaItem ? metaItem.value : '';
                     }
 
                     var dataSrcHtml = '';
