@@ -162,10 +162,12 @@ class HomeController extends Controller
 
     public function searchListProcess(Request $request)
     {
+
         $searchQuery = $request->input('search_query');
+        $catID = $request->input('catID', 0);
         $endpoint = "https://api.therecz.com/api/search/post-v2.php";
         $postfields = [
-            'catID' => 0,
+            'catID' => $catID,
             'search' => $searchQuery,
             'userID' => 0,
             'page' => 1,

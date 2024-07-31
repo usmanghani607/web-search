@@ -214,240 +214,6 @@ session_start();
 
     <script>
         $(document).ready(function() {
-            function performSearch(searchText) {
-                if (searchText.length > 0) {
-                    var csrfToken = $('meta[name="csrf-token"]').attr('content');
-                    var token = localStorage.getItem('api_token');
-
-                    if (!token) {
-                        Swal.fire({
-                            title: 'Login Required',
-                            text: 'You need to login to perform this action.',
-                            icon: 'warning',
-                            confirmButtonText: 'Login',
-                            cancelButtonText: 'Cancel',
-                            showCancelButton: true
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href = '/login';
-                            } else if (result.isDismissed) {
-                                window.location.href = '/';
-                            }
-                        });
-                        return;
-                    }
-
-                    $('#loaderOverlay').show();
-                    $('#loader').show();
-
-                    $.ajax({
-                        url: "{{ route('search-list-process') }}",
-                        // url: "https://dev.therecz.com/search-list-process", // Ensure HTTPS is used
-                        type: 'POST',
-                        headers: {
-                            'X-CSRF-TOKEN': csrfToken,
-                            'Authorization': 'Bearer ' + token
-                        },
-                        data: {
-                            search_query: searchText
-                        },
-                        success: function(response) {
-                            $('#loaderOverlay').hide();
-                            $('#loader').hide();
-
-                            if (response.success) {
-                                renderResults(response.result);
-                                $('#searchResultText').text(`Showing result “${searchText}”`);
-                            } else {
-                                console.error('No results found');
-                            }
-                        },
-                        error: function(xhr, status, error) {
-                            $('#loaderOverlay').hide();
-                            $('#loader').hide();
-                            console.error(error);
-                        }
-                    });
-                } else {
-                    console.log('Empty search input');
-                }
-            }
-
-            $('#searchInput').on('input', function() {
-                var searchText = $(this).val().trim();
-                performSearch(searchText);
-
-                if (searchText.length === 0) {
-                    $('#searchResultText').text('');
-                }
-            });
-
-            $('#indexForm').on('submit', function(e) {
-                e.preventDefault();
-                var searchText = $('#searchInput').val().trim();
-                performSearch(searchText);
-            });
-
-            $(document).on('change', '.filter-checkbox', function() {
-
-                $('.filter-checkbox').prop('checked', false);
-
-                $(this).prop('checked', true);
-
-                if (this.checked) {
-                    var searchText = $(this).val();
-                    $('#searchInput').val(searchText);
-                    performSearch(searchText);
-                }
-            });
-
-            function getQueryParams() {
-                const params = {};
-                const queryString = window.location.search.substring(1).replace(/\+/g, ' ');
-                const regex = /([^&=]+)=([^&]*)/g;
-                let m;
-                while (m = regex.exec(queryString)) {
-                    params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-                }
-                return params;
-            }
-
-            const params = getQueryParams();
-            const searchQuery = params['search_query'];
-
-            if (searchQuery) {
-                $('#searchInput').val(searchQuery);
-                performSearch(searchQuery);
-                $('#searchResultText').text(`Showing result “${searchQuery}”`);
-            }
-
-            function renderResults(results) {
-                var container = $('.filter_list .container');
-                container.empty();
-
-                var charLimit = 300;
-
-                results.forEach(function(result) {
-                    var imgSrc = result.img ? result.img : '{{ asset('images/dummy_image.webp') }}';
-                    var lstReczItFrnd = result.lstReczItFrnd;
-                    var firstName = lstReczItFrnd.length > 0 ? lstReczItFrnd[0].firstName : '';
-                    var totalReczIt = result.totalReczIt;
-                    var reczItText = firstName ?
-                        `<span style="color: #000000"><span class="start_bold">${firstName}</span> and ${totalReczIt} <span class="start_bold">other</span> people Recz it!</span>` :
-                        '';
-
-                    var metaValue22 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 22);
-                        metaValue22 = metaItem ? metaItem.value : '';
-                    }
-
-                    var metaValue26 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 26);
-                        metaValue26 = metaItem ? metaItem.value : '';
-                    }
-
-                    var metaValue22 = '';
-                    var metaValue26 = '';
-                    if (result.lstMeta) {
-                        var metaItem22 = result.lstMeta.find(meta => meta.metaID === 22);
-                        metaValue22 = metaItem22 ? metaItem22.value : '';
-                        var metaItem26 = result.lstMeta.find(meta => meta.metaID === 26);
-                        metaValue26 = metaItem26 ? metaItem26.value : '';
-                    }
-
-                    var metaValue51 = '';
-                    if (result.lstMeta) {
-                        var metaItem51 = result.lstMeta.find(meta => meta.metaID === 51);
-                        metaValue51 = metaItem51 ? metaItem51.value : '';
-                    }
-
-                    var metaValue53 = '';
-                    if (result.lstMeta) {
-                        var metaItem53 = result.lstMeta.find(meta => meta.metaID === 53);
-                        metaValue53 = metaItem53 ? metaItem53.value : '';
-                    }
-
-                    var metaValue15 = '';
-                    if (result.lstMeta) {
-                        var metaItem15 = result.lstMeta.find(meta => meta.metaID === 15);
-                        metaValue15 = metaItem15 ? metaItem15.value : '';
-                    }
-
-                    var dataSrcHtml = '';
-                    if (result.catID === 1 && result.dataSrc) {
-                        dataSrcHtml = `<span class="imb">${result.dataSrc}</span>`;
-                    }
-
-                    var authorHtml = '';
-                    if (metaValue26) {
-                        authorHtml = `<div class="mb-2 auther">
-                                            <span>Auther - ${metaValue26}</span>
-                                        </div>`;
-                    }
-
-                    var additionalInfoHtml = '';
-                    if (result.catID === 1) {
-                        additionalInfoHtml = `<span class="yellow_star"><img src="{{ asset('images/yellow_star.png') }}" alt=""></span>
-                                                <span class="bold">${result.rating} / 10</span>`;
-                    }
-
-                    var metaValue15Html = metaValue15 ? `<div class="mb-2 text-gray">
-                                                <span>${metaValue15}.</span>
-                                            </div>` : '';
-
-                    function truncateText(text, limit) {
-                        return text.length > limit ? text.substring(0, limit) + '...' : text;
-                    }
-
-                    var metaValue53Html = metaValue53 ? `<div class="mb-3 text-gray">
-                                                <span>${truncateText(metaValue53, charLimit)}</span>
-                                            </div>` : '';
-
-                    var metaValue22Html = metaValue22 ? `<span>${metaValue22} ·</span>` : '';
-
-                    var resultHtml = `<div class="row mb-3">
-                                <div class="col-md-12">
-                                    <div class="card shadow-0 border rounded-3">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="img_round">
-                                                        <a href="{{ route('search-detail') }}?id=${result.pid}&catID=${result.catID ? result.catID : ''}">
-                                                            <img src="${imgSrc}" class="w-100" onerror="this.onerror=null;this.src='{{ asset('images/dummy_image.webp') }}';"/>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <h5>${result.title}</h5>
-                                                    ${authorHtml}
-                                                    ${metaValue15Html}
-                                                    <div class="mb-2 text-gray">
-                                                        ${metaValue22Html}
-                                                        <span>${metaValue51}</span>
-                                                        ${additionalInfoHtml}
-                                                        ${dataSrcHtml}
-                                                    </div>
-                                                    ${metaValue53Html}
-                                                    <div class="text-starts">
-                                                        <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${result.rating}</span>
-                                                        ${reczItText}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>`;
-                    container.append(resultHtml);
-                });
-            }
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
             function performSearch(searchText, catID) {
                 if (searchText.length > 0) {
                     var csrfToken = $('meta[name="csrf-token"]').attr('content');
@@ -475,8 +241,8 @@ session_start();
                     $('#loader').show();
 
                     $.ajax({
-                        url: "{{ route('search-list-process') }}",
-                        // url: "https://dev.therecz.com/search-list-process", // Ensure HTTPS is used
+                        // url: "{{ route('search-list-process') }}",
+                        url: "https://dev.therecz.com/search-list-process", // Ensure HTTPS is used
                         type: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': csrfToken,
@@ -568,7 +334,7 @@ session_start();
                 $('#searchInput').val(searchQuery);
                 performSearch(searchQuery, getSelectedCatID());
             } else {
-                // Check the "All" checkbox by default and perform search for "All"
+
                 $('#all').prop('checked', true);
                 performSearch('All', 0);  // CatID for All
             }
@@ -666,7 +432,7 @@ session_start();
                                             <div class="row">
                                                 <div class="col-md-2">
                                                     <div class="img_round">
-                                                        <a href="{{ route('search-detail') }}?id=${result.pid}&catID=${result.catID ? result.catID : ''}">
+                                                        <a href="https://dev.therecz.com/search-detail?id=${result.pid}&catID=${result.catID ? result.catID : ''}">
                                                             <img src="${imgSrc}" class="w-100" onerror="this.onerror=null;this.src='{{ asset('images/dummy_image.webp') }}';"/>
                                                         </a>
                                                     </div>
