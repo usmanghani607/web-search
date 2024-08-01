@@ -15,6 +15,39 @@ class HomeController extends Controller
         return view('frontend/pages/index');
     }
 
+    // public function index()
+    // {
+
+    //     $endpoint = 'https://api-dev.therecz.com/api/post/get-trends.php';
+
+    //     $response = Http::withOptions([
+    //         'verify' => false,
+    //     ])->get($endpoint);
+
+    //     if ($response->failed()) {
+
+    //         Log::error('Failed to fetch trends from API.', ['endpoint' => $endpoint]);
+
+    //         return view('frontend.pages.index')->with(['fetch' => 'Error fetching data from API']);
+    //     }
+
+    //     $responseData = $response->json();
+
+    //     dd($responseData);
+    //     exit();
+
+    //     if ($responseData['success'] && isset($responseData['result'])) {
+    //         $trends = $responseData['result'];
+
+    //         Log::info('Trends fetched successfully.', ['trends' => $trends]);
+
+    //         return view('frontend.pages.index', ['trends' => $trends]);
+    //     } else {
+
+    //         return view('frontend.pages.index')->with(['fetch' => 'No trends found or API response error']);
+    //     }
+    // }
+
 
     public function restaurant()
     {
@@ -159,6 +192,133 @@ class HomeController extends Controller
     {
         return view('frontend/pages/search-list');
     }
+
+    public function restaurantProcess(Request $request)
+    {
+        $searchQuery = $request->input('search_query');
+        $endpoint = "https://api-dev.therecz.com//api/search/nearby-posts.php";
+        $postfields = [
+            'search' => $searchQuery,
+            'type' => '',
+            'skipCache' => false
+        ];
+
+        $token = $request->header('Authorization');
+        if (!$token) {
+            return response()->json(['errors' => ['token' => 'Authorization token not provided']], 401);
+        }
+
+        $response = Http::withOptions([
+            'verify' => false,
+        ])->withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => $token,
+        ])->post($endpoint, $postfields);
+
+        if ($response->failed()) {
+            return response()->json(['errors' => ['search_query' => 'Error fetching data from API']], $response->status());
+        }
+
+        $responseData = $response->json();
+
+        // dd($responseData);
+        // exit();
+
+        if (isset($responseData['result'])) {
+            $result = $responseData['result'];
+
+            return response()->json([
+                'success' => true,
+                'result' => $result,
+                'search_query' => $searchQuery,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'errors' => ['search_query' => 'No results found for your query']
+            ], 401);
+        }
+    }
+
+
+    // public function restaurantProcess(Request $request)
+    // {
+    //     $searchQuery = $request->input('search_query');
+    //     $latitude = $request->input('latitude');
+    //     $longitude = $request->input('longitude');
+    //     $endpoint = "https://api-dev.therecz.com/api/search/places.php";
+    //     $postfields = [
+    //         'search' => $searchQuery,
+    //         'type' => '',
+    //         'skipCache' => false
+    //     ];
+
+    //     $token = $request->header('Authorization');
+    //     if (!$token) {
+    //         return response()->json(['errors' => ['token' => 'Authorization token not provided']], 401);
+    //     }
+
+    //     $response = Http::withOptions([
+    //         'verify' => false,
+    //     ])->withHeaders([
+    //         'Content-Type' => 'application/json',
+    //         'Authorization' => $token,
+    //     ])->post($endpoint, $postfields);
+
+    //     if ($response->failed()) {
+    //         return response()->json(['errors' => ['search_query' => 'Error fetching data from API']], $response->status());
+    //     }
+
+    //     $responseData = $response->json();
+
+    //     // dd($responseData);
+    //     // exit();
+
+    //     if (isset($responseData['result'])) {
+    //         $result = $responseData['result'];
+
+    //         // Fetching nearby posts using latitude and longitude
+    //         $nearbyEndpoint = "https://api-dev.therecz.com/api/search/nearby-posts.php";
+    //         $nearbyPostfields = [
+    //             'search' => $searchQuery,
+    //             'latitude' => $latitude,
+    //             'longitude' => $longitude,
+    //             'skipCache' => true
+    //         ];
+
+    //         $nearbyResponse = Http::withOptions([
+    //             'verify' => false,
+    //         ])->withHeaders([
+    //             'Content-Type' => 'application/json',
+    //             'Authorization' => $token,
+    //         ])->post($nearbyEndpoint, $nearbyPostfields);
+
+    //         dd($nearbyPostfields);
+    //         exit();
+
+    //         if ($nearbyResponse->failed()) {
+    //             return response()->json(['errors' => ['nearby_search' => 'Error fetching nearby posts from API']], $nearbyResponse->status());
+    //         }
+
+    //         $nearbyResponseData = $nearbyResponse->json();
+
+    //         dd($nearbyResponse);
+    //         exit();
+
+    //         return response()->json([
+    //             'success' => true,
+    //             'result' => $result,
+    //             'nearby_result' => $nearbyResponseData,
+    //             'search_query' => $searchQuery,
+    //         ]);
+    //     } else {
+    //         return response()->json([
+    //             'success' => false,
+    //             'errors' => ['search_query' => 'No results found for your query']
+    //         ], 401);
+    //     }
+    // }
+
 
     public function searchListProcess(Request $request)
     {

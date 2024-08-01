@@ -11,7 +11,6 @@
     .trending_wrap {
         display: none;
     } */
-
 </style>
 
 @section('content')
@@ -71,15 +70,14 @@
                             <h4>Trending Search</h4>
                         </div>
 
-                        {{-- <div id="trending-container" class="trending_wrap">
-                        </div> --}}
-
+                        <div class="trending_wrap" id="trending-wrap">
+                        </div>
 
                         {{-- <div class="trending_wrap">
                             <div class="search_icon">
                                 <img src="{{ asset('images/search-icon.png') }}" alt="">
                             </div>
-                            <span>Harry Potter</span>
+                            <span id="harryPotterSpan"><a href="">Harry Potter</a></span>
                             <div class="arrow">
                                 <img src="{{ asset('images/arrow.png') }}" alt="">
                             </div>
@@ -179,59 +177,111 @@
         }
     </script>
 
-    <script src="{{ asset('js/fetchTrends.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const token =
+                'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjI1MDA4MTAsImV4cCI6MTc1NDAzNjgxMCwiYXVkIjoiVVNFUiIsImRhdGEiOnsidWlkIjoiNDgxIiwiZmlyc3ROYW1lIjoidGVzdGluZyIsImxhc3ROYW1lIjoidGVzdGluZzEiLCJlbWFpbElEIjoiZ2hhbmlza3luZXRAZ21haWwuY29tIiwibG9naW5UeXBlIjpudWxsLCJjYWxsRnJvbSI6IklPUyJ9fQ.Eyk07gjtsfaMPqf0z2B6erVJC7DjmUJMeW39suC8GFA'; // Replace with your actual token
+
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            if (token) {
+                fetch('/api/fetch-trends', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        const trendsWrap = document.getElementById('trending-wrap');
+
+                        if (data.result && data.result.length > 0) {
+                            trendsWrap.innerHTML = data.result.map(trend => `
+                        <div class="trend_item">
+                            <div class="search_icon">
+                                <img src="{{ asset('images/search-icon.png') }}" alt="">
+                            </div>
+                            <span class="trend-item" data-query="${trend.catName}"><a href="#">${trend.catName}</a></span>
+                            <div class="arrow">
+                                <img src="{{ asset('images/arrow.png') }}" alt="">
+                            </div>
+                        </div>
+                    `).join('');
+
+                            // Add event listener for dynamically generated span elements
+                            document.querySelectorAll('.trend-item').forEach(span => {
+                                span.addEventListener('click', function() {
+                                    const query = this.getAttribute('data-query');
+                                    document.getElementById('searchQueryInput').value = query;
+                                    document.getElementById('indexForm').submit();
+                                });
+                            });
+                        } else {
+                            trendsWrap.innerHTML = '<p>No trends available.</p>';
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            } else {
+                console.error('No token found.');
+            }
+        });
+    </script>
 
     {{-- <script>
-        $(document).ready(function() {
+        document.addEventListener('DOMContentLoaded', function() {
 
-            // Fetch API token from localStorage
-            var apiToken = localStorage.getItem('api_token');
-            console.log('Retrieved token:', apiToken);
+            const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjI1MDA4MTAsImV4cCI6MTc1NDAzNjgxMCwiYXVkIjoiVVNFUiIsImRhdGEiOnsidWlkIjoiNDgxIiwiZmlyc3ROYW1lIjoidGVzdGluZyIsImxhc3ROYW1lIjoidGVzdGluZzEiLCJlbWFpbElEIjoiZ2hhbmlza3luZXRAZ21haWwuY29tIiwibG9naW5UeXBlIjpudWxsLCJjYWxsRnJvbSI6IklPUyJ9fQ.Eyk07gjtsfaMPqf0z2B6erVJC7DjmUJMeW39suC8GFA'; // Replace with your actual token
 
-            if (!apiToken) {
-                console.error('API token not found in localStorage.');
-                return;
-            }
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-            $.ajax({
-                url: 'https://api-dev.therecz.com/api/post/get-trends.php',
-                method: 'POST',
-                headers: {
-                    'Authorization': 'Bearer ' + apiToken,
-                    'Content-Type': 'application/json'
-                },
-                success: function(response) {
-                    if (response.success) {
-
-                        console.log('Trends Data:', response.result);
-
-                        var trends = response.result;
-                        var container = $('#trending-container');
-                        container.empty();
-
-                        trends.forEach(function(trend) {
-                            var trendHtml = `
-                            <div class="trending_item">
-                                <div class="search_icon">
-                                    <img src="` + trend.socialImg + `" alt="Profile Image">
-                                </div>
-                                <span>` + trend.title + `</span>
-                                <div class="arrow">
-                                    <img src="{{ asset('images/arrow.png') }}" alt="Arrow">
-                                </div>
-                            </div>
-                        `;
-                            container.append(trendHtml);
-                        });
-                    } else {
-                        console.error('Error fetching trends:', response.message);
+            if (token) {
+                fetch('/api/fetch-trends', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken
                     }
-                },
-                error: function(xhr) {
-                    console.error('Error fetching trends:', xhr.responseText);
-                }
-            });
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const trendsWrap = document.getElementById('trending-wrap');
 
+                    if (data.result && data.result.length > 0) {
+                        trendsWrap.innerHTML = data.result.map(trend => `
+                            <div class="search_icon">
+                                <img src="{{ asset('images/search-icon.png') }}" alt="">
+                            </div>
+                            <span><a href="">${trend.catName}</a></span>
+                            <div class="arrow">
+                                <img src="{{ asset('images/arrow.png') }}" alt="">
+                            </div>
+
+                        `).join('');
+                    } else {
+                        trendsWrap.innerHTML = '<p>No trends available.</p>';
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            } else {
+                console.error('No token found.');
+            }
+        });
+    </script> --}}
+
+    {{-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const harryPotterSpan = document.getElementById('harryPotterSpan');
+            const searchQueryInput = document.getElementById('searchQueryInput');
+            const indexForm = document.getElementById('indexForm');
+
+            harryPotterSpan.addEventListener('click', function(event) {
+                event.preventDefault();
+                searchQueryInput.value = 'Harry Potter';
+                indexForm.submit();
+            });
         });
     </script> --}}
 @endsection

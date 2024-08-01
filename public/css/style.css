@@ -94,7 +94,9 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 /*filter page*/
 
 .filter_result p { margin: 20px 0; font-size: 20px; }
+.filter_resulted p { margin: 20px 0; font-size: 20px; }
 .filter_result span.restaurant_result { font-size: 20px; font-weight: 500; }
+.filter_resulted span.restaurant_result { font-size: 20px; font-weight: 500; }
 .filter_list h5 { font-size: 20px; color: #000000; }
 .filter_list .auther span { color: #000000; font-size: 16px; }
 .filter_list .text-gray { color: #505050; }
@@ -220,6 +222,7 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 .index_wp .search_wrap .search-input { position: relative; }
 .index_wp .trend_heading h4 { text-align: center; font-size: 18px; font-weight: 500; padding: 25px 0; margin: 0; }
 .index_wp .trending_wrap span { font-size: 18px; color: #333333; padding-left: 30px; }
+.index_wp .trending_wrap span a { text-decoration: none; color: #333333; }
 .trending_wrap { position: relative; border-bottom: 1px solid #E4E4E4; padding: 8px 0; }
 /* .trending_wrap .fa-magnifying-glass { position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: #aaa; } */
 .trending_wrap .search_icon img { position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 18px; height: 18px;}

@@ -15,12 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TrendController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::post('index_search', [HomeController::class, 'indexProcess'])->name('index-process');
 
 Route::get('search-list', [HomeController::class, 'searchList'])->name('search-list');
 Route::post('search-list-process', [HomeController::class, 'searchListProcess'])->name('search-list-process');
+Route::post('/restaurant-process', [HomeController::class, 'restaurantProcess'])->name('restaurant-process');
+
+Route::post('/api/fetch-trends', [TrendController::class, 'fetchTrends']);
 
 Route::get('search-detail', [HomeController::class, 'searchDetail'])->name('search-detail');
 Route::get('search-detail2', [HomeController::class, 'searchDetail2'])->name('search-detail2');
