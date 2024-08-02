@@ -66,11 +66,11 @@ session_start();
     <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                    <div class="close" style="height: 0">
-                        <div data-bs-dismiss="modal" aria-label="Close">
-                            <img class="cross-icon" src="{{ asset('images/cross.png') }}" alt="">
-                        </div>
+                <div class="close" style="height: 0">
+                    <div data-bs-dismiss="modal" aria-label="Close">
+                        <img class="cross-icon" src="{{ asset('images/cross.png') }}" alt="">
                     </div>
+                </div>
                 <div class="modal-body">
                     <img id="modalImage" src="" alt="Image" class="img-fluid">
                 </div>
@@ -228,9 +228,12 @@ session_start();
                                             <span style="color: #000000">
                                                 @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
                                                     @if (count($result['lstRating']) == 1)
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span> Recz it!
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        Recz it!
                                                     @else
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
                                                         and {{ count($result['lstRating']) - 1 }}
                                                         <span class="start_bold">other</span> people Recz it!
                                                     @endif
@@ -775,7 +778,7 @@ session_start();
             <div class="row">
                 <div class="col-md-12">
 
-                    <div class="trailer_section">
+                    {{-- <div class="trailer_section">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
@@ -814,7 +817,94 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
+
+                    @if (isset($result['lstMedia']) && count($result['lstMedia']) < 3)
+                        <div class="trailer_section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="carouselRestControls" class="carousel slide movies_img"
+                                            data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                @if (count($result['lstMedia']) > 0)
+                                                    @foreach ($result['lstMedia'] as $index => $media)
+                                                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                                            <div class="row">
+                                                                <img src="{{ $media['link'] }}" alt="...">
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                @else
+                                                    <div class="carousel-item active">
+                                                        <div class="row">
+                                                            <img src="{{ asset('images/dummy_image.webp') }}"
+                                                                alt="No Image Available">
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            </div>
+
+                                            @if (count($result['lstMedia']) > 1)
+                                                <button class="carousel-control-prev" type="button"
+                                                    data-bs-target="#carouselRestControls" data-bs-slide="prev">
+                                                    <span><i class="fas fa-chevron-left"></i></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button"
+                                                    data-bs-target="#carouselRestControls" data-bs-slide="next">
+                                                    <span><i class="fas fa-chevron-right"></i></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="trailer_section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            @if (count($result['lstMedia']) > 0)
+                                                <div class="col-md-8">
+                                                    <img class="full_img"
+                                                        src="{{ $result['lstMedia'][0]['link'] ?? asset('images/dummy_image.webp') }}"
+                                                        alt="">
+                                                </div>
+                                            @else
+                                                <div class="col-md-8">
+                                                    <img class="full_img" src="{{ asset('images/dummy_image.webp') }}"
+                                                        alt="Dummy Image">
+                                                </div>
+                                            @endif
+                                            <div class="col-md-4">
+                                                @if (count($result['lstMedia']) > 1)
+                                                    <img class="first_img"
+                                                        src="{{ $result['lstMedia'][1]['link'] ?? asset('images/dummy_image.webp') }}"
+                                                        alt="">
+                                                @else
+                                                    <img class="first_img" src="{{ asset('images/dummy_image.webp') }}"
+                                                        alt="Dummy Image">
+                                                @endif
+                                                @if (count($result['lstMedia']) > 2)
+                                                    <p><img class="secnd_img"
+                                                            src="{{ $result['lstMedia'][2]['link'] ?? asset('images/dummy_image.webp') }}"
+                                                            alt=""></p>
+                                                @else
+                                                    <p><img class="secnd_img"
+                                                            src="{{ asset('images/dummy_image.webp') }}"
+                                                            alt="Dummy Image"></p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
 
 
                     <div class="title_section">
@@ -934,7 +1024,7 @@ session_start();
                                         <div class="border"></div>
 
 
-                                        <div class="rest_name">Cuisine</div>
+                                        {{-- <div class="rest_name">Cuisine</div>
                                         <div class="dish_img">
                                             <div class="row">
                                                 <div class="col-md-2">
@@ -970,13 +1060,13 @@ session_start();
                                             </div>
                                         </div>
 
-                                        <div class="border"></div>
+                                        <div class="border"></div> --}}
 
                                         <div class="about_heading">About The Restaurant</div>
                                         <div class="info_area">
                                             <div class="row">
-                                                <div class="price"><img src="{{ asset('images/price.png') }}"
-                                                        alt=""><span>$50 for two</span></div>
+                                                {{-- <div class="price"><img src="{{ asset('images/price.png') }}"
+                                                        alt=""><span>$50 for two</span></div> --}}
                                                 <div class="location"><img src="{{ asset('images/location-icon.png') }}"
                                                         alt=""><span>{{ isset($result['location']) && !empty($result['location']) ? $result['location'] : 'No location available' }}
                                                     </span></div>
@@ -1012,7 +1102,7 @@ session_start();
 
                                         <div class="border"></div>
 
-                                        <div class="menu">Menu</div>
+                                        {{-- <div class="menu">Menu</div>
                                         <div class="dish_menu">
                                             <div class="row">
                                                 <div class="col-md-2">
@@ -1030,7 +1120,7 @@ session_start();
                                             </div>
                                         </div>
 
-                                        <div class="border"></div>
+                                        <div class="border"></div> --}}
 
                                         <div class="summary_name">Description</div>
                                         <div class="summary_des">
@@ -1038,7 +1128,7 @@ session_start();
                                         </div>
                                         <div class="border"></div>
 
-                                        <div class="menu">Menu</div>
+                                        {{-- <div class="menu">Menu</div>
                                         <div class="dish_menu">
                                             <div class="row">
                                                 <div class="col-md-2">
@@ -1056,7 +1146,7 @@ session_start();
                                             </div>
                                         </div>
 
-                                        <div class="border"></div>
+                                        <div class="border"></div> --}}
 
                                         <div class="comments_name">Comments</div>
                                         @if (isset($comments) && count($comments) > 0)
