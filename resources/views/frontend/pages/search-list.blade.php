@@ -83,7 +83,7 @@ session_start();
                             aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button> --}}
-                        <div class="col">
+                        <div class="col-md-3 recz_logo">
                             <div class="logo_left">
                                 <a href="/"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
                             </div>
