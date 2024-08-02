@@ -51,10 +51,6 @@ session_start();
         display: block;
     }
 
-    .swal2-actions .swal2-confirm.swal2-styled {
-        background-color: #FF385C
-    }
-
     .filter_restaurant {
         display: none;
     }
@@ -229,6 +225,296 @@ session_start();
             </div>
         </div>
     </section>
+
+    {{-- <section class="map_section" style="display: none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="map" style="width: 100%; height: 350px;"></div>
+                </div>
+            </div>
+        </div>
+    </section> --}}
+
+
+
+    {{-- <section class="filter_restaurant" style="display: none;">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <div class="list_heading">
+                        <p>Restaurants near you <a href="#" class="see">See All</a></p>
+                    </div>
+                    <div class="row">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="card">
+                                                <div class="card_img">
+                                                    <img class="card-main-img" src="{{ asset('images/restautant1.png') }}"
+                                                        alt="restaurant img">
+                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
+                                                        alt="Top Image">
+                                                    <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
+                                                        alt="Top Image">
+                                                    <span>Prerna, Ranga and 12 other people visited here!</span>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
+                                                    <h3 class="card-text">New York</h3>
+                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                            alt="">4.5</span>
+                                                    <span class="rating">425 Users Recz It!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="card">
+                                                <div class="card_img">
+                                                    <img class="card-main-img" src="{{ asset('images/restautant2.png') }}"
+                                                        alt="restaurant img">
+                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img.png') }}"
+                                                        alt="Top Image">
+                                                    <img class="overlay-first-img" src="{{ asset('images/top_img_2.png') }}"
+                                                        alt="Top Image">
+                                                    <span>Pamkhuri, Prerna, and 12 other people visited here!</span>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
+                                                    <h3 class="card-text">New York</h3>
+                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                            alt="">4.5</span>
+                                                    <span class="rating">425 Users Recz It!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="card">
+                                                <div class="card_img">
+                                                    <img class="card-main-img" src="{{ asset('images/restautant1.png') }}"
+                                                        alt="restaurant img">
+                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
+                                                        alt="Top Image">
+                                                    <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
+                                                        alt="Top Image">
+                                                    <span>Prerna, Ranga and 12 other people visited here!</span>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
+                                                    <h3 class="card-text">New York</h3>
+                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                            alt="">4.5</span>
+                                                    <span class="rating">425 Users Recz It!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="card">
+                                                <div class="card_img">
+                                                    <img class="card-main-img" src="{{ asset('images/restautant2.png') }}"
+                                                        alt="restaurant img">
+                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img.png') }}"
+                                                        alt="Top Image">
+                                                    <img class="overlay-first-img" src="{{ asset('images/top_img_2.png') }}"
+                                                        alt="Top Image">
+                                                    <span>Pamkhuri, Prerna, and 12 other people visited here!</span>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
+                                                    <h3 class="card-text">New York</h3>
+                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                            alt="">4.5</span>
+                                                    <span class="rating">425 Users Recz It!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="card">
+                                                <div class="card_img">
+                                                    <img class="card-main-img" src="{{ asset('images/restautant1.png') }}"
+                                                        alt="restaurant img">
+                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
+                                                        alt="Top Image">
+                                                    <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
+                                                        alt="Top Image">
+                                                    <span>Prerna, Ranga and 12 other people visited here!</span>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
+                                                    <h3 class="card-text">New York</h3>
+                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                            alt="">4.5</span>
+                                                    <span class="rating">425 Users Recz It!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="card">
+                                                <div class="card_img">
+                                                    <img class="card-main-img" src="{{ asset('images/restautant2.png') }}"
+                                                        alt="restaurant img">
+                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img.png') }}"
+                                                        alt="Top Image">
+                                                    <img class="overlay-first-img" src="{{ asset('images/top_img_2.png') }}"
+                                                        alt="Top Image">
+                                                    <span>Pamkhuri, Prerna, and 12 other people visited here!</span>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
+                                                    <h3 class="card-text">New York</h3>
+                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                            alt="">4.5</span>
+                                                    <span class="rating">425 Users Recz It!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="card">
+                                                <div class="card_img">
+                                                    <img class="card-main-img" src="{{ asset('images/restautant1.png') }}"
+                                                        alt="restaurant img">
+                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
+                                                        alt="Top Image">
+                                                    <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
+                                                        alt="Top Image">
+                                                    <span>Prerna, Ranga and 12 other people visited here!</span>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
+                                                    <h3 class="card-text">New York</h3>
+                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                            alt="">4.5</span>
+                                                    <span class="rating">425 Users Recz It!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="card">
+                                                <div class="card_img">
+                                                    <img class="card-main-img" src="{{ asset('images/restautant2.png') }}"
+                                                        alt="restaurant img">
+                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img.png') }}"
+                                                        alt="Top Image">
+                                                    <img class="overlay-first-img" src="{{ asset('images/top_img_2.png') }}"
+                                                        alt="Top Image">
+                                                    <span>Pamkhuri, Prerna, and 12 other people visited here!</span>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
+                                                    <h3 class="card-text">New York</h3>
+                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                            alt="">4.5</span>
+                                                    <span class="rating">425 Users Recz It!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="card">
+                                                <div class="card_img">
+                                                    <img class="card-main-img" src="{{ asset('images/restautant1.png') }}"
+                                                        alt="restaurant img">
+                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
+                                                        alt="Top Image">
+                                                    <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
+                                                        alt="Top Image">
+                                                    <span>Prerna, Ranga and 12 other people visited here!</span>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
+                                                    <h3 class="card-text">New York</h3>
+                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                            alt="">4.5</span>
+                                                    <span class="rating">425 Users Recz It!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="card">
+                                                <div class="card_img">
+                                                    <img class="card-main-img" src="{{ asset('images/restautant2.png') }}"
+                                                        alt="restaurant img">
+                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img.png') }}"
+                                                        alt="Top Image">
+                                                    <img class="overlay-first-img" src="{{ asset('images/top_img_2.png') }}"
+                                                        alt="Top Image">
+                                                    <span>Pamkhuri, Prerna, and 12 other people visited here!</span>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
+                                                    <h3 class="card-text">New York</h3>
+                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                            alt="">4.5</span>
+                                                    <span class="rating">425 Users Recz It!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="card">
+                                                <div class="card_img">
+                                                    <img class="card-main-img" src="{{ asset('images/restautant1.png') }}"
+                                                        alt="restaurant img">
+                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
+                                                        alt="Top Image">
+                                                    <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
+                                                        alt="Top Image">
+                                                    <span>Prerna, Ranga and 12 other people visited here!</span>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
+                                                    <h3 class="card-text">New York</h3>
+                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                            alt="">4.5</span>
+                                                    <span class="rating">425 Users Recz It!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="card">
+                                                <div class="card_img">
+                                                    <img class="card-main-img" src="{{ asset('images/restautant2.png') }}"
+                                                        alt="restaurant img">
+                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img.png') }}"
+                                                        alt="Top Image">
+                                                    <img class="overlay-first-img" src="{{ asset('images/top_img_2.png') }}"
+                                                        alt="Top Image">
+                                                    <span>Pamkhuri, Prerna, and 12 other people visited here!</span>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
+                                                    <h3 class="card-text">New York</h3>
+                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
+                                                            alt="">4.5</span>
+                                                    <span class="rating">425 Users Recz It!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> --}}
+
+
     <section class="filter_restaurant" style="display: none;">
         <div class="container">
             <div class="row mb-3">
@@ -237,131 +523,27 @@ session_start();
                         <p>Restaurants near you <a href="#" class="see">See All</a></p>
                     </div>
                     <div class="row">
-                        <div class="col-md-2">
-                            <div class="card">
-                                <div class="card_img">
-                                    <img class="card-main-img" src="{{ asset('images/restautant1.png') }}"
-                                        alt="restaurant img">
-                                    <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
-                                        alt="Top Image">
-                                    <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
-                                        alt="Top Image">
-                                    <span>Prerna, Ranga and 12 other people visited here!</span>
-                                </div>
-                                <div class="card-body">
-                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                    <h3 class="card-text">New York</h3>
-                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                            alt="">4.5</span>
-                                    <span class="rating">425 Users Recz It!</span>
-                                </div>
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner" id="restaurant-carousel-inner">
+
                             </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="card">
-                                <div class="card_img">
-                                    <img class="card-main-img" src="{{ asset('images/restautant2.png') }}"
-                                        alt="restaurant img">
-                                    <img class="overlay-sec-img" src="{{ asset('images/top_img.png') }}"
-                                        alt="Top Image">
-                                    <img class="overlay-first-img" src="{{ asset('images/top_img_2.png') }}"
-                                        alt="Top Image">
-                                    <span>Pamkhuri, Prerna, and 12 other people visited here!</span>
-                                </div>
-                                <div class="card-body">
-                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                    <h3 class="card-text">New York</h3>
-                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                            alt="">4.5</span>
-                                    <span class="rating">425 Users Recz It!</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="card">
-                                <div class="card_img">
-                                    <img class="card-main-img" src="{{ asset('images/restautant1.png') }}"
-                                        alt="restaurant img">
-                                    <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
-                                        alt="Top Image">
-                                    <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
-                                        alt="Top Image">
-                                    <span>Prerna, Ranga and 12 other people visited here!</span>
-                                </div>
-                                <div class="card-body">
-                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                    <h3 class="card-text">New York</h3>
-                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                            alt="">4.5</span>
-                                    <span class="rating">425 Users Recz It!</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="card">
-                                <div class="card_img">
-                                    <img class="card-main-img" src="{{ asset('images/restautant2.png') }}"
-                                        alt="restaurant img">
-                                    <img class="overlay-sec-img" src="{{ asset('images/top_img.png') }}"
-                                        alt="Top Image">
-                                    <img class="overlay-first-img" src="{{ asset('images/top_img_2.png') }}"
-                                        alt="Top Image">
-                                    <span>Pamkhuri, Prerna, and 12 other people visited here!</span>
-                                </div>
-                                <div class="card-body">
-                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                    <h3 class="card-text">New York</h3>
-                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                            alt="">4.5</span>
-                                    <span class="rating">425 Users Recz It!</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="card">
-                                <div class="card_img">
-                                    <img class="card-main-img" src="{{ asset('images/restautant1.png') }}"
-                                        alt="restaurant img">
-                                    <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
-                                        alt="Top Image">
-                                    <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
-                                        alt="Top Image">
-                                    <span>Prerna, Ranga and 12 other people visited here!</span>
-                                </div>
-                                <div class="card-body">
-                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                    <h3 class="card-text">New York</h3>
-                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                            alt="">4.5</span>
-                                    <span class="rating">425 Users Recz It!</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="card">
-                                <div class="card_img">
-                                    <img class="card-main-img" src="{{ asset('images/restautant2.png') }}"
-                                        alt="restaurant img">
-                                    <img class="overlay-sec-img" src="{{ asset('images/top_img.png') }}"
-                                        alt="Top Image">
-                                    <img class="overlay-first-img" src="{{ asset('images/top_img_2.png') }}"
-                                        alt="Top Image">
-                                    <span>Pamkhuri, Prerna, and 12 other people visited here!</span>
-                                </div>
-                                <div class="card-body">
-                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                    <h3 class="card-text">New York</h3>
-                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                            alt="">4.5</span>
-                                    <span class="rating">425 Users Recz It!</span>
-                                </div>
-                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <section class="filter_restaurant" style="display: none;">
         <div class="container">
@@ -456,25 +638,6 @@ session_start();
                 <div class="col-md-12">
                     <div class="list_heading">
                         <p>Places near me <a href="#" class="see">See All</a></p>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2">
-                            <div class="card">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-
-    <section class="filter_restaurant" style="display: none;">
-        <div class="container">
-            <div class="row mb-3">
-                <div class="col-md-12">
-                    <div class="list_heading">
-                        <p>Places near me <a href="#" class="see">See All</a></p>
                     </div>
                     <div class="row" id="restaurant-container">
 
@@ -482,7 +645,7 @@ session_start();
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     {{-- <section class="listing_pagnation">
         <nav aria-label="Page navigation example">
@@ -816,538 +979,6 @@ session_start();
         }
     </script>
 
-    {{-- <script>
-        $(document).ready(function() {
-            function toggleSections() {
-                if ($('#restaurants').is(':checked')) {
-                    $('.filter_restaurant').show();
-                    $('.map_section').show();
-                    // $('.filter_resulted').show();
-                    // $('.filter_result').hide();
-                    $('.filter_list').hide();
-                } else if ($('#all').is(':checked')) {
-                    $('.filter_restaurant').hide();
-                    $('.map_section').hide();
-                    // $('.filter_resulted').hide();
-                    // $('.filter_result').show();
-                    $('.filter_list').show();
-                } else {
-                    $('.filter_restaurant').hide();
-                    $('.map_section').hide();
-                    // $('.filter_resulted').hide();
-                    // $('.filter_result').show();
-                    $('.filter_list').show();
-                }
-            }
-
-
-            toggleSections();
-
-
-            $('.filter-checkbox').on('change', function() {
-                $('.filter-checkbox').prop('checked', false);
-                $(this).prop('checked', true);
-                toggleSections();
-
-                var searchText = $('#searchInput').val().trim();
-                var selectedCatID = getSelectedCatID();
-                performSearch(searchText, selectedCatID);
-            });
-
-            function performSearch(searchText, catID) {
-                if (searchText.length > 0) {
-                    var csrfToken = $('meta[name="csrf-token"]').attr('content');
-                    var token = localStorage.getItem('api_token');
-
-                    if (!token) {
-                        Swal.fire({
-                            title: 'Login Required',
-                            text: 'You need to login to perform this action.',
-                            icon: 'warning',
-                            confirmButtonText: 'Login',
-                            cancelButtonText: 'Cancel',
-                            showCancelButton: true
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href = '/login';
-                            } else if (result.isDismissed) {
-                                window.location.href = '/';
-                            }
-                        });
-                        return;
-                    }
-
-                    $('#loaderOverlay').show();
-                    $('#loader').show();
-
-                    $.ajax({
-                        url: "{{ route('search-list-process') }}",
-                        type: 'POST',
-                        headers: {
-                            'X-CSRF-TOKEN': csrfToken,
-                            'Authorization': 'Bearer ' + token
-                        },
-                        data: {
-                            search_query: searchText,
-                            catID: catID
-                        },
-                        success: function(response) {
-                            $('#loaderOverlay').hide();
-                            $('#loader').hide();
-
-                            if (response.success) {
-                                renderResults(response.result);
-                            } else {
-                                console.error('No results found');
-                            }
-                        },
-                        error: function(xhr, status, error) {
-                            $('#loaderOverlay').hide();
-                            $('#loader').hide();
-                            console.error(error);
-                        }
-                    });
-                } else {
-                    console.log('Empty search input');
-                }
-            }
-
-            $('#searchInput').on('input', function() {
-                var searchText = $(this).val().trim();
-                $('#searchResultText').text(`Showing result “${searchText}”`);
-            });
-
-            $('#indexForm').on('submit', function(e) {
-                e.preventDefault();
-                var searchText = $('#searchInput').val().trim();
-                $('#searchResultText').text(`Showing result “${searchText}”`);
-                var selectedCatID = getSelectedCatID();
-                performSearch(searchText, selectedCatID);
-            });
-
-            function getSelectedCatID() {
-                const category = $('.filter-checkbox:checked').val();
-                switch (category) {
-                    case 'Movies':
-                        return 1; // CatID for Movies
-                    case 'Web Series':
-                        return 2; // CatID for Web Series
-                    case 'Books':
-                        return 8; // CatID for Books
-                    case 'Restaurants':
-                        return 3; // CatID for Restaurants
-                    default:
-                        return 0; // CatID for All or unspecified
-                }
-            }
-
-            function getQueryParams() {
-                const params = {};
-                const queryString = window.location.search.substring(1).replace(/\+/g, ' ');
-                const regex = /([^&=]+)=([^&]*)/g;
-                let m;
-                while (m = regex.exec(queryString)) {
-                    params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-                }
-                return params;
-            }
-
-            const params = getQueryParams();
-            const searchQuery = params['search_query'];
-
-            if (searchQuery) {
-                $('#searchInput').val(searchQuery);
-                $('#searchResultText').text(`Showing result “${searchQuery}”`);
-                performSearch(searchQuery, getSelectedCatID());
-            } else {
-                $('#all').prop('checked', true);
-                $('#searchResultText').text('Showing result “All”');
-                performSearch('All', 0); // CatID for All
-            }
-
-            function renderResults(results) {
-                var container = $('.filter_list .container');
-                container.empty();
-
-                var charLimit = 300;
-
-                results.forEach(function(result) {
-                    var imgSrc = result.img ? result.img : '{{ asset('images/dummy_image.webp') }}';
-                    var lstReczItFrnd = result.lstReczItFrnd;
-                    var firstName = lstReczItFrnd.length > 0 ? lstReczItFrnd[0].firstName : '';
-                    var totalReczIt = result.totalReczIt;
-                    var reczItText = firstName ?
-                        `<span style="color: #000000"><span class="start_bold">${firstName}</span> and ${totalReczIt} <span class="start_bold">other</span> people Recz it!</span>` :
-                        '';
-
-                    var metaValue22 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 22);
-                        metaValue22 = metaItem ? metaItem.value : '';
-                    }
-
-                    var metaValue26 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 26);
-                        metaValue26 = metaItem ? metaItem.value : '';
-                    }
-
-                    var metaValue51 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 51);
-                        metaValue51 = metaItem ? metaItem.value : '';
-                    }
-
-                    var metaValue53 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 53);
-                        metaValue53 = metaItem ? metaItem.value : '';
-                    }
-
-                    var metaValue15 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 15);
-                        metaValue15 = metaItem ? metaItem.value : '';
-                    }
-
-                    var dataSrcHtml = '';
-                    if (result.catID === 1 && result.dataSrc) {
-                        dataSrcHtml = `<span class="imb">${result.dataSrc}</span>`;
-                    }
-
-                    var authorHtml = '';
-                    if (metaValue26) {
-                        authorHtml = `<div class="mb-2 auther">
-                            <span>Auther - ${metaValue26}</span>
-                        </div>`;
-                    }
-
-                    var additionalInfoHtml = '';
-                    if (result.catID === 1) {
-                        additionalInfoHtml = `<span class="yellow_star"><img src="{{ asset('images/yellow_star.png') }}" alt=""></span>
-                                <span class="bold">${result.rating} / 10</span>`;
-                    }
-
-                    var metaValue15Html = metaValue15 ? `<div class="mb-2 text-gray">
-                            <span>${metaValue15}.</span>
-                        </div>` : '';
-
-                    function truncateText(text, limit) {
-                        return text.length > limit ? text.substring(0, limit) + '...' : text;
-                    }
-
-                    var metaValue53Html = metaValue53 ? `<div class="mb-3 text-gray">
-                            <span>${truncateText(metaValue53, charLimit)}</span>
-                        </div>` : '';
-
-                    var metaValue22Html = metaValue22 ? `<span>${metaValue22} ·</span>` : '';
-
-                    var resultHtml = `<div class="row mb-3">
-                    <div class="col-md-12">
-                        <div class="card shadow-0 border rounded-3">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="img_round">
-                                            <a href="{{ route('search-detail') }}?id=${result.pid}&catID=${result.catID ? result.catID : ''}">
-                                                <img src="${imgSrc}" class="w-100" onerror="this.onerror=null;this.src='{{ asset('images/dummy_image.webp') }}';"/>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <h5>${result.title}</h5>
-                                        ${authorHtml}
-                                        ${metaValue15Html}
-                                        <div class="mb-2 text-gray">
-                                            ${metaValue22Html}
-                                            <span>${metaValue51}</span>
-                                            ${additionalInfoHtml}
-                                            ${dataSrcHtml}
-                                        </div>
-                                        ${metaValue53Html}
-                                        <div class="text-starts">
-                                            <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${result.rating}</span>
-                                            ${reczItText}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>`;
-                    container.append(resultHtml);
-                });
-            }
-        });
-    </script> --}}
-
-    {{-- <script>
-        $(document).ready(function() {
-            function toggleSections() {
-                if ($('#restaurants').is(':checked')) {
-                    $('.filter_restaurant').show();
-                    $('.map_section').show();
-                    // $('.filter_resulted').show();
-                    // $('.filter_result').hide();
-                    $('.filter_list').hide();
-                } else if ($('#all').is(':checked')) {
-                    $('.filter_restaurant').hide();
-                    $('.map_section').hide();
-                    // $('.filter_resulted').hide();
-                    // $('.filter_result').show();
-                    $('.filter_list').show();
-                } else {
-                    $('.filter_restaurant').hide();
-                    $('.map_section').hide();
-                    // $('.filter_resulted').hide();
-                    // $('.filter_result').show();
-                    $('.filter_list').show();
-                }
-            }
-
-
-            toggleSections();
-
-
-            $('.filter-checkbox').on('change', function() {
-                $('.filter-checkbox').prop('checked', false);
-                $(this).prop('checked', true);
-                toggleSections();
-
-                var searchText = $('#searchInput').val().trim();
-                var selectedCatID = getSelectedCatID();
-                performSearch(searchText, selectedCatID);
-            });
-
-            function performSearch(searchText, catID) {
-                if (searchText.length > 0) {
-                    var csrfToken = $('meta[name="csrf-token"]').attr('content');
-                    var token = localStorage.getItem('api_token');
-
-                    if (!token) {
-                        Swal.fire({
-                            title: 'Login Required',
-                            text: 'You need to login to perform this action.',
-                            icon: 'warning',
-                            confirmButtonText: 'Login',
-                            cancelButtonText: 'Cancel',
-                            showCancelButton: true
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href = '/login';
-                            } else if (result.isDismissed) {
-                                window.location.href = '/';
-                            }
-                        });
-                        return;
-                    }
-
-                    $('#loaderOverlay').show();
-                    $('#loader').show();
-
-                    var url = catID === 3 ? "{{ route('restaurant-process') }}" : "{{ route('search-list-process') }}";
-
-                    $.ajax({
-                        url: url,
-                        type: 'POST',
-                        headers: {
-                            'X-CSRF-TOKEN': csrfToken,
-                            'Authorization': 'Bearer ' + token
-                        },
-                        data: {
-                            search_query: searchText,
-                            catID: catID
-                        },
-                        success: function(response) {
-                            $('#loaderOverlay').hide();
-                            $('#loader').hide();
-
-                            if (response.success) {
-                                renderResults(response.result);
-                            } else {
-                                console.error('No results found');
-                            }
-                        },
-                        error: function(xhr, status, error) {
-                            $('#loaderOverlay').hide();
-                            $('#loader').hide();
-                            console.error(error);
-                        }
-                    });
-                } else {
-                    console.log('Empty search input');
-                }
-            }
-
-            $('#searchInput').on('input', function() {
-                var searchText = $(this).val().trim();
-                $('#searchResultText').text(`Showing result “${searchText}”`);
-            });
-
-            $('#indexForm').on('submit', function(e) {
-                e.preventDefault();
-                var searchText = $('#searchInput').val().trim();
-                $('#searchResultText').text(`Showing result “${searchText}”`);
-                var selectedCatID = getSelectedCatID();
-                performSearch(searchText, selectedCatID);
-            });
-
-            function getSelectedCatID() {
-                const category = $('.filter-checkbox:checked').val();
-                switch (category) {
-                    case 'Movies':
-                        return 1; // CatID for Movies
-                    case 'Web Series':
-                        return 2; // CatID for Web Series
-                    case 'Books':
-                        return 8; // CatID for Books
-                    case 'Restaurants':
-                        return 3; // CatID for Restaurants
-                    default:
-                        return 0; // CatID for All or unspecified
-                }
-            }
-
-            function getQueryParams() {
-                const params = {};
-                const queryString = window.location.search.substring(1).replace(/\+/g, ' ');
-                const regex = /([^&=]+)=([^&]*)/g;
-                let m;
-                while (m = regex.exec(queryString)) {
-                    params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-                }
-                return params;
-            }
-
-            const params = getQueryParams();
-            const searchQuery = params['search_query'];
-
-            if (searchQuery) {
-                $('#searchInput').val(searchQuery);
-                $('#searchResultText').text(`Showing result “${searchQuery}”`);
-                performSearch(searchQuery, getSelectedCatID());
-            } else {
-                $('#all').prop('checked', true);
-                $('#searchResultText').text('Showing result “All”');
-                performSearch('All', 0); // CatID for All
-            }
-
-            function renderResults(results) {
-                var container = $('.filter_list .container');
-                container.empty();
-
-                var charLimit = 300;
-
-                results.forEach(function(result) {
-                    var imgSrc = result.img ? result.img : '{{ asset('images/dummy_image.webp') }}';
-                    var lstReczItFrnd = result.lstReczItFrnd;
-                    var firstName = lstReczItFrnd.length > 0 ? lstReczItFrnd[0].firstName : '';
-                    var totalReczIt = result.totalReczIt;
-                    var reczItText = firstName ?
-                        `<span style="color: #000000"><span class="start_bold">${firstName}</span> and ${totalReczIt} <span class="start_bold">other</span> people Recz it!</span>` :
-                        '';
-
-                    var metaValue22 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 22);
-                        metaValue22 = metaItem ? metaItem.value : '';
-                    }
-
-                    var metaValue26 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 26);
-                        metaValue26 = metaItem ? metaItem.value : '';
-                    }
-
-                    var metaValue51 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 51);
-                        metaValue51 = metaItem ? metaItem.value : '';
-                    }
-
-                    var metaValue53 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 53);
-                        metaValue53 = metaItem ? metaItem.value : '';
-                    }
-
-                    var metaValue15 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 15);
-                        metaValue15 = metaItem ? metaItem.value : '';
-                    }
-
-                    var dataSrcHtml = '';
-                    if (result.catID === 1 && result.dataSrc) {
-                        dataSrcHtml = `<span class="imb">${result.dataSrc}</span>`;
-                    }
-
-                    var authorHtml = '';
-                    if (metaValue26) {
-                        authorHtml = `<div class="mb-2 auther">
-                            <span>Auther - ${metaValue26}</span>
-                        </div>`;
-                    }
-
-                    var additionalInfoHtml = '';
-                    if (result.catID === 1) {
-                        additionalInfoHtml = `<span class="yellow_star"><img src="{{ asset('images/yellow_star.png') }}" alt=""></span>
-                                <span class="bold">${result.rating} / 10</span>`;
-                    }
-
-                    var metaValue15Html = metaValue15 ? `<div class="mb-2 text-gray">
-                            <span>${metaValue15}.</span>
-                        </div>` : '';
-
-                    function truncateText(text, limit) {
-                        return text.length > limit ? text.substring(0, limit) + '...' : text;
-                    }
-
-                    var metaValue53Html = metaValue53 ? `<div class="mb-3 text-gray">
-                            <span>${truncateText(metaValue53, charLimit)}</span>
-                        </div>` : '';
-
-                    var metaValue22Html = metaValue22 ? `<span>${metaValue22} ·</span>` : '';
-
-                    var resultHtml = `<div class="row mb-3">
-                    <div class="col-md-12">
-                        <div class="card shadow-0 border rounded-3">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="img_round">
-                                            <a href="{{ route('search-detail') }}?id=${result.pid}&catID=${result.catID ? result.catID : ''}">
-                                                <img src="${imgSrc}" class="w-100" onerror="this.onerror=null;this.src='{{ asset('images/dummy_image.webp') }}';"/>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <h5>${result.title}</h5>
-                                        ${authorHtml}
-                                        ${metaValue15Html}
-                                        <div class="mb-2 text-gray">
-                                            ${metaValue22Html}
-                                            <span>${metaValue51}</span>
-                                            ${additionalInfoHtml}
-                                            ${dataSrcHtml}
-                                        </div>
-                                        ${metaValue53Html}
-                                        <div class="text-starts">
-                                            <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${result.rating}</span>
-                                            ${reczItText}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>`;
-                    container.append(resultHtml);
-                });
-            }
-        });
-    </script> --}}
-
     <script>
         $(document).ready(function() {
             function toggleSections() {
@@ -1404,7 +1035,8 @@ session_start();
                     $('#loaderOverlay').show();
                     $('#loader').show();
 
-                    // var url = catID === 3 ? "{{ route('restaurant-process') }}" : "{{ route('search-list-process') }}";
+                    // var url = catID === 3 ? "{{ route('restaurant-process') }}" :
+                    //     "{{ route('search-list-process') }}";
                     var url = catID === 3 ? "https://dev.therecz.com/restaurant-process" : "https://dev.therecz.com/search-list-process";
 
 
@@ -1497,36 +1129,72 @@ session_start();
                 performSearch('All', 0); // CatID for All
             }
 
+            function truncateText(text, limit) {
+                if (text.length > limit) {
+                    return text.substring(0, limit) + '...';
+                }
+                return text;
+            }
+
             function renderRestaurantResults(results) {
-                var container = $('#restaurant-container');
-                container.empty();
+                var carouselInner = $('#restaurant-carousel-inner');
+                var prevButton = $('.carousel-control-prev');
+                var nextButton = $('.carousel-control-next');
 
-                results.forEach(function(result) {
-                    var imgSrc = result.img ? result.img : '{{ asset('images/dummy_image.webp') }}';
-                    var title = result.name || 'Unknown Title';
-                    var location = result.location || 'Unknown Location';
-                    var rating = result.rating || '0';
-                    var usersReczIt = result.usersReczIt || '0';
+                carouselInner.empty();
 
-                    var resultHtml = `
-                            <div class="col-md-2">
-                                <div class="card">
-                                    <img class="card-main-img" src="${imgSrc}" alt="restaurant img">
-                                    <div class="card-body">
-                                        <h3 class="card-title">${title}</h3>
-                                        <h3 class="card-text">${location}</h3>
-                                        <span class="star_point">
-                                            <img src="{{ asset('images/star_icon.png') }}" alt="">${rating}
-                                        </span>
-                                        <span class="rating">${usersReczIt} Users Recz It!</span>
+                if (results.length === 0) {
+                    carouselInner.append(
+                        '<div class="carousel-item active"><div class="row"><p>Restaurant not available</p></div></div>'
+                        );
+                    prevButton.hide();
+                    nextButton.hide();
+                } else {
+                    var itemsPerSlide = 6; // Number of items per carousel slide
+                    var numSlides = Math.ceil(results.length / itemsPerSlide);
+
+                    prevButton.toggle(numSlides > 1);
+                    nextButton.toggle(numSlides > 1);
+
+                    for (var i = 0; i < numSlides; i++) {
+                        var activeClass = i === 0 ? ' active' : '';
+                        var slideHtml = `<div class="carousel-item${activeClass}"><div class="row">`;
+
+                        for (var j = i * itemsPerSlide; j < (i + 1) * itemsPerSlide && j < results.length; j++) {
+                            var result = results[j];
+                            var imgSrc = result.img ? result.img : '{{ asset('images/dummy_image.webp') }}';
+                            var title = result.title || 'Unknown Title';
+                            var location = result.location || 'Unknown Location';
+                            var rating = result.rating || '0';
+                            var usersReczIt = result.usersReczIt;
+                            title = truncateText(title, 13);
+                            location = truncateText(location, 30);
+
+                            var cardHtml = `
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <div class="card_img">
+                                            <img class="card-main-img" src="${imgSrc}" alt="restaurant img">
+                                            <span>${usersReczIt ? usersReczIt + " Users Recz It!" : ""}</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h3 class="card-title">${title}</h3>
+                                            <h3 class="card-text">${location}</h3>
+                                            <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${rating}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                    `;
+                            `;
 
-                    container.append(resultHtml);
-                });
+                            slideHtml += cardHtml;
+                        }
+
+                        slideHtml += '</div></div>';
+                        carouselInner.append(slideHtml);
+                    }
+                }
             }
+
 
             function renderSearchListResults(results) {
                 var container = $('.filter_list .container');
@@ -1643,7 +1311,6 @@ session_start();
             }
         });
     </script>
-
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

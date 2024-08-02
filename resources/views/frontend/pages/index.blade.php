@@ -145,6 +145,21 @@
             var token = localStorage.getItem('api_token');
             var firstName = localStorage.getItem('firstName');
 
+            if (!token) {
+                        Swal.fire({
+                            title: 'Login Required',
+                            text: 'You need to login to perform this action.',
+                            icon: 'warning',
+                            confirmButtonText: 'Login',
+                            showCancelButton: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = '/login';
+                            }
+                        });
+                        return;
+                    }
+
             if (token) {
 
                 var loginProfileContainer = document.getElementById('loginProfileContainer');
@@ -210,7 +225,6 @@
                         </div>
                     `).join('');
 
-                            // Add event listener for dynamically generated span elements
                             document.querySelectorAll('.trend-item').forEach(span => {
                                 span.addEventListener('click', function() {
                                     const query = this.getAttribute('data-query');
@@ -229,59 +243,5 @@
         });
     </script>
 
-    {{-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
 
-            const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjI1MDA4MTAsImV4cCI6MTc1NDAzNjgxMCwiYXVkIjoiVVNFUiIsImRhdGEiOnsidWlkIjoiNDgxIiwiZmlyc3ROYW1lIjoidGVzdGluZyIsImxhc3ROYW1lIjoidGVzdGluZzEiLCJlbWFpbElEIjoiZ2hhbmlza3luZXRAZ21haWwuY29tIiwibG9naW5UeXBlIjpudWxsLCJjYWxsRnJvbSI6IklPUyJ9fQ.Eyk07gjtsfaMPqf0z2B6erVJC7DjmUJMeW39suC8GFA'; // Replace with your actual token
-
-            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-            if (token) {
-                fetch('/api/fetch-trends', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': csrfToken
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    const trendsWrap = document.getElementById('trending-wrap');
-
-                    if (data.result && data.result.length > 0) {
-                        trendsWrap.innerHTML = data.result.map(trend => `
-                            <div class="search_icon">
-                                <img src="{{ asset('images/search-icon.png') }}" alt="">
-                            </div>
-                            <span><a href="">${trend.catName}</a></span>
-                            <div class="arrow">
-                                <img src="{{ asset('images/arrow.png') }}" alt="">
-                            </div>
-
-                        `).join('');
-                    } else {
-                        trendsWrap.innerHTML = '<p>No trends available.</p>';
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-            } else {
-                console.error('No token found.');
-            }
-        });
-    </script> --}}
-
-    {{-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const harryPotterSpan = document.getElementById('harryPotterSpan');
-            const searchQueryInput = document.getElementById('searchQueryInput');
-            const indexForm = document.getElementById('indexForm');
-
-            harryPotterSpan.addEventListener('click', function(event) {
-                event.preventDefault();
-                searchQueryInput.value = 'Harry Potter';
-                indexForm.submit();
-            });
-        });
-    </script> --}}
 @endsection

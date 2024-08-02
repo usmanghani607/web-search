@@ -117,10 +117,12 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 /*Restaurants*/
 
 .filter_restaurant .list_heading p{ font-size: 24px; font-weight: 500; }
+.filter_restaurant #restaurant-container p{ text-align: center; font-size: 24px; font-weight: 500; }
+
 .filter_restaurant .list_heading .see{ font-size: 18px; color: #000000; float: right; padding: 5px 0; text-decoration: none; }
 
 .filter_restaurant .card { border-radius: 16px; border: none; margin-bottom: 10px; }
-.filter_restaurant .card img { border-radius: 16px 16px 0 0; }
+.filter_restaurant .card img { border-radius: 16px 16px 0 0; width: 100%; object-fit: cover; }
 .filter_restaurant .card-body { box-shadow: 0px 0px 8px #00000029; border: none; border-radius: 0 0 16px 16px; }
 .filter_restaurant .card h3 { font-size: 16px; font-weight: 500; margin-bottom: 10px; }
 .filter_restaurant .card .card-text { font-size: 14px; color: #505050; }
@@ -549,3 +551,8 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 #loginProfileContainer .login_profile .dropdown-content a { color: #fff; padding: 8px 18px; text-decoration: none; display: block; font-size: 18px; font-family: 'Poppins'; }
 #loginProfileContainer .login_profile .dropdown a:hover { color: #fff }
 #loginProfileContainer .login_profile .show { display: block; }
+.swal2-actions .swal2-confirm.swal2-styled { background-color: #FF385C; }
+
+
+.filter_restaurant  .carousel.slide button.carousel-control-next { width: 40px; height: 40px; border-radius: 20px; top: 50%; box-shadow: 0px 0px 6px #00000029; opacity: 1; border: none; background-color: #FF385C; }
+.filter_restaurant  .carousel.slide button.carousel-control-prev { width: 40px; height: 40px; border-radius: 20px; top: 50%; box-shadow: 0px 0px 6px #00000029; opacity: 1; border: none; background-color: #FF385C; }
