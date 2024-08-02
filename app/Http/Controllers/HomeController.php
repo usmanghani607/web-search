@@ -247,15 +247,11 @@ class HomeController extends Controller
     public function restaurantProcess(Request $request)
     {
         $searchQuery = $request->input('search_query');
-        $latitude = $request->input('latitude');
-        $longitude = $request->input('longitude');
         $endpoint = "https://api-dev.therecz.com//api/search/nearby-posts.php";
         $postfields = [
             'search' => $searchQuery,
             'latitude' => 32.1343,
             'longitude' => 74.0153,
-            // 'latitude' => $latitude,
-            // 'longitude' => $longitude,
             'skipCache' => true
         ];
 
@@ -280,8 +276,8 @@ class HomeController extends Controller
 
         $responseData = $response->json();
 
-        dd($responseData);
-        exit();
+        // dd($responseData);
+        // exit();
 
         if (isset($responseData['result'])) {
             $result = $responseData['result'];
@@ -313,8 +309,8 @@ class HomeController extends Controller
     //         'skipCache' => true
     //     ];
 
-    //     dd($longitude);
-    //     exit();
+    //     // dd($longitude);
+    //     // exit();
 
     //     $token = $request->header('Authorization');
     //     if (!$token) {
@@ -334,6 +330,9 @@ class HomeController extends Controller
 
     //     $responseData = $response->json();
 
+    //     dd($responseData);
+    //     exit();
+
     //     if (isset($responseData['result'])) {
     //         $result = $responseData['result'];
 
@@ -349,7 +348,6 @@ class HomeController extends Controller
     //         ], 401);
     //     }
     // }
-
 
 
     public function searchListProcess(Request $request)

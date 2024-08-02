@@ -117,7 +117,7 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 /*Restaurants*/
 
 .filter_restaurant .list_heading p{ font-size: 24px; font-weight: 500; }
-.filter_restaurant #restaurant-container p{ text-align: center; font-size: 24px; font-weight: 500; }
+.filter_restaurant #carouselExampleControls p{ text-align: center; font-size: 24px; font-weight: 500; }
 
 .filter_restaurant .list_heading .see{ font-size: 18px; color: #000000; float: right; padding: 5px 0; text-decoration: none; }
 

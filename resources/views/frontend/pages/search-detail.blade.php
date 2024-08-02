@@ -1264,7 +1264,7 @@ session_start();
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="title">
-                                        <div class="name">About Song</div>
+                                        {{-- <div class="name">About Song</div>
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="icons">
@@ -1288,10 +1288,10 @@ session_start();
                                             </div>
                                         </div>
 
-                                        <div class="border"></div>
+                                        <div class="border"></div> --}}
 
 
-                                        <div class="cast_name">Song Artists</div>
+                                        {{-- <div class="cast_name">Song Artists</div>
                                         <div class="cast_img">
                                             <div class="row">
                                                 <div class="col-md-2">
@@ -1315,7 +1315,7 @@ session_start();
                                             </div>
                                         </div>
 
-                                        <div class="border"></div>
+                                        <div class="border"></div> --}}
 
                                         <div class="summary_name">Description</div>
                                         <div class="summary_des">
