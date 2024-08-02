@@ -1063,10 +1063,10 @@ session_start();
                                         <div class="border"></div> --}}
 
                                         <div class="about_heading">About The Restaurant</div>
-                                        <div class="info_area">
+                                        {{-- <div class="info_area">
                                             <div class="row">
-                                                {{-- <div class="price"><img src="{{ asset('images/price.png') }}"
-                                                        alt=""><span>$50 for two</span></div> --}}
+                                                <div class="price"><img src="{{ asset('images/price.png') }}"
+                                                        alt=""><span>$50 for two</span></div>
                                                 <div class="location"><img src="{{ asset('images/location-icon.png') }}"
                                                         alt=""><span>{{ isset($result['location']) && !empty($result['location']) ? $result['location'] : 'No location available' }}
                                                     </span></div>
@@ -1095,11 +1095,41 @@ session_start();
                                                         @endif
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div> --}}
 
+                                        <div class="info_area">
+                                            <div class="row">
+                                                <div class="location"><img src="{{ asset('images/location-icon.png') }}"
+                                                        alt=""><span>{{ isset($result['location']) && !empty($result['location']) ? $result['location'] : 'No location available' }}
+                                                    </span></div>
 
+                                                <div class="time">
+                                                    <img src="{{ asset('images/icon-time.png') }}" alt="">
+                                                    <span><span class="close">Closed</span> - Open soon ⋅ 11 am</span>
+                                                    <i class="fa-solid fa-sort-down dropdown-icon" data-id="1"></i>
+                                                    <div class="dropdown-menu" data-id="1">
+                                                        <p>Hours:</p>
+                                                        @php
+                                                            $hoursMeta = collect($result['lstMeta'])->firstWhere(
+                                                                'metaID',
+                                                                47,
+                                                            );
+                                                            $hours = $hoursMeta
+                                                                ? json_decode($hoursMeta['value'], true)
+                                                                : null;
+                                                        @endphp
+                                                        @if (!empty($hours))
+                                                            @foreach ($hours as $time)
+                                                                <p>{{ $time }}</p>
+                                                            @endforeach
+                                                        @else
+                                                            <p>No hours available</p>
+                                                        @endif
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-
                                         <div class="border"></div>
 
                                         {{-- <div class="menu">Menu</div>
@@ -3221,144 +3251,148 @@ session_start();
         </div>
     </section>
 
-@endsection
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-</script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
-        function getQueryParameter(name) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(name);
-        }
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
 
-        var catID = parseInt(getQueryParameter('catID'), 10);
-
-        var moviesPage = document.querySelector('.detail_page');
-        var booksPage = document.querySelector('.detail_page.books');
-        var songPage = document.querySelector('.detail_page.song');
-        var restaurantsPage = document.querySelector('.detail_page.restaurants');
-        var travelPage = document.querySelector('.detail_page.travel');
-        var willnessPage = document.querySelector('.detail_page.willness');
-        var winePage = document.querySelector('.detail_page.wine');
-        var podcastPage = document.querySelector('.detail_page.podcast');
-        var shoppingPage = document.querySelector('.detail_page.shopping');
-        var webseriesPage = document.querySelector('.detail_page.webseries');
-
-
-        function showSection(catID) {
-            moviesPage.style.display = 'none';
-            booksPage.style.display = 'none';
-            songPage.style.display = 'none';
-            restaurantsPage.style.display = 'none';
-            travelPage.style.display = 'none';
-            willnessPage.style.display = 'none';
-            winePage.style.display = 'none';
-            podcastPage.style.display = 'none';
-            shoppingPage.style.display = 'none';
-            webseriesPage.style.display = 'none';
-
-
-            if (catID === 1) {
-                moviesPage.style.display = 'block';
-            } else if (catID === 8) {
-                booksPage.style.display = 'block';
-            } else if (catID === 13) {
-                songPage.style.display = 'block';
-            } else if (catID === 3) {
-                restaurantsPage.style.display = 'block';
-            } else if (catID === 4) {
-                travelPage.style.display = 'block';
-            } else if (catID === 14) {
-                willnessPage.style.display = 'block';
-            } else if (catID === 7) {
-                winePage.style.display = 'block';
-            } else if (catID === 12) {
-                podcastPage.style.display = 'block';
-            } else if (catID === 5) {
-                shoppingPage.style.display = 'block';
-            } else if (catID === 2) {
-                webseriesPage.style.display = 'block';
+            function getQueryParameter(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
             }
-        }
 
-        showSection(catID);
-    });
-</script>
+            var catID = parseInt(getQueryParameter('catID'), 10);
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const dropdownIcons = document.querySelectorAll('.dropdown-icon');
+            var moviesPage = document.querySelector('.detail_page');
+            var booksPage = document.querySelector('.detail_page.books');
+            var songPage = document.querySelector('.detail_page.song');
+            var restaurantsPage = document.querySelector('.detail_page.restaurants');
+            var travelPage = document.querySelector('.detail_page.travel');
+            var willnessPage = document.querySelector('.detail_page.willness');
+            var winePage = document.querySelector('.detail_page.wine');
+            var podcastPage = document.querySelector('.detail_page.podcast');
+            var shoppingPage = document.querySelector('.detail_page.shopping');
+            var webseriesPage = document.querySelector('.detail_page.webseries');
 
-        dropdownIcons.forEach(icon => {
-            icon.addEventListener('click', function() {
-                const dropdownMenu = document.querySelector(
-                    `.dropdown-menu[data-id="${icon.dataset.id}"]`);
-                if (dropdownMenu.style.display === 'block') {
-                    dropdownMenu.style.display = 'none';
-                } else {
-                    dropdownMenu.style.display = 'block';
+
+            function showSection(catID) {
+                moviesPage.style.display = 'none';
+                booksPage.style.display = 'none';
+                songPage.style.display = 'none';
+                restaurantsPage.style.display = 'none';
+                travelPage.style.display = 'none';
+                willnessPage.style.display = 'none';
+                winePage.style.display = 'none';
+                podcastPage.style.display = 'none';
+                shoppingPage.style.display = 'none';
+                webseriesPage.style.display = 'none';
+
+
+                if (catID === 1) {
+                    moviesPage.style.display = 'block';
+                } else if (catID === 8) {
+                    booksPage.style.display = 'block';
+                } else if (catID === 13) {
+                    songPage.style.display = 'block';
+                } else if (catID === 3) {
+                    restaurantsPage.style.display = 'block';
+                } else if (catID === 4) {
+                    travelPage.style.display = 'block';
+                } else if (catID === 14) {
+                    willnessPage.style.display = 'block';
+                } else if (catID === 7) {
+                    winePage.style.display = 'block';
+                } else if (catID === 12) {
+                    podcastPage.style.display = 'block';
+                } else if (catID === 5) {
+                    shoppingPage.style.display = 'block';
+                } else if (catID === 2) {
+                    webseriesPage.style.display = 'block';
                 }
-            });
-        });
+            }
 
-        document.addEventListener('click', function(event) {
+            showSection(catID);
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const dropdownIcons = document.querySelectorAll('.dropdown-icon');
+
             dropdownIcons.forEach(icon => {
-                const dropdownMenu = document.querySelector(
-                    `.dropdown-menu[data-id="${icon.dataset.id}"]`);
-                if (!icon.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                    dropdownMenu.style.display = 'none';
-                }
+                icon.addEventListener('click', function() {
+                    const dropdownMenu = document.querySelector(
+                        `.dropdown-menu[data-id="${icon.dataset.id}"]`);
+                    if (dropdownMenu.style.display === 'block') {
+                        dropdownMenu.style.display = 'none';
+                    } else {
+                        dropdownMenu.style.display = 'block';
+                    }
+                });
+            });
+
+            document.addEventListener('click', function(event) {
+                dropdownIcons.forEach(icon => {
+                    const dropdownMenu = document.querySelector(
+                        `.dropdown-menu[data-id="${icon.dataset.id}"]`);
+                    if (!icon.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                        dropdownMenu.style.display = 'none';
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var token = localStorage.getItem('api_token');
-        var firstName = localStorage.getItem('firstName');
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var token = localStorage.getItem('api_token');
+            var firstName = localStorage.getItem('firstName');
 
-        if (token) {
-            var profileBtn = document.querySelector('.profile_btn');
-            profileBtn.style.display = 'none';
+            if (token) {
+                var profileBtn = document.querySelector('.profile_btn');
+                profileBtn.style.display = 'none';
 
-            var loginProfileContainer = document.getElementById('loginProfileContainer');
-            loginProfileContainer.classList.remove('hidden');
+                var loginProfileContainer = document.getElementById('loginProfileContainer');
+                loginProfileContainer.classList.remove('hidden');
 
-            if (firstName) {
-                document.querySelector('.login_profile span').textContent = 'Hello ' + firstName;
+                if (firstName) {
+                    document.querySelector('.login_profile span').textContent = 'Hello ' + firstName;
+                }
             }
-        }
-    });
+        });
 
-    function toggleDropdown() {
-        var dropdown = document.getElementById("myDropdown");
-        dropdown.classList.toggle("show");
-    }
-
-    function logout() {
-        sessionStorage.clear();
-        localStorage.clear();
-        window.location.href = '/login';
-    }
-
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
+        function toggleDropdown() {
             var dropdown = document.getElementById("myDropdown");
-            if (dropdown.classList.contains('show')) {
-                dropdown.classList.remove('show');
+            dropdown.classList.toggle("show");
+        }
+
+        function logout() {
+            sessionStorage.clear();
+            localStorage.clear();
+            window.location.href = '/login';
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdown = document.getElementById("myDropdown");
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
             }
         }
-    }
-</script>
+    </script>
 
-<script>
-    function showImageInModal(imageSrc) {
-        document.getElementById('modalImage').src = imageSrc;
-    }
-</script>
+    <script>
+        function showImageInModal(imageSrc) {
+            document.getElementById('modalImage').src = imageSrc;
+        }
+    </script>
+
+
+
+@endsection

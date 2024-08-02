@@ -61,6 +61,7 @@
     .topheader #indexForm input#searchInput { width:auto; }
     /* .search-container .search_icon img { right: inherit; } */
     .search-container { width: auto; }
+    .index_footer .copy_right { margin-top: 0; width: 50%; }
 
 }
 
