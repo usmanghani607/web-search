@@ -62,7 +62,7 @@
     /* .search-container .search_icon img { right: inherit; } */
     .search-container { width: auto; }
     .index_footer { padding-top: 250px; }
-    .index_footer .copy_right { margin-top: 0; width: 50%; }
+    .index_footer .copy_right { margin-top: 3px; width: 50%; }
 
 }
 
