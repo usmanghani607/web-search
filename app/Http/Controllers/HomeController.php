@@ -193,55 +193,55 @@ class HomeController extends Controller
         return view('frontend/pages/search-list');
     }
 
-    // public function restaurantProcess(Request $request)
-    // {
-    //     $searchQuery = $request->input('search_query');
-    //     $endpoint = "https://api.therecz.com//api/search/places.php";
-    //     $postfields = [
-    //         'search' => $searchQuery,
-    //         'type' => '',
-    //         'skipCache' => false
-    //     ];
+    public function placeProcess(Request $request)
+    {
+        $searchQuery = $request->input('search_query');
+        $endpoint = "https://api.therecz.com//api/search/places.php";
+        $postfields = [
+            'search' => $searchQuery,
+            'type' => '',
+            'skipCache' => false
+        ];
 
-    //     $token = $request->header('Authorization');
-    //     if (!$token) {
-    //         return response()->json(['errors' => ['token' => 'Authorization token not provided']], 401);
-    //     }
+        $token = $request->header('Authorization');
+        if (!$token) {
+            return response()->json(['errors' => ['token' => 'Authorization token not provided']], 401);
+        }
 
-    //     // dd($token);
-    //     // exit();
+        // dd($token);
+        // exit();
 
-    //     $response = Http::withOptions([
-    //         'verify' => false,
-    //     ])->withHeaders([
-    //         'Content-Type' => 'application/json',
-    //         'Authorization' => $token,
-    //     ])->post($endpoint, $postfields);
+        $response = Http::withOptions([
+            'verify' => false,
+        ])->withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => $token,
+        ])->post($endpoint, $postfields);
 
-    //     if ($response->failed()) {
-    //         return response()->json(['errors' => ['search_query' => 'Error fetching data from API']], $response->status());
-    //     }
+        if ($response->failed()) {
+            return response()->json(['errors' => ['search_query' => 'Error fetching data from API']], $response->status());
+        }
 
-    //     $responseData = $response->json();
+        $responseData = $response->json();
 
-    //     // dd($responseData);
-    //     // exit();
+        // dd($responseData);
+        // exit();
 
-    //     if (isset($responseData['result'])) {
-    //         $result = $responseData['result'];
+        if (isset($responseData['result'])) {
+            $result = $responseData['result'];
 
-    //         return response()->json([
-    //             'success' => true,
-    //             'result' => $result,
-    //             'search_query' => $searchQuery,
-    //         ]);
-    //     } else {
-    //         return response()->json([
-    //             'success' => false,
-    //             'errors' => ['search_query' => 'No results found for your query']
-    //         ], 401);
-    //     }
-    // }
+            return response()->json([
+                'success' => true,
+                'result' => $result,
+                'search_query' => $searchQuery,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'errors' => ['search_query' => 'No results found for your query']
+            ], 401);
+        }
+    }
 
 
     public function restaurantProcess(Request $request)

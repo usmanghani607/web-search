@@ -639,8 +639,22 @@ session_start();
                     <div class="list_heading">
                         <p>Places near me <a href="#" class="see">See All</a></p>
                     </div>
-                    <div class="row" id="restaurant-container">
+                    <div class="row">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner" id="restaurant-carousel-inner">
 
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1311,6 +1325,7 @@ session_start();
             }
         });
     </script>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

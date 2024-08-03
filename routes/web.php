@@ -23,6 +23,8 @@ Route::post('index_search', [HomeController::class, 'indexProcess'])->name('inde
 Route::get('search-list', [HomeController::class, 'searchList'])->name('search-list');
 Route::post('search-list-process', [HomeController::class, 'searchListProcess'])->name('search-list-process');
 Route::post('/restaurant-process', [HomeController::class, 'restaurantProcess'])->name('restaurant-process');
+Route::post('/place-process', [HomeController::class, 'placeProcess'])->name('place-process');
+
 Route::post('/map-process', [HomeController::class, 'mapProcess'])->name('map-process');
 
 
