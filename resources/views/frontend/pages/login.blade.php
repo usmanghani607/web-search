@@ -83,8 +83,8 @@ session_start();
                                         <h3>Scan to Download App</h3>
                                         <img class="scan" src="{{ asset('images/scan.png') }}" alt="">
                                         <p>Available on</p>
-                                        <img class="applestore" src="{{ asset('images/apple-play.png') }}" alt="">
-                                        <img class="googlestore" src="{{ asset('images/google-play.png') }}" alt="">
+                                        <a href="https://apps.apple.com/us/app/recz-social-recommendation-app/id1582034985"><img class="applestore" src="{{ asset('images/apple-play.png') }}" alt=""></a>
+                                        <a href="https://play.google.com/store/apps/details?id=com.recz.android"><img class="googlestore" src="{{ asset('images/google-play.png') }}" alt=""></a>
                                     </div>
                                     <div class="col-md-4"></div>
                                 </div>

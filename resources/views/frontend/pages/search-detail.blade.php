@@ -3364,8 +3364,8 @@ session_start();
                             <img class="scan" src="{{ asset('images/scan.png') }}" alt="">
                             <p>Available on</p>
                             <div class="app_link">
-                                <img class="applestore" src="{{ asset('images/apple-play.png') }}" alt="">
-                                <img class="googlestore" src="{{ asset('images/google-play.png') }}" alt="">
+                                <a href="https://apps.apple.com/us/app/recz-social-recommendation-app/id1582034985"><img class="applestore" src="{{ asset('images/apple-play.png') }}" alt=""></a>
+                                <a href="https://play.google.com/store/apps/details?id=com.recz.android"><img class="googlestore" src="{{ asset('images/google-play.png') }}" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -3515,18 +3515,6 @@ session_start();
             document.getElementById('modalImage').src = imageSrc;
         }
     </script>
-
-    <script>
-        function showAlert() {
-            Swal.fire({
-                title: 'Warning',
-                text: 'You cannot perform this action',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-        }
-    </script>
-
 
 
 @endsection
