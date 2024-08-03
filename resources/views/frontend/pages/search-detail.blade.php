@@ -174,8 +174,9 @@ session_start();
                                             @endphp
                                             {{ $movieTitle }}
                                         </span>
-                                        <span class="fav_icon"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></span>
+                                        <span class="fav_icon"><a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
+                                                alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
@@ -184,16 +185,20 @@ session_start();
                                                 $fullStars = (int) $ratingCount;
                                                 $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
                                             @endphp
+
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
-                                                    <span><img src="{{ asset('images/red-star.png') }}"
-                                                            alt=""></span>
+                                                    <span class="red_star"><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                            alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span class="red_star"><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @else
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span class="red_star"><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -244,11 +249,16 @@ session_start();
 
 
                                             <span class="start_empty">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -3337,6 +3347,33 @@ session_start();
         </div>
     </section>
 
+    <!-- Modal -->
+    <div class="modal fade" id="starModal" tabindex="-1" aria-labelledby="starModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="close" style="height: 0">
+                    <div data-bs-dismiss="modal" aria-label="Close">
+                        <img class="cross-icon" src="{{ asset('images/cross.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <img class="lady" src="{{ asset('images/pop_bg.png') }}" alt="">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <h3>To use this feature, download Recz App.</h3>
+                            <img class="scan" src="{{ asset('images/scan.png') }}" alt="">
+                            <p>Available on</p>
+                            <div class="app_link">
+                                <img class="applestore" src="{{ asset('images/apple-play.png') }}" alt="">
+                                <img class="googlestore" src="{{ asset('images/google-play.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="col-md-4"></div> --}}
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -3476,6 +3513,17 @@ session_start();
     <script>
         function showImageInModal(imageSrc) {
             document.getElementById('modalImage').src = imageSrc;
+        }
+    </script>
+
+    <script>
+        function showAlert() {
+            Swal.fire({
+                title: 'Warning',
+                text: 'You cannot perform this action',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
         }
     </script>
 

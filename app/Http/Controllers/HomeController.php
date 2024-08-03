@@ -15,39 +15,6 @@ class HomeController extends Controller
         return view('frontend/pages/index');
     }
 
-    // public function index()
-    // {
-
-    //     $endpoint = 'https://api-dev.therecz.com/api/post/get-trends.php';
-
-    //     $response = Http::withOptions([
-    //         'verify' => false,
-    //     ])->get($endpoint);
-
-    //     if ($response->failed()) {
-
-    //         Log::error('Failed to fetch trends from API.', ['endpoint' => $endpoint]);
-
-    //         return view('frontend.pages.index')->with(['fetch' => 'Error fetching data from API']);
-    //     }
-
-    //     $responseData = $response->json();
-
-    //     dd($responseData);
-    //     exit();
-
-    //     if ($responseData['success'] && isset($responseData['result'])) {
-    //         $trends = $responseData['result'];
-
-    //         Log::info('Trends fetched successfully.', ['trends' => $trends]);
-
-    //         return view('frontend.pages.index', ['trends' => $trends]);
-    //     } else {
-
-    //         return view('frontend.pages.index')->with(['fetch' => 'No trends found or API response error']);
-    //     }
-    // }
-
 
     public function restaurant()
     {

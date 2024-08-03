@@ -63,6 +63,7 @@
     .search-container { width: auto; }
     .index_footer { padding-top: 250px; }
     .index_footer .copy_right { margin-top: 3px; width: 50%; }
+    #starModal .modal-dialog.modal-lg { margin: 30px 20px; }
 
 }
 

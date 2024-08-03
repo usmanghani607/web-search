@@ -263,6 +263,10 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 .detail_page .title_section .title { border-radius: 12px; padding: 20px 25px; box-shadow: 0px 0px 12px #00000029; }
 .detail_page .title_section .title .name { font-size: 28px; font-weight: 500; }
 .detail_page .title_section .title .star_point { background: #FF385C; padding: 2px 6px; border-radius: 2px; color: white; display: inline-flex; align-items: center; font-size: 13px; margin-right: 7px; }
+.detail_page .title_section .title .star_sec .red_star { cursor: pointer; }
+.detail_page .title_section .title .fav_icon img { cursor: pointer; }
+.detail_page .title_section .title .people_like .start_empty img { cursor: pointer; }
+
 .detail_page .title_section .title .star_point img { margin-right: 5px; }
 .detail_page .title_section .title .star_sec span.user_based { font-size: 18px; }
 .detail_page .title_section .title .people_like span.start_bold { font-size: 16px; font-weight: 500; }
@@ -270,8 +274,8 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 .detail_page .title_section .title .people_like { padding-top: 10px; }
 .detail_page .title_section .title .people_like img.overlay-sec-img { position: relative; color: white; text-align: center; font-size: 14px; font-weight: 500; top: 40%; width: 28px; height: 28px; border-radius: 20px; border: 1px solid #FF385C; }
 .detail_page .title_section .title .people_like img.overlay-first-img { position: relative; transform: translateX(-50%); text-align: center; top: 40%; width: 28px; height: 28px; border-radius: 20px; border: 1px solid #FF385C; }
-.detail_page .title_section .title .people_like span.start_empty img { width: 28px; height: 28px; float: right; margin-right: 5px; }
-.detail_page .title_section .title .people_like span.start_empty img:first-child { margin-right: 0; }
+.detail_page .title_section .title .people_like span.start_empty a img { width: 28px; height: 28px; float: right; margin-right: 5px !important; }
+.detail_page .title_section .title .people_like span.start_empty a img:first-child { margin-right: 0; }
 
 .detail_page .about_section { padding-bottom: 25px; }
 .detail_page .about_section .title .fav_icon img { float: right; width: 32px; height: 38px; }
@@ -539,6 +543,20 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 #loginModal .modal-content .modal-body .applestore { position: relative; width: 28%; margin: 0 0 0 105px; }
 #loginModal .modal-content .modal-body .googlestore { position: relative; width: 28%; margin: 0 0 0 10px; }
 #loginModal .modal-dialog .cross-icon { width: 40px; height: 40px; float: right; bottom: 20px; position: relative; z-index: 1; left: 20px; cursor: pointer; }
+
+/*Star modal*/
+
+#starModal .modal-content { border-radius: 10px; border: 0; }
+#starModal .modal-content .modal-body { padding: 0; height: 580px; }
+#starModal .modal-content .modal-body .lady { width: 100%; position: absolute; height: 580px; }
+#starModal .modal-content .modal-body .scan { position: relative; width: auto; margin: 30px auto; }
+#starModal .modal-content .modal-body h3 { position: relative; font-size: 30px; font-weight: 600; text-align: center; padding-top: 40px; color: #000000; }
+#starModal .modal-content .modal-body p { position: relative; text-align: center; font-size: 26px; font-weight: 600; color: #000000; }
+#starModal .modal-content .modal-body .app_link { text-align: center; }
+#starModal .modal-content .modal-body .applestore { position: relative; width: 20%; margin: 0 5px; }
+#starModal .modal-content .modal-body .googlestore { position: relative; width: 20%; margin: 0 5px; }
+#starModal .modal-dialog .cross-icon { width: 40px; height: 40px; float: right; bottom: 20px; position: relative; z-index: 1; left: 20px; cursor: pointer; }
+
 
 /*profile login*/
 
