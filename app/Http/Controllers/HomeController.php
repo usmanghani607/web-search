@@ -462,7 +462,6 @@ class HomeController extends Controller
     }
 
 
-
     private function getYoutubeEmbedUrl($url)
     {
         preg_match("/v=([a-zA-Z0-9_-]+)/", $url, $matches);

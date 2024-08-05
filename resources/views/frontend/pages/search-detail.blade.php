@@ -189,7 +189,7 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span class="red_star"><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
                                                             alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span class="red_star"><a href="" data-bs-toggle="modal"
@@ -230,7 +230,7 @@ session_start();
                                                 @endif
                                             </span> --}}
 
-                                            <span style="color: #000000">
+                                            {{-- <span style="color: #000000">
                                                 @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
                                                     @if (count($result['lstRating']) == 1)
                                                         <span
@@ -241,6 +241,29 @@ session_start();
                                                             class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
                                                         and {{ count($result['lstRating']) - 1 }}
                                                         <span class="start_bold">other</span> people Recz it!
+                                                    @endif
+                                                @else
+                                                    <span class="start_bold">No one</span> Recz it yet!
+                                                @endif
+                                            </span> --}}
+
+
+                                            <span style="color: #000000">
+                                                @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
+                                                    @if (count($result['lstRating']) == 1)
+                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        Recz it!
+                                                    @else
+                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
+                                                        @if (count($result['lstRating']) > 1)
+                                                            <span class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
+                                                            @if (count($result['lstRating']) > 2)
+                                                                + {{ count($result['lstRating']) - 2 }}
+                                                                <span class="start_bold">other</span> Recz it!
+                                                            @else
+                                                                Recz it!
+                                                            @endif
+                                                        @endif
                                                     @endif
                                                 @else
                                                     <span class="start_bold">No one</span> Recz it yet!
@@ -582,7 +605,7 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
                                                             alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
@@ -961,7 +984,7 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
                                                             alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
@@ -1355,7 +1378,7 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
                                                             alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
@@ -1719,7 +1742,7 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
                                                             alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
@@ -2105,7 +2128,7 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
                                                             alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
@@ -2403,7 +2426,7 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
                                                             alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
@@ -2661,7 +2684,7 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
                                                             alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
@@ -2928,7 +2951,7 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
                                                             alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
@@ -3212,7 +3235,7 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
                                                             alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"

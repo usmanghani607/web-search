@@ -1221,9 +1221,6 @@ session_start();
                     var lstReczItFrnd = result.lstReczItFrnd;
                     var firstName = lstReczItFrnd.length > 0 ? lstReczItFrnd[0].firstName : '';
                     var totalReczIt = result.totalReczIt;
-                    var reczItText = firstName ?
-                        `<span style="color: #000000"><span class="start_bold">${firstName}</span> and ${totalReczIt} <span class="start_bold">other</span> people Recz it!</span>` :
-                        '';
 
                     var metaValue22 = '';
                     if (result.lstMeta) {
@@ -1312,7 +1309,7 @@ session_start();
                                         ${metaValue53Html}
                                         <div class="text-starts">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${result.rating}</span>
-                                            ${reczItText}
+                                            <span class="start_bold">${result.totalReczIt}</span> people Recz it!</span>
                                         </div>
                                     </div>
                                 </div>
