@@ -934,8 +934,9 @@ session_start();
                                             @endphp
                                             {{ $restaurantTitle }}
                                         </span>
-                                        <span class="fav_icon"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></span>
+                                        <span class="fav_icon"><a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
+                                                alt=""></a></span>
                                         <div class="location">
                                             <span>{{ isset($result['location']) && !empty($result['location']) ? $result['location'] : 'No location available' }}
                                             </span>
@@ -950,14 +951,17 @@ session_start();
                                             @endphp
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
-                                                    <span><img src="{{ asset('images/red-star.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                            alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @else
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -991,11 +995,16 @@ session_start();
                                                 @endif
                                             </span>
                                             <span class="start_empty">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -1323,8 +1332,9 @@ session_start();
                                             @endphp
                                             {{ $songTitle }}
                                         </span>
-                                        <span class="fav_icon"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></span>
+                                        <span class="fav_icon"><a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
+                                                alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
@@ -1335,14 +1345,17 @@ session_start();
                                             @endphp
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
-                                                    <span><img src="{{ asset('images/red-star.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                            alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @else
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -1376,11 +1389,16 @@ session_start();
                                                 @endif
                                             </span>
                                             <span class="start_empty">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -1674,8 +1692,9 @@ session_start();
                                             @endphp
                                             {{ $restaurantTitle }}
                                         </span>
-                                        <span class="fav_icon"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></span>
+                                        <span class="fav_icon"><a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
+                                                alt=""></a></span>
                                         <div class="location">
                                             <span>{{ isset($result['location']) && !empty($result['location']) ? $result['location'] : 'No location available' }}
                                             </span>
@@ -1690,14 +1709,17 @@ session_start();
                                             @endphp
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
-                                                    <span><img src="{{ asset('images/red-star.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                            alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @else
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -1731,11 +1753,16 @@ session_start();
                                                 @endif
                                             </span>
                                             <span class="start_empty">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                            <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -1906,7 +1933,7 @@ session_start();
             <div class="row">
                 <div class="col-md-12">
 
-                    <div class="trailer_section">
+                    {{-- <div class="trailer_section">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
@@ -1945,8 +1972,94 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
+                    @if (isset($result['lstMedia']) && count($result['lstMedia']) < 3)
+                        <div class="trailer_section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="carouselWillnessControls" class="carousel slide movies_img"
+                                            data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                @if (count($result['lstMedia']) > 0)
+                                                    @foreach ($result['lstMedia'] as $index => $media)
+                                                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                                            <div class="row">
+                                                                <img src="{{ $media['link'] }}" alt="...">
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                @else
+                                                    <div class="carousel-item active">
+                                                        <div class="row">
+                                                            <img src="{{ asset('images/dummy_image.webp') }}"
+                                                                alt="No Image Available">
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            </div>
+
+                                            @if (count($result['lstMedia']) > 1)
+                                                <button class="carousel-control-prev" type="button"
+                                                    data-bs-target="#carouselWillnessControls" data-bs-slide="prev">
+                                                    <span><i class="fas fa-chevron-left"></i></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button"
+                                                    data-bs-target="#carouselWillnessControls" data-bs-slide="next">
+                                                    <span><i class="fas fa-chevron-right"></i></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="trailer_section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            @if (count($result['lstMedia']) > 0)
+                                                <div class="col-md-8">
+                                                    <img class="full_img"
+                                                        src="{{ $result['lstMedia'][0]['link'] ?? asset('images/dummy_image.webp') }}"
+                                                        alt="">
+                                                </div>
+                                            @else
+                                                <div class="col-md-8">
+                                                    <img class="full_img" src="{{ asset('images/dummy_image.webp') }}"
+                                                        alt="Dummy Image">
+                                                </div>
+                                            @endif
+                                            <div class="col-md-4">
+                                                @if (count($result['lstMedia']) > 1)
+                                                    <img class="first_img"
+                                                        src="{{ $result['lstMedia'][1]['link'] ?? asset('images/dummy_image.webp') }}"
+                                                        alt="">
+                                                @else
+                                                    <img class="first_img" src="{{ asset('images/dummy_image.webp') }}"
+                                                        alt="Dummy Image">
+                                                @endif
+                                                @if (count($result['lstMedia']) > 2)
+                                                    <p><img class="secnd_img"
+                                                            src="{{ $result['lstMedia'][2]['link'] ?? asset('images/dummy_image.webp') }}"
+                                                            alt=""></p>
+                                                @else
+                                                    <p><img class="secnd_img"
+                                                            src="{{ asset('images/dummy_image.webp') }}"
+                                                            alt="Dummy Image"></p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
 
                     <div class="title_section">
                         <div class="container">
@@ -1965,8 +2078,9 @@ session_start();
                                             @endphp
                                             {{ $willnessTitle }}
                                         </span>
-                                        <span class="fav_icon"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></span>
+                                        <span class="fav_icon"><a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
+                                                alt=""></a></span>
                                         <div class="location">
                                             <span>{{ isset($result['location']) && !empty($result['location']) ? $result['location'] : 'No location available' }}
                                             </span>
@@ -1981,14 +2095,17 @@ session_start();
                                             @endphp
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
-                                                    <span><img src="{{ asset('images/red-star.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                            alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @else
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -2022,11 +2139,16 @@ session_start();
                                                 @endif
                                             </span>
                                             <span class="start_empty">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -2258,8 +2380,9 @@ session_start();
                                             @endphp
                                             {{ $wineTitle }}
                                         </span>
-                                        <span class="fav_icon"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></span>
+                                        <span class="fav_icon"><a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
+                                                alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
@@ -2270,14 +2393,17 @@ session_start();
                                             @endphp
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
-                                                    <span><img src="{{ asset('images/red-star.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                            alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @else
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -2311,11 +2437,16 @@ session_start();
                                                 @endif
                                             </span>
                                             <span class="start_empty">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -2507,8 +2638,9 @@ session_start();
                                             @endphp
                                             {{ $podcastTitle }}
                                         </span>
-                                        <span class="fav_icon"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></span>
+                                        <span class="fav_icon"><a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
+                                                alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
@@ -2519,14 +2651,17 @@ session_start();
                                             @endphp
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
-                                                    <span><img src="{{ asset('images/red-star.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                            alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @else
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -2561,11 +2696,16 @@ session_start();
                                             </span>
 
                                             <span class="start_empty">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -2765,8 +2905,9 @@ session_start();
                                             @endphp
                                             {{ $shoppingTitle }}
                                         </span>
-                                        <span class="fav_icon"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></span>
+                                        <span class="fav_icon"><a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
+                                                alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
@@ -2777,14 +2918,17 @@ session_start();
                                             @endphp
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
-                                                    <span><img src="{{ asset('images/red-star.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                            alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @else
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -2819,11 +2963,16 @@ session_start();
                                                 @endif
                                             </span>
                                             <span class="start_empty">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -3040,8 +3189,9 @@ session_start();
                                             @endphp
                                             {{ $movieTitle }}
                                         </span>
-                                        <span class="fav_icon"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></span>
+                                        <span class="fav_icon"><a href="" data-bs-toggle="modal"
+                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
+                                                alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
@@ -3052,14 +3202,17 @@ session_start();
                                             @endphp
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
-                                                    <span><img src="{{ asset('images/red-star.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                            alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @else
-                                                    <span><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></span>
+                                                    <span><a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                            alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -3094,11 +3247,16 @@ session_start();
                                             </span>
 
                                             <span class="start_empty">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
-                                                <img src="{{ asset('images/start-empty.png') }}" alt="">
+                                                <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                        <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -3516,45 +3674,45 @@ session_start();
         }
     </script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        let isPopupShown = false;
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let isPopupShown = false;
 
-        function checkSession() {
-            fetch('/api/check-session', {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('api_token')}`,
-                        'Content-Type': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if (response.status === 401 && !isPopupShown) {
+            function checkSession() {
+                fetch('/api/check-session', {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `Bearer ${localStorage.getItem('api_token')}`,
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        if (response.status === 401 && !isPopupShown) {
 
-                        localStorage.removeItem('api_token');
-                        localStorage.removeItem('firstName');
+                            localStorage.removeItem('api_token');
+                            localStorage.removeItem('firstName');
 
-                        Swal.fire({
-                            title: 'Session Expired',
-                            text: 'Please log in again.',
-                            icon: 'warning',
-                            confirmButtonText: 'Login',
-                            showCancelButton: false
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href = '/login';
-                            }
-                        });
+                            Swal.fire({
+                                title: 'Session Expired',
+                                text: 'Please log in again.',
+                                icon: 'warning',
+                                confirmButtonText: 'Login',
+                                showCancelButton: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = '/login';
+                                }
+                            });
 
-                        isPopupShown = true;
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        }
+                            isPopupShown = true;
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
 
-        setInterval(checkSession, 7200000);
-    });
-</script>
+            setInterval(checkSession, 7200000);
+        });
+    </script>
 
 
 @endsection
