@@ -3552,7 +3552,7 @@ session_start();
                 .catch(error => console.error('Error:', error));
         }
 
-        setInterval(checkSession, 5000); // Check session every 5 seconds
+        setInterval(checkSession, 7200000);
     });
 </script>
 
