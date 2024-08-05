@@ -245,7 +245,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            let isPopupShown = false; // Flag to track if the popup has been shown
+            let isPopupShown = false;
 
             function checkSession() {
                 fetch('/api/check-session', {
@@ -257,7 +257,7 @@
                     })
                     .then(response => {
                         if (response.status === 401 && !isPopupShown) {
-                            // Remove token and first name from local storage
+
                             localStorage.removeItem('api_token');
                             localStorage.removeItem('firstName');
 
@@ -273,7 +273,7 @@
                                 }
                             });
 
-                            isPopupShown = true; // Set the flag to true after showing the popup
+                            isPopupShown = true;
                         }
                     })
                     .catch(error => console.error('Error:', error));

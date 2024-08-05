@@ -22,14 +22,12 @@ class SessionTimeout
             $lastActivity = session('last_activity');
             $currentTime = Carbon::now()->timestamp;
 
-            // Invalidate the session if it has been inactive for more than 10 seconds
-            if ($lastActivity && ($currentTime - $lastActivity > 10)) {
+            if ($lastActivity && ($currentTime - $lastActivity > 120)) {
                 Auth::logout();
                 $request->session()->invalidate();
                 return redirect('/login')->with('message', 'Your session has expired due to inactivity.');
             }
 
-            // Update last activity time
             session(['last_activity' => $currentTime]);
         }
 
