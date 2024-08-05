@@ -146,19 +146,19 @@
             var firstName = localStorage.getItem('firstName');
 
             if (!token) {
-                        Swal.fire({
-                            title: 'Login Required',
-                            text: 'You need to login to perform this action.',
-                            icon: 'warning',
-                            confirmButtonText: 'Login',
-                            showCancelButton: false
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href = '/login';
-                            }
-                        });
-                        return;
+                Swal.fire({
+                    title: 'Login Required',
+                    text: 'You need to login to perform this action.',
+                    icon: 'warning',
+                    confirmButtonText: 'Login',
+                    showCancelButton: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '/login';
                     }
+                });
+                return;
+            }
 
             if (token) {
 
@@ -243,5 +243,43 @@
         });
     </script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let isPopupShown = false; // Flag to track if the popup has been shown
 
+            function checkSession() {
+                fetch('/api/check-session', {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `Bearer ${localStorage.getItem('api_token')}`,
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        if (response.status === 401 && !isPopupShown) {
+                            // Remove token and first name from local storage
+                            localStorage.removeItem('api_token');
+                            localStorage.removeItem('firstName');
+
+                            Swal.fire({
+                                title: 'Session Expired',
+                                text: 'Please log in again.',
+                                icon: 'warning',
+                                confirmButtonText: 'Login',
+                                showCancelButton: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = '/login';
+                                }
+                            });
+
+                            isPopupShown = true; // Set the flag to true after showing the popup
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+
+            setInterval(checkSession, 5000); // Check session every 5 seconds
+        });
+    </script>
 @endsection

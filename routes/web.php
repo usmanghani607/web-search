@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TrendController;
+
+Route::middleware(['session.timeout'])->group(function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::post('index_search', [HomeController::class, 'indexProcess'])->name('index-process');
@@ -50,7 +53,12 @@ Route::post('/user_login', [HomeController::class, 'loginProcess'])->name('proce
 
 // Route::get('/login_new', [HomeController::class, 'loginNew'])->name('login');
 
+Route::get('/api/check-session', function() {
+    if (!Auth::check()) {
+        return response()->json(['message' => 'Session expired'], 401);
+    }
+    return response()->json(['message' => 'Session active'], 200);
+});
 
 
-
-
+});
