@@ -1343,43 +1343,43 @@ session_start();
         });
     </script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        let isPopupShown = false;
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let isPopupShown = false;
 
-        function checkSession() {
-            fetch('/api/check-session', {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('api_token')}`,
-                        'Content-Type': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if (response.status === 401 && !isPopupShown) {
+            function checkSession() {
+                fetch('/api/check-session', {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `Bearer ${localStorage.getItem('api_token')}`,
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        if (response.status === 401 && !isPopupShown) {
 
-                        localStorage.removeItem('api_token');
-                        localStorage.removeItem('firstName');
+                            localStorage.removeItem('api_token');
+                            localStorage.removeItem('firstName');
 
-                        Swal.fire({
-                            title: 'Session Expired',
-                            text: 'Please log in again.',
-                            icon: 'warning',
-                            confirmButtonText: 'Login',
-                            showCancelButton: false
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href = '/login';
-                            }
-                        });
+                            Swal.fire({
+                                title: 'Session Expired',
+                                text: 'Please log in again.',
+                                icon: 'warning',
+                                confirmButtonText: 'Login',
+                                showCancelButton: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = '/login';
+                                }
+                            });
 
-                        isPopupShown = true;
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        }
+                            isPopupShown = true;
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
 
-        setInterval(checkSession, 7200000);
-    });
-</script>
+            setInterval(checkSession, 7200000);
+        });
+    </script>
 @endsection
