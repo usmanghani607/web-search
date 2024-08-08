@@ -4,6 +4,9 @@
     .hidden {
         display: none;
     }
+    .trending_wrap:last-child {
+    border-bottom: none;
+    }
 
     /* #loadingIndicator {
         display: none;
@@ -214,11 +217,13 @@
 
                         if (data.result && data.result.length > 0) {
                             trendsWrap.innerHTML = data.result.map(trend => `
-                        <div class="trend_item">
+                        <div class="trending_wrap">
                             <div class="search_icon">
                                 <img src="{{ asset('images/search-icon.png') }}" alt="">
                             </div>
-                            <span class="trend-item" data-query="${trend.catName}"><a href="#">${trend.catName}</a></span>
+                            <span class="trend-item" data-query="${trend.catName}">
+                                <a href="#">${trend.catName}</a>
+                            </span>
                             <div class="arrow">
                                 <img src="{{ asset('images/arrow.png') }}" alt="">
                             </div>
