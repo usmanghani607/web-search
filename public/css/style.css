@@ -33,6 +33,10 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 .header_filter .checkbox-image { display: none; position: absolute; top: 2px; left: -2px; width: 20px; height: 20px; z-index: 10; }
 .header_filter .form-check-input:checked + .header_filter .form-check-label + .header_filter .checkbox-image { display: inline; }
 .header_filter .rest.form-check-input:checked { background-color: transparent; border-color: transparent; }
+.header_filter .movies.form-check-input:checked { background-color: transparent; border-color: transparent; }
+.header_filter .series.form-check-input:checked { background-color: transparent; border-color: transparent; }
+.header_filter .book.form-check-input:checked { background-color: transparent; border-color: transparent; }
+
 
 
 

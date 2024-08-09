@@ -70,6 +70,7 @@ session_start();
     .map_section {
         display: block;
     }
+
 </style>
 
 @section('content')
@@ -165,17 +166,23 @@ session_start();
                             <label class="form-check-label" for="all">All</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input filter-checkbox" type="checkbox" id="movies" value="Movies">
+                            <input class="movies form-check-input filter-checkbox" type="checkbox" id="movies" value="Movies">
                             <label class="form-check-label" for="movies">Movies</label>
+                            <img src="{{ asset('images/movies.png') }}" alt="Star Icon" class="checkbox-image"
+                                id="checkboxImage" style="display: none;">
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input filter-checkbox" type="checkbox" id="web_series"
+                            <input class="series form-check-input filter-checkbox" type="checkbox" id="web_series"
                                 value="Web Series">
                             <label class="form-check-label" for="web_series">Web series</label>
+                            <img src="{{ asset('images/series.png') }}" alt="Star Icon" class="checkbox-image"
+                                id="checkboxImage" style="display: none;">
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input filter-checkbox" type="checkbox" id="books" value="Books">
+                            <input class="book form-check-input filter-checkbox" type="checkbox" id="books" value="Books">
                             <label class="form-check-label" for="books">Books</label>
+                            <img src="{{ asset('images/book-icon.png') }}" alt="Star Icon" class="checkbox-image"
+                                id="checkboxImage" style="display: none;">
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="rest form-check-input filter-checkbox" type="checkbox" id="restaurants"
@@ -678,7 +685,7 @@ session_start();
     </section> --}}
 
 
-    <script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             const checkboxes = document.querySelectorAll('.filter-checkbox');
             const image = document.getElementById('checkboxImage');
@@ -707,6 +714,41 @@ session_start();
 
             toggleImage();
 
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', handleCheckboxChange);
+            });
+        });
+    </script> --}}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.filter-checkbox');
+            const images = {
+                movies: document.querySelector('#movies + label + img'),
+                web_series: document.querySelector('#web_series + label + img'),
+                books: document.querySelector('#books + label + img'),
+                restaurants: document.querySelector('#restaurants + label + img')
+            };
+
+            function toggleImages(selectedId) {
+                Object.keys(images).forEach(id => {
+                    images[id].style.display = (id === selectedId) ? 'inline' : 'none';
+                });
+            }
+
+            function handleCheckboxChange(event) {
+                checkboxes.forEach(checkbox => {
+                    if (checkbox !== event.target) {
+                        checkbox.checked = false;
+                    }
+                });
+
+                toggleImages(event.target.id);
+            }
+
+            // Initially hide all images except for the selected one
+            toggleImages(document.querySelector('.filter-checkbox:checked').id);
 
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', handleCheckboxChange);
