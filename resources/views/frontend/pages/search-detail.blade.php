@@ -189,14 +189,13 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span class="red_star"><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
+                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
+                                                            a                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
                                                             alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span class="red_star"><a href="" data-bs-toggle="modal"
                                                         data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
-                                                @else
-                                                    <span class="red_star"><a href="" data-bs-toggle="modal"
+="red_star"><a href="" data-bs-toggle="modal"
                                                         data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
                                                             alt=""></a></span>
                                                 @endif
@@ -4083,10 +4082,10 @@ session_start();
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="title">
-                                        <div class="name">Cuisine</div>
+                                        <div class="name">Recipe</div>
                                         <div class="row">
                                             <div class="rest_loc">
-                                                @php
+                                                {{-- @php
                                                     $recipesCuisine = '';
                                                     foreach ($result['lstMeta'] as $meta) {
                                                         if ($meta['metaID'] == 18) {
@@ -4099,55 +4098,15 @@ session_start();
                                                 @if ($recipesCuisine)
                                                     {{ $recipesCuisine }}
                                                 @else
-                                                    Cuisine is not available
-                                                @endif
+                                                Recipe is not available
+                                                @endif --}}
+
+                                                <p>{{ isset($result['msg']) ? $result['msg'] : 'No message available' }}</p>
 
                                             </div>
                                         </div>
 
                                         <div class="border"></div>
-
-
-                                        <div class="summary_name">Summary</div>
-                                        <div class="summary_des">
-                                            @php
-                                                $description = isset($result['msg']) ? $result['msg'] : 'Summary is not available.';
-                                            @endphp
-                                            <p>{{ $description }}</p>
-                                        </div>
-
-                                        <div class="border"></div>
-
-                                        {{-- <div class="video_name">Videos</div>
-                                        <div class="video_links">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <iframe
-                                                        src="https://www.youtube.com/embed/t06RUxPbp_c?si=zA2I6c1hud8SkUn5"
-                                                        title="YouTube video player" frameborder="0"
-                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                        referrerpolicy="strict-origin-when-cross-origin"
-                                                        allowfullscreen></iframe>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <iframe
-                                                        src="https://www.youtube.com/embed/t06RUxPbp_c?si=zA2I6c1hud8SkUn5"
-                                                        title="YouTube video player" frameborder="0"
-                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                        referrerpolicy="strict-origin-when-cross-origin"
-                                                        allowfullscreen></iframe>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <iframe
-                                                        src="https://www.youtube.com/embed/t06RUxPbp_c?si=zA2I6c1hud8SkUn5"
-                                                        title="YouTube video player" frameborder="0"
-                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                        referrerpolicy="strict-origin-when-cross-origin"
-                                                        allowfullscreen></iframe>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="border"></div> --}}
 
                                         <div class="comments_name">Comments</div>
                                         @if (isset($comments) && count($comments) > 0)
