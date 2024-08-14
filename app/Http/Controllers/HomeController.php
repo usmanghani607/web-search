@@ -214,7 +214,7 @@ class HomeController extends Controller
     public function restaurantProcess(Request $request)
     {
         $searchQuery = $request->input('search_query');
-        $endpoint = "https://api-dev.therecz.com//api/search/nearby-posts.php";
+        $endpoint = "https://api.therecz.com//api/search/nearby-posts.php";
         $postfields = [
             'search' => $searchQuery,
             'latitude' => 32.1343,

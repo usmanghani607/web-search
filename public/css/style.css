@@ -122,7 +122,7 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 /*Restaurants*/
 
 .filter_restaurant .list_heading p{ font-size: 24px; font-weight: 500; }
-.filter_restaurant #carouselExampleControls p{ text-align: center; font-size: 24px; font-weight: 500; }
+.filter_restaurant #carouselRestaurantControls p{ text-align: center; font-size: 24px; font-weight: 500; }
 
 .filter_restaurant .list_heading .see{ font-size: 18px; color: #000000; float: right; padding: 5px 0; text-decoration: none; }
 
@@ -148,6 +148,26 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 .filter_restaurant .card_img img.overlay-sec-img { position: absolute; color: white; text-align: center; font-size: 14px; font-weight: 500; top: 40%; left: 50%; width: 37px; height: 37px; border-radius: 20px; }
 
 .filter_restaurant.near_rest .card_img span { position: absolute; left: 50%; transform: translate(-50%); color: white; padding: 0 10px; text-align: center; font-size: 14px; width: 100%; bottom: 5px; font-weight: 500; }
+
+
+/*Place Near Me*/
+
+.place_filter .list_heading p{ font-size: 24px; font-weight: 500; }
+.place_filter #carouselPlaceControls p{ text-align: center; font-size: 24px; font-weight: 500; }
+.place_filter .list_heading .see{ font-size: 18px; color: #000000; float: right; padding: 5px 0; text-decoration: none; }
+.place_filter .card { border-radius: 16px; border: none; margin-bottom: 10px; }
+.place_filter .card img { border-radius: 16px 16px 0 0; width: 100%; object-fit: cover; }
+.place_filter .card-body { box-shadow: 0px 0px 8px #00000029; border: none; border-radius: 0 0 16px 16px; }
+.place_filter .card h3 { font-size: 16px; font-weight: 500; margin-bottom: 10px; }
+.place_filter .card .card-text { font-size: 14px; color: #505050; }
+.place_filter .card .star_point { background: #FF385C; padding: 2px 6px; border-radius: 2px; color: white; display: inline-flex; align-items: center; font-size: 13px; margin-right: 7px; }
+.place_filter .card .rating { color: #333333; font-size: 14px; }
+.place_filter .card_img { position: relative; width: 100%; }
+.place_filter .card-main-img { width: 100%; height: 187px; object-fit: fill; }
+.place_filter .card_img span { position: absolute; left: 50%; transform: translate(-50%); color: white; padding: 0 15px; text-align: center; font-size: 14px; width: 100%; bottom: 5px; font-weight: 500; }
+.place_filter .card_img img.overlay-first-img { position: absolute; left: 50%; transform: translateX(-50%); text-align: center; top: 40%; width: 37px; height: 37px; border-radius: 20px; }
+.place_filter .card_img img.overlay-sec-img { position: absolute; color: white; text-align: center; font-size: 14px; font-weight: 500; top: 40%; left: 50%; width: 37px; height: 37px; border-radius: 20px; }
+.place_filter.near_rest .card_img span { position: absolute; left: 50%; transform: translate(-50%); color: white; padding: 0 10px; text-align: center; font-size: 14px; width: 100%; bottom: 5px; font-weight: 500; }
 
 
 /*search restaurant*/
@@ -590,5 +610,8 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 .swal2-actions .swal2-confirm.swal2-styled { background-color: #FF385C; }
 
 
-.filter_restaurant  .carousel.slide button.carousel-control-next { width: 40px; height: 40px; border-radius: 20px; top: 50%; box-shadow: 0px 0px 6px #00000029; opacity: 1; border: none; background-color: #FF385C; }
-.filter_restaurant  .carousel.slide button.carousel-control-prev { width: 40px; height: 40px; border-radius: 20px; top: 50%; box-shadow: 0px 0px 6px #00000029; opacity: 1; border: none; background-color: #FF385C; }
+.filter_restaurant .carousel.slide button.carousel-control-next { width: 40px; height: 40px; border-radius: 20px; top: 50%; box-shadow: 0px 0px 6px #00000029; opacity: 1; border: none; background-color: #FF385C; }
+.filter_restaurant .carousel.slide button.carousel-control-prev { width: 40px; height: 40px; border-radius: 20px; top: 50%; box-shadow: 0px 0px 6px #00000029; opacity: 1; border: none; background-color: #FF385C; }
+
+.place_filter .carousel.slide button.carousel-control-next { width: 40px; height: 40px; border-radius: 20px; top: 50%; box-shadow: 0px 0px 6px #00000029; opacity: 1; border: none; background-color: #FF385C; }
+.place_filter .carousel.slide button.carousel-control-prev { width: 40px; height: 40px; border-radius: 20px; top: 50%; box-shadow: 0px 0px 6px #00000029; opacity: 1; border: none; background-color: #FF385C; }

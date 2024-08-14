@@ -38,7 +38,7 @@ Route::get('search-detail2', [HomeController::class, 'searchDetail2'])->name('se
 
 // Route::get('search-detail-process', [HomeController::class, 'searchDetailProcess'])->name('search-detail-process');
 
-Route::post('restaurant-process', [HomeController::class, 'restaurantProcess'])->name('restaurant-process');
+// Route::post('restaurant-process', [HomeController::class, 'restaurantProcess'])->name('restaurant-process');
 
 Route::get('/restaurants', [HomeController::class, 'restaurant'])->name('restaurants');
 

@@ -175,8 +175,8 @@ session_start();
                                             {{ $movieTitle }}
                                         </span>
                                         <span class="fav_icon"><a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></a></span>
+                                                data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
+                                                    alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
@@ -189,15 +189,19 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span class="red_star"><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/red-star.png') }}"
-                                                            a                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/red-star.png') }}" a
+                                                                data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span class="red_star"><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-="red_star"><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"="red_star"><a
+                                                                href="" data-bs-toggle="modal"
+                                                                data-bs-target="#starModal"><img
+                                                                    src="{{ asset('images/half-red.png') }}"
+                                                                    alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -250,12 +254,15 @@ session_start();
                                             <span style="color: #000000">
                                                 @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
                                                     @if (count($result['lstRating']) == 1)
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
                                                         Recz it!
                                                     @else
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
                                                         @if (count($result['lstRating']) > 1)
-                                                            <span class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
+                                                            <span
+                                                                class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
                                                             @if (count($result['lstRating']) > 2)
                                                                 + {{ count($result['lstRating']) - 2 }}
                                                                 <span class="start_bold">other</span> Recz it!
@@ -271,16 +278,16 @@ session_start();
 
 
                                             <span class="start_empty">
-                                                <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -591,8 +598,8 @@ session_start();
                                             {{ $bookTitle }}
                                         </span>
                                         <span class="fav_icon"><a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></a></span>
+                                                data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
+                                                    alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
@@ -604,16 +611,19 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @else
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -638,12 +648,15 @@ session_start();
                                             <span style="color: #000000">
                                                 @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
                                                     @if (count($result['lstRating']) == 1)
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
                                                         Recz it!
                                                     @else
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
                                                         @if (count($result['lstRating']) > 1)
-                                                            <span class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
+                                                            <span
+                                                                class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
                                                             @if (count($result['lstRating']) > 2)
                                                                 + {{ count($result['lstRating']) - 2 }}
                                                                 <span class="start_bold">other</span> Recz it!
@@ -657,16 +670,16 @@ session_start();
                                                 @endif
                                             </span>
                                             <span class="start_empty">
-                                                <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -977,8 +990,8 @@ session_start();
                                             {{ $restaurantTitle }}
                                         </span>
                                         <span class="fav_icon"><a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></a></span>
+                                                data-bs-target="#starModal"><img
+                                                    src="{{ asset('images/favourit.png') }}" alt=""></a></span>
                                         <div class="location">
                                             <span>{{ isset($result['location']) && !empty($result['location']) ? $result['location'] : 'No location available' }}
                                             </span>
@@ -994,16 +1007,19 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @else
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -1029,12 +1045,15 @@ session_start();
                                             <span style="color: #000000">
                                                 @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
                                                     @if (count($result['lstRating']) == 1)
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
                                                         Recz it!
                                                     @else
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
                                                         @if (count($result['lstRating']) > 1)
-                                                            <span class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
+                                                            <span
+                                                                class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
                                                             @if (count($result['lstRating']) > 2)
                                                                 + {{ count($result['lstRating']) - 2 }}
                                                                 <span class="start_bold">other</span> Recz it!
@@ -1048,16 +1067,16 @@ session_start();
                                                 @endif
                                             </span>
                                             <span class="start_empty">
-                                                <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -1386,8 +1405,8 @@ session_start();
                                             {{ $songTitle }}
                                         </span>
                                         <span class="fav_icon"><a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></a></span>
+                                                data-bs-target="#starModal"><img
+                                                    src="{{ asset('images/favourit.png') }}" alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
@@ -1399,16 +1418,19 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @else
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -1434,12 +1456,15 @@ session_start();
                                             <span style="color: #000000">
                                                 @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
                                                     @if (count($result['lstRating']) == 1)
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
                                                         Recz it!
                                                     @else
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
                                                         @if (count($result['lstRating']) > 1)
-                                                            <span class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
+                                                            <span
+                                                                class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
                                                             @if (count($result['lstRating']) > 2)
                                                                 + {{ count($result['lstRating']) - 2 }}
                                                                 <span class="start_bold">other</span> Recz it!
@@ -1453,16 +1478,16 @@ session_start();
                                                 @endif
                                             </span>
                                             <span class="start_empty">
-                                                <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -1757,8 +1782,8 @@ session_start();
                                             {{ $restaurantTitle }}
                                         </span>
                                         <span class="fav_icon"><a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></a></span>
+                                                data-bs-target="#starModal"><img
+                                                    src="{{ asset('images/favourit.png') }}" alt=""></a></span>
                                         <div class="location">
                                             <span>{{ isset($result['location']) && !empty($result['location']) ? $result['location'] : 'No location available' }}
                                             </span>
@@ -1774,16 +1799,19 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @else
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -1809,12 +1837,15 @@ session_start();
                                             <span style="color: #000000">
                                                 @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
                                                     @if (count($result['lstRating']) == 1)
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
                                                         Recz it!
                                                     @else
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
                                                         @if (count($result['lstRating']) > 1)
-                                                            <span class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
+                                                            <span
+                                                                class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
                                                             @if (count($result['lstRating']) > 2)
                                                                 + {{ count($result['lstRating']) - 2 }}
                                                                 <span class="start_bold">other</span> Recz it!
@@ -1828,16 +1859,16 @@ session_start();
                                                 @endif
                                             </span>
                                             <span class="start_empty">
-                                                <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                            <a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -2154,8 +2185,8 @@ session_start();
                                             {{ $willnessTitle }}
                                         </span>
                                         <span class="fav_icon"><a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></a></span>
+                                                data-bs-target="#starModal"><img
+                                                    src="{{ asset('images/favourit.png') }}" alt=""></a></span>
                                         <div class="location">
                                             <span>{{ isset($result['location']) && !empty($result['location']) ? $result['location'] : 'No location available' }}
                                             </span>
@@ -2171,16 +2202,19 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @else
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -2206,12 +2240,15 @@ session_start();
                                             <span style="color: #000000">
                                                 @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
                                                     @if (count($result['lstRating']) == 1)
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
                                                         Recz it!
                                                     @else
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
                                                         @if (count($result['lstRating']) > 1)
-                                                            <span class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
+                                                            <span
+                                                                class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
                                                             @if (count($result['lstRating']) > 2)
                                                                 + {{ count($result['lstRating']) - 2 }}
                                                                 <span class="start_bold">other</span> Recz it!
@@ -2225,16 +2262,23 @@ session_start();
                                                 @endif
                                             </span>
                                             <span class="start_empty">
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
                                                 <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -2262,7 +2306,8 @@ session_start();
                                             <div class="row">
                                                 <div class="price"><img src="{{ asset('images/price.png') }}"
                                                         alt=""><span>$50 for two</span></div>
-                                                <div class="location"><img src="{{ asset('images/location-icon.png') }}"
+                                                <div class="location"><img
+                                                        src="{{ asset('images/location-icon.png') }}"
                                                         alt=""><span>{{ isset($result['location']) && !empty($result['location']) ? $result['location'] : 'No location available' }}
                                                     </span></div>
 
@@ -2467,8 +2512,9 @@ session_start();
                                             {{ $wineTitle }}
                                         </span>
                                         <span class="fav_icon"><a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></a></span>
+                                                data-bs-target="#starModal"><img
+                                                    src="{{ asset('images/favourit.png') }}"
+                                                    alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
@@ -2480,20 +2526,24 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @else
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @endif
                                             @endfor
 
-                                            <span class="user_based">(Based on {{ $result['ratingCount'] }} users)</span>
+                                            <span class="user_based">(Based on {{ $result['ratingCount'] }}
+                                                users)</span>
                                         </div>
                                         <div class="people_like">
 
@@ -2515,12 +2565,15 @@ session_start();
                                             <span style="color: #000000">
                                                 @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
                                                     @if (count($result['lstRating']) == 1)
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
                                                         Recz it!
                                                     @else
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
                                                         @if (count($result['lstRating']) > 1)
-                                                            <span class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
+                                                            <span
+                                                                class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
                                                             @if (count($result['lstRating']) > 2)
                                                                 + {{ count($result['lstRating']) - 2 }}
                                                                 <span class="start_bold">other</span> Recz it!
@@ -2535,15 +2588,25 @@ session_start();
                                             </span>
                                             <span class="start_empty">
                                                 <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -2736,8 +2799,9 @@ session_start();
                                             {{ $podcastTitle }}
                                         </span>
                                         <span class="fav_icon"><a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></a></span>
+                                                data-bs-target="#starModal"><img
+                                                    src="{{ asset('images/favourit.png') }}"
+                                                    alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
@@ -2749,16 +2813,19 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @else
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -2784,12 +2851,15 @@ session_start();
                                             <span style="color: #000000">
                                                 @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
                                                     @if (count($result['lstRating']) == 1)
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
                                                         Recz it!
                                                     @else
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
                                                         @if (count($result['lstRating']) > 1)
-                                                            <span class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
+                                                            <span
+                                                                class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
                                                             @if (count($result['lstRating']) > 2)
                                                                 + {{ count($result['lstRating']) - 2 }}
                                                                 <span class="start_bold">other</span> Recz it!
@@ -2805,15 +2875,25 @@ session_start();
 
                                             <span class="start_empty">
                                                 <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -3014,8 +3094,9 @@ session_start();
                                             {{ $shoppingTitle }}
                                         </span>
                                         <span class="fav_icon"><a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></a></span>
+                                                data-bs-target="#starModal"><img
+                                                    src="{{ asset('images/favourit.png') }}"
+                                                    alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
@@ -3027,16 +3108,19 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @else
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -3063,12 +3147,15 @@ session_start();
                                             <span style="color: #000000">
                                                 @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
                                                     @if (count($result['lstRating']) == 1)
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
                                                         Recz it!
                                                     @else
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
                                                         @if (count($result['lstRating']) > 1)
-                                                            <span class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
+                                                            <span
+                                                                class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
                                                             @if (count($result['lstRating']) > 2)
                                                                 + {{ count($result['lstRating']) - 2 }}
                                                                 <span class="start_bold">other</span> Recz it!
@@ -3083,15 +3170,25 @@ session_start();
                                             </span>
                                             <span class="start_empty">
                                                 <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -3309,8 +3406,9 @@ session_start();
                                             {{ $movieTitle }}
                                         </span>
                                         <span class="fav_icon"><a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></a></span>
+                                                data-bs-target="#starModal"><img
+                                                    src="{{ asset('images/favourit.png') }}"
+                                                    alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
@@ -3322,16 +3420,19 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @else
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -3357,12 +3458,15 @@ session_start();
                                             <span style="color: #000000">
                                                 @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
                                                     @if (count($result['lstRating']) == 1)
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
                                                         Recz it!
                                                     @else
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
                                                         @if (count($result['lstRating']) > 1)
-                                                            <span class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
+                                                            <span
+                                                                class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
                                                             @if (count($result['lstRating']) > 2)
                                                                 + {{ count($result['lstRating']) - 2 }}
                                                                 <span class="start_bold">other</span> Recz it!
@@ -3378,15 +3482,25 @@ session_start();
 
                                             <span class="start_empty">
                                                 <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -3699,8 +3813,9 @@ session_start();
                                             {{ $socialTitle }}
                                         </span>
                                         <span class="fav_icon"><a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></a></span>
+                                                data-bs-target="#starModal"><img
+                                                    src="{{ asset('images/favourit.png') }}"
+                                                    alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
@@ -3712,16 +3827,19 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @else
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -3747,12 +3865,15 @@ session_start();
                                             <span style="color: #000000">
                                                 @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
                                                     @if (count($result['lstRating']) == 1)
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
                                                         Recz it!
                                                     @else
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
                                                         @if (count($result['lstRating']) > 1)
-                                                            <span class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
+                                                            <span
+                                                                class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
                                                             @if (count($result['lstRating']) > 2)
                                                                 + {{ count($result['lstRating']) - 2 }}
                                                                 <span class="start_bold">other</span> Recz it!
@@ -3768,15 +3889,25 @@ session_start();
 
                                             <span class="start_empty">
                                                 <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -3794,7 +3925,9 @@ session_start();
                                         <div class="summary_name">Summary</div>
                                         <div class="summary_des">
                                             @php
-                                                $description = isset($result['msg']) ? $result['msg'] : 'Summary is not available.';
+                                                $description = isset($result['msg'])
+                                                    ? $result['msg']
+                                                    : 'Summary is not available.';
                                             @endphp
                                             <p>{{ $description }}</p>
                                         </div>
@@ -3938,7 +4071,8 @@ session_start();
                                                     <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                                                         <div class="row">
                                                             @if ($media['type'] == 'post/video')
-                                                                <img src="{{ $media['thumb'] }}" alt="Video Thumbnail">
+                                                                <img src="{{ $media['thumb'] }}"
+                                                                    alt="Video Thumbnail">
                                                             @else
                                                                 <img src="{{ $media['link'] }}" alt="Image">
                                                             @endif
@@ -3948,7 +4082,8 @@ session_start();
                                             @else
                                                 <div class="carousel-item active">
                                                     <div class="row">
-                                                        <img src="{{ asset('images/dummy_image.webp') }}" alt="No Image Available">
+                                                        <img src="{{ asset('images/dummy_image.webp') }}"
+                                                            alt="No Image Available">
                                                     </div>
                                                 </div>
                                             @endif
@@ -3991,8 +4126,9 @@ session_start();
                                             {{ $recipesTitle }}
                                         </span>
                                         <span class="fav_icon"><a href="" data-bs-toggle="modal"
-                                            data-bs-target="#starModal"><img src="{{ asset('images/favourit.png') }}"
-                                                alt=""></a></span>
+                                                data-bs-target="#starModal"><img
+                                                    src="{{ asset('images/favourit.png') }}"
+                                                    alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
@@ -4004,16 +4140,19 @@ session_start();
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $fullStars)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @else
                                                     <span><a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/half-red.png') }}"
-                                                            alt=""></a></span>
+                                                            data-bs-target="#starModal"><img
+                                                                src="{{ asset('images/half-red.png') }}"
+                                                                alt=""></a></span>
                                                 @endif
                                             @endfor
 
@@ -4039,12 +4178,15 @@ session_start();
                                             <span style="color: #000000">
                                                 @if (isset($result['lstRating']) && count($result['lstRating']) > 0)
                                                     @if (count($result['lstRating']) == 1)
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>
                                                         Recz it!
                                                     @else
-                                                        <span class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
+                                                        <span
+                                                            class="start_bold">{{ $result['lstRating'][0]['firstName'] }}</span>,
                                                         @if (count($result['lstRating']) > 1)
-                                                            <span class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
+                                                            <span
+                                                                class="start_bold">{{ $result['lstRating'][1]['firstName'] }}</span>
                                                             @if (count($result['lstRating']) > 2)
                                                                 + {{ count($result['lstRating']) - 2 }}
                                                                 <span class="start_bold">other</span> Recz it!
@@ -4060,15 +4202,25 @@ session_start();
 
                                             <span class="start_empty">
                                                 <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
-                                                        <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#starModal"><img src="{{ asset('images/start-empty.png') }}" alt=""></a>
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#starModal"><img
+                                                        src="{{ asset('images/start-empty.png') }}"
+                                                        alt=""></a>
                                             </span>
                                         </div>
                                     </div>
@@ -4101,7 +4253,8 @@ session_start();
                                                 Recipe is not available
                                                 @endif --}}
 
-                                                <p>{{ isset($result['msg']) ? $result['msg'] : 'No message available' }}</p>
+                                                <p>{{ isset($result['msg']) ? $result['msg'] : 'No message available' }}
+                                                </p>
 
                                             </div>
                                         </div>
@@ -4149,10 +4302,10 @@ session_start();
                                                                 {{-- <img class="card-main-img" src="{{ $post['img'] }}"
                                                                     alt="{{ $post['title'] }}"> --}}
 
-                                                                    <img class="card-main-img"
-                                                                        src="{{ isset($post['img']) ? $post['img'] : (isset($post['lstPublicPhotos'][0]) ? $post['lstPublicPhotos'][0] : asset('images/dummy_image.webp')) }}"
-                                                                        alt="{{ $post['title'] }}"
-                                                                        onerror="this.onerror=null; this.src='{{ asset('images/dummy_image.webp') }}';">
+                                                                <img class="card-main-img"
+                                                                    src="{{ isset($post['img']) ? $post['img'] : (isset($post['lstPublicPhotos'][0]) ? $post['lstPublicPhotos'][0] : asset('images/dummy_image.webp')) }}"
+                                                                    alt="{{ $post['title'] }}"
+                                                                    onerror="this.onerror=null; this.src='{{ asset('images/dummy_image.webp') }}';">
 
                                                             </a>
                                                             <div class="card-body">
@@ -4203,8 +4356,12 @@ session_start();
                             <img class="scan" src="{{ asset('images/scan.png') }}" alt="">
                             <p>Available on</p>
                             <div class="app_link">
-                                <a href="https://apps.apple.com/us/app/recz-social-recommendation-app/id1582034985"><img class="applestore" src="{{ asset('images/apple-play.png') }}" alt=""></a>
-                                <a href="https://play.google.com/store/apps/details?id=com.recz.android"><img class="googlestore" src="{{ asset('images/google-play.png') }}" alt=""></a>
+                                <a href="https://apps.apple.com/us/app/recz-social-recommendation-app/id1582034985"><img
+                                        class="applestore" src="{{ asset('images/apple-play.png') }}"
+                                        alt=""></a>
+                                <a href="https://play.google.com/store/apps/details?id=com.recz.android"><img
+                                        class="googlestore" src="{{ asset('images/google-play.png') }}"
+                                        alt=""></a>
                             </div>
                         </div>
                     </div>
