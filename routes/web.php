@@ -40,7 +40,7 @@ Route::get('search-detail2', [HomeController::class, 'searchDetail2'])->name('se
 
 // Route::post('restaurant-process', [HomeController::class, 'restaurantProcess'])->name('restaurant-process');
 
-Route::get('/restaurants', [HomeController::class, 'restaurant'])->name('restaurants');
+Route::get('/restaurant-listing', [HomeController::class, 'restaurant'])->name('restaurant-listing');
 
 Route::get('/search-restaurants', [HomeController::class, 'searchRestaurant'])->name('search-restaurants');
 

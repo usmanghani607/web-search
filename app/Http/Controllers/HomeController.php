@@ -18,7 +18,7 @@ class HomeController extends Controller
 
     public function restaurant()
     {
-        return view('frontend/pages/restaurants');
+        return view('frontend/pages/restaurant-listing');
     }
 
     public function searchRestaurant()
@@ -211,23 +211,80 @@ class HomeController extends Controller
     }
 
 
+    // public function restaurantProcess(Request $request)
+    // {
+    //     $searchQuery = $request->input('search_query');
+    //     $endpoint = "https://api.therecz.com//api/search/nearby-posts.php";
+    //     $postfields = [
+    //         'search' => $searchQuery,
+    //         'latitude' => 32.1343,
+    //         'longitude' => 74.0153,
+    //         'skipCache' => true
+    //     ];
+
+    //     $token = $request->header('Authorization');
+    //     if (!$token) {
+    //         return response()->json(['errors' => ['token' => 'Authorization token not provided']], 401);
+    //     }
+
+    //     // dd($searchQuery);
+    //     // exit();
+
+    //     $response = Http::withOptions([
+    //         'verify' => false,
+    //     ])->withHeaders([
+    //         'Content-Type' => 'application/json',
+    //         'Authorization' => $token,
+    //     ])->post($endpoint, $postfields);
+
+    //     if ($response->failed()) {
+    //         return response()->json(['errors' => ['search_query' => 'Error fetching data from API']], $response->status());
+    //     }
+
+    //     $responseData = $response->json();
+
+    //     // dd($responseData);
+    //     // exit();
+
+    //     if (isset($responseData['result'])) {
+    //         $result = $responseData['result'];
+
+    //         return response()->json([
+    //             'success' => true,
+    //             'result' => $result,
+    //             'search_query' => $searchQuery,
+    //         ]);
+    //     } else {
+    //         return response()->json([
+    //             'success' => false,
+    //             'errors' => ['search_query' => 'No results found for your query']
+    //         ], 401);
+    //     }
+    // }
+
     public function restaurantProcess(Request $request)
     {
         $searchQuery = $request->input('search_query');
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+
         $endpoint = "https://api.therecz.com//api/search/nearby-posts.php";
         $postfields = [
             'search' => $searchQuery,
-            'latitude' => 32.1343,
-            'longitude' => 74.0153,
+            'latitude' => $latitude, // Use the dynamic latitude
+            'longitude' => $longitude, // Use the dynamic longitude
             'skipCache' => true
         ];
+
+        // dd($postfields);
+        // exit();
 
         $token = $request->header('Authorization');
         if (!$token) {
             return response()->json(['errors' => ['token' => 'Authorization token not provided']], 401);
         }
 
-        // dd($searchQuery);
+        // dd($token);
         // exit();
 
         $response = Http::withOptions([
@@ -236,6 +293,9 @@ class HomeController extends Controller
             'Content-Type' => 'application/json',
             'Authorization' => $token,
         ])->post($endpoint, $postfields);
+
+        // dd($postfields);
+        // exit();
 
         if ($response->failed()) {
             return response()->json(['errors' => ['search_query' => 'Error fetching data from API']], $response->status());
@@ -261,60 +321,6 @@ class HomeController extends Controller
             ], 401);
         }
     }
-
-    // public function restaurantProcess(Request $request)
-    // {
-    //     $searchQuery = $request->input('search_query');
-    //     $latitude = $request->input('latitude');
-    //     $longitude = $request->input('longitude');
-
-    //     $endpoint = "https://api-dev.therecz.com//api/search/nearby-posts.php";
-    //     $postfields = [
-    //         'search' => $searchQuery,
-    //         'latitude' => $latitude,
-    //         'longitude' => $longitude,
-    //         'skipCache' => true
-    //     ];
-
-    //     // dd($longitude);
-    //     // exit();
-
-    //     $token = $request->header('Authorization');
-    //     if (!$token) {
-    //         return response()->json(['errors' => ['token' => 'Authorization token not provided']], 401);
-    //     }
-
-    //     $response = Http::withOptions([
-    //         'verify' => false,
-    //     ])->withHeaders([
-    //         'Content-Type' => 'application/json',
-    //         'Authorization' => $token,
-    //     ])->post($endpoint, $postfields);
-
-    //     if ($response->failed()) {
-    //         return response()->json(['errors' => ['search_query' => 'Error fetching data from API']], $response->status());
-    //     }
-
-    //     $responseData = $response->json();
-
-    //     dd($responseData);
-    //     exit();
-
-    //     if (isset($responseData['result'])) {
-    //         $result = $responseData['result'];
-
-    //         return response()->json([
-    //             'success' => true,
-    //             'result' => $result,
-    //             'search_query' => $searchQuery,
-    //         ]);
-    //     } else {
-    //         return response()->json([
-    //             'success' => false,
-    //             'errors' => ['search_query' => 'No results found for your query']
-    //         ], 401);
-    //     }
-    // }
 
 
     public function searchListProcess(Request $request)
