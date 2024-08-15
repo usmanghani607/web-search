@@ -70,6 +70,7 @@ session_start();
     .map_section {
         display: block;
     }
+
 </style>
 
 @section('content')
@@ -583,6 +584,7 @@ session_start();
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
+                        <p id="restaurantStatus"></p>
                     </div>
                 </div>
             </div>
@@ -1518,6 +1520,177 @@ session_start();
 
     <script>
         $(document).ready(function() {
+            // function toggleSections() {
+            //     if ($('#restaurants').is(':checked')) {
+            //         $('.filter_restaurant').show();
+            //         $('.map_section').show();
+            //         $('.place_filter').show();
+            //         $('.filter_list').hide();
+            //     } else if ($('#all').is(':checked')) {
+            //         $('.filter_restaurant').hide();
+            //         $('.map_section').hide();
+            //         $('.place_filter').hide();
+            //         $('.filter_list').show();
+            //     } else {
+            //         $('.filter_restaurant').hide();
+            //         $('.map_section').hide();
+            //         $('.place_filter').hide();
+            //         $('.filter_list').show();
+            //     }
+            // }
+
+            // toggleSections();
+
+            // $('.filter-checkbox').on('change', function() {
+            //     $('.filter-checkbox').prop('checked', false);
+            //     $(this).prop('checked', true);
+            //     toggleSections();
+
+            //     var searchText = $('#searchInput').val().trim();
+            //     var selectedCatID = getSelectedCatID();
+            //     performSearch(searchText, selectedCatID);
+            // });
+
+            // function performSearch(searchText, catID) {
+            //     if (searchText.length > 0) {
+            //         var csrfToken = $('meta[name="csrf-token"]').attr('content');
+            //         var token = localStorage.getItem('api_token');
+
+            //         if (!token) {
+            //             Swal.fire({
+            //                 title: 'Login Required',
+            //                 text: 'You need to login to perform this action.',
+            //                 icon: 'warning',
+            //                 confirmButtonText: 'Login',
+            //                 cancelButtonText: 'Cancel',
+            //                 showCancelButton: true
+            //             }).then((result) => {
+            //                 if (result.isConfirmed) {
+            //                     window.location.href = '/login';
+            //                 } else if (result.isDismissed) {
+            //                     window.location.href = '/';
+            //                 }
+            //             });
+            //             return;
+            //         }
+
+            //         $('#loaderOverlay').show();
+            //         $('#loader').show();
+
+            //         if (catID === 3) {
+            //             // Geolocation for Restaurants
+            //             if (navigator.geolocation) {
+            //                 navigator.geolocation.getCurrentPosition(
+            //                     function(position) {
+            //                         const lat = position.coords.latitude;
+            //                         const lon = position.coords.longitude;
+            //                         console.log(`Latitude: ${lat}, Longitude: ${lon}`);
+
+            //                         $.ajax({
+            //                             url: "{{ route('restaurant-process') }}",
+            //                             // url: "https://dev.therecz.com/restaurant-process",
+            //                             type: 'POST',
+            //                             headers: {
+            //                                 'X-CSRF-TOKEN': csrfToken,
+            //                                 'Authorization': 'Bearer ' + token
+            //                             },
+            //                             data: {
+            //                                 search_query: searchText,
+            //                                 latitude: lat,
+            //                                 longitude: lon
+            //                             },
+            //                             success: function(response) {
+            //                                 if (response.success) {
+            //                                     renderRestaurantResults(response.result);
+            //                                 } else {
+            //                                     console.error(
+            //                                         'No results found for restaurant-process');
+            //                                 }
+            //                                 hideLoader(); // Hide loader on success
+            //                             },
+            //                             error: function(xhr, status, error) {
+            //                                 console.error('Error from restaurant-process:', error);
+            //                                 hideLoader(); // Hide loader on error
+            //                             }
+            //                         });
+
+            //                         $.ajax({
+            //                             url: "{{ route('place-process') }}",
+            //                             // url: "https://dev.therecz.com/place-process",
+            //                             type: 'POST',
+            //                             headers: {
+            //                                 'X-CSRF-TOKEN': csrfToken,
+            //                                 'Authorization': 'Bearer ' + token
+            //                             },
+            //                             data: {
+            //                                 search_query: searchText,
+            //                                 type: 'restaurant',
+            //                                 catID: catID
+            //                             },
+            //                             success: function(response) {
+            //                                 if (response.success) {
+            //                                     renderPlaceResults(response.result);
+            //                                 } else {
+            //                                     console.error('No results found for place-process');
+            //                                 }
+            //                                 hideLoader(); // Hide loader on success
+            //                             },
+            //                             error: function(xhr, status, error) {
+            //                                 console.error('Error from place-process:', error);
+            //                                 hideLoader(); // Hide loader on error
+            //                             }
+            //                         });
+
+            //                     },
+            //                     function(error) {
+            //                         console.error("Error in retrieving location:", error.message);
+            //                         hideLoader(); // Hide loader if geolocation fails
+            //                     }
+            //                 );
+            //             } else {
+            //                 console.log("Geolocation is not supported by this browser.");
+            //                 hideLoader(); // Hide loader if geolocation is not supported
+            //             }
+
+            //         } else {
+            //             // Hit the search-list-process route for other categories
+            //             $.ajax({
+            //                 url: "{{ route('search-list-process') }}",
+            //                 // url: "https://dev.therecz.com/search-list-process",
+            //                 type: 'POST',
+            //                 headers: {
+            //                     'X-CSRF-TOKEN': csrfToken,
+            //                     'Authorization': 'Bearer ' + token
+            //                 },
+            //                 data: {
+            //                     search_query: searchText,
+            //                     catID: catID
+            //                 },
+            //                 success: function(response) {
+            //                     if (response.success) {
+            //                         renderSearchListResults(response.result);
+            //                     } else {
+            //                         console.error('No results found for search-list-process');
+            //                     }
+            //                     hideLoader(); // Hide loader on success
+            //                 },
+            //                 error: function(xhr, status, error) {
+            //                     console.error(error);
+            //                     hideLoader(); // Hide loader on error
+            //                 }
+            //             });
+            //         }
+            //     } else {
+            //         console.log('Empty search input');
+            //         hideLoader(); // Hide loader if search input is empty
+            //     }
+            // }
+
+            // function hideLoader() {
+            //     $('#loaderOverlay').hide();
+            //     $('#loader').hide();
+            // }
+
             function toggleSections() {
                 if ($('#restaurants').is(':checked')) {
                     $('.filter_restaurant').show();
@@ -1584,6 +1757,7 @@ session_start();
                                     const lon = position.coords.longitude;
                                     console.log(`Latitude: ${lat}, Longitude: ${lon}`);
 
+                                    // Call restaurant-process API with geolocation data
                                     $.ajax({
                                         // url: "{{ route('restaurant-process') }}",
                                         url: "https://dev.therecz.com/restaurant-process",
@@ -1601,8 +1775,7 @@ session_start();
                                             if (response.success) {
                                                 renderRestaurantResults(response.result);
                                             } else {
-                                                console.error(
-                                                    'No results found for restaurant-process');
+                                                console.error('No results found for restaurant-process');
                                             }
                                             hideLoader(); // Hide loader on success
                                         },
@@ -1612,6 +1785,7 @@ session_start();
                                         }
                                     });
 
+                                    // Call place-process API with type 'restaurant'
                                     $.ajax({
                                         // url: "{{ route('place-process') }}",
                                         url: "https://dev.therecz.com/place-process",
@@ -1643,6 +1817,39 @@ session_start();
                                 function(error) {
                                     console.error("Error in retrieving location:", error.message);
                                     hideLoader(); // Hide loader if geolocation fails
+
+                                    // If geolocation is not allowed, display the message "Restaurant is not available"
+                                    if (error.code === error.PERMISSION_DENIED) {
+                                        $('#restaurantStatus').text('Location Permission Denied, Restaurant is not available.');
+
+                                        // Only hit place-process API
+                                        $.ajax({
+                                            // url: "{{ route('place-process') }}",
+                                            url: "https://dev.therecz.com/place-process",
+                                            type: 'POST',
+                                            headers: {
+                                                'X-CSRF-TOKEN': csrfToken,
+                                                'Authorization': 'Bearer ' + token
+                                            },
+                                            data: {
+                                                search_query: searchText,
+                                                type: 'restaurant',
+                                                catID: catID
+                                            },
+                                            success: function(response) {
+                                                if (response.success) {
+                                                    renderPlaceResults(response.result);
+                                                } else {
+                                                    console.error('No results found for place-process');
+                                                }
+                                                hideLoader(); // Hide loader on success
+                                            },
+                                            error: function(xhr, status, error) {
+                                                console.error('Error from place-process:', error);
+                                                hideLoader(); // Hide loader on error
+                                            }
+                                        });
+                                    }
                                 }
                             );
                         } else {
@@ -1688,6 +1895,8 @@ session_start();
                 $('#loaderOverlay').hide();
                 $('#loader').hide();
             }
+
+
 
             $('#searchInput').on('input', function() {
                 var searchText = $(this).val().trim();
