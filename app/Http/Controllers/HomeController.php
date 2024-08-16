@@ -271,8 +271,8 @@ class HomeController extends Controller
         $endpoint = "https://api.therecz.com//api/search/nearby-posts.php";
         $postfields = [
             'search' => $searchQuery,
-            'latitude' => $latitude, // Use the dynamic latitude
-            'longitude' => $longitude, // Use the dynamic longitude
+            'latitude' => $latitude,
+            'longitude' => $longitude,
             'skipCache' => true
         ];
 

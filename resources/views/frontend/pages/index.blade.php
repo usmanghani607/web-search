@@ -287,4 +287,14 @@
             setInterval(checkSession, 7200000);
         });
     </script>
+
+    <script>
+        $(document).ready(function() {
+            if (window.location.pathname === '/') {
+                localStorage.removeItem('selectedRadioId');
+                localStorage.removeItem('selectedCatID');
+            }
+        });
+    </script>
+
 @endsection

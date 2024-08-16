@@ -70,7 +70,6 @@ session_start();
     .map_section {
         display: block;
     }
-
 </style>
 
 @section('content')
@@ -155,48 +154,6 @@ session_start();
         </div>
     </div>
 
-    {{-- <div class="header_filter">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="search_checkbox">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input filter-checkbox" type="checkbox" id="all" value="All"
-                                checked>
-                            <label class="form-check-label" for="all">All</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="movies form-check-input filter-checkbox" type="checkbox" id="movies" value="Movies">
-                            <label class="form-check-label" for="movies">Movies</label>
-                            <img src="{{ asset('images/movies.png') }}" alt="Star Icon" class="checkbox-image"
-                                id="checkboxImage" style="display: none;">
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="series form-check-input filter-checkbox" type="checkbox" id="web_series"
-                                value="Web Series">
-                            <label class="form-check-label" for="web_series">Web series</label>
-                            <img src="{{ asset('images/series.png') }}" alt="Star Icon" class="checkbox-image"
-                                id="checkboxImage" style="display: none;">
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="book form-check-input filter-checkbox" type="checkbox" id="books" value="Books">
-                            <label class="form-check-label" for="books">Books</label>
-                            <img src="{{ asset('images/book-icon.png') }}" alt="Star Icon" class="checkbox-image"
-                                id="checkboxImage" style="display: none;">
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="rest form-check-input filter-checkbox" type="checkbox" id="restaurants"
-                                value="Restaurants">
-                            <label class="form-check-label" for="restaurants">Restaurants</label>
-                            <img src="{{ asset('images/icon.png') }}" alt="Star Icon" class="checkbox-image"
-                                id="checkboxImage" style="display: none;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
     <div class="header_filter">
         <div class="container-fluid">
             <div class="row">
@@ -204,7 +161,7 @@ session_start();
                     <div class="search_checkbox">
                         <div class="form-check form-check-inline">
                             <input class="form-check-input filter-checkbox" type="checkbox" id="all" value="All"
-                                checked>
+                            >
                             <label class="form-check-label" for="all">All</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -233,6 +190,13 @@ session_start();
                                 value="Restaurants">
                             <label class="form-check-label" for="restaurants">Restaurants</label>
                             <img src="{{ asset('images/icon.png') }}" alt="Restaurants Icon" class="checkbox-image"
+                                style="display: none;">
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="rest form-check-input filter-checkbox" type="checkbox" id="music"
+                                value="Music">
+                            <label class="form-check-label" for="music">Music</label>
+                            <img src="{{ asset('images/music-icon.png') }}" alt="Music Icon" class="checkbox-image"
                                 style="display: none;">
                         </div>
                     </div>
@@ -675,7 +639,9 @@ session_start();
                 movies: document.querySelector('#movies + label + img'),
                 web_series: document.querySelector('#web_series + label + img'),
                 books: document.querySelector('#books + label + img'),
-                restaurants: document.querySelector('#restaurants + label + img')
+                restaurants: document.querySelector('#restaurants + label + img'),
+                music: document.querySelector('#music + label + img')
+
             };
 
             function toggleImages(selectedId) {
@@ -703,6 +669,67 @@ session_start();
         });
     </script>
 
+    <script>
+        $(document).ready(function() {
+
+            function updateAllCheckboxState() {
+                if ($('.filter-checkbox').not('#all').is(':checked')) {
+                    $('#all').prop('checked', false);
+                } else {
+                    $('#all').prop('checked', true);
+                }
+            }
+
+            function initializeCheckboxes() {
+                var selectedRadioId = localStorage.getItem('selectedRadioId');
+                var selectedCatID = localStorage.getItem('selectedCatID');
+
+                if (selectedRadioId) {
+                    $('#' + selectedRadioId).prop('checked', true);
+                    $('#' + selectedRadioId).siblings('.checkbox-image').show();
+                } else {
+
+                    $('#all').prop('checked', true);
+                }
+
+                updateAllCheckboxState();
+            }
+
+            initializeCheckboxes();
+
+            $('.filter-checkbox').on('change', function() {
+                var checkboxId = $(this).attr('id');
+                var catID = getSelectedCatID();
+
+                $('.checkbox-image').hide();
+
+                localStorage.setItem('selectedRadioId', checkboxId);
+                localStorage.setItem('selectedCatID', catID);
+
+                $(this).siblings('.checkbox-image').show();
+
+                updateAllCheckboxState();
+            });
+        });
+
+        function getSelectedCatID() {
+            const category = $('.filter-checkbox:checked').val();
+            switch (category) {
+                case 'Movies':
+                    return 1; // CatID for Movies
+                case 'Web Series':
+                    return 2; // CatID for Web Series
+                case 'Books':
+                    return 8; // CatID for Books
+                case 'Restaurants':
+                    return 3; // CatID for Restaurants
+                case 'Music':
+                    return 13; // CatID for Music
+                default:
+                    return 0; // CatID for All or unspecified
+            }
+        }
+    </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -742,337 +769,6 @@ session_start();
             }
         }
     </script>
-
-    {{-- <script>
-        $(document).ready(function() {
-            function toggleSections() {
-                if ($('#restaurants').is(':checked')) {
-                    $('.filter_restaurant').show();
-                    $('.map_section').show();
-                    $('.filter_list').hide();
-                } else if ($('#all').is(':checked')) {
-                    $('.filter_restaurant').hide();
-                    $('.map_section').hide();
-                    $('.filter_list').show();
-                } else {
-                    $('.filter_restaurant').hide();
-                    $('.map_section').hide();
-                    $('.filter_list').show();
-                }
-            }
-
-            toggleSections();
-
-            $('.filter-checkbox').on('change', function() {
-                $('.filter-checkbox').prop('checked', false);
-                $(this).prop('checked', true);
-                toggleSections();
-
-                var searchText = $('#searchInput').val().trim();
-                var selectedCatID = getSelectedCatID();
-                performSearch(searchText, selectedCatID);
-            });
-
-            function performSearch(searchText, catID) {
-                if (searchText.length > 0) {
-                    var csrfToken = $('meta[name="csrf-token"]').attr('content');
-                    var token = localStorage.getItem('api_token');
-
-                    if (!token) {
-                        Swal.fire({
-                            title: 'Login Required',
-                            text: 'You need to login to perform this action.',
-                            icon: 'warning',
-                            confirmButtonText: 'Login',
-                            cancelButtonText: 'Cancel',
-                            showCancelButton: true
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href = '/login';
-                            } else if (result.isDismissed) {
-                                window.location.href = '/';
-                            }
-                        });
-                        return;
-                    }
-
-                    $('#loaderOverlay').show();
-                    $('#loader').show();
-
-                    var url = catID === 3 ? "{{ route('restaurant-process') }}" :
-                        "{{ route('search-list-process') }}";
-                    // var url = catID === 3 ? "https://dev.therecz.com/restaurant-process" : "https://dev.therecz.com/search-list-process";
-
-
-                    $.ajax({
-                        url: url,
-                        type: 'POST',
-                        headers: {
-                            'X-CSRF-TOKEN': csrfToken,
-                            'Authorization': 'Bearer ' + token
-                        },
-                        data: {
-                            search_query: searchText,
-                            catID: catID
-                        },
-                        success: function(response) {
-                            $('#loaderOverlay').hide();
-                            $('#loader').hide();
-
-                            if (response.success) {
-                                if (catID === 3) {
-                                    renderRestaurantResults(response.result);
-                                } else {
-                                    renderSearchListResults(response.result);
-                                }
-                            } else {
-                                console.error('No results found');
-                            }
-                        },
-                        error: function(xhr, status, error) {
-                            $('#loaderOverlay').hide();
-                            $('#loader').hide();
-                            console.error(error);
-                        }
-                    });
-                } else {
-                    console.log('Empty search input');
-                }
-            }
-
-            $('#searchInput').on('input', function() {
-                var searchText = $(this).val().trim();
-                $('#searchResultText').text(`Showing result “${searchText}”`);
-            });
-
-            $('#indexForm').on('submit', function(e) {
-                e.preventDefault();
-                var searchText = $('#searchInput').val().trim();
-                $('#searchResultText').text(`Showing result “${searchText}”`);
-                var selectedCatID = getSelectedCatID();
-                performSearch(searchText, selectedCatID);
-            });
-
-            function getSelectedCatID() {
-                const category = $('.filter-checkbox:checked').val();
-                switch (category) {
-                    case 'Movies':
-                        return 1; // CatID for Movies
-                    case 'Web Series':
-                        return 2; // CatID for Web Series
-                    case 'Books':
-                        return 8; // CatID for Books
-                    case 'Restaurants':
-                        return 3; // CatID for Restaurants
-                    default:
-                        return 0; // CatID for All or unspecified
-                }
-            }
-
-            function getQueryParams() {
-                const params = {};
-                const queryString = window.location.search.substring(1).replace(/\+/g, ' ');
-                const regex = /([^&=]+)=([^&]*)/g;
-                let m;
-                while (m = regex.exec(queryString)) {
-                    params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-                }
-                return params;
-            }
-
-            const params = getQueryParams();
-            const searchQuery = params['search_query'];
-
-            if (searchQuery) {
-                $('#searchInput').val(searchQuery);
-                $('#searchResultText').text(`Showing result “${searchQuery}”`);
-                performSearch(searchQuery, getSelectedCatID());
-            } else {
-                $('#all').prop('checked', true);
-                $('#searchResultText').text('Showing result “All”');
-                performSearch('All', 0); // CatID for All
-            }
-
-            function truncateText(text, limit) {
-                if (text.length > limit) {
-                    return text.substring(0, limit) + '...';
-                }
-                return text;
-            }
-
-            function renderRestaurantResults(results) {
-                var carouselInner = $('#restaurant-carousel-inner');
-                var prevButton = $('.carousel-control-prev');
-                var nextButton = $('.carousel-control-next');
-
-                carouselInner.empty();
-
-                if (results.length === 0) {
-                    carouselInner.append(
-                        '<div class="carousel-item active"><div class="row"><p>Restaurant not available</p></div></div>'
-                        );
-                    prevButton.hide();
-                    nextButton.hide();
-                } else {
-                    var itemsPerSlide = 6; // Number of items per carousel slide
-                    var numSlides = Math.ceil(results.length / itemsPerSlide);
-
-                    prevButton.toggle(numSlides > 1);
-                    nextButton.toggle(numSlides > 1);
-
-                    for (var i = 0; i < numSlides; i++) {
-                        var activeClass = i === 0 ? ' active' : '';
-                        var slideHtml = `<div class="carousel-item${activeClass}"><div class="row">`;
-
-                        for (var j = i * itemsPerSlide; j < (i + 1) * itemsPerSlide && j < results.length; j++) {
-                            var result = results[j];
-                            var imgSrc = result.img ? result.img : '{{ asset('images/dummy_image.webp') }}';
-                            var title = result.title || 'Unknown Title';
-                            var location = result.location || 'Unknown Location';
-                            var rating = result.rating || '0';
-                            var usersReczIt = result.usersReczIt;
-                            title = truncateText(title, 13);
-                            location = truncateText(location, 30);
-
-                            var cardHtml = `
-                                <div class="col-md-2">
-                                    <div class="card">
-                                        <div class="card_img">
-                                            <img class="card-main-img" src="${imgSrc}" alt="restaurant img">
-                                            <span>${usersReczIt ? usersReczIt + " Users Recz It!" : ""}</span>
-                                        </div>
-                                        <div class="card-body">
-                                            <h3 class="card-title">${title}</h3>
-                                            <h3 class="card-text">${location}</h3>
-                                            <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${rating}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            `;
-
-                            slideHtml += cardHtml;
-                        }
-
-                        slideHtml += '</div></div>';
-                        carouselInner.append(slideHtml);
-                    }
-                }
-            }
-
-
-            function renderSearchListResults(results) {
-                var container = $('.filter_list .container');
-                container.empty();
-
-                var charLimit = 300;
-
-                results.forEach(function(result) {
-                    var imgSrc = result.img ? result.img : '{{ asset('images/dummy_image.webp') }}';
-                    var lstReczItFrnd = result.lstReczItFrnd;
-                    var firstName = lstReczItFrnd.length > 0 ? lstReczItFrnd[0].firstName : '';
-                    var totalReczIt = result.totalReczIt;
-
-                    var metaValue22 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 22);
-                        metaValue22 = metaItem ? metaItem.value : '';
-                    }
-
-                    var metaValue26 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 26);
-                        metaValue26 = metaItem ? metaItem.value : '';
-                    }
-
-                    var metaValue51 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 51);
-                        metaValue51 = metaItem ? metaItem.value : '';
-                    }
-
-                    var metaValue53 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 53);
-                        metaValue53 = metaItem ? metaItem.value : '';
-                    }
-
-                    var metaValue15 = '';
-                    if (result.lstMeta) {
-                        var metaItem = result.lstMeta.find(meta => meta.metaID === 15);
-                        metaValue15 = metaItem ? metaItem.value : '';
-                    }
-
-                    var dataSrcHtml = '';
-                    if (result.catID === 1 && result.dataSrc) {
-                        dataSrcHtml = `<span class="imb">${result.dataSrc}</span>`;
-                    }
-
-                    var authorHtml = '';
-                    if (metaValue26) {
-                        authorHtml = `<div class="mb-2 auther">
-                            <span>Auther - ${metaValue26}</span>
-                        </div>`;
-                    }
-
-                    var additionalInfoHtml = '';
-                    if (result.catID === 1) {
-                        additionalInfoHtml = `<span class="yellow_star"><img src="{{ asset('images/yellow_star.png') }}" alt=""></span>
-                                <span class="bold">${result.rating} / 10</span>`;
-                    }
-
-                    var metaValue15Html = metaValue15 ? `<div class="mb-2 text-gray">
-                            <span>${metaValue15}.</span>
-                        </div>` : '';
-
-                    function truncateText(text, limit) {
-                        return text.length > limit ? text.substring(0, limit) + '...' : text;
-                    }
-
-                    var metaValue53Html = metaValue53 ? `<div class="mb-3 text-gray">
-                            <span>${truncateText(metaValue53, charLimit)}</span>
-                        </div>` : '';
-
-                    var metaValue22Html = metaValue22 ? `<span>${metaValue22} ·</span>` : '';
-
-                    var resultHtml = `<div class="row mb-3">
-                    <div class="col-md-12">
-                        <div class="card shadow-0 border rounded-3">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="img_round">
-                                            <a href="{{ route('search-detail') }}?id=${result.pid}&catID=${result.catID ? result.catID : ''}">
-                                                <img src="${imgSrc}" class="w-100" onerror="this.onerror=null;this.src='{{ asset('images/dummy_image.webp') }}';"/>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <h5>${result.title}</h5>
-                                        ${authorHtml}
-                                        ${metaValue15Html}
-                                        <div class="mb-2 text-gray">
-                                            ${metaValue22Html}
-                                            <span>${metaValue51}</span>
-                                            ${additionalInfoHtml}
-                                            ${dataSrcHtml}
-                                        </div>
-                                        ${metaValue53Html}
-                                        <div class="text-starts">
-                                            <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${result.rating}</span>
-                                            <span class="start_bold">${result.totalReczIt}</span> people Recz it!</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>`;
-                    container.append(resultHtml);
-                });
-            }
-        });
-    </script> --}}
-
 
     {{-- <script>
         $(document).ready(function() {
@@ -1775,7 +1471,8 @@ session_start();
                                             if (response.success) {
                                                 renderRestaurantResults(response.result);
                                             } else {
-                                                console.error('No results found for restaurant-process');
+                                                console.error(
+                                                    'No results found for restaurant-process');
                                             }
                                             hideLoader(); // Hide loader on success
                                         },
@@ -1820,7 +1517,8 @@ session_start();
 
                                     // If geolocation is not allowed, display the message "Restaurant is not available"
                                     if (error.code === error.PERMISSION_DENIED) {
-                                        $('#restaurantStatus').text('Location Permission Denied, Restaurant is not available.');
+                                        $('#restaurantStatus').text(
+                                            'Location Permission Denied, Restaurant is not available.');
 
                                         // Only hit place-process API
                                         $.ajax({
@@ -1840,7 +1538,8 @@ session_start();
                                                 if (response.success) {
                                                     renderPlaceResults(response.result);
                                                 } else {
-                                                    console.error('No results found for place-process');
+                                                    console.error(
+                                                        'No results found for place-process');
                                                 }
                                                 hideLoader(); // Hide loader on success
                                             },
@@ -1922,6 +1621,8 @@ session_start();
                         return 8; // CatID for Books
                     case 'Restaurants':
                         return 3; // CatID for Restaurants
+                    case 'Music':
+                        return 13; // CatID for Music
                     default:
                         return 0; // CatID for All or unspecified
                 }
@@ -2250,79 +1951,4 @@ session_start();
         });
     </script>
 
-    {{-- <script>
-
-        document.getElementById('restaurants').addEventListener('change', function() {
-            if (this.checked) {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(
-                        function(position) {
-
-                            const lat = position.coords.latitude;
-                            const lon = position.coords.longitude;
-                            console.log(`Latitude: ${lat}, Longitude: ${lon}`);
-                        },
-                        function(error) {
-
-                            console.error("Error in retrieving location:", error.message);
-                        }
-                    );
-                } else {
-                    console.log("Geolocation is not supported by this browser.");
-                }
-            }
-        });
-    </script> --}}
-
-    {{-- <script>
-        document.getElementById('restaurants').addEventListener('change', function() {
-            if (this.checked) {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(
-                        function(position) {
-                            const lat = position.coords.latitude;
-                            const lon = position.coords.longitude;
-                            console.log(`Latitude: ${lat}, Longitude: ${lon}`);
-
-                            var searchQuery = $('#searchInput').val().trim();
-                            var token = localStorage.getItem('api_token');
-
-                            console.log('Sending data:', { search_query: searchQuery, latitude: lat, longitude: lon });
-
-                            $.ajax({
-                                url: "{{ route('restaurant-process') }}",
-                                type: 'POST',
-                                headers: {
-                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                                    'Authorization': 'Bearer ' + token
-                                },
-                                data: {
-                                    search_query: searchQuery,
-                                    latitude: lat,
-                                    longitude: lon
-                                },
-                                success: function(response) {
-                                    if (response.success) {
-                                        console.log('Results:', response.result);
-                                        // Process the results here
-                                    } else {
-                                        console.error('No results found');
-                                    }
-                                },
-                                error: function(xhr, status, error) {
-                                    console.error('Error fetching results:', error);
-                                }
-                            });
-
-                        },
-                        function(error) {
-                            console.error("Error in retrieving location:", error.message);
-                        }
-                    );
-                } else {
-                    console.log("Geolocation is not supported by this browser.");
-                }
-            }
-        });
-    </script> --}}
 @endsection
