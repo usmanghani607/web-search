@@ -357,6 +357,11 @@ class HomeController extends Controller
         // dd($responseData);
         // exit();
 
+        if (!isset($responseData['result']) || is_null($responseData['result'])) {
+
+            return redirect()->back()->with('notfound_message', 'This content is no longer available');
+        }
+
         if (isset($responseData['result'])) {
             $result = $responseData['result'];
 

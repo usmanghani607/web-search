@@ -1946,6 +1946,15 @@ session_start();
                 performSearch(searchText, selectedCatID);
             });
 
+            $('.search_icon').on('click', function(e) {
+                e.preventDefault();
+                var searchText = $('#searchInput').val().trim();
+                $('#searchResultText').text(`Showing result for “${searchText}”`);
+                var selectedCatID = getSelectedCatID();
+                updateURL(searchText);
+                performSearch(searchText, selectedCatID);
+            });
+
             function getSelectedCatID() {
                 const category = $('.filter-checkbox:checked').val();
                 switch (category) {
@@ -2293,6 +2302,18 @@ session_start();
             Swal.fire({
                 title: 'Content not available',
                 text: "{{ session('popup_message') }}",
+                icon: 'info',
+                confirmButtonText: 'OK'
+            });
+        });
+    </script>
+    @endif
+    @if (session('notfound_message'))
+    <script>
+        $(document).ready(function() {
+            Swal.fire({
+                title: 'Content not available',
+                text: "{{ session('notfound_message') }}",
                 icon: 'info',
                 confirmButtonText: 'OK'
             });
