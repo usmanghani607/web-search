@@ -412,8 +412,9 @@ class HomeController extends Controller
         // dd($postData);
         // exit();
 
-        if (!isset($postData['result'])) {
-            return redirect()->back()->withErrors('No results found for the given ID.');
+        if (!isset($postData['result']) || is_null($postData['result'])) {
+
+            return redirect()->back()->with('popup_message', 'This content is deleted or no longer available');
         }
 
         $result = $postData['result'];

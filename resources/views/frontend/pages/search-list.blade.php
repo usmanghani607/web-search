@@ -78,11 +78,6 @@ session_start();
             <div class="row">
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid">
-                        {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button> --}}
                         <div class="col-md-3 recz_logo">
                             <div class="logo_left">
                                 <a href="/"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
@@ -2291,5 +2286,18 @@ session_start();
             setInterval(checkSession, 7200000);
         });
     </script>
+
+    @if (session('popup_message'))
+    <script>
+        $(document).ready(function() {
+            Swal.fire({
+                title: 'Content not available',
+                text: "{{ session('popup_message') }}",
+                icon: 'info',
+                confirmButtonText: 'OK'
+            });
+        });
+    </script>
+    @endif
 
 @endsection
