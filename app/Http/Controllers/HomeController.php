@@ -210,6 +210,62 @@ class HomeController extends Controller
         }
     }
 
+    public function googleMapProcess(Request $request)
+    {
+        $searchQuery = $request->input('search_query');
+        $endpoint = "https://api.therecz.com//api/search/places.php";
+        $postfields = [
+            'search' => $searchQuery,
+            'type' => '',
+            'skipCache' => false
+        ];
+
+        $token = $request->header('Authorization');
+        if (!$token) {
+            return response()->json(['errors' => ['token' => 'Authorization token not provided']], 401);
+        }
+
+        // dd($token);
+        // exit();
+
+        $response = Http::withOptions([
+            'verify' => false,
+        ])->withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => $token,
+        ])->post($endpoint, $postfields);
+
+        if ($response->failed()) {
+            return response()->json(['errors' => ['search_query' => 'Error fetching data from API']], $response->status());
+        }
+
+        $responseData = $response->json();
+
+        // dd($responseData);
+        // exit();
+
+        if (isset($responseData['result']) && !empty($responseData['result'])) {
+            $results = $responseData['result'];
+            $locations = array_map(function ($result) {
+                return [
+                    'latitude' => $result['latitude'] ?? '',
+                    'longitude' => $result['longitude'] ?? '',
+                ];
+            }, $results);
+
+            return response()->json([
+                'success' => true,
+                'locations' => $locations,
+                'search_query' => $searchQuery,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'errors' => ['search_query' => 'No results found for your query']
+            ], 401);
+        }
+    }
+
 
     // public function restaurantProcess(Request $request)
     // {

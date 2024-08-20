@@ -210,10 +210,9 @@ session_start();
                                             @endfor --}}
 
                                             @php
-                                            // Assume $result['ratingCount'] holds the user's rating (e.g., 4)
+
                                             $ratingCount = $result['ratingCount'] ?? 0;
 
-                                            // Determine the number of full stars and whether there should be a half star
                                             $fullStars = floor($ratingCount);
                                             $halfStar = $ratingCount - $fullStars >= 0.5;
                                         @endphp

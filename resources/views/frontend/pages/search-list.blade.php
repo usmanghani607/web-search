@@ -67,9 +67,18 @@ session_start();
         display: block;
     } */
 
-    .map_section {
+    /* .map_section {
         display: block;
+    } */
+
+    #map {
+            height: 500px;
+            width: 100%;
+        }
+    .map_section {
+        display: none;
     }
+
 </style>
 
 @section('content')
@@ -218,7 +227,7 @@ session_start();
     </section>
 
 
-    <section class="map_section" style="display: none;">
+    {{-- <section class="map_section" style="display: none;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -229,17 +238,20 @@ session_start();
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    {{-- <section class="map_section" style="display: none;">
+    <section class="map_section">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div id="map" style="width: 100%; height: 350px;"></div>
+                    <div style="width: 100%">
+                        <div id="map"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
+
 
 
 
@@ -1717,6 +1729,26 @@ session_start();
         });
     </script> --}}
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_VSuTDsJ0fE33kZE66V2o71CUL8WEh_M"></script>
+
+    <script>
+        function initMap(locations) {
+            const mapOptions = {
+                zoom: 12,
+                center: locations.length ? { lat: locations[0].latitude, lng: locations[0].longitude } : { lat: -34.397, lng: 150.644 }
+            };
+            const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+            // Add markers to the map
+            locations.forEach(location => {
+                new google.maps.Marker({
+                    position: { lat: location.latitude, lng: location.longitude },
+                    map: map
+                });
+            });
+        }
+    </script>
+
     <script>
         $(document).ready(function() {
 
@@ -1832,7 +1864,7 @@ session_start();
                                                 },
                                                 data: {
                                                     search_query: searchText,
-                                                    type: 'restaurant',
+                                                    type: '',
                                                     catID: catID
                                                 },
                                                 success: function(response) {
@@ -1845,6 +1877,36 @@ session_start();
                                                 },
                                                 error: function(xhr, status, error) {
                                                     console.error('Error from place-process:', error);
+                                                    hideLoader(); // Hide loader on error
+                                                }
+                                            });
+
+                                            // Call googleMapProcess
+                                            $.ajax({
+                                                // url: "{{ route('google-map-process') }}",
+                                                url: "https://dev.therecz.com/google-map-process",
+                                                type: 'POST',
+                                                headers: {
+                                                    'X-CSRF-TOKEN': csrfToken,
+                                                    'Authorization': 'Bearer ' + token
+                                                },
+                                                data: {
+                                                    search_query: searchText,
+                                                    type: '',
+                                                    skipCache: true
+                                                },
+                                                success: function(response) {
+                                                    if (response.success) {
+                                                        const locations = response.locations;
+                                                        initMap(locations);
+                                                        $('.map_section').show(); // Show the map section
+                                                    } else {
+                                                        console.error('No results found for google-map-process');
+                                                    }
+                                                    hideLoader(); // Hide loader on success
+                                                },
+                                                error: function(xhr, status, error) {
+                                                    console.error('Error from google-map-process:', error);
                                                     hideLoader(); // Hide loader on error
                                                 }
                                             });
@@ -2237,11 +2299,45 @@ session_start();
         });
     </script>
 
+    {{-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const resultSection = document.querySelector('.filter_resulted');
+            const resultText = document.querySelector('.restaurant_result');
+
+            searchInput.addEventListener('input', function() {
+                const query = searchInput.value.trim();
+
+                if (query) {
+                    resultText.textContent = `“${query}”`;
+                    resultSection.style.display = 'block'; // Show the result section
+                } else {
+                    resultSection.style.display = 'none'; // Hide the result section if input is empty
+                }
+            });
+        });
+    </script> --}}
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('searchInput');
             const resultSection = document.querySelector('.filter_resulted');
             const resultText = document.querySelector('.restaurant_result');
+
+            if (!searchInput) {
+                console.error('Element with ID "searchInput" not found');
+                return;
+            }
+
+            if (!resultSection) {
+                console.error('Element with class "filter_resulted" not found');
+                return;
+            }
+
+            if (!resultText) {
+                console.error('Element with class "restaurant_result" not found');
+                return;
+            }
 
             searchInput.addEventListener('input', function() {
                 const query = searchInput.value.trim();
