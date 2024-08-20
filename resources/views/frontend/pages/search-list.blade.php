@@ -72,7 +72,7 @@ session_start();
     } */
 
     #map {
-            height: 500px;
+            height: 350px;
             width: 100%;
         }
     .map_section {
@@ -1814,7 +1814,8 @@ session_start();
                         return;
                     }
 
-                    $('#loaderOverlay').show();
+                    // $('#loaderOverlay').show();
+                    showLoader();
 
                     if (catID === 3) {
 
@@ -1990,8 +1991,14 @@ session_start();
                 }
             }
 
+            function showLoader() {
+                $('#loaderOverlay').show();
+                $('#loader').show();
+            }
+
             function hideLoader() {
                 $('#loaderOverlay').hide();
+                $('#loader').hide();
             }
 
             $('#searchInput').on('input', function() {
