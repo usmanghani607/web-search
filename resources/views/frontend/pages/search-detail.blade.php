@@ -185,46 +185,26 @@ session_start();
                                                     alt=""></a></span>
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                                    alt="">{{ $result['rating'] }}</span>
-                                            {{-- @php
-                                                $ratingCount = $result['ratingCount'] ?? 0;
-                                                $fullStars = (int) $ratingCount;
-                                                $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
-                                            @endphp
-
-                                            @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $fullStars)
-                                                    <span class="red_star"><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/red-star.png') }}" a
-                                                                data-bs-target="#starModal"></a></span>
-                                                @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span class="red_star"><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}" alt="red_star"><a
-                                                                href="" data-bs-toggle="modal"
-                                                                data-bs-target="#starModal"><img
-                                                                    src="{{ asset('images/half-red.png') }}"
-                                                                    alt=""></a></span>
-                                                @endif
-                                            @endfor --}}
+                                                    alt="">{{ $result['rating'] ?? 0 }}</span>
 
                                             @php
 
-                                            $ratingCount = $result['ratingCount'] ?? 0;
+                                            $rating = $result['rating'] ?? 0;
 
-                                            $fullStars = floor($ratingCount);
-                                            $halfStar = $ratingCount - $fullStars >= 0.5;
+                                            $fullStars = floor($rating);
+                                            $halfStar = $rating - $fullStars >= 0.5;
                                         @endphp
 
                                         @for ($i = 1; $i <= 5; $i++)
                                             @if ($i <= $fullStars)
+
                                                 <span class="red_star">
                                                     <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
                                                         <img src="{{ asset('images/red-star.png') }}" alt="red_star">
                                                     </a>
                                                 </span>
-                                            @elseif($i == $fullStars + 1 && $halfStar)
+                                            @elseif ($i == $fullStars + 1 && $halfStar)
+
                                                 <span class="red_star">
                                                     <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
                                                         <img src="{{ asset('images/half-red.png') }}" alt="half_red_star">
@@ -233,13 +213,11 @@ session_start();
                                             @else
                                                 <span class="grey_star">
                                                     <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
-                                                        <img src="{{ asset('images/half-red.png') }}" alt="half_red">
+                                                        <img src="{{ asset('images/half-red.png') }}" alt="grey_star">
                                                     </a>
                                                 </span>
                                             @endif
                                         @endfor
-
-
 
                                             <span class="user_based">(Based on {{ $result['ratingCount'] }} users)</span>
                                         </div>
@@ -639,29 +617,34 @@ session_start();
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
-                                            @php
-                                                $ratingCount = $result['ratingCount'] ?? 0;
-                                                $fullStars = (int) $ratingCount;
-                                                $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
-                                            @endphp
-                                            @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $fullStars)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @else
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @endif
-                                            @endfor
+
+                                                @php
+                                                    $rating = $result['rating'] ?? 0;
+                                                    $fullStars = floor($rating);
+                                                    $halfStar = $rating - $fullStars >= 0.5;
+                                                @endphp
+
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $fullStars)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/red-star.png') }}" alt="red_star">
+                                                            </a>
+                                                        </span>
+                                                    @elseif ($i == $fullStars + 1 && $halfStar)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="half_red_star">
+                                                            </a>
+                                                        </span>
+                                                    @else
+                                                        <span class="grey_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="grey_star">
+                                                            </a>
+                                                        </span>
+                                                    @endif
+                                                @endfor
 
                                             <span class="user_based">(Based on {{ $result['ratingCount'] }} users)</span>
                                         </div>
@@ -1035,29 +1018,33 @@ session_start();
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
-                                            @php
-                                                $ratingCount = $result['ratingCount'] ?? 0;
-                                                $fullStars = (int) $ratingCount;
-                                                $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
-                                            @endphp
-                                            @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $fullStars)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @else
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @endif
-                                            @endfor
+                                                @php
+                                                    $rating = $result['rating'] ?? 0;
+                                                    $fullStars = floor($rating);
+                                                    $halfStar = $rating - $fullStars >= 0.5;
+                                                @endphp
+
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $fullStars)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/red-star.png') }}" alt="red_star">
+                                                            </a>
+                                                        </span>
+                                                    @elseif ($i == $fullStars + 1 && $halfStar)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="half_red_star">
+                                                            </a>
+                                                        </span>
+                                                    @else
+                                                        <span class="grey_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="grey_star">
+                                                            </a>
+                                                        </span>
+                                                    @endif
+                                                @endfor
 
                                             <span class="user_based">(Based on {{ $result['ratingCount'] }} users)</span>
                                         </div>
@@ -1446,29 +1433,33 @@ session_start();
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
-                                            @php
-                                                $ratingCount = $result['ratingCount'] ?? 0;
-                                                $fullStars = (int) $ratingCount;
-                                                $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
-                                            @endphp
-                                            @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $fullStars)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @else
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @endif
-                                            @endfor
+                                                @php
+                                                    $rating = $result['rating'] ?? 0;
+                                                    $fullStars = floor($rating);
+                                                    $halfStar = $rating - $fullStars >= 0.5;
+                                                @endphp
+
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $fullStars)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/red-star.png') }}" alt="red_star">
+                                                            </a>
+                                                        </span>
+                                                    @elseif ($i == $fullStars + 1 && $halfStar)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="half_red_star">
+                                                            </a>
+                                                        </span>
+                                                    @else
+                                                        <span class="grey_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="grey_star">
+                                                            </a>
+                                                        </span>
+                                                    @endif
+                                                @endfor
 
                                             <span class="user_based">(Based on {{ $result['ratingCount'] }} users)</span>
                                         </div>
@@ -1827,29 +1818,33 @@ session_start();
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
-                                            @php
-                                                $ratingCount = $result['ratingCount'] ?? 0;
-                                                $fullStars = (int) $ratingCount;
-                                                $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
-                                            @endphp
-                                            @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $fullStars)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @else
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @endif
-                                            @endfor
+                                                @php
+                                                    $rating = $result['rating'] ?? 0;
+                                                    $fullStars = floor($rating);
+                                                    $halfStar = $rating - $fullStars >= 0.5;
+                                                @endphp
+
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $fullStars)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/red-star.png') }}" alt="red_star">
+                                                            </a>
+                                                        </span>
+                                                    @elseif ($i == $fullStars + 1 && $halfStar)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="half_red_star">
+                                                            </a>
+                                                        </span>
+                                                    @else
+                                                        <span class="grey_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="grey_star">
+                                                            </a>
+                                                        </span>
+                                                    @endif
+                                                @endfor
 
                                             <span class="user_based">(Based on {{ $result['ratingCount'] }} users)</span>
                                         </div>
@@ -2230,29 +2225,33 @@ session_start();
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
-                                            @php
-                                                $ratingCount = $result['ratingCount'] ?? 0;
-                                                $fullStars = (int) $ratingCount;
-                                                $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
-                                            @endphp
-                                            @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $fullStars)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @else
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @endif
-                                            @endfor
+                                                @php
+                                                    $rating = $result['rating'] ?? 0;
+                                                    $fullStars = floor($rating);
+                                                    $halfStar = $rating - $fullStars >= 0.5;
+                                                @endphp
+
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $fullStars)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/red-star.png') }}" alt="red_star">
+                                                            </a>
+                                                        </span>
+                                                    @elseif ($i == $fullStars + 1 && $halfStar)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="half_red_star">
+                                                            </a>
+                                                        </span>
+                                                    @else
+                                                        <span class="grey_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="grey_star">
+                                                            </a>
+                                                        </span>
+                                                    @endif
+                                                @endfor
 
                                             <span class="user_based">(Based on {{ $result['ratingCount'] }} users)</span>
                                         </div>
@@ -2554,29 +2553,33 @@ session_start();
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
-                                            @php
-                                                $ratingCount = $result['ratingCount'] ?? 0;
-                                                $fullStars = (int) $ratingCount;
-                                                $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
-                                            @endphp
-                                            @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $fullStars)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @else
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @endif
-                                            @endfor
+                                                @php
+                                                    $rating = $result['rating'] ?? 0;
+                                                    $fullStars = floor($rating);
+                                                    $halfStar = $rating - $fullStars >= 0.5;
+                                                @endphp
+
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $fullStars)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/red-star.png') }}" alt="red_star">
+                                                            </a>
+                                                        </span>
+                                                    @elseif ($i == $fullStars + 1 && $halfStar)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="half_red_star">
+                                                            </a>
+                                                        </span>
+                                                    @else
+                                                        <span class="grey_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="grey_star">
+                                                            </a>
+                                                        </span>
+                                                    @endif
+                                                @endfor
 
                                             <span class="user_based">(Based on {{ $result['ratingCount'] }}
                                                 users)</span>
@@ -2841,29 +2844,33 @@ session_start();
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
-                                            @php
-                                                $ratingCount = $result['ratingCount'] ?? 0;
-                                                $fullStars = (int) $ratingCount;
-                                                $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
-                                            @endphp
-                                            @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $fullStars)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @else
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @endif
-                                            @endfor
+                                                @php
+                                                    $rating = $result['rating'] ?? 0;
+                                                    $fullStars = floor($rating);
+                                                    $halfStar = $rating - $fullStars >= 0.5;
+                                                @endphp
+
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $fullStars)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/red-star.png') }}" alt="red_star">
+                                                            </a>
+                                                        </span>
+                                                    @elseif ($i == $fullStars + 1 && $halfStar)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="half_red_star">
+                                                            </a>
+                                                        </span>
+                                                    @else
+                                                        <span class="grey_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="grey_star">
+                                                            </a>
+                                                        </span>
+                                                    @endif
+                                                @endfor
 
                                             <span class="user_based">(Based on {{ $result['ratingCount'] }}
                                                 users)</span>
@@ -3136,29 +3143,33 @@ session_start();
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
-                                            @php
-                                                $ratingCount = $result['ratingCount'] ?? 0;
-                                                $fullStars = (int) $ratingCount;
-                                                $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
-                                            @endphp
-                                            @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $fullStars)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @else
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @endif
-                                            @endfor
+                                                @php
+                                                    $rating = $result['rating'] ?? 0;
+                                                    $fullStars = floor($rating);
+                                                    $halfStar = $rating - $fullStars >= 0.5;
+                                                @endphp
+
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $fullStars)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/red-star.png') }}" alt="red_star">
+                                                            </a>
+                                                        </span>
+                                                    @elseif ($i == $fullStars + 1 && $halfStar)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="half_red_star">
+                                                            </a>
+                                                        </span>
+                                                    @else
+                                                        <span class="grey_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="grey_star">
+                                                            </a>
+                                                        </span>
+                                                    @endif
+                                                @endfor
 
                                             <span class="user_based">(Based on {{ $result['ratingCount'] }}
                                                 users)</span>
@@ -3448,29 +3459,33 @@ session_start();
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
-                                            @php
-                                                $ratingCount = $result['ratingCount'] ?? 0;
-                                                $fullStars = (int) $ratingCount;
-                                                $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
-                                            @endphp
-                                            @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $fullStars)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @else
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @endif
-                                            @endfor
+                                                @php
+                                                    $rating = $result['rating'] ?? 0;
+                                                    $fullStars = floor($rating);
+                                                    $halfStar = $rating - $fullStars >= 0.5;
+                                                @endphp
+
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $fullStars)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/red-star.png') }}" alt="red_star">
+                                                            </a>
+                                                        </span>
+                                                    @elseif ($i == $fullStars + 1 && $halfStar)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="half_red_star">
+                                                            </a>
+                                                        </span>
+                                                    @else
+                                                        <span class="grey_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="grey_star">
+                                                            </a>
+                                                        </span>
+                                                    @endif
+                                                @endfor
 
                                             <span class="user_based">(Based on {{ $result['ratingCount'] }}
                                                 users)</span>
@@ -3855,29 +3870,33 @@ session_start();
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
-                                            @php
-                                                $ratingCount = $result['ratingCount'] ?? 0;
-                                                $fullStars = (int) $ratingCount;
-                                                $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
-                                            @endphp
-                                            @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $fullStars)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @else
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @endif
-                                            @endfor
+                                                @php
+                                                    $rating = $result['rating'] ?? 0;
+                                                    $fullStars = floor($rating);
+                                                    $halfStar = $rating - $fullStars >= 0.5;
+                                                @endphp
+
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $fullStars)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/red-star.png') }}" alt="red_star">
+                                                            </a>
+                                                        </span>
+                                                    @elseif ($i == $fullStars + 1 && $halfStar)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="half_red_star">
+                                                            </a>
+                                                        </span>
+                                                    @else
+                                                        <span class="grey_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="grey_star">
+                                                            </a>
+                                                        </span>
+                                                    @endif
+                                                @endfor
 
                                             <span class="user_based">(Based on {{ $result['ratingCount'] }}
                                                 users)</span>
@@ -4168,29 +4187,33 @@ session_start();
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
-                                            @php
-                                                $ratingCount = $result['ratingCount'] ?? 0;
-                                                $fullStars = (int) $ratingCount;
-                                                $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
-                                            @endphp
-                                            @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $fullStars)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @elseif($i == $fullStars + 1 && $halfStar)
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @else
-                                                    <span><a href="" data-bs-toggle="modal"
-                                                            data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
-                                                @endif
-                                            @endfor
+                                                @php
+                                                    $rating = $result['rating'] ?? 0;
+                                                    $fullStars = floor($rating);
+                                                    $halfStar = $rating - $fullStars >= 0.5;
+                                                @endphp
+
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $fullStars)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/red-star.png') }}" alt="red_star">
+                                                            </a>
+                                                        </span>
+                                                    @elseif ($i == $fullStars + 1 && $halfStar)
+                                                        <span class="red_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="half_red_star">
+                                                            </a>
+                                                        </span>
+                                                    @else
+                                                        <span class="grey_star">
+                                                            <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                                <img src="{{ asset('images/half-red.png') }}" alt="grey_star">
+                                                            </a>
+                                                        </span>
+                                                    @endif
+                                                @endfor
 
                                             <span class="user_based">(Based on {{ $result['ratingCount'] }}
                                                 users)</span>
