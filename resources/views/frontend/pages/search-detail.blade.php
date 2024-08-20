@@ -14,6 +14,12 @@ session_start();
     .dropdown-content.show {
         display: block;
     }
+    .red_star a, .grey_star a{
+        color: #fff;
+    }
+    .red_star a:hover, .grey_star a:hover{
+        color: #fff;
+    }
 </style>
 @section('content')
     <div class="topheader">
@@ -180,7 +186,7 @@ session_start();
                                         <div class="star_sec">
                                             <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
                                                     alt="">{{ $result['rating'] }}</span>
-                                            @php
+                                            {{-- @php
                                                 $ratingCount = $result['ratingCount'] ?? 0;
                                                 $fullStars = (int) $ratingCount;
                                                 $halfStar = $ratingCount - $fullStars >= 0.5 ? true : false;
@@ -191,19 +197,50 @@ session_start();
                                                     <span class="red_star"><a href="" data-bs-toggle="modal"
                                                             data-bs-target="#starModal"><img
                                                                 src="{{ asset('images/red-star.png') }}" a
-                                                                data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"
-                                                                alt=""></a></span>
+                                                                data-bs-target="#starModal"></a></span>
                                                 @elseif($i == $fullStars + 1 && $halfStar)
                                                     <span class="red_star"><a href="" data-bs-toggle="modal"
                                                             data-bs-target="#starModal"><img
-                                                                src="{{ asset('images/half-red.png') }}"="red_star"><a
+                                                                src="{{ asset('images/half-red.png') }}" alt="red_star"><a
                                                                 href="" data-bs-toggle="modal"
                                                                 data-bs-target="#starModal"><img
                                                                     src="{{ asset('images/half-red.png') }}"
                                                                     alt=""></a></span>
                                                 @endif
-                                            @endfor
+                                            @endfor --}}
+
+                                            @php
+                                            // Assume $result['ratingCount'] holds the user's rating (e.g., 4)
+                                            $ratingCount = $result['ratingCount'] ?? 0;
+
+                                            // Determine the number of full stars and whether there should be a half star
+                                            $fullStars = floor($ratingCount);
+                                            $halfStar = $ratingCount - $fullStars >= 0.5;
+                                        @endphp
+
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            @if ($i <= $fullStars)
+                                                <span class="red_star">
+                                                    <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                        <img src="{{ asset('images/red-star.png') }}" alt="red_star">
+                                                    </a>
+                                                </span>
+                                            @elseif($i == $fullStars + 1 && $halfStar)
+                                                <span class="red_star">
+                                                    <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                        <img src="{{ asset('images/half-red.png') }}" alt="half_red_star">
+                                                    </a>
+                                                </span>
+                                            @else
+                                                <span class="grey_star">
+                                                    <a href="" data-bs-toggle="modal" data-bs-target="#starModal">
+                                                        <img src="{{ asset('images/half-red.png') }}" alt="half_red">
+                                                    </a>
+                                                </span>
+                                            @endif
+                                        @endfor
+
+
 
                                             <span class="user_based">(Based on {{ $result['ratingCount'] }} users)</span>
                                         </div>
