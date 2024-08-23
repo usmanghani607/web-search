@@ -36,15 +36,6 @@ session_start();
                                 <a href="/"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
                             </div>
                         </div>
-                        {{-- <div class="col">
-                            <form id="indexForm" class="d-flex search-container" role="search">
-                                @csrf
-                                <input id="searchInput" class="form-control me-2" aria-label="Search">
-                                <div class="search_icon">
-                                    <img src="{{ asset('images/search-icon.png') }}" alt="">
-                                </div>
-                            </form>
-                        </div> --}}
                         <div class="profile_btn">
                             <div class="col">
                                 <div class="right_btn">
@@ -706,6 +697,10 @@ session_start();
                     results.forEach(function(result) {
 
                         var imageUrl = result.img || '{{ asset('images/dummy_image.webp') }}';
+                        var title = String(result.title).trim();
+                        var location = String(result.location).trim();
+                        var truncatedTitle = truncateText(result.title, 13);
+                        var truncatedLocation = truncateText(result.location, 25);
 
                         rowHtml += `
                             <div class="col-md-2 mb-3">
@@ -714,8 +709,8 @@ session_start();
                                             <img class="card-main-img" src="${result.img}" alt="restaurant img" onerror="this.onerror=null;this.src='{{ asset('images/dummy_image.webp') }}';">
                                         </div>
                                     <div class="card-body">
-                                        <h3 class="card-title">${result.title}</h3>
-                                        <h3 class="card-text">${result.location}</h3>
+                                        <h3 class="card-title">${truncatedTitle}</h3>
+                                        <h3 class="card-text">${truncatedLocation}</h3>
                                         <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${result.rating}</span>
                                     </div>
                                 </div>
@@ -727,6 +722,11 @@ session_start();
                     restaurantStatus.append(rowHtml);
                 }
             }
+
+            function truncateText(text, limit) {
+                return text.length > limit ? text.substring(0, limit) + '...' : text;
+            }
+
         });
     </script>
 

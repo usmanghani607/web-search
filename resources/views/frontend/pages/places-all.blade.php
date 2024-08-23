@@ -36,15 +36,6 @@ session_start();
                                 <a href="/"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
                             </div>
                         </div>
-                        <div class="col">
-                            <form id="indexForm" class="d-flex search-container" role="search">
-                                @csrf
-                                <input id="searchInput" class="form-control me-2" aria-label="Search">
-                                <div class="search_icon">
-                                    <img src="{{ asset('images/search-icon.png') }}" alt="">
-                                </div>
-                            </form>
-                        </div>
                         <div class="profile_btn">
                             <div class="col">
                                 <div class="right_btn">
@@ -187,12 +178,12 @@ session_start();
                                             renderPlaceResults(response.result);
                                         } else {
                                             console.error(
-                                            'No results found for restaurant-process');
+                                            'No results found for all-places-process');
                                         }
                                         hideLoader();
                                     },
                                     error: function(xhr, status, error) {
-                                        console.error('Error from restaurant-process:', error);
+                                        console.error('Error from all-places-process:', error);
                                         hideLoader();
                                     }
                                 });
@@ -203,7 +194,7 @@ session_start();
                                 hideLoader();
                                 if (error.code === error.PERMISSION_DENIED) {
                                     $('#placeStatus').text(
-                                        'Location Permission Denied, Restaurant is not available.');
+                                        'Location Permission Denied, Location is not available.');
 
                                     $.ajax({
                                         // url: "{{ route('all-places-process') }}",
@@ -222,12 +213,12 @@ session_start();
                                                 renderPlaceResults(response.result);
                                             } else {
                                                 console.error(
-                                                    'No results found for restaurant-process');
+                                                    'No results found for all-places-process');
                                             }
                                             hideLoader();
                                         },
                                         error: function(xhr, status, error) {
-                                            console.error('Error from restaurant-process:', error);
+                                            console.error('Error from all-places-process:', error);
                                             hideLoader();
                                         }
                                     });
@@ -255,7 +246,7 @@ session_start();
                                 if (response.success) {
                                     renderPlaceResults(response.result);
                                 } else {
-                                    console.error('No results found for restaurant-process');
+                                    console.error('No results found for all-place-process');
                                 }
                                 hideLoader();
                             },
@@ -337,10 +328,10 @@ session_start();
                     results.forEach(function(result) {
 
                         var imageUrl = result.img || '{{ asset('images/dummy_image.webp') }}';
-                        var address = String(result.address).trim();
                         var name = String(result.name).trim();
-                        var truncatedAddress = truncateText(result.address, 30);
-                        var truncatedName = truncateText(result.name, 20);
+                        var address = String(result.address).trim();
+                        var truncatedName = truncateText(result.name, 13);
+                        var truncatedAddress = truncateText(result.address, 25);
 
                         console.log('Original address:', address);
                         console.log('Truncated address:', truncatedAddress);
