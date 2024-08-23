@@ -69,6 +69,58 @@
                                 </div>
                             </form>
                         </div>
+
+                        {{-- <div class="index_filter">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="search_checkbox">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input filter-checkbox" type="checkbox" id="all" value="All"
+                                                >
+                                                <label class="form-check-label" for="all">All</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="movies form-check-input filter-checkbox" type="checkbox" id="movies"
+                                                    value="Movies">
+                                                <label class="form-check-label" for="movies">Movies</label>
+                                                <img src="{{ asset('images/movies.png') }}" alt="Movies Icon" class="checkbox-image"
+                                                    style="display: none;">
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="series form-check-input filter-checkbox" type="checkbox" id="web_series"
+                                                    value="Web Series">
+                                                <label class="form-check-label" for="web_series">Web series</label>
+                                                <img src="{{ asset('images/series.png') }}" alt="Series Icon" class="checkbox-image"
+                                                    style="display: none;">
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="book form-check-input filter-checkbox" type="checkbox" id="books"
+                                                    value="Books">
+                                                <label class="form-check-label" for="books">Books</label>
+                                                <img src="{{ asset('images/book-icon.png') }}" alt="Books Icon" class="checkbox-image"
+                                                    style="display: none;">
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="rest form-check-input filter-checkbox" type="checkbox" id="restaurants"
+                                                    value="Restaurants">
+                                                <label class="form-check-label" for="restaurants">Restaurants</label>
+                                                <img src="{{ asset('images/icon.png') }}" alt="Restaurants Icon" class="checkbox-image"
+                                                    style="display: none;">
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="rest form-check-input filter-checkbox" type="checkbox" id="music"
+                                                    value="Music">
+                                                <label class="form-check-label" for="music">Music</label>
+                                                <img src="{{ asset('images/music-icon.png') }}" alt="Music Icon" class="checkbox-image"
+                                                    style="display: none;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+
                         <div class="trend_heading">
                             <h4>Trending Search</h4>
                         </div>
@@ -296,5 +348,43 @@
             }
         });
     </script>
+
+    {{-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.filter-checkbox');
+            const images = {
+                movies: document.querySelector('#movies + label + img'),
+                web_series: document.querySelector('#web_series + label + img'),
+                books: document.querySelector('#books + label + img'),
+                restaurants: document.querySelector('#restaurants + label + img'),
+                music: document.querySelector('#music + label + img')
+
+            };
+
+            function toggleImages(selectedId) {
+                Object.keys(images).forEach(id => {
+                    images[id].style.display = (id === selectedId) ? 'inline' : 'none';
+                });
+            }
+
+            function handleCheckboxChange(event) {
+                checkboxes.forEach(checkbox => {
+                    if (checkbox !== event.target) {
+                        checkbox.checked = false;
+                    }
+                });
+
+                toggleImages(event.target.id);
+            }
+
+            // Initially hide all images except for the selected one
+            toggleImages(document.querySelector('.filter-checkbox:checked').id);
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', handleCheckboxChange);
+            });
+        });
+    </script> --}}
+
 
 @endsection

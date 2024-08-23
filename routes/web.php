@@ -29,6 +29,12 @@ Route::post('/restaurant-process', [HomeController::class, 'restaurantProcess'])
 Route::post('/place-process', [HomeController::class, 'placeProcess'])->name('place-process');
 Route::post('/google-map-process', [HomeController::class, 'googleMapProcess'])->name('google-map-process');
 
+Route::get('/restaurant-all', [HomeController::class, 'restaurantAll'])->name('restaurant-all');
+Route::post('all-restaurant-process', [HomeController::class, 'AllRestaurantProcess'])->name('all-restaurant-process');
+Route::get('/places-all', [HomeController::class, 'placeAll'])->name('places-all');
+Route::post('all-places-process', [HomeController::class, 'AllPlacesProcess'])->name('all-places-process');
+
+
 Route::post('/map-process', [HomeController::class, 'mapProcess'])->name('map-process');
 
 

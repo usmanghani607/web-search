@@ -264,6 +264,19 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 
 .icon-text span { position: fixed; bottom: 20px; right: 15px; color: #333333; padding: 15px; border-radius: 50%; display: block; cursor: pointer; font-size: 18px; font-weight: 500; }
 
+
+.index_filter .container-fluid { padding: 0; }
+.index_filter .form-check-inline { position: relative; }
+.index_filter .form-check-input:checked + .form-check-label::before { content: ""; position: absolute; width: 100%; height: 2px; background: #FF395C; bottom: -3px; left: 0; }
+.index_filter .checkbox-image { display: none; position: absolute; top: 2px; left: -2px; width: 20px; height: 20px; z-index: 10; }
+.index_filter .form-check-input:checked + .index_filter .form-check-label + .index_filter .checkbox-image { display: inline; }
+.index_filter .rest.form-check-input:checked { background-color: transparent; border-color: transparent; }
+.index_filter .movies.form-check-input:checked { background-color: transparent; border-color: transparent; }
+.index_filter .series.form-check-input:checked { background-color: transparent; border-color: transparent; }
+.index_filter .book.form-check-input:checked { background-color: transparent; border-color: transparent; }
+
+
+
 /*loader*/
 
 #overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 9999; display: none; }
@@ -616,3 +629,10 @@ h1,h2,h3,h4,h5,h6{ font-family: 'Poppins'; }
 
 .place_filter .carousel.slide button.carousel-control-next { width: 40px; height: 40px; border-radius: 20px; top: 50%; box-shadow: 0px 0px 6px #00000029; opacity: 1; border: none; background-color: #FF385C; }
 .place_filter .carousel.slide button.carousel-control-prev { width: 40px; height: 40px; border-radius: 20px; top: 50%; box-shadow: 0px 0px 6px #00000029; opacity: 1; border: none; background-color: #FF385C; }
+
+
+/*resaurant detail page*/
+
+#restaurantStatus .card h3 { font-size: 16px; font-weight: 500; margin-bottom: 10px; }
+#restaurantStatus .card .card-text { font-size: 14px; color: #505050; }
+#restaurantStatus p { text-align: center; font-size: 24px; font-weight: 500; }
