@@ -78,6 +78,15 @@ session_start();
     .map_section {
         display: none;
     }
+    #maploader {
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        color: #333;
+    }
 
 </style>
 
@@ -226,21 +235,7 @@ session_start();
         <div class="container"></div>
     </section>
 
-
-    {{-- <section class="map_section" style="display: none;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div style="width: 100%"><iframe width="100%" height="350" frameborder="0" scrolling="no"
-                            marginheight="0" marginwidth="0"
-                            src="https://maps.google.com/maps?width=100%25&amp;height=350&amp;hl=en&amp;q=Restaurant%20in%20newyork+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a
-                                href="https://www.gps.ie/">gps systems</a></iframe></div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-
-    <section class="map_section">
+    {{-- <section class="map_section">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -250,291 +245,26 @@ session_start();
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-
-
-
-    {{-- <section class="filter_restaurant" style="display: none;">
+    <section class="map_section">
         <div class="container">
-            <div class="row mb-3">
-                <div class="col-md-12">
-                    <div class="list_heading">
-                        <p>Restaurants near you <a href="#" class="see">See All</a></p>
-                    </div>
-                    <div class="row">
-                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="card">
-                                                <div class="card_img">
-                                                    <img class="card-main-img" src="{{ asset('images/restautant1.png') }}"
-                                                        alt="restaurant img">
-                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
-                                                        alt="Top Image">
-                                                    <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
-                                                        alt="Top Image">
-                                                    <span>Prerna, Ranga and 12 other people visited here!</span>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                                    <h3 class="card-text">New York</h3>
-                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                                            alt="">4.5</span>
-                                                    <span class="rating">425 Users Recz It!</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="card">
-                                                <div class="card_img">
-                                                    <img class="card-main-img" src="{{ asset('images/restautant2.png') }}"
-                                                        alt="restaurant img">
-                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img.png') }}"
-                                                        alt="Top Image">
-                                                    <img class="overlay-first-img" src="{{ asset('images/top_img_2.png') }}"
-                                                        alt="Top Image">
-                                                    <span>Pamkhuri, Prerna, and 12 other people visited here!</span>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                                    <h3 class="card-text">New York</h3>
-                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                                            alt="">4.5</span>
-                                                    <span class="rating">425 Users Recz It!</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="card">
-                                                <div class="card_img">
-                                                    <img class="card-main-img" src="{{ asset('images/restautant1.png') }}"
-                                                        alt="restaurant img">
-                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
-                                                        alt="Top Image">
-                                                    <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
-                                                        alt="Top Image">
-                                                    <span>Prerna, Ranga and 12 other people visited here!</span>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                                    <h3 class="card-text">New York</h3>
-                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                                            alt="">4.5</span>
-                                                    <span class="rating">425 Users Recz It!</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="card">
-                                                <div class="card_img">
-                                                    <img class="card-main-img" src="{{ asset('images/restautant2.png') }}"
-                                                        alt="restaurant img">
-                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img.png') }}"
-                                                        alt="Top Image">
-                                                    <img class="overlay-first-img" src="{{ asset('images/top_img_2.png') }}"
-                                                        alt="Top Image">
-                                                    <span>Pamkhuri, Prerna, and 12 other people visited here!</span>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                                    <h3 class="card-text">New York</h3>
-                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                                            alt="">4.5</span>
-                                                    <span class="rating">425 Users Recz It!</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="card">
-                                                <div class="card_img">
-                                                    <img class="card-main-img" src="{{ asset('images/restautant1.png') }}"
-                                                        alt="restaurant img">
-                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
-                                                        alt="Top Image">
-                                                    <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
-                                                        alt="Top Image">
-                                                    <span>Prerna, Ranga and 12 other people visited here!</span>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                                    <h3 class="card-text">New York</h3>
-                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                                            alt="">4.5</span>
-                                                    <span class="rating">425 Users Recz It!</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="card">
-                                                <div class="card_img">
-                                                    <img class="card-main-img" src="{{ asset('images/restautant2.png') }}"
-                                                        alt="restaurant img">
-                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img.png') }}"
-                                                        alt="Top Image">
-                                                    <img class="overlay-first-img" src="{{ asset('images/top_img_2.png') }}"
-                                                        alt="Top Image">
-                                                    <span>Pamkhuri, Prerna, and 12 other people visited here!</span>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                                    <h3 class="card-text">New York</h3>
-                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                                            alt="">4.5</span>
-                                                    <span class="rating">425 Users Recz It!</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="card">
-                                                <div class="card_img">
-                                                    <img class="card-main-img" src="{{ asset('images/restautant1.png') }}"
-                                                        alt="restaurant img">
-                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
-                                                        alt="Top Image">
-                                                    <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
-                                                        alt="Top Image">
-                                                    <span>Prerna, Ranga and 12 other people visited here!</span>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                                    <h3 class="card-text">New York</h3>
-                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                                            alt="">4.5</span>
-                                                    <span class="rating">425 Users Recz It!</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="card">
-                                                <div class="card_img">
-                                                    <img class="card-main-img" src="{{ asset('images/restautant2.png') }}"
-                                                        alt="restaurant img">
-                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img.png') }}"
-                                                        alt="Top Image">
-                                                    <img class="overlay-first-img" src="{{ asset('images/top_img_2.png') }}"
-                                                        alt="Top Image">
-                                                    <span>Pamkhuri, Prerna, and 12 other people visited here!</span>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                                    <h3 class="card-text">New York</h3>
-                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                                            alt="">4.5</span>
-                                                    <span class="rating">425 Users Recz It!</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="card">
-                                                <div class="card_img">
-                                                    <img class="card-main-img" src="{{ asset('images/restautant1.png') }}"
-                                                        alt="restaurant img">
-                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
-                                                        alt="Top Image">
-                                                    <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
-                                                        alt="Top Image">
-                                                    <span>Prerna, Ranga and 12 other people visited here!</span>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                                    <h3 class="card-text">New York</h3>
-                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                                            alt="">4.5</span>
-                                                    <span class="rating">425 Users Recz It!</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="card">
-                                                <div class="card_img">
-                                                    <img class="card-main-img" src="{{ asset('images/restautant2.png') }}"
-                                                        alt="restaurant img">
-                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img.png') }}"
-                                                        alt="Top Image">
-                                                    <img class="overlay-first-img" src="{{ asset('images/top_img_2.png') }}"
-                                                        alt="Top Image">
-                                                    <span>Pamkhuri, Prerna, and 12 other people visited here!</span>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                                    <h3 class="card-text">New York</h3>
-                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                                            alt="">4.5</span>
-                                                    <span class="rating">425 Users Recz It!</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="card">
-                                                <div class="card_img">
-                                                    <img class="card-main-img" src="{{ asset('images/restautant1.png') }}"
-                                                        alt="restaurant img">
-                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img_2.png') }}"
-                                                        alt="Top Image">
-                                                    <img class="overlay-first-img" src="{{ asset('images/top_img.png') }}"
-                                                        alt="Top Image">
-                                                    <span>Prerna, Ranga and 12 other people visited here!</span>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                                    <h3 class="card-text">New York</h3>
-                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                                            alt="">4.5</span>
-                                                    <span class="rating">425 Users Recz It!</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="card">
-                                                <div class="card_img">
-                                                    <img class="card-main-img" src="{{ asset('images/restautant2.png') }}"
-                                                        alt="restaurant img">
-                                                    <img class="overlay-sec-img" src="{{ asset('images/top_img.png') }}"
-                                                        alt="Top Image">
-                                                    <img class="overlay-first-img" src="{{ asset('images/top_img_2.png') }}"
-                                                        alt="Top Image">
-                                                    <span>Pamkhuri, Prerna, and 12 other people visited here!</span>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h3 class="card-title">Homer Cafe and Bar</h3>
-                                                    <h3 class="card-text">New York</h3>
-                                                    <span class="star_point"><img src="{{ asset('images/star_icon.png') }}"
-                                                            alt="">4.5</span>
-                                                    <span class="rating">425 Users Recz It!</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button"
-                                    data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="width: 100%; position: relative;">
+                        <div id="maploader" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 24px; color: #333;">
+                            Map Loading...
                         </div>
+                        <div id="map"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </section> --}}
-
+    </section>
 
     <section class="filter_restaurant" style="display: none;">
         <div class="container">
-            <div class="row mb-3">
+            <div class="row">
                 <div class="col-md-12">
                     <div class="list_heading">
                         <p>Restaurants near you <a href="{{route('restaurant-all')}}" class="see">See All</a></p>
@@ -545,12 +275,12 @@ session_start();
 
                             </div>
                             <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselRestaurantControls" data-bs-slide="prev">
+                                data-bs-target="#carouselRestaurantControls" data-bs-slide="prev" style="display: none">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
                             <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselRestaurantControls" data-bs-slide="next">
+                                data-bs-target="#carouselRestaurantControls" data-bs-slide="next" style="display: none">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
@@ -577,12 +307,12 @@ session_start();
 
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselPlaceControls"
-                                data-bs-slide="prev">
+                                data-bs-slide="prev" style="display: none">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
                             <button class="carousel-control-next" type="button" data-bs-target="#carouselPlaceControls"
-                                data-bs-slide="next">
+                                data-bs-slide="next" style="display: none">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
@@ -780,7 +510,7 @@ session_start();
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_VSuTDsJ0fE33kZE66V2o71CUL8WEh_M"></script>
 
-    <script>
+    {{-- <script>
         function initMap(locations) {
             const mapOptions = {
                 zoom: 12,
@@ -796,6 +526,33 @@ session_start();
                 });
             });
         }
+    </script> --}}
+
+    <script>
+        function initMap(locations) {
+            const mapOptions = {
+                zoom: 12,
+                center: locations.length ? { lat: locations[0].latitude, lng: locations[0].longitude } : { lat: -34.397, lng: 150.644 }
+            };
+
+            const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+            locations.forEach(location => {
+                new google.maps.Marker({
+                    position: { lat: location.latitude, lng: location.longitude },
+                    map: map
+                });
+            });
+
+            google.maps.event.addListener(map, 'tilesloaded', function() {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('map').style.display = 'block';
+            });
+        }
+
+        window.onload = function() {
+            initMap(locations);
+        };
     </script>
 
     <script>
