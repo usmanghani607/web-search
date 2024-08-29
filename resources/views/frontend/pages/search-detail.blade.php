@@ -3374,7 +3374,12 @@ session_start();
                                                 <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                                                     <div class="row">
                                                         <div class="col-md-3">
-                                                            <img src="{{ $media['link'] }}" alt="...">
+                                                            {{-- <img src="{{ $media['link'] }}" alt="..."> --}}
+                                                            <button type="button" class="btn" data-bs-toggle="modal"
+                                                                data-bs-target="#detailModal"
+                                                                onclick="showImageInModal('{{ $media['link'] }}')">
+                                                                <img src="{{ $media['link'] }}" alt="web_series">
+                                                            </button>
                                                         </div>
                                                         <div class="col-md-9">
                                                             <div class="row">

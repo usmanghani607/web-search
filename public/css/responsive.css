@@ -65,6 +65,13 @@
     .index_footer .copy_right { margin-top: 3px; width: 50%; }
     #starModal .modal-dialog.modal-lg { margin: 30px 20px; }
 
+    .filter_restaurant .card-main-img {
+        border-radius: 16px 16px 0 0 !important;
+        width: 100% !important;
+        height: 190px !important;
+        object-fit: scale-down !important;
+    }
+
 }
 
 @media only screen and (min-width: 360px) and (max-width: 740px) {

@@ -72,12 +72,14 @@ session_start();
     } */
 
     #map {
-            height: 350px;
-            width: 100%;
-        }
+        height: 350px;
+        width: 100%;
+    }
+
     .map_section {
         display: none;
     }
+
     #maploader {
         display: block;
         position: absolute;
@@ -87,7 +89,6 @@ session_start();
         font-size: 24px;
         color: #333;
     }
-
 </style>
 
 @section('content')
@@ -173,8 +174,7 @@ session_start();
                 <div class="col-md-12">
                     <div class="search_checkbox">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input filter-checkbox" type="checkbox" id="all" value="All"
-                            >
+                            <input class="form-check-input filter-checkbox" type="checkbox" id="all" value="All">
                             <label class="form-check-label" for="all">All</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -252,7 +252,8 @@ session_start();
             <div class="row">
                 <div class="col-md-6">
                     <div style="width: 100%; position: relative;">
-                        <div id="maploader" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 24px; color: #333;">
+                        <div id="maploader"
+                            style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 24px; color: #333;">
                             Map Loading...
                         </div>
                         <div id="map"></div>
@@ -267,7 +268,7 @@ session_start();
             <div class="row">
                 <div class="col-md-12">
                     <div class="list_heading">
-                        <p>Restaurants near you <a href="{{route('restaurant-all')}}" class="see">See All</a></p>
+                        <p>Restaurants near you <a href="{{ route('restaurant-all') }}" class="see">See All</a></p>
                     </div>
                     <div class="row">
                         <div id="carouselRestaurantControls" class="carousel slide" data-bs-ride="carousel">
@@ -298,7 +299,7 @@ session_start();
             <div class="row mb-3">
                 <div class="col-md-12">
                     <div class="list_heading">
-                        <p>Near by places <a href="{{route('places-all')}}" class="see">See All</a></p>
+                        <p>Near by places <a href="{{ route('places-all') }}" class="see">See All</a></p>
 
                     </div>
                     <div class="row">
@@ -532,14 +533,23 @@ session_start();
         function initMap(locations) {
             const mapOptions = {
                 zoom: 12,
-                center: locations.length ? { lat: locations[0].latitude, lng: locations[0].longitude } : { lat: -34.397, lng: 150.644 }
+                center: locations.length ? {
+                    lat: locations[0].latitude,
+                    lng: locations[0].longitude
+                } : {
+                    lat: -34.397,
+                    lng: 150.644
+                }
             };
 
             const map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
             locations.forEach(location => {
                 new google.maps.Marker({
-                    position: { lat: location.latitude, lng: location.longitude },
+                    position: {
+                        lat: location.latitude,
+                        lng: location.longitude
+                    },
                     map: map
                 });
             });
@@ -594,7 +604,9 @@ session_start();
                 const urlParams = new URLSearchParams(window.location.search);
                 urlParams.set('search_query', searchText);
                 const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
-                window.history.pushState({ path: newUrl }, '', newUrl);
+                window.history.pushState({
+                    path: newUrl
+                }, '', newUrl);
             }
 
             function performSearch(searchText, catID) {
@@ -627,141 +639,142 @@ session_start();
 
                         // Geolocation for Restaurants
                         if (navigator.geolocation) {
-                                    navigator.geolocation.getCurrentPosition(
-                                        function(position) {
-                                            const lat = position.coords.latitude;
-                                            const lon = position.coords.longitude;
-                                            console.log(`Latitude: ${lat}, Longitude: ${lon}`);
+                            navigator.geolocation.getCurrentPosition(
+                                function(position) {
+                                    const lat = position.coords.latitude;
+                                    const lon = position.coords.longitude;
+                                    console.log(`Latitude: ${lat}, Longitude: ${lon}`);
 
-                                            $.ajax({
-                                                // url: "{{ route('restaurant-process') }}",
-                                                url: "https://dev.therecz.com/restaurant-process",
-                                                type: 'POST',
-                                                headers: {
-                                                    'X-CSRF-TOKEN': csrfToken,
-                                                    'Authorization': 'Bearer ' + token
-                                                },
-                                                data: {
-                                                    search_query: searchText,
-                                                    latitude: lat,
-                                                    longitude: lon
-                                                },
-                                                success: function(response) {
-                                                    if (response.success) {
-                                                        renderRestaurantResults(response.result);
-                                                    } else {
-                                                        console.error(
-                                                            'No results found for restaurant-process');
-                                                    }
-                                                    hideLoader(); // Hide loader on success
-                                                },
-                                                error: function(xhr, status, error) {
-                                                    console.error('Error from restaurant-process:', error);
-                                                    hideLoader(); // Hide loader on error
-                                                }
-                                            });
-
-                                            $.ajax({
-                                                // url: "{{ route('place-process') }}",
-                                                url: "https://dev.therecz.com/place-process",
-                                                type: 'POST',
-                                                headers: {
-                                                    'X-CSRF-TOKEN': csrfToken,
-                                                    'Authorization': 'Bearer ' + token
-                                                },
-                                                data: {
-                                                    search_query: searchText,
-                                                    type: '',
-                                                    catID: catID
-                                                },
-                                                success: function(response) {
-                                                    if (response.success) {
-                                                        renderPlaceResults(response.result);
-                                                    } else {
-                                                        console.error('No results found for place-process');
-                                                    }
-                                                    hideLoader(); // Hide loader on success
-                                                },
-                                                error: function(xhr, status, error) {
-                                                    console.error('Error from place-process:', error);
-                                                    hideLoader(); // Hide loader on error
-                                                }
-                                            });
-
-                                            // Call googleMapProcess
-                                            $.ajax({
-                                                // url: "{{ route('google-map-process') }}",
-                                                url: "https://dev.therecz.com/google-map-process",
-                                                type: 'POST',
-                                                headers: {
-                                                    'X-CSRF-TOKEN': csrfToken,
-                                                    'Authorization': 'Bearer ' + token
-                                                },
-                                                data: {
-                                                    search_query: searchText,
-                                                    type: '',
-                                                    skipCache: true
-                                                },
-                                                success: function(response) {
-                                                    if (response.success) {
-                                                        const locations = response.locations;
-                                                        initMap(locations);
-                                                        $('.map_section').show(); // Show the map section
-                                                    } else {
-                                                        console.error('No results found for google-map-process');
-                                                    }
-                                                    hideLoader(); // Hide loader on success
-                                                },
-                                                error: function(xhr, status, error) {
-                                                    console.error('Error from google-map-process:', error);
-                                                    hideLoader(); // Hide loader on error
-                                                }
-                                            });
-
+                                    $.ajax({
+                                        // url: "{{ route('restaurant-process') }}",
+                                        url: "https://dev.therecz.com/restaurant-process",
+                                        type: 'POST',
+                                        headers: {
+                                            'X-CSRF-TOKEN': csrfToken,
+                                            'Authorization': 'Bearer ' + token
                                         },
-                                        function(error) {
-                                            console.error("Error in retrieving location:", error.message);
-                                            hideLoader(); // Hide loader if geolocation fails
-
-                                            // If geolocation is not allowed, display the message "Restaurant is not available"
-                                            if (error.code === error.PERMISSION_DENIED) {
-                                                $('#restaurantStatus').text(
-                                                    'Location Permission Denied, Restaurant is not available.');
-
-                                                $.ajax({
-                                                    // url: "{{ route('place-process') }}",
-                                                    url: "https://dev.therecz.com/place-process",
-                                                    type: 'POST',
-                                                    headers: {
-                                                        'X-CSRF-TOKEN': csrfToken,
-                                                        'Authorization': 'Bearer ' + token
-                                                    },
-                                                    data: {
-                                                        search_query: searchText,
-                                                        type: 'restaurant',
-                                                        catID: catID
-                                                    },
-                                                    success: function(response) {
-                                                        if (response.success) {
-                                                            renderPlaceResults(response.result);
-                                                        } else {
-                                                            console.error(
-                                                                'No results found for place-process');
-                                                        }
-                                                        hideLoader(); // Hide loader on success
-                                                    },
-                                                    error: function(xhr, status, error) {
-                                                        console.error('Error from place-process:', error);
-                                                        hideLoader(); // Hide loader on error
-                                                    }
-                                                });
+                                        data: {
+                                            search_query: searchText,
+                                            latitude: lat,
+                                            longitude: lon
+                                        },
+                                        success: function(response) {
+                                            if (response.success) {
+                                                renderRestaurantResults(response.result);
+                                            } else {
+                                                console.error(
+                                                    'No results found for restaurant-process');
                                             }
+                                            hideLoader(); // Hide loader on success
+                                        },
+                                        error: function(xhr, status, error) {
+                                            console.error('Error from restaurant-process:', error);
+                                            hideLoader(); // Hide loader on error
                                         }
-                                    );
-                                } else {
-                                    console.log("Geolocation is not supported by this browser.");
-                                    hideLoader(); // Hide loader if geolocation is not supported
+                                    });
+
+                                    $.ajax({
+                                        // url: "{{ route('place-process') }}",
+                                        url: "https://dev.therecz.com/place-process",
+                                        type: 'POST',
+                                        headers: {
+                                            'X-CSRF-TOKEN': csrfToken,
+                                            'Authorization': 'Bearer ' + token
+                                        },
+                                        data: {
+                                            search_query: searchText,
+                                            type: '',
+                                            catID: catID
+                                        },
+                                        success: function(response) {
+                                            if (response.success) {
+                                                renderPlaceResults(response.result);
+                                            } else {
+                                                console.error('No results found for place-process');
+                                            }
+                                            hideLoader(); // Hide loader on success
+                                        },
+                                        error: function(xhr, status, error) {
+                                            console.error('Error from place-process:', error);
+                                            hideLoader(); // Hide loader on error
+                                        }
+                                    });
+
+                                    // Call googleMapProcess
+                                    $.ajax({
+                                        // url: "{{ route('google-map-process') }}",
+                                        url: "https://dev.therecz.com/google-map-process",
+                                        type: 'POST',
+                                        headers: {
+                                            'X-CSRF-TOKEN': csrfToken,
+                                            'Authorization': 'Bearer ' + token
+                                        },
+                                        data: {
+                                            search_query: searchText,
+                                            type: '',
+                                            skipCache: true
+                                        },
+                                        success: function(response) {
+                                            if (response.success) {
+                                                const locations = response.locations;
+                                                initMap(locations);
+                                                $('.map_section').show(); // Show the map section
+                                            } else {
+                                                console.error(
+                                                    'No results found for google-map-process');
+                                            }
+                                            hideLoader(); // Hide loader on success
+                                        },
+                                        error: function(xhr, status, error) {
+                                            console.error('Error from google-map-process:', error);
+                                            hideLoader(); // Hide loader on error
+                                        }
+                                    });
+
+                                },
+                                function(error) {
+                                    console.error("Error in retrieving location:", error.message);
+                                    hideLoader(); // Hide loader if geolocation fails
+
+                                    // If geolocation is not allowed, display the message "Restaurant is not available"
+                                    if (error.code === error.PERMISSION_DENIED) {
+                                        $('#restaurantStatus').text(
+                                            'Location Permission Denied, Restaurant is not available.');
+
+                                        $.ajax({
+                                            // url: "{{ route('place-process') }}",
+                                            url: "https://dev.therecz.com/place-process",
+                                            type: 'POST',
+                                            headers: {
+                                                'X-CSRF-TOKEN': csrfToken,
+                                                'Authorization': 'Bearer ' + token
+                                            },
+                                            data: {
+                                                search_query: searchText,
+                                                type: 'restaurant',
+                                                catID: catID
+                                            },
+                                            success: function(response) {
+                                                if (response.success) {
+                                                    renderPlaceResults(response.result);
+                                                } else {
+                                                    console.error(
+                                                        'No results found for place-process');
+                                                }
+                                                hideLoader(); // Hide loader on success
+                                            },
+                                            error: function(xhr, status, error) {
+                                                console.error('Error from place-process:', error);
+                                                hideLoader(); // Hide loader on error
+                                            }
+                                        });
+                                    }
                                 }
+                            );
+                        } else {
+                            console.log("Geolocation is not supported by this browser.");
+                            hideLoader(); // Hide loader if geolocation is not supported
+                        }
 
                     } else {
 
@@ -914,20 +927,20 @@ session_start();
                             location = truncateText(location, 30);
 
                             var cardHtml = `
-                                <div class="col-md-2">
-                                    <div class="card">
-                                        <div class="card_img">
-                                            <img class="card-main-img" src="${imgSrc}" alt="restaurant img">
-                                            <span>${usersReczIt ? usersReczIt + " Users Recz It!" : ""}</span>
-                                        </div>
-                                        <div class="card-body">
-                                            <h3 class="card-title">${title}</h3>
-                                            <h3 class="card-text">${location}</h3>
-                                            <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${rating}</span>
-                                        </div>
+                            <div class="col-md-2">
+                                <div class="card">
+                                    <div class="card_img">
+                                        <img class="card-main-img" src="${imgSrc}" alt="restaurant img">
+                                        <span>${usersReczIt ? usersReczIt + " Users Recz It!" : ""}</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="card-title">${title}</h3>
+                                        <h3 class="card-text">${location}</h3>
+                                        <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${rating}</span>
                                     </div>
                                 </div>
-                            `;
+                            </div>
+                        `;
 
                             slideHtml += cardHtml;
                         }
@@ -937,6 +950,81 @@ session_start();
                     }
                 }
             }
+
+            // function renderRestaurantResults(results) {
+            //     var carouselInner = $('#restaurant-carousel-inner');
+            //     var prevButton = $('.carousel-control-prev');
+            //     var nextButton = $('.carousel-control-next');
+
+            //     carouselInner.empty();
+
+            //     function getItemsPerSlide() {
+            //         if (window.innerWidth >= 992) {
+            //             return 6;
+            //         } else if (window.innerWidth >= 768) {
+            //             return 4;
+            //         } else {
+            //             return 1;
+            //         }
+            //     }
+
+            //     var itemsPerSlide = getItemsPerSlide();
+            //     var numSlides = Math.ceil(results.length / itemsPerSlide);
+
+            //     if (results.length === 0) {
+            //         carouselInner.append(
+            //             '<div class="carousel-item active"><div class="row"><p>Restaurant not available</p></div></div>'
+            //         );
+            //         prevButton.hide();
+            //         nextButton.hide();
+            //     } else {
+            //         prevButton.toggle(numSlides > 1);
+            //         nextButton.toggle(numSlides > 1);
+
+            //         for (var i = 0; i < numSlides; i++) {
+            //             var activeClass = i === 0 ? ' active' : '';
+            //             var slideHtml = `<div class="carousel-item${activeClass}"><div class="row">`;
+
+            //             for (var j = i * itemsPerSlide; j < (i + 1) * itemsPerSlide && j < results.length; j++) {
+            //                 var result = results[j];
+            //                 var imgSrc = result.img ? result.img : '{{ asset('images/dummy_image.webp') }}';
+            //                 var title = result.title || 'Unknown Title';
+            //                 var location = result.location || 'Unknown Location';
+            //                 var rating = result.rating || '0';
+            //                 var usersReczIt = result.usersReczIt;
+            //                 title = truncateText(title, 13);
+            //                 location = truncateText(location, 30);
+
+            //                 var cardHtml = `
+            //         <div class="col-md-${12/itemsPerSlide}">
+            //             <div class="card">
+            //                 <div class="card_img">
+            //                     <img class="card-main-img" src="${imgSrc}" alt="restaurant img">
+            //                     <span>${usersReczIt ? usersReczIt + " Users Recz It!" : ""}</span>
+            //                 </div>
+            //                 <div class="card-body">
+            //                     <h3 class="card-title">${title}</h3>
+            //                     <h3 class="card-text">${location}</h3>
+            //                     <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${rating}</span>
+            //                 </div>
+            //             </div>
+            //         </div>
+            //     `;
+
+            //                 slideHtml += cardHtml;
+            //             }
+
+            //             slideHtml += '</div></div>';
+            //             carouselInner.append(slideHtml);
+            //         }
+            //     }
+
+            //     // Optional: Add event listener to re-render the carousel on window resize
+            //     $(window).resize(function() {
+            //         renderRestaurantResults(results);
+            //     });
+            // }
+
 
             function renderPlaceResults(results) {
                 var carouselInner = $('#place-carousel-inner');
@@ -1209,28 +1297,27 @@ session_start();
 
 
     @if (session('popup_message'))
-    <script>
-        $(document).ready(function() {
-            Swal.fire({
-                title: 'Content not available',
-                text: "{{ session('popup_message') }}",
-                icon: 'info',
-                confirmButtonText: 'OK'
+        <script>
+            $(document).ready(function() {
+                Swal.fire({
+                    title: 'Content not available',
+                    text: "{{ session('popup_message') }}",
+                    icon: 'info',
+                    confirmButtonText: 'OK'
+                });
             });
-        });
-    </script>
+        </script>
     @endif
     @if (session('notfound_message'))
-    <script>
-        $(document).ready(function() {
-            Swal.fire({
-                title: 'Content not available',
-                text: "{{ session('notfound_message') }}",
-                icon: 'info',
-                confirmButtonText: 'OK'
+        <script>
+            $(document).ready(function() {
+                Swal.fire({
+                    title: 'Content not available',
+                    text: "{{ session('notfound_message') }}",
+                    icon: 'info',
+                    confirmButtonText: 'OK'
+                });
             });
-        });
-    </script>
+        </script>
     @endif
-
 @endsection
