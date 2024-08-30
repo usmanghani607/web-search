@@ -892,84 +892,12 @@ session_start();
                 return text;
             }
 
-            function renderRestaurantResults(results) {
-                var carouselInner = $('#restaurant-carousel-inner');
-                var prevButton = $('.carousel-control-prev');
-                var nextButton = $('.carousel-control-next');
-
-                carouselInner.empty();
-
-                if (results.length === 0) {
-                    carouselInner.append(
-                        '<div class="carousel-item active"><div class="row"><p>Restaurant not available</p></div></div>'
-                    );
-                    prevButton.hide();
-                    nextButton.hide();
-                } else {
-                    var itemsPerSlide = 6; // Number of items per carousel slide
-                    var numSlides = Math.ceil(results.length / itemsPerSlide);
-
-                    prevButton.toggle(numSlides > 1);
-                    nextButton.toggle(numSlides > 1);
-
-                    for (var i = 0; i < numSlides; i++) {
-                        var activeClass = i === 0 ? ' active' : '';
-                        var slideHtml = `<div class="carousel-item${activeClass}"><div class="row">`;
-
-                        for (var j = i * itemsPerSlide; j < (i + 1) * itemsPerSlide && j < results.length; j++) {
-                            var result = results[j];
-                            var imgSrc = result.img ? result.img : '{{ asset('images/dummy_image.webp') }}';
-                            var title = result.title || 'Unknown Title';
-                            var location = result.location || 'Unknown Location';
-                            var rating = result.rating || '0';
-                            var usersReczIt = result.usersReczIt;
-                            title = truncateText(title, 13);
-                            location = truncateText(location, 30);
-
-                            var cardHtml = `
-                            <div class="col-md-2">
-                                <div class="card">
-                                    <div class="card_img">
-                                        <img class="card-main-img" src="${imgSrc}" alt="restaurant img">
-                                        <span>${usersReczIt ? usersReczIt + " Users Recz It!" : ""}</span>
-                                    </div>
-                                    <div class="card-body">
-                                        <h3 class="card-title">${title}</h3>
-                                        <h3 class="card-text">${location}</h3>
-                                        <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${rating}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-
-                            slideHtml += cardHtml;
-                        }
-
-                        slideHtml += '</div></div>';
-                        carouselInner.append(slideHtml);
-                    }
-                }
-            }
-
             // function renderRestaurantResults(results) {
             //     var carouselInner = $('#restaurant-carousel-inner');
             //     var prevButton = $('.carousel-control-prev');
             //     var nextButton = $('.carousel-control-next');
 
             //     carouselInner.empty();
-
-            //     function getItemsPerSlide() {
-            //         if (window.innerWidth >= 992) {
-            //             return 6;
-            //         } else if (window.innerWidth >= 768) {
-            //             return 4;
-            //         } else {
-            //             return 1;
-            //         }
-            //     }
-
-            //     var itemsPerSlide = getItemsPerSlide();
-            //     var numSlides = Math.ceil(results.length / itemsPerSlide);
 
             //     if (results.length === 0) {
             //         carouselInner.append(
@@ -978,6 +906,9 @@ session_start();
             //         prevButton.hide();
             //         nextButton.hide();
             //     } else {
+            //         var itemsPerSlide = 6; // Number of items per carousel slide
+            //         var numSlides = Math.ceil(results.length / itemsPerSlide);
+
             //         prevButton.toggle(numSlides > 1);
             //         nextButton.toggle(numSlides > 1);
 
@@ -996,20 +927,20 @@ session_start();
             //                 location = truncateText(location, 30);
 
             //                 var cardHtml = `
-            //         <div class="col-md-${12/itemsPerSlide}">
-            //             <div class="card">
-            //                 <div class="card_img">
-            //                     <img class="card-main-img" src="${imgSrc}" alt="restaurant img">
-            //                     <span>${usersReczIt ? usersReczIt + " Users Recz It!" : ""}</span>
-            //                 </div>
-            //                 <div class="card-body">
-            //                     <h3 class="card-title">${title}</h3>
-            //                     <h3 class="card-text">${location}</h3>
-            //                     <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${rating}</span>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //     `;
+        //                     <div class="col-md-2">
+        //                         <div class="card">
+        //                             <div class="card_img">
+        //                                 <img class="card-main-img" src="${imgSrc}" alt="restaurant img">
+        //                                 <span>${usersReczIt ? usersReczIt + " Users Recz It!" : ""}</span>
+        //                             </div>
+        //                             <div class="card-body">
+        //                                 <h3 class="card-title">${title}</h3>
+        //                                 <h3 class="card-text">${location}</h3>
+        //                                 <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${rating}</span>
+        //                             </div>
+        //                         </div>
+        //                     </div>
+        //                 `;
 
             //                 slideHtml += cardHtml;
             //             }
@@ -1018,12 +949,81 @@ session_start();
             //             carouselInner.append(slideHtml);
             //         }
             //     }
-
-            //     // Optional: Add event listener to re-render the carousel on window resize
-            //     $(window).resize(function() {
-            //         renderRestaurantResults(results);
-            //     });
             // }
+
+            function renderRestaurantResults(results) {
+                var carouselInner = $('#restaurant-carousel-inner');
+                var prevButton = $('.carousel-control-prev');
+                var nextButton = $('.carousel-control-next');
+
+                carouselInner.empty();
+
+                function getItemsPerSlide() {
+                    if (window.innerWidth >= 992) {
+                        return 6;
+                    } else if (window.innerWidth >= 768) {
+                        return 4;
+                    } else {
+                        return 1;
+                    }
+                }
+
+                var itemsPerSlide = getItemsPerSlide();
+                var numSlides = Math.ceil(results.length / itemsPerSlide);
+
+                if (results.length === 0) {
+                    carouselInner.append(
+                        '<div class="carousel-item active"><div class="row"><p>Restaurant not available</p></div></div>'
+                    );
+                    prevButton.hide();
+                    nextButton.hide();
+                } else {
+                    prevButton.toggle(numSlides > 1);
+                    nextButton.toggle(numSlides > 1);
+
+                    for (var i = 0; i < numSlides; i++) {
+                        var activeClass = i === 0 ? ' active' : '';
+                        var slideHtml = `<div class="carousel-item${activeClass}"><div class="row">`;
+
+                        for (var j = i * itemsPerSlide; j < (i + 1) * itemsPerSlide && j < results.length; j++) {
+                            var result = results[j];
+                            var imgSrc = result.img ? result.img : '{{ asset('images/dummy_image.webp') }}';
+                            var title = result.title || 'Unknown Title';
+                            var location = result.location || 'Unknown Location';
+                            var rating = result.rating || '0';
+                            var usersReczIt = result.usersReczIt;
+                            title = truncateText(title, 13);
+                            location = truncateText(location, 30);
+
+                            var cardHtml = `
+                    <div class="col-md-${12/itemsPerSlide}">
+                        <div class="card">
+                            <div class="card_img">
+                                <img class="card-main-img" src="${imgSrc}" alt="restaurant img">
+                                <span>${usersReczIt ? usersReczIt + " Users Recz It!" : ""}</span>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">${title}</h3>
+                                <h3 class="card-text">${location}</h3>
+                                <span class="star_point"><img src="{{ asset('images/star_icon.png') }}" alt="">${rating}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                            slideHtml += cardHtml;
+                        }
+
+                        slideHtml += '</div></div>';
+                        carouselInner.append(slideHtml);
+                    }
+                }
+
+                // Optional: Add event listener to re-render the carousel on window resize
+                $(window).resize(function() {
+                    renderRestaurantResults(results);
+                });
+            }
 
 
             function renderPlaceResults(results) {

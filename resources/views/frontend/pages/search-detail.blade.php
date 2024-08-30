@@ -1369,7 +1369,7 @@ session_start();
                 <div class="col-md-12">
                     <div class="trailer_section">
                         <div class="container">
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-md-12">
                                     <div id="carouselMusicControls" class="carousel slide movies_img"
                                         data-bs-ride="carousel">
@@ -1406,6 +1406,70 @@ session_start();
                                         @endif
                                     </div>
                                 </div>
+                            </div> --}}
+                            <div class="row">
+                                <div id="carouselSongControls" class="carousel slide movies_img" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        @if (isset($result['lstMedia']) && count($result['lstMedia']) > 0)
+                                            @foreach ($result['lstMedia'] as $index => $media)
+                                                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                                    <div class="row justify-content-center">
+                                                        <div class="{{ isset($result['linkTitle']) && !empty($result['linkTitle']) ? 'col-md-3' : 'col-md-12 text-center' }}">
+                                                            <button type="button" class="btn" data-bs-toggle="modal"
+                                                                data-bs-target="#detailModal"
+                                                                onclick="showImageInModal('{{ $media['link'] }}')">
+                                                                <img src="{{ $media['link'] }}" alt="..." class="img-fluid">
+                                                            </button>
+                                                        </div>
+                                                        @if (isset($result['linkTitle']) && !empty($result['linkTitle']))
+                                                        <div class="col-md-9">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="trailer_play">
+                                                                        @if (isset($result['embed_link']))
+                                                                            <iframe src="{{ $result['embed_link'] }}"
+                                                                                title="{{ $result['linkTitle'] }}"
+                                                                                frameborder="0"
+                                                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                                                referrerpolicy="strict-origin-when-cross-origin"
+                                                                                allowfullscreen></iframe>
+                                                                        @else
+                                                                            <p>Video not available.</p>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <div class="carousel-item active">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-md-12 text-center">
+                                                        <img src="{{ asset('images/dummy_image.webp') }}" alt="No Image Available" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </div>
+
+                                    @if (isset($result['lstMedia']) && count($result['lstMedia']) > 1)
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#carouselSongControls" data-bs-slide="prev">
+                                            <span><i class="fas fa-chevron-left"></i></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#carouselSongControls" data-bs-slide="next">
+                                            <span><i class="fas fa-chevron-right"></i></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    @endif
+                                </div>
+
+
                             </div>
                         </div>
                     </div>
